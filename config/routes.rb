@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :homes do
     collection do
       get :delhi
-      get :bangalore      
+      get :bangalore    
+      get :about_us  
     end
   end
 
