@@ -10,9 +10,15 @@
 
     <div class="row">
 
-      <div class="col-xs-4 col-sm-4 box-prestige"><a href="index.html"><img src="/assets/image.png" height="160" width="266" class="img-responsive logo-responsive1" ></a></div>
+      <div class="col-xs-4 col-sm-4 box-prestige"><a href="/homes"><img src="/assets/image.png" height="160" width="266" class="img-responsive logo-responsive1" ></a></div>
 
-      <div class="col-xs-4 col-sm-4 box-logo"><a href="home.php"><img src="/assets/logo.png"height="120" width="120" class="img-responsive logo-responsive2"  ></a></div>
+      <div class="col-xs-4 col-sm-4 box-logo">
+        <% if params[:loc] == "gurgoan" %>
+          <a href="/homes/home?loc=gurgoan"><img src="/assets/logo.png"height="120" width="120" class="img-responsive logo-responsive2"  ></a>
+        <% elsif params[:loc] == "bangalore" %>
+          <a href="/homes/home?loc=bangalore"><img src="/assets/logo.png"height="120" width="120" class="img-responsive logo-responsive2"  ></a>
+        <% end %>
+      </div>
 
 
 
