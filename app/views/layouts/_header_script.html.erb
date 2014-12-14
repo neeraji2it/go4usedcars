@@ -1,0 +1,245 @@
+<script type="text/javascript">
+
+$(document).ready(function() 
+
+      {
+
+        $("#lista1").als({
+
+          visible_items: 3,
+
+          scrolling_items: 1,
+
+          orientation: "horizontal",
+
+          circular: "no",
+
+          autoscroll: "no",
+
+          interval: 5000,
+
+          speed: 500,
+
+          easing: "linear",
+
+          direction: "right",
+
+          start_from: 1
+
+          
+
+          
+
+        });
+
+      
+
+        
+
+        
+
+        
+
+        
+
+      });
+
+    </script>
+
+<script>
+
+    $(function() {
+
+      var pull= $('#pull');
+
+        menu= $('nav ul');
+
+        menuHeight= menu.height();
+
+
+
+      $(pull).on('click', function(e) {
+
+        e.preventDefault();
+
+        menu.slideToggle();
+
+      });
+
+
+
+      $(window).resize(function(){
+
+            var w = $(window).width();
+
+            if(w > 480 && menu.is(':hidden')) {
+
+              menu.removeAttr('style');
+
+            }
+
+        });
+
+    });
+
+  </script>
+
+<script>
+    $(function() {
+        $( "#slider1" ).slider({
+            range: false,
+            min: 20000,
+            max: 3000000,
+            values: [ 0 ],
+            slide: function( event, ui ) {
+                $( "#amount" ).val( ui.values[ 0 ] );
+                 var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                  if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+            }
+        });
+        $( "#amount" ).val( $( "#slider1" ).slider( "values", 0 ) );
+    });
+    $(function() {
+        $( "#slider-per1" ).slider({
+            range: false,
+            min: 0,
+            max: 100,
+            values: [ 10 ],
+            slide: function( event, ui ) {
+                $( "#per" ).val( ui.values[ 0 ]);
+                var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+       //alert(tot);
+                //alert(pac);
+                //return false;
+            }
+           
+        });
+        $( "#per" ).val( $( "#slider-per1" ).slider( "values", 0 ) );   
+           
+    });
+    $(function() {
+        $( "#slider-ten1" ).slider({
+            range: false,
+            min: 0,
+            max: 100,
+            values: [ 0 ],
+            slide: function( event, ui ) {
+                $( "#tenure" ).val( ui.values[ 0 ] );
+                 var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                  if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+            }
+        });
+        $( "#tenure" ).val($( "#slider-ten1" ).slider( "values", 0 ));
+    });
+    
+    $(function() {
+        $( "#slider-fee1" ).slider({
+            range: false,
+            min: 0,
+            max: 100,
+            values: [ 0 ],
+            slide: function( event, ui ) {
+                $( "#fee" ).val( ui.values[ 0 ] );
+                 var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                  var tot = pr*pac;
+                  $('#total').val(tot);var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                 if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+            }
+        });
+        $( "#fee" ).val( $( "#slider-fee1" ).slider( "values", 0 ));
+    });
+    
+    $(function() {
+      var pr= $('#amount').val();
+      var pac= $('#per').val();
+      //alert(pr);
+      // alert(pac);
+       var tot = pr*pac;
+       //alert(tot);
+      $('#total').val(pr*pac/100);
+    });
+    </script>
+    
+    
+    
+   <script>
+$(document).ready(function() {
+  $("#loginLink").click(function( event ){
+    event.preventDefault();
+      $(".overlay").fadeToggle("slow");
+    });
+  
+  $(".overlayLink").click(function(event){
+    event.preventDefault();
+    var action = $(this).attr('data-action');
+    
+    $.get( "ajax/" + action, function( data ) {
+      $( ".login-content" ).html( data );
+    }); 
+    
+    $(".overlay").fadeToggle("fast");
+  });
+  
+  $(".close").click(function(){
+    $(".overlay").fadeToggle("fast");
+  });
+  
+  $(document).keyup(function(e) {
+    if(e.keyCode == 27 && $(".overlay").css("display") != "none" ) { 
+      event.preventDefault();
+      $(".overlay").fadeToggle("fast");
+    }
+  });
+});
+</script>
