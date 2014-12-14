@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :sell_car
       get :auto_finance
       get :insurance
+      get :contact_us
     end
   end
 

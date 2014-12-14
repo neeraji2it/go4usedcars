@@ -1,0 +1,6 @@
+<% @page_title = "Contact Us - Go4 Used Cars" %>
+<% if params[:loc] == "gurgoan" %>
+  <%= render :partial => "homes/contact_us_delhi" %>
+  <% elsif params[:loc] == "bangalore" %>
+  <%= render :partial => "homes/contact_us_bangalore" %>
+<% end %>

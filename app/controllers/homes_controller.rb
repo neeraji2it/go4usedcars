@@ -26,4 +26,8 @@ class HomesController < ApplicationController
 	def insurance
 
 	end
+
+	def contact_us
+
+	end
 end
