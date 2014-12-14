@@ -1,0 +1,5 @@
+<% if params[:loc] == "gurgoan" %>
+  <%= render :partial => "homes/home_delhi" %>
+  <% elsif params[:loc] == "bangalore" %>
+  <%= render :partial => "homes/home_bangalore" %>
+<% end %>

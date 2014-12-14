@@ -3,11 +3,7 @@ class HomesController < ApplicationController
 		render layout: false
 	end
 
-	def delhi
-
-	end
-
-	def bangalore
+	def home
 
 	end
 
@@ -15,4 +11,19 @@ class HomesController < ApplicationController
 
 	end
 
+	def buy_car
+
+	end
+
+	def sell_car
+
+	end
+
+	def auto_finance
+
+	end
+
+	def insurance
+
+	end
 end

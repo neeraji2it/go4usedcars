@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root 'homes#index'
   resources :homes do
     collection do
-      get :delhi
-      get :bangalore    
+      get :home
       get :about_us  
+      get :buy_car
+      get :sell_car
+      get :auto_finance
+      get :insurance
     end
   end
 

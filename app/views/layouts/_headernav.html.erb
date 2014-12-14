@@ -1,21 +1,20 @@
 <nav class="navbar navbar-inverse" role="navigation"  >
-
-<a href="#" id="pull" style="font-size:20px; vertical-align:middle; margin-top:20px; text-align:center;">Menu</a>
-
+  <a href="#" id="pull" style="font-size:20px; vertical-align:middle; margin-top:20px; text-align:center;">Menu</a>
 <ul class="nav nav-pills">
-
-  <li ><a href="/homes/delhi">Home</a></li>
-
-  <li><a href="/homes/about_us" >About Us</a></li>
-
-  <li><a href="buy-cars1.php?loc=bangalore">Buy Cars </a></li>
-
-  <li><a href="sellacar1.php">Sell Cars </a></li>
-
-  <li><a href="auto-finance1.php">Auto Finance </a></li>
-
-  <li><a href="Insurance1.php">Insurance</a></li>
-  
+  <% if params[:loc] == "gurgoan" %>
+    <li ><a href="/homes/home?loc=gurgoan">Home</a></li>
+  	<li><a href="/homes/about_us?loc=gurgoan" >About Us</a></li>
+	  <li><a href="/homes/buy_car?loc=gurgoan">Buy Cars </a></li>
+	  <li><a href="/homes/sell_car?loc=gurgoan">Sell Cars </a></li>
+	  <li><a href="/homes/auto_finance?loc=gurgoan">Auto Finance </a></li>
+	  <li><a href="/homes/insurance?loc=gurgoan">Insurance</a></li>
+  <% elsif params[:loc] == "bangalore" %>
+  	<li ><a href="/homes/home?loc=bangalore">Home</a></li>
+	  <li><a href="/homes/about_us?loc=bangalore" >About Us</a></li>
+	  <li><a href="/homes/buy_car?loc=bangalore">Buy Cars </a></li>
+	  <li><a href="/homes/sell_car?loc=bangalore">Sell Cars </a></li>
+	  <li><a href="/homes/auto_finance?loc=bangalore">Auto Finance </a></li>
+	  <li><a href="/homes/insurance?loc=bangalore">Insurance</a></li>
+  <% end %>
 </ul>
-
 </nav>
