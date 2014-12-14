@@ -1,1 +1,7 @@
-buy-car
+<% @page_title = "Buy Car - Go4 Used Cars" %>
+
+<% if params[:loc] == "gurgoan" %>
+  <%= render :partial => "homes/buy_car_delhi" %>
+  <% elsif params[:loc] == "bangalore" %>
+  <%= render :partial => "homes/buy_car_bangalore" %>
+<% end %>
