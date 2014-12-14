@@ -10,4 +10,6 @@ class HomesController < ApplicationController
 	def bangalore
 
 	end
+
+	
 end
