@@ -1,0 +1,355 @@
+<% @page_title = "Bangalore - Go4 Used Cars" %>
+
+
+ <div id="sliderFrame" class="btn-carousel">
+ 
+ <div id="myCarousel" class="carousel slide clearfix" data-ride="carousel">  
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+			<li data-target="#myCarousel" data-slide-to="5"></li>
+			<li data-target="#myCarousel" data-slide-to="6"></li>  
+            <li data-target="#myCarousel" data-slide-to="7"></li>         
+            <li data-target="#myCarousel" data-slide-to="8"></li>         
+            <li data-target="#myCarousel" data-slide-to="9"></li>         
+                   
+		</ol>     
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="/assets/IMG_0286.JPG"  />					
+			</div>			
+			<div class="item">								
+				<img src="/assets/slider-img.JPG"  />					
+			</div>
+			<div class="item">
+				<img src="/assets/slider-img2.JPG"   />
+			</div>			
+			<div class="item">
+				<img src="/assets/slider-img3.JPG"   />					
+			</div>			
+			<div class="item">
+				<img src="/assets/slider-img4.JPG"   />				
+			</div>	
+			<div class="item">
+				<img src="/assets/IMG_0291.JPG"   />				
+			</div>			
+			
+            <div class="item">				
+				<img src="/assets/photo1.JPG"  />
+			</div>
+             <div class="item">				
+				<img src="/assets/photo2.JPG"  />
+			</div>
+             <div class="item">				
+				<img src="/assets/photo3.JPG"  />
+			</div>
+             <div class="item">				
+				<img src="/assets/photo4.JPG"  />
+			</div>
+           			
+		</div>
+	</div>
+
+        <!--<div id="slider"   >
+             
+            <img  src="images/IMG_0286.JPG"   />
+            <img   src="images/IMG_0287.JPG"  />
+            <img src="images/IMG_0289.JPG"   />
+            <img   src="images/IMG_0290.JPG"   />
+             <img  src="images/IMG_0291.JPG"    />
+               <img   src="images/IMG_0292.JPG"   />
+                 <img  src="images/IMG_0293.JPG"     />
+                  
+        </div>-->
+        
+        </div>
+       <div>
+<center><div id="textslide">
+   
+ <!--<p class=" btn-success" >NEVER OVERPAY</p>-->
+</div>
+ <p class="btn-success1" style="cursor:pointer;"><a href="buy-cars.php">Select a Vehicle</a></p>
+ </center>
+ </div>
+    </div>
+ </div>
+ 
+ </div>
+ 
+ <div class="container-fluid carousel-center container-fluid1">
+ 
+ <h2 style="margin-top:-60px;"> SEARCH BY CAR TYPE</h2>
+ <center >
+ <div id="lista1" class="als-container">
+				<span class="als-prev"><img src="/assets/thin_left_arrow_333.png" alt="prev" title="previous" /></span>
+				<div class="als-viewport" >
+					<ul class="als-wrapper">					
+								<li class="als-item"><a href="buy-cars.php?bds=Convertible"><img  src="/assets/convertible.png" alt="Convertible" title="Convertible" /></a>Convertible</li>
+						<li class="als-item"><a href="buy-cars.php?bds=Hatchback"><img src="/assets/hatchback.png" alt="Hatchback" title="Hatchback" /></a>Hatchback</li>
+						<li class="als-item"><a href="buy-cars.php?bds=MUV_VAN"><img src="/assets/MUV_VAN.png" alt="MUV_VAN" title="MUV_VAN" /></a>MUV_VAN</li>
+						<li class="als-item"><a href="buy-cars.php?bds=Sedan"><img  src="/assets/sedan.png" alt="Sedan" title="Sedan" /></a>Sedan</li>
+						<li class="als-item"><a href="buy-cars.php?bds=SUV"><img  src="/assets/SUV.png" alt="SUV" title="SUV" /></a>SUV</li>
+					
+					</ul>
+				</div>
+				<span class="als-next"><img src="/assets/thin_right_arrow_333.png" alt="next" title="next" /></span>
+			</div></center>	
+</div>
+<hr />
+<div class="container-fluid carousel-center">
+
+<center><a href="sellacar.php">
+
+<img src="/assets/circle1.jpg" class="img-circle img-height-width " height="210" width="210"  draggable="false"></a>
+<a href="auto-finance.php"><img  src="/assets/circle2.png" height="210" width="210" class="img-circle img-height-width	" draggable="false"></a>
+<a href="" id="loginLink" ><img  src="/assets/circle3.jpg" height="210" width="210"  class="img-circle img-height-width" draggable="	false"></a></center></div>
+</div>	
+
+
+<ul>
+	<li><a href="" class="overlayLink" data-action="login-form.html"></a></li>
+	<li><a href="register.php" class="overlayLink" data-action="registration-form.html"></a></li>
+</ul>
+<div class="overlay" style="display: none;">
+	<div class="login-wrapper">
+		<div class="login-content">
+			<a class="close">x</a>
+			<div class="sign"><h3 style="color:#fc6; font-weight:bold;">Post Requirement</h3></div>
+			<form method="post" onsubmit="return validatetest(this);" >
+				<label class="budget-label" for="selectreq">
+         
+                Budget: &nbsp;
+                   
+                    <select name="min-budget" id="min-budget" style="width:135px;">
+	<option value="-1">Min. Budget</option>
+	<option value="0">Below 1 Lakh</option>
+	<option value="100000"> 1 Lakh</option>
+	<option value="200000"> 2 Lakh</option>
+	<option value="300000"> 3 Lakh</option>
+	<option value="400000"> 4 Lakh</option>
+	<option value="500000"> 5 Lakh</option>
+	<option value="600000"> 6 Lakh</option>
+	<option value="700000"> 7 Lakh</option>
+	<option value="800000"> 8 Lakh</option>
+	<option value="900000"> 9 Lakh</option>
+	<option value="1000000"> 10 Lakh</option>
+ </select>
+
+                    </label>
+                    <label for="selectcity" class="budget-label">
+               
+                    <select name="max-budget" id="max-budget" style="width:135px;">
+	<option value="-1">Max. Budget</option>
+	<option value="200000"> 2 Lakh</option>
+	<option value="300000"> 3 Lakh</option>
+	<option value="400000"> 4 Lakh</option>
+	<option value="500000"> 5 Lakh</option>
+	<option value="600000"> 6 Lakh</option>
+	<option value="700000"> 7 Lakh</option>
+	<option value="800000"> 8 Lakh</option>
+	<option value="900000"> 9 Lakh</option>
+	<option value="1000000"> 10 Lakh</option>
+	<option value="1100000"> 11 Lakh</option>
+	<option value="1200000"> 12 Lakh</option>
+	<option value="1300000"> 13 Lakh</option>
+	<option value="1400000"> 14 Lakh</option>
+	<option value="1500000"> 15 Lakh</option>
+	<option value="16"> Above 15 Lakh</option>
+
+</select>
+</label>
+  <label for="selectcity" class="budget-label">
+  Car Year:
+<select name="car-year" id="car-year" style="width:135px;">
+	<option value="-1">Min. Year</option>
+	<option value="0">Below 2000</option>
+	<option value="2001">2001</option>
+	<option value="2002">2002</option>
+	<option value="2003">2003</option>
+	<option value="2004">2004</option>
+	<option value="2005">2005</option>
+	<option value="2006">2006</option>
+	<option value="2007">2007</option>
+	<option value="2008">2008</option>
+	<option value="2009">2009</option>
+	<option value="2010">2010</option>
+	<option value="2011">2011</option>
+	<option value="2012">2012</option>
+    <option value="2012">2013</option>
+    <option value="2012">2014</option>
+    <option value="2012">2015</option>
+
+</select>
+</label>
+<label for="max-city" class="budget-label">
+ <select name="car-year1" id="car-year1" style="width:135px;">
+	<option value="-1">Max. Year</option>
+	<option value="2001">2001</option>
+	<option value="2002">2002</option>
+	<option value="2003">2003</option>
+	<option value="2004">2004</option>
+	<option value="2005">2005</option>
+	<option value="2006">2006</option>
+	<option value="2007">2007</option>
+	<option value="2008">2008</option>
+	<option value="2009">2009</option>
+	<option value="2010">2010</option>
+	<option value="2011">2011</option>
+	<option value="2012">2012</option>
+	<option value="2012">2013</option>
+    <option value="2012">2014</option>
+    <option value="2012">2015</option>
+</select>
+</label>
+<label for="max-city" class="budget-label">	Make/Mode:	
+ <select  name="make" id="make" style="width:105px;">
+	<option value="0">--Select Make--</option>
+	<option value="53">Ashok Leyland</option>
+	<option value="49">Aston Martin</option>
+	<option value="18">Audi</option>
+	<option value="58">Austin</option>
+	<option value="22">Bentley</option>
+	<option value="1">BMW</option>
+	<option value="47">Bugatti</option>
+	<option value="48">Cadillac</option>
+	<option value="52">Caterham</option>
+	<option value="2">Chevrolet</option>
+	<option value="28">Chrysler</option>
+	<option value="3">Daewoo</option>
+	<option value="56">Datsun</option>
+	<option value="46">Dodge</option>
+	<option value="33">Ferrari</option>
+	<option value="4">Fiat</option>
+	<option value="50">Force Motors</option>
+	<option value="5">Ford</option>
+	<option value="6">Hindustan Motors</option>
+	<option value="57">Holden</option>
+	<option value="7">Honda</option>
+	<option value="63">Humber</option>
+	<option value="35">Hummer</option>
+	<option value="8">Hyundai</option>
+	<option value="38">ICML</option>
+	<option value="61">Isuzu</option>
+	<option value="44">Jaguar</option>
+	<option value="43">Jeep</option>
+	<option value="30">Lamborghini</option>
+	<option value="23">Land Rover</option>
+	<option value="34">Lexus</option>
+	<option value="9">Mahindra</option>
+	<option value="29">Mahindra-Renault</option>
+	<option value="24">Maini</option>
+	<option value="10">Maruti Suzuki</option>
+	<option value="36">Maserati</option>
+	<option value="31">Maybach</option>
+	<option value="40">Mazda</option>
+	<option value="11">Mercedes-Benz</option>
+	<option value="51">Mini</option>
+	<option value="12">Mitsubishi</option>
+	<option value="59">Morris</option>
+	<option value="21">Nissan</option>
+	<option value="13">Opel</option>
+	<option value="27">Peugeot</option>
+	<option value="41">Pontiac</option>
+	<option value="19">Porsche</option>
+	<option value="14">Premier</option>
+	<option value="45">Renault</option>
+	<option value="25">Rolls-Royce</option>
+	<option value="26">San</option>
+	<option value="32">Sipani</option>
+	<option value="15">Skoda</option>
+	<option value="60">Smart</option>
+	<option value="54">Ssangyong</option>
+	<option value="64">Studebaker</option>
+	<option value="39">Subaru</option>
+	<option value="16">Tata</option>
+	<option value="17">Toyota</option>
+	<option value="20">Volkswagen</option>
+	<option value="37">Volvo</option>
+	<option value="42">Willys</option>
+
+</select>
+</label>
+  
+<label for="select model" class="car-model budget-label" >Car model
+<input type="text"  name="model"  id="model" />
+</label>
+
+<label>
+Body Type:<br /></label>
+<input id="PRequerment_chkBodyType_0" type="checkbox" name="PRequerment$chkBodyType$0" value="1" /><label for="PRequerment_chkBodyType_0">Sedan</label></td><td><input id="PRequerment_chkBodyType_1" type="checkbox" name="PRequerment$chkBodyType$1" value="2" /><label for="PRequerment_chkBodyType_1">Coupe</label></td><td><input id="PRequerment_chkBodyType_2" type="checkbox" name="PRequerment$chkBodyType$2" value="3" /><label for="PRequerment_chkBodyType_2">Hatchback</label>
+<label>
+<input id="PRequerment_chkBodyType_3" type="checkbox" name="PRequerment$chkBodyType$3" value="4" /><label for="PRequerment_chkBodyType_3">Minivan/Van</label></td><td><input id="PRequerment_chkBodyType_4" type="checkbox" name="PRequerment$chkBodyType$4" value="5" /><label for="PRequerment_chkBodyType_4">Convertible</label></td><td><input id="PRequerment_chkBodyType_5" type="checkbox" name="PRequerment$chkBodyType$5" value="6" /><label for="PRequerment_chkBodyType_5">SUV/MUV</label>
+<input id="PRequerment_chkBodyType_6" type="checkbox" name="PRequerment$chkBodyType$6" value="7" /><label for="PRequerment_chkBodyType_6">Truck</label></td><td><input id="PRequerment_chkBodyType_7" type="checkbox" name="PRequerment$chkBodyType$7" value="8" /><label for="PRequerment_chkBodyType_7">Station Wagon</label></td><td><input id="PRequerment_chkBodyType_8" type="checkbox" name="PRequerment$chkBodyType$8" value="9" /><label for="PRequerment_chkBodyType_8">MUV</label>
+</label>
+<label>Fuel Type:<br />
+<input id="PRequerment_chkFuelType_0" type="checkbox" name="PRequerment$chkFuelType$0" value="1" /><label for="PRequerment_chkFuelType_0">Petrol</label></td><td><input id="PRequerment_chkFuelType_1" type="checkbox" name="PRequerment$chkFuelType$1" value="2" /><label for="PRequerment_chkFuelType_1">Diesel</label></td><td><input id="PRequerment_chkFuelType_2" type="checkbox" name="PRequerment$chkFuelType$2" value="3" /><label for="PRequerment_chkFuelType_2">CNG</label></td><td><input id="PRequerment_chkFuelType_3" type="checkbox" name="PRequerment$chkFuelType$3" value="4" /><label for="PRequerment_chkFuelType_3">LPG</label>
+</label><br /> 
+                <label for="username" class="spacing-remove budget-label">
+					Name:
+					<input type="text" name="username" id="username"  required="required" />
+				</label>
+				<label for="Email" class="spacing-remove budget-label">Email:
+					<input type="text" name="email" id="email"   required="required"></label> 
+                      <label for="tel" class="spacing-remove budget-label">Phone:                <input type="tel" name="phone" id="phone" placeholder="Phone" required="required"></label><br />
+              
+                
+				
+             
+				<button type="submit" value="Submit"  id="submitreq" name="submitreq" class="btn btn-warning" style="width:100%">Post Requirements</button>
+			</form>
+		</div>
+	</div>
+</div>
+  </div>
+   <?php
+					   if(isset($_REQUEST['act']))
+					   {
+					    if($_REQUEST['act']=="saved"){echo "Your Requirement have been sent successfully";}
+					   }
+					  ?>
+		
+
+
+<div class="row home-text ">
+<div class="col-md-6 col-md-offset-3 text-justify text-center 	">
+<h3 class="about-go">ABOUT GO 4 USED CARS </h3><P class="paragraph">
+PRESTIGE AUTOWORLD IS THE ONE OF THE LEAD ING AUTHORISED CERTIFIED PRE-OWNED CAR RETAILER OF MAHINDRA FIRST CHOICE IN NCR.</P>
+<P class="paragraph">MAHINDRA FIRST CHOICE WHEEL LTD IS INDIAS LARGEST MULTI-BRAND PRE-OWNED CAR COMPANY WHICH BELEIVES IN SELLING HIGH QUALITY PRE-OWNED CARS TO ITS CUSTOMERS WITH HASSLE FREE DOCUMENTATION & CAR TRANSFERS</P></div>
+<div class="col-md-6 col-md-offset-3 text-justify text-center">
+<h3 class="about-go">EMI Calculator </h3>
+<div class="demo" style="width:100%; ">
+<p>
+    <label for="amount"><span style="font-size:16px; color:#000;">Loan Amount ?</span></label>
+    <span style="font-size:13px; color:#333333;">Rs. &nbsp;<input type="text"  id="amount" size="15" style="border:0; color:#f6931f; font-weight:bold; text-align:left" /></span>
+</p>
+<div id="slider1"></div>
+<br />
+<p>
+    <label for="per"><span style="font-size:16px; color:#000;">Interest Rate ?</span></label>
+    <span style="font-size:13px; color:#333333;"><input type="text" id="per" size="5" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp;% p.a</span>
+</p>
+<div id="slider-per1"></div>
+<br />
+<p>
+    <label for="tenure"><span style="font-size:16px; color:#000;">Tenure ?</span></label>
+    <span style="font-size:13px; color:#333333;"><input type="text" id="tenure" size="5" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp; years</span>
+</p>
+<div id="slider-ten1"></div>
+<br />
+<p>
+    <label for="fee"><span style="font-size:16px; color:#000;">Processing Fee ?</span></label>
+    <span style="font-size:13px; color:#333333;"><input type="text" size="5" id="fee" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp;% of loan amount</span>
+</p>
+<div id="slider-fee1"></div>
+<br />
+<p>
+  <center>  <label for="per" style="color:#fff; font-size:24px;"><strong>Your EMI Rs</strong> &nbsp;</label>
+    <span bgcolor="#666666" style="color:#FFFFFF; font-size:14px;"><input type="text" size="10" id="total" style="border:0; color:#f6931f; font-weight:bold; border:1px;" /></span></center>
+</p>
+
+</div> 
+</div>
+</div>
