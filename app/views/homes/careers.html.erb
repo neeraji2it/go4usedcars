@@ -1,12 +1,11 @@
 <h1><span class="about-us">Career</span></h1><img src="/assets/header_space.jpg" width="2" height="10" />
  <div class="border-row"></div>
-            <div class="col-xs-6 width-inmobile">
-  <br />
-     <h4 style="text-decoration:none;">Together, we grow.</h4>
-                   
+  <div class="col-xs-6 width-inmobile">
+    <br />
+      <h4 style="text-decoration:none;">Together, we grow.</h4>
                 A promising partnership with us also means that you are meeting up with infinite possibilities and has innumerable benefits and advantages.
                     
-                <%= form_for @career, :multipart => true do |f| %>
+                <%= form_for @career, :url => "/careers?loc=#{params[:loc]}", :multipart => true do |f| %>
                   <%= f.text_field :resume_title, :id => "Resume_tlt", :placeholder => "Resume title", :class => "form-control" %>
                 <br/>
                   <%= f.text_field :name, :id => "Resume_tlt", :placeholder => "Name", :class => "form-control" %>
