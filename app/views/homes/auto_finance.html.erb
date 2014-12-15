@@ -1,1 +1,458 @@
 <% @page_title = "Auto Finance - Go4 Used Cars" %>
+
+<script>
+
+		$(function() {
+
+			var pull= $('#pull');
+
+				menu= $('nav ul');
+
+				menuHeight= menu.height();
+
+
+
+			$(pull).on('click', function(e) {
+
+				e.preventDefault();
+
+				menu.slideToggle();
+
+			});
+
+
+
+			$(window).resize(function(){
+
+        		var w = $(window).width();
+
+        		if(w > 480 && menu.is(':hidden')) {
+
+        			menu.removeAttr('style');
+
+        		}
+
+    		});
+
+		});
+
+	</script>
+
+    
+
+ <style>
+
+ div .list-icon ul{
+
+	 list-style-image:url(/assets/icon.jpg);
+
+	 	
+
+ }
+
+ </style>
+
+
+
+<div id="demo-frame">
+
+<style>
+    #demo-frame > div.demo { padding: 10px !important; };
+    </style>
+
+<!---this style show on you calculator-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<script>
+    $(function() {
+        $( "#slider1" ).slider({
+            range: false,
+            min: 20000,
+            max: 3000000,
+            values: [ 0 ],
+            slide: function( event, ui ) {
+                $( "#amount" ).val( ui.values[ 0 ] );
+                 var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                  if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+            }
+        });
+        $( "#amount" ).val( $( "#slider1" ).slider( "values", 0 ) );
+    });
+    $(function() {
+        $( "#slider-per1" ).slider({
+            range: false,
+            min: 0,
+            max: 100,
+            values: [ 10 ],
+            slide: function( event, ui ) {
+                $( "#per" ).val( ui.values[ 0 ]);
+                var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+       //alert(tot);
+                //alert(pac);
+                //return false;
+            }
+           
+        });
+        $( "#per" ).val( $( "#slider-per1" ).slider( "values", 0 ) );   
+           
+    });
+    $(function() {
+        $( "#slider-ten1" ).slider({
+            range: false,
+            min: 0,
+            max: 100,
+            values: [ 0 ],
+            slide: function( event, ui ) {
+                $( "#tenure" ).val( ui.values[ 0 ] );
+                 var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                  if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+            }
+        });
+        $( "#tenure" ).val($( "#slider-ten1" ).slider( "values", 0 ));
+    });
+    
+    $(function() {
+        $( "#slider-fee1" ).slider({
+            range: false,
+            min: 0,
+            max: 100,
+            values: [ 0 ],
+            slide: function( event, ui ) {
+                $( "#fee" ).val( ui.values[ 0 ] );
+                 var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                  var tot = pr*pac;
+                  $('#total').val(tot);var pr= $('#amount').val();
+                 var pac= $('#per').val();
+                 var ten= $('#tenure').val();
+                 var fee= $('#fee').val();
+                 if(ten !=0 && fee ==0){
+                 var tot = pr*pac*ten/100;
+                 } else if(ten ==0 && fee !=0){
+                   var tot = pr*pac*fee/100;
+                 } else if(ten !=0 && fee !=0){
+                   var tot = pr*pac*fee*ten/10000;
+                 }else {
+                   var tot = pr*pac/100;
+                 }
+                  $('#total').val(tot);
+            }
+        });
+        $( "#fee" ).val( $( "#slider-fee1" ).slider( "values", 0 ));
+    });
+    
+    $(function() {
+      var pr= $('#amount').val();
+      var pac= $('#per').val();
+      //alert(pr);
+      // alert(pac);
+       var tot = pr*pac;
+       //alert(tot);
+      $('#total').val(pr*pac/100);
+    });
+    </script>
+
+
+
+
+
+
+<div class="box-main-contant">
+<h1><span class="about-us">Auto Finance</span></h1>
+
+
+
+<div class="border-row"></div>
+
+<div class="row">
+
+  <div class="col-xs-6 col-sm-2 left-paddings"> <p style="padding-top:20px; "><center  class="finance-spacing"><img src="/assets/hdfc.png" class="img-responsive" /> </center></p>
+
+ 	<div class="border-row"></div>
+
+ 	
+
+   <center> <p  style="padding-top:20px;"><img src="/assets/mahindra.png"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+   
+ <center> <p  style="padding-top:20px;"><img  src="/assets/icici.jpg"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+ 
+  <center> <p  style="padding-top:20px;"><img src="/assets/axis.JPG"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+  
+  <center> <p  style="padding-top:20px;"><img src="/assets/bmw.JPG"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+  
+  <center> <p  style="padding-top:20px;"><img  src="/assets/tata.jpg" class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+  
+  <center> <p  style="padding-top:20px;"><img src="/assets/magma.PNG"	 class="img-responsive" /></p></center><br /> <div class="border-row"></div> 
+  
+  </div>
+
+  <div class="col-xs-6 col-sm-3 right-column-spacing"><p>Buying a car will no longer be just wishful thinking with our comprehensive finance solutions. We offer Car Loans for the entire range of private cars Avail of the right Vehicle Loan to suit your need with complete flexibility and transparency. . Drive home in your dream car with an HDFC Bank Car Loan, one of the leading car finance providers in India.</p><br />
+
+<p>It's now time to own that new car you have always desired. To help you with your dream we now provide several customised FINANCIAL options for new as well as used carsat low interest rates. What's more, the process ensures maximum flexibility, minimum paperwork and customised loans to suit your needs.</p><br />
+
+<p style="padding-bottom:0px;"><b>Speak to our loan expert cell no :</b> 9650006200 <br />
+
+<b>Email :</b> anuj@prestigeworld.in<hr />	
+
+ </p>
+<div class="demo" style="width:600px; border:solid;">
+<p>
+    <label for="amount"><span style="font-size:12px; color:#076391;">Loan Amount ?</span></label>
+    <span style="font-size:13px; color:#333333;">Rs. &nbsp;<input type="text" id="amount" size="15" style="border:0; color:#f6931f; font-weight:bold; text-align:left" /></span>
+</p>
+<div id="slider1"></div>
+
+<p>
+    <label for="per"><span style="font-size:12px; color:#076391;">Interest Rate ?</span></label>
+    <span style="font-size:13px; color:#333333;"><input type="text" id="per" size="5" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp;% p.a</span>
+</p>
+<div id="slider-per1"></div>
+
+<p>
+    <label for="tenure"><span style="font-size:12px; color:#076391;">Tenure ?</span></label>
+    <span style="font-size:13px; color:#333333;"><input type="text" id="tenure" size="5" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp; years</span>
+</p>
+<div id="slider-ten1"></div>
+
+<p>
+    <label for="fee"><span style="font-size:12px; color:#076391;">Processing Fee ?</span></label>
+    <span style="font-size:13px; color:#333333;"><input type="text" size="5" id="fee" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp;% of loan amount</span>
+</p>
+<div id="slider-fee1"></div>
+
+<p>
+    <label for="per" style="color:#a45301; font-size:14px;"><strong>Your EMI Rs</strong> &nbsp;</label>
+    <span bgcolor="#666666" style="color:#FFFFFF; font-size:14px;"><input type="text" size="10" id="total" style="border:0; color:#f6931f; font-weight:bold; border:1px;" /></span>
+</p>
+
+</div> 
+ 
+
+ 
+
+<br />
+ <p style="font-size:15px; font-weight:bold;">Go4usedcars offers a range of attractive finance options. Now owning your favourite luxury car becomes quick and easy.</p>
+<div class="box-left-salaried" style="height:auto;"> 
+<div class="panel-group" id="accordion">
+				
+  <div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"> 
+							<div class="inner-addon left-addon" style="font-size:20px; color:#fff;">
+							
+							<a href="#collapse1" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:200px;" ><span><i class="fa fa-dollar"></i></span> Salaried <i class="fa fa-angle-down"></i>
+</button></a>
+ 						</div>
+ 					</h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div>
+							<ul  id="list1"  style="padding-bottom:70px; margin-left: 20px" >
+
+              	<li>Last 2 years' individual ITR or Form 16 and latest 4 months' salary slips</li>
+
+                <li>Address proof</li>
+
+                <li>Identity proof (Pan card/ Passport/ Driving license copy)</li>
+
+                <li>Last 6 month's bank statements</li>
+
+                <li>Photographs (3)</li>
+
+                <li>Ownership proof (Electricity bill/ Agreement copy)</li>
+
+                <li>Old car's R.C. copy or previous loan track record</li>
+
+                <li>Two references</li>
+
+               </ul>
+			   				</div>
+						</div>
+					</div>
+				</div>
+  
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+						<div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
+						
+						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><button type="button" class="btn btn-warning" style="font-size:20px; padding-right:37px; " ><span><i class="fa fa-suitcase"></i></span> Self Employed (Proprietor) <i class="fa fa-angle-down"></i></button></a> 
+						</div>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body">
+                        	<ul  id="list2"   style="padding-bottom:90px;" >
+
+              	<li>Last 2 years' ITR with P&L A/C and balance sheet</li>
+
+                <li>Address proof</li>
+
+                <li>Identity proof (Pan card/ Passport/ Driving license copy)</li>
+
+                <li>Last 6 month's bank statements</li>
+
+                <li>Photographs (3)</li>
+
+                <li>Ownership proof (Electricity bill/ Agreement copy)</li>
+
+                <li>Old car's R.C. copy or previous loan track record</li>
+
+                <li>Two references</li>
+
+              </ul>
+						</div>
+					</div>
+				</div>
+  
+  
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+						<div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
+						
+						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:128px;" ><span><i class="fa fa-hand-o-right"></i></span> Partnership Firm <i class="fa fa-angle-down"></i></button></a> 
+						</div>
+						</h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<div class="panel-body">
+                        		<ul id="list3"   style="padding-bottom:48px; margin-left: 20px" >
+
+              	<li>Last 2 years' ITS with P&L A/C and balance sheet
+
+                <li>Partnership deed</li>
+
+                <li>Address proof (Company + Signing partner)</li>
+
+                <li>Identity proof of partners (PAN card/ Passport copy)</li>
+
+                <li>Last 6 months' bank statements</li>
+
+                <li>Photographs of the partners (3)</li>
+
+                <li>Ownership proof (Electricity bill/ Agreement copy)</li>
+
+                <li>Old car's R.C. copy or previous loan track record</li>
+
+                <li>Two references</li>
+
+                <li>Authority letter on Company's letterhead (Signed by at least 2 partners)</li>
+
+                <li>Two references</li>
+
+              </ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+						<div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
+						
+						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:29px;" ><span><i  class="fa fa-area-chart"></i></span> Ltd / Private Ltd Companies <i class="fa fa-angle-down"></i></button></a> 
+						</div>
+						</h4>
+					</div>
+					<div id="collapse4" class="panel-collapse collapse">
+						<div class="panel-body">
+                        		<ul   id="list4" style="padding-bottom:48px;" >
+
+              	<li>Company PAN card</li>
+
+                <li>Company ITR for last 2 years with balance sheet and P&L A/C</li>
+
+                <li>Company M.O.A. (Memorandum & Articles of Association)</li>
+
+                <li>Company address proof (Company + Directors)</li>
+
+                <li>Company's last 6 months' bank statements</li>
+
+                <li>Company's old car's R.C. copy or previous loan track record</li>
+
+                <li>PAN card copy of both the Directors</li>
+
+                <li>Photographs of the Directors (5) </li>
+
+                <li>Directors' last 2 years' ITR with the balance sheet</li>
+
+                <li>Two references</li>
+
+              </ul>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+</div>
+
+
+<div class="col-xs-11">
+
+<h3>EMI Calculator - Calculate Your Car Loan EMI</h3>
+
+<p>Enter the amount of loan you want to get financed and interest rate. EMI Calculator calculates installment on reducing balance. EMI Calculator does not include any other processing fee or possible charges which may be applicable as per the rules of financing institutions.</p>
+<div id="ecww-widgetwrapper"><div id="ecww-widget"></div><div id="ecww-more">emicalculator</div></div>
+<script src="http://emicalculator.net/widgets/lib/1.8/js/emicalc-lib.js" type="text/javascript"></script>
+<script src="http://emicalculator.net/widgets/wide-widget/1.8/js/emicalc-main.js" type="text/javascript"></script>
+
+
+
+<p>The calculation performed by EMI Calculator is based on the information you entered and is for illustrative purposes only.</p>
+
+
+
+</div>
+   
+  </div>
+
+
+   
+
+</div>
+
+
+
+
+
+</div>

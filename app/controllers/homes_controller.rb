@@ -36,4 +36,7 @@ class HomesController < ApplicationController
 	def contact_us
 	end
 
+	def associates_partners
+	end
+
 end

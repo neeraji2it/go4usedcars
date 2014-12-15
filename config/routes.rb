@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get :testimonial
       get :careers
       get :contact_us
+      get :associates_partners
     end
   end
 
