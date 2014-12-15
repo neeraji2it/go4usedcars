@@ -4,42 +4,11 @@
 
 <div class="row">
 
-  <div class="col-xs-6 col-sm-4 bottom-menu menu-padding-right "><ol>
-
- <center>  <H4 class=" menu-padding-right"  style="font-size:13px;">ABOUT US  </H4><span style="font-size:10px; color:#000;">
-
- <li> <a href="about-us1.html">Who we are </a></li>
-
-  <li><a href="contact-us1.html"> Contact Us</a> </li>
-
-  <li> <a href="faq1.php">FAQs</a> </li>
-  
-  <li> <a href="accociates-parteners1.php">Associates & Parteners</a> </li>
-    <li> <a href="testimonial1.php">Testimonial</a> </li>
-       <li> <a href="home.php">Home</a> </li>
-  
-  </span></center>
-
-  </ol></div>
-
-  <div class="col-xs-6 col-sm-4 menu-padding-right"><ol>
-
- <center>  <H4 class=" menu-padding-right" style="font-size:13px;">PRODUCTS </H4><span style="font-size:10px; color:#000;">
-
- <li><a href="buy-cars1.php"> Used Cars for Sale</a> </li>
-
-  <li><a href="Insurance1.php"> Auto Insurance</a></li>
-  
-  <li><a href="sellacar1.php"> Sella your car</a></li>
-<li><a href="auto-finance1.php"> Auto Loan</a></li>
-<li><a href="careers1.php"> Join us</a></li>
-<li><a href="index.html">Landing Page </a></li>
-  
-  </span>
-
-  </center>
-
-  </ol></div>
+  <% if params[:loc] == "gurgoan" %>
+  <%= render :partial => "layouts/footer_link_delhi" %>
+  <% elsif params[:loc] == "bangalore" %>
+  <%= render :partial => "layouts/footer_link_bangalore" %>
+<% end %>
 
 
 
