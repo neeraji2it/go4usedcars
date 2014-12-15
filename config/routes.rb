@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'testimonials/new'
+
+  get 'testimonials/index'
+
   root 'homes#index'
   resources :homes do
     collection do
