@@ -32,6 +32,7 @@ class HomesController < ApplicationController
 	end
 
 	def careers
+		@career = Career.new
 	end
 
 	def contact_us

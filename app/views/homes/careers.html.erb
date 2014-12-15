@@ -5,76 +5,32 @@
      <h4 style="text-decoration:none;">Together, we grow.</h4>
                    
                 A promising partnership with us also means that you are meeting up with infinite possibilities and has innumerable benefits and advantages.
-                     <form method="post" id="frm-career" enctype="multipart/form-data" onsubmit="return validatecareerform(this);">
-                       
-                         <tr>
-                           <td colspan="3" style="color:#FF0000; font-size:12px;"><?php
-                                                    if ($display1 == 1) {
-                                                        echo "Your Information have been submitted";
-                                                    }
-                                                    ?>                           </td>
-                         </tr>
-                          </td>
-                          
-                           <input name="Resume_tlt" type="text"  id="Resume_tlt" placeholder="Resume title" class="form-control" />
-<br />
-                         
-                           
-                           
-                             <input name="txtname" type="text"  id="txtname" placeholder="Name" class="form-control" /><br />
-                          
-                             <select name="Sex" id="Sex"   class="form-control">
-                             <option value="sex" selected="selected">Sex</option>
-                               <option value="Male">Male</option>
-                               <option value="Female">Female</option>
-                             </select>
-                           
-                        <br />
-         
-                           
-                             <textarea name="txtaddress" placeholder="Address" cols="45" rows="5" class="form-control" id="txtaddress"></textarea>
-                        <br />
-                           
-                           <input name="txtemail" type="text" placeholder="Email" id="txtemail" class="form-control" />
-                       <br />
-                         
-                           
-                           <input name="txtphone" type="text" placeholder="Phone" class="form-control" id="txtphone" /><br />
-                  
-                          
-                          <select name="txtJob"  id="txtJob" class="form-control">
-                               <option value="select" selected="selected">Job category</option>
-                               <option value="Sales">Sales</option>
-                               <option value="Service">Service</option>
-                               <option value="Sales and service">Sales and service</option>
-                               <option value="Marketing">Marketing</option>
-                               <option value="Human resource">Human resource</option>
-                               <option value="Accounts">Accounts</option>
-                               <option value="Administration">Administration</option>
-                               <option value="Communication">Communication</option>
-                               <option value="Information technology">Information technology</option>
-                               <option value="Others">Others</option>
-                           </select>
-                       <br />
-                           <td class="form-control" >Attach you resume</td><br />
-                          
-                               <input name="uploadresume" type="file" class="txt_field2" id="uploadresume" />
+                    
+                <%= form_for @career, :multipart => true do |f| %>
+                  <%= f.text_field :resume_title, :id => "Resume_tlt", :placeholder => "Resume title", :class => "form-control" %>
+                <br/>
+                  <%= f.text_field :name, :id => "Resume_tlt", :placeholder => "Name", :class => "form-control" %>
+                <br/>
+                  <%= f.select(:sex, [['Select Sex', nil], ["Male", "Male"], ["Female", "Female"]], {}, :class => "form-control", :id => "txtsex") %>
+                <br/>
+                  <%= f.text_area :address, :id => "txtaddress", :placeholder => "Address", :class => "form-control", :cols => "45", :rows => "5" %>
+                <br/>
+                  <%= f.text_field :email, :id => "txtemail", :placeholder => "Email", :class => "form-control" %>
+                  <br/>
+                  <%= f.text_field :phone, :id => "txtphone", :placeholder => "Phone", :class => "form-control" %>
+                  <br/>
+                  <%= f.select(:job_category, [["Select Job Category", nil], ["Sales", "Sales"], ["Service", "Service"], ["Sales and service", "Sales and service"], ["Marketing", "Marketing"], ["Human resource", "Human resource"], ["Accounts", "Accounts"], ["Administration", "Administration"], ["Communication", "Communication"], ["Information technology", "Information technology"], ["Others", "Others"]], {}, :id => "txtjob", :placeholder => "Job Category", :class => "form-control") %>
+               
+                  <br/>
+                  <%= f.label :resume, "Attach your resume" %>             
+                  <%= f.file_field :resume, :class => "txt_field2", :id => "uploadresume" %>
                           
                          <br /><br />
-                           <input type="submit" src="images/submit.jpg" name="submitcareer" id="submitcareer"  class="btn btn-warning" value="Submit" />                <br />
-                         </tr>
-                      
-                     </form>
-                      <br />
-                       <br />
-                 </div>
+                           <input type="submit" src="/assets/submit.jpg" name="submitcareer" id="submitcareer"  class="btn btn-warning" value="Submit" />                
+                           <br />
+                          <br /> <br />                         
+                     <% end %>                  
+                     </div>
                 
                   <div class="col-xs-6 width-inmobile">
-              <img src="/assets/career.png" class="img-responsive" /></div>
-             
-       
-      <div class="row">
-
-  <div class="col-xs-9"></div>
-
-</div>	
+                  <img src="/assets/career.jpg" class="img-responsive" /></div>
