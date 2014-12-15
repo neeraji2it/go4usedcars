@@ -28,6 +28,7 @@ class HomesController < ApplicationController
 	end
 
 	def testimonial
+    @testimonial = Testimonial.new
 	end
 
 	def careers
@@ -38,5 +39,4 @@ class HomesController < ApplicationController
 
 	def associates_partners
 	end
-
 end

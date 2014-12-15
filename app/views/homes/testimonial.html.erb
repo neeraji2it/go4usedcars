@@ -1,168 +1,79 @@
 <h1 style="margin-left:300px;"><span class="about-us">testimonial</span></h1>
-
-
-
-
-
 <div class="border-row"></div>
-
-
-
-  <div class="row">
-
+<div class="row">
   <div class="col-xs-7" style="padding-left:50px;margin-top:25px;">              
-
-           
-
-          <img src="/assets/anthony.jpg" class="img-responsive" />
-
-            
-
- 
-
- </div>
-
-  
-
+    <img src="/assets/anthony.jpg" class="img-responsive" />
+  </div>
   <div class="col-xs-5" style="padding-left:25px;margin-top:25px;">
+    <a href="/assets/anthony_big.jpg" target="_blank"><img src="/assets/anthony_feedback.jpg" class="img-responsive" /></a>
+  </div>
+</div>
 
- 		  <a href="/assets/anthony_big.jpg" target="_blank"><img src="/assets/anthony_feedback.jpg" class="img-responsive" /></a>
-
+<div class="row">
+  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
+    <img src="/assets/binu.png" class="img-responsive" />
   </div>
 
+  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
+    <a href="/assets/binu_big.jpg"target="_blank"><img src="/assets/binu_feedback.jpg"  class="img-responsive" /></a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
+    <img src="/assets/himansi.jpg" class="img-responsive" />
+  </div>
+
+  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
+    <a href="/assets/himanshi_big.jpg" target="_blank"><img src="/assets/himanshi_feedback.jpg"  class="img-responsive" /></a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
+    <img src="/assets/prashant_rana.jpg"  class="img-responsive" />
+  </div>
+
+  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
+    <a  href="/assets/rana_big.jpg" target="_blank"><img src="/assets/rana_feedback.jpg"  class="img-responsive" /></a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
+    <img src="/assets/rohit_mani.jpg"  class="img-responsive" />
+  </div>
+  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
+    <a  href="/assets/rohit_big.jpg" target="_blank"><img  src="/assets/rohit_mani_feedback.jpg"   class="img-responsive" /></a>
+  </div>
 </div>
 
 <div class="row">
 
-<div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
+<h1 class="font-size-sellcar text-submit" style=" background-color:#fc6; text-indent:30px; ">Submit your testimonial</h1>
 
-           
-
-            <img src="/assets/binu.png" class="img-responsive" />
-
-            
-
- 
-
- </div>
-
+<div class="col-md-4 box-submit-detail">
   
-
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-
- 
-
- 		 <a href="/assets/binu_big.jpg"target="_blank"><img src="/assets/binu_feedback.jpg"  class="img-responsive" /></a>
-
+  <%= form_for @testimonial, :url => "/testimonials?loc=#{params[:loc]}", :method => "POST" do |f| %>
+    <div class="inner-addon left-addon">
+    <i class="fa fa-user"></i>
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Name", :id => "txtname"  %>
+   </div>
+  <br/>
+  <div class="inner-addon left-addon">
+    <i class="fa fa-envelope "></i>	
+    <%= f.text_field :email, :class => "form-control", :placeholder => "Email", :id => "txtemail"  %>
+    <br/>
   </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
-
-           
-
-            <img src="/assets/himansi.jpg" class="img-responsive" />
-
-            
-
- 
-
- </div>
-
   
-
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-
- 
-
- 		 <a href="/assets/himanshi_big.jpg" target="_blank"><img src="/assets/himanshi_feedback.jpg"  class="img-responsive" /></a>
-
-  </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
-
-           
-
-            <img src="/assets/prashant_rana.jpg"  class="img-responsive" />
-
-            
-
- 
-
- </div>
-
-  
-
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-
- 
-
- 		 <a  href="/assets/rana_big.jpg" target="_blank"><img src="/assets/rana_feedback.jpg"  class="img-responsive" /></a>
-
-  </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
-
-           
-
-            <img src="/assets/rohit_mani.jpg"  class="img-responsive" />
-
-            
-
- 
-
- </div>
-
-  
-
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-
- 
-
- 		 <a  href="/assets/rohit_big.jpg" target="_blank"><img  src="/assets/rohit_mani_feedback.jpg"   class="img-responsive" /></a>
-
-  </div>
-
-</div>
-
-
-
-
-
-<div class="row">
-
-  
-<h1 style="text-transform:capitalize; background-color:#ccc; text-indent:20px; ">Submit your Testimonial</h1>
-<div class="col-md-4" style="margin-left:50px;">
-
-
-
- <%#= render :partial => "home/form"%>
-
-
-  
+  <div class="inner-addon left-addon">
+    <i class="fa fa-pencil " ></i>	
+    <%= f.text_area :testimonial, :id => "testimonial", :class => "form-control", :placeholder => "Testimonials", :rows => "5", :cols => "45" %>
+    <br />
     
-
-  
+    <p class="alright">		  
+      <button type="submit" value="Submit"  id="submittest" name="submittest" class="btn btn-primary btn-lg ">Submit</button></p><br />
 </div>
-
-</div>			
-		
-                
-				
-				
-   
-
-
-
+  <% end %>
+</div>
+</div>

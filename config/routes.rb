@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  
-  get 'testimonials/new'
-
-  get 'testimonials/index'
-
   root 'homes#index'
   resources :homes do
     collection do
@@ -21,6 +16,7 @@ Rails.application.routes.draw do
       get :associates_partners
     end
   end
+  resources :testimonials
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
