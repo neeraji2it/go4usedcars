@@ -34,6 +34,12 @@ class Admin::StocksController < ApplicationController
 
   def add_master_specification
     @specification = Specification.new
+
+    @technicals = SpecificationCategory.where(:name => "Technical Specification").first.specifications
+    @features = SpecificationCategory.where(:name => "Features").first.specifications
+    @entertainments = SpecificationCategory.where(:name => "Entertainment").first.specifications
+    @safeties = SpecificationCategory.where(:name => "Safety").first.specifications
+    @others = SpecificationCategory.where(:name => "Others").first.specifications
   end
 
   def create_master_specification

@@ -52,7 +52,69 @@
     </div>
 
     <div class="col-sm-6">
-      
+      <div class="row">
+       <div class="form-group">
+         <b>Specifications</b>
+       </div>
+      </div>
+
+      <div class="row">
+       <div class="form-group">
+         <b>Technical Specification</b>
+           <% if @technicals.present? %>
+             <% @technicals.each do |technical| %>
+                <p><%= technical.name %></p>
+             <% end %>
+           <% end %>
+       </div>
+     </div>
+    
+
+    <div class="row">
+       <div class="form-group">
+         <b>Features</b>
+           <% if @features.present? %>
+             <% @features.each do |technical| %>
+                <p><%= technical.name %></p>
+             <% end %>
+           <% end %>
+       </div>
+     </div>
+    
+    <div class="row">
+       <div class="form-group">
+         <b>Entertainment Specification</b>
+           <% if @entertainments.present? %>
+             <% @entertainments.each do |technical| %>
+                <p><%= technical.name %></p>
+             <% end %>
+           <% end %>
+       </div>
+     </div>
+   
+
+    <div class="row">
+       <div class="form-group">
+         <b>Safety Specification</b>
+           <% if @safeties.present? %>
+             <% @safeties.each do |technical| %>
+                <p><%= technical.name %></p>
+             <% end %>
+           <% end %>
+       </div>
+     </div>
+
+     <div class="row">
+       <div class="form-group">
+         <b>Others</b>
+           <% if @others.present? %>
+             <% @others.each do |technical| %>
+                <p><%= technical.name %></p>
+             <% end %>
+           <% end %>
+       </div>
+     </div>
+    </div>
     </div>
   </div>
 </div>
