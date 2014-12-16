@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin Go4usedcars</title>    
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="/assets/admin/bootstrap.min.css" />
+    <script type="text/javascript" language="javascript" src="/assets/admin/bootstrap.min.js"></script>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <%= render :partial => "layouts/header_admin" %>
+    <section>
+      <div class="container">
+        <%= render :partial => "/layouts/notice" %>
+        <div class="panel-body">
+          <%= yield%>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>     
