@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215135401) do
+ActiveRecord::Schema.define(version: 20141216072513) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20141215135401) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
+  create_table "car_models", force: true do |t|
+    t.integer  "manufacturer_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "careers", force: true do |t|
     t.string   "resume_title"
     t.string   "name"
@@ -47,10 +54,23 @@ ActiveRecord::Schema.define(version: 20141215135401) do
     t.datetime "resume_updated_at"
   end
 
+  create_table "manufacturers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "testimonials", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.text     "testimonial"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "varients", force: true do |t|
+    t.integer  "car_model_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
