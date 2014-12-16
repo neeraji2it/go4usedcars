@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :stocks do
       collection do
         get :addtostock
+        post :create_model
+        post :create_varient
       end
     end
   end

@@ -1,5 +1,144 @@
 <%= render :partial => "admin/stocks/stocks_navbar" %>
 
-dasfadfdsf
-dsaf
-dsf
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= form_for @car_model, :url => create_model_admin_stocks_path, :method => "POST" do |f| %>
+        
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <b>Add Vehicle Model</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <%= f.label :manufacturer_id, "Manufacturer" %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :manufacturer_id, options_for_select(Manufacturer.all.map {|m| [m.name, m.id]}), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <%= f.label :name, "Enter Model" %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :name, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+             
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+             <span class="text-muted">Ex: A-Star</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.submit "Add Model", :class => "btn btn-md btn-warning" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= form_for @car_varient, :url => create_varient_admin_stocks_path, :method => "POST" do |f| %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <b>Add Vehicle Model</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Manufacturer</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= select_tag :manufacturer_id, options_for_select(Manufacturer.all.map {|m| [m.name, m.id]}), :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Select Model</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :car_model_id, options_for_select(Manufacturer.all.map {|m| [m.name, m.id]}), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <%= f.label :name, "Enter Varient" %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :name, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+             
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+             <span class="text-muted">Ex: Lxi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.submit "Add Model", :class => "btn btn-md btn-warning" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
