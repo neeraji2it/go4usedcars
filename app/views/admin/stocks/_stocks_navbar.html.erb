@@ -1,0 +1,79 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Dashboard", admin_dashboards_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stock Management <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="divider"></li>
+            <li><a href="#">Add Model & Varient</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Add Master Specification</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Add Car Details</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Add Car Specification</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Add Car Images & Video</a></li>
+            <li class="divider"></li>
+            <li><a href="#">View Live Cars</a></li>
+            <li class="divider"></li>
+            <li><a href="#">View Sold Cars</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Update Stock <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="divider"></li>
+            <li><a href="#">Model & Varient</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Car Details</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Car Specification</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Offer <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="divider"></li>
+            <li><a href="#">Add / Remove</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Procure Dept. <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="divider"></li>
+            <li><a href="#">Enquiry</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Waiting for Evaluation</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Evaluated</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Accept in Stock</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sell <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="divider"></li>
+            <li><a href="#">Enquiry</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Car Specific Enquiry</a></li>
+            <li class="divider"></li>
+          </ul>
+        </li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%=link_to("Log Out", destroy_admin_session_path, :method => :delete)%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
