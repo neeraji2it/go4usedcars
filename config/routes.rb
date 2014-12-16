@@ -27,6 +27,7 @@ Rails.application.routes.draw do
         get :addtostock
         post :create_model
         post :create_varient
+        get  :car_model
       end
     end
   end

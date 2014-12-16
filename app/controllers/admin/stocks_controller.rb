@@ -4,6 +4,12 @@ class Admin::StocksController < ApplicationController
   def addtostock
     @car_model =  CarModel.new
     @car_varient = Varient.new
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+  end
+
+  def car_model
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
   end
 
   def create_model
@@ -16,7 +22,9 @@ class Admin::StocksController < ApplicationController
   end
 
   def create_varient
-    @car_varient = Varient.new
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+     @car_varient = Varient.new(car_varient_params)
     if @car_varient.save
       redirect_to addtostock_admin_stocks_path
     else
