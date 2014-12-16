@@ -51,3 +51,10 @@ Manufacturer.find_or_create_by(name: 'Rolls Royce')
 Manufacturer.find_or_create_by(name: 'San Motors')
 Manufacturer.find_or_create_by(name: 'Volkswagen')
 Manufacturer.find_or_create_by(name: 'Volvo')
+
+SpecificationCategory.find_or_create_by(name: 'Technical Specification')
+SpecificationCategory.find_or_create_by(name: 'Features')
+SpecificationCategory.find_or_create_by(name: 'Entertainment')
+SpecificationCategory.find_or_create_by(name: 'Safety')
+SpecificationCategory.find_or_create_by(name: 'Others')
+

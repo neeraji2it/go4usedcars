@@ -32,6 +32,19 @@ class Admin::StocksController < ApplicationController
     end
   end
 
+  def add_master_specification
+    @specification = Specification.new
+  end
+
+  def create_master_specification
+    @specification = Specification.new(specification_params)
+    if @specification.save
+      redirect_to add_master_specification_admin_stocks_path
+    else
+      return :add_master_specification
+    end
+  end
+
   private
   def car_model_params
     params.require(:car_model).permit!
@@ -39,5 +52,9 @@ class Admin::StocksController < ApplicationController
 
   def car_varient_params
     params.require(:varient).permit!
+  end
+
+  def specification_params
+    params.require(:specification).permit!
   end
 end

@@ -1,0 +1,58 @@
+<%= render :partial => "admin/stocks/stocks_navbar" %>
+
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= form_for @specification, :url => create_master_specification_admin_stocks_path, :method => "POST" do |f| %>
+        
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <b>Add Specification to master specification</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <%= f.label :specification_category_id, "Specification Category" %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :specification_category_id, options_for_select([["- Select -", ""]] + SpecificationCategory.all.map {|m| [m.name, m.id]}), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <%= f.label :name, "Specification" %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :name, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.submit "Add Model", :class => "btn btn-md btn-warning" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      
+    </div>
+  </div>
+</div>

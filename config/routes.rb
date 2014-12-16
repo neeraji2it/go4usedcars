@@ -28,6 +28,8 @@ Rails.application.routes.draw do
         post :create_model
         post :create_varient
         get  :car_model
+        get :add_master_specification
+        post :create_master_specification
       end
     end
   end
