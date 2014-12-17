@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <b>Select Varient</b>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= select_tag :varient_id, options_for_select([["- Car Varient -", ""]] + @varients.map {|m| [m.name, m.id]}), id: 'varient_varient_id', name: 'varient[varient_id]', :class => "form-control" %>
+    </div>
+  </div>
+</div>  
