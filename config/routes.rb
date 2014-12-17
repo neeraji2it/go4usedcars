@@ -32,6 +32,11 @@ Rails.application.routes.draw do
         post :create_master_specification
       end
     end
+    resources :vehicles do 
+      collection do 
+        get :load_car_model
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

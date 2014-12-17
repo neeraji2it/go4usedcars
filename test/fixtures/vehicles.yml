@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  varient_id: 1
+  location: MyText
+  body_style: MyString
+  exterior_color: MyString
+  reg_year: MyString
+  manufactured_year: MyString
+  milage: MyString
+  fuel_type: MyString
+  engine_type: MyString
+  transmission: MyString
+  registration_state: MyString
+  registration_no: MyString
+  sell_price: MyString
+  sterio: MyString
+  seat_covers: MyString
+  car_for: MyString
+  visible_status: MyString
+  where_is_car: MyString
+
+two:
+  varient_id: 1
+  location: MyText
+  body_style: MyString
+  exterior_color: MyString
+  reg_year: MyString
+  manufactured_year: MyString
+  milage: MyString
+  fuel_type: MyString
+  engine_type: MyString
+  transmission: MyString
+  registration_state: MyString
+  registration_no: MyString
+  sell_price: MyString
+  sterio: MyString
+  seat_covers: MyString
+  car_for: MyString
+  visible_status: MyString
+  where_is_car: MyString

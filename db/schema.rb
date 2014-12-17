@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216124836) do
+ActiveRecord::Schema.define(version: 20141217060203) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -54,6 +54,33 @@ ActiveRecord::Schema.define(version: 20141216124836) do
     t.datetime "resume_updated_at"
   end
 
+  create_table "cars", force: true do |t|
+    t.integer  "varient_id"
+    t.text     "location"
+    t.string   "body_style"
+    t.string   "exterior_color"
+    t.string   "reg_year"
+    t.string   "manufactured_year"
+    t.string   "milage"
+    t.string   "fuel_type"
+    t.string   "engine_type"
+    t.string   "transmission"
+    t.string   "registration_state"
+    t.string   "registration_no"
+    t.string   "sell_price"
+    t.string   "sterio"
+    t.string   "seat_covers"
+    t.string   "car_for"
+    t.string   "visible_status"
+    t.string   "where_is_car"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "manufacturers", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -84,6 +111,29 @@ ActiveRecord::Schema.define(version: 20141216124836) do
   create_table "varients", force: true do |t|
     t.integer  "car_model_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vehicles", force: true do |t|
+    t.integer  "varient_id"
+    t.text     "location"
+    t.string   "body_style"
+    t.string   "exterior_color"
+    t.string   "reg_year"
+    t.string   "manufactured_year"
+    t.string   "milage"
+    t.string   "fuel_type"
+    t.string   "engine_type"
+    t.string   "transmission"
+    t.string   "registration_state"
+    t.string   "registration_no"
+    t.string   "sell_price"
+    t.string   "sterio"
+    t.string   "seat_covers"
+    t.string   "car_for"
+    t.string   "visible_status"
+    t.string   "where_is_car"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

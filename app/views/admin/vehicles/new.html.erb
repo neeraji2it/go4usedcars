@@ -1,0 +1,58 @@
+<%= render :partial => "admin/stocks/stocks_navbar" %>
+
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= form_for @vehicle, :url => "/admin/vehicles", :method => "POST" do |f| %>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <b>Car Detail Form</b>
+            </div>
+          </div>
+        </div>
+        <hr/>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Manufacturer</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= select_tag :manufacturer_id, options_for_select([["- Select -", ""]] + @manufacturers.map {|m| [m.name, m.id]}), :class => "form-control", :id => "manufacturer_id", :onchange => "load_carmodels(this.value)" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              
+            </div>
+          </div>
+        </div>
+
+        <div id="load_carmodels">
+          <%= render :partial => "admin/vehicles/load_carmodels" %>
+        </div>
+
+     <% end %> 
+    </div>
+  </div>
+</div>
+
+<script>
+  function load_carmodels(obj) {
+    $.ajax({
+    url: "/admin/vehicles/load_car_model",
+    type: "GET",
+    dataType: "Script",
+    data: {
+      manufacturer_id: obj
+    }
+  });
+  }
+</script>
