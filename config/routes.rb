@@ -38,6 +38,6 @@ Rails.application.routes.draw do
         get :load_varients
       end
     end
-    resources :specifications
+    resources :car_specifications
   end
 end

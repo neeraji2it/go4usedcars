@@ -1,0 +1,75 @@
+<%= form_for @car_specification, :url => "/admin/car_specifications", :method => "POST" do |f| %>
+  <div class="row">
+    <div class="col-sm-2">
+      <%= f.label :vehicle_id, "Select Vehicle" %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.select :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), {}, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <b>Car Specification</b>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+     <div class="table-responsive">
+       <table class="table table-bordered">
+        <tr>
+          <th colspan="3">Technical</th>
+        </tr>
+        <% @technicals.each do |technical| %>
+        <tr>
+          <th><%= technical.id %></th>
+          <th><%= technical.name %></th>
+          <th><%= f.text_field :name %></th>
+        </tr>
+        <% end %>
+
+        <tr>
+          <th colspan="4">Features</th>
+        </tr>
+        <% @features.each do |technical| %>
+        <tr>
+          <th><%= technical.id %></th>
+          <th><%= technical.name %></th>
+          <th><%= f.text_field :name %></th>
+        </tr>
+        <% end %>
+
+        <tr>
+          <th colspan="4">Entertainment</th>
+        </tr>
+        <% @entertainments.each do |technical| %>
+        <tr>
+          <th><%= technical.id %></th>
+          <th><%= technical.name %></th>
+          <th><%= f.text_field :name %></th>
+        </tr>
+        <% end %>
+
+        <tr>
+          <th colspan="4">Safety</th>
+        </tr>
+        <% @safeties.each do |technical| %>
+        <tr>
+          <th><%= technical.id %></th>
+          <th><%= technical.name %></th>
+          <th><%= f.text_field :name %></th>
+        </tr>
+        <% end %>
+        
+       </table>
+     </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= f.submit "Save", :class => "btn btn-sm btn-warning" %>
+    </div>
+  </div>
+<% end %>
