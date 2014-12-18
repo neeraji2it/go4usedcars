@@ -4,6 +4,16 @@ class HomesController < ApplicationController
 	end
 
 	def home
+	   if request.post?
+      Requirement.send_requirement(
+      	params[:min_budget],params[:max_budget],params[:car_year],params[:car_year1],params[:make],params[:model],
+      	params[:body_type1],params[:body_type2],params[:body_type3],params[:body_type4],params[:body_type5],params[:body_type6],
+      	params[:body_type7],params[:body_type8],params[:body_type9],
+      	params[:fuel_type1],params[:fuel_type2],params[:fuel_type3],params[:fuel_type4],
+        params[:name], params[:email], params[:phone]).deliver
+	      flash[:notice] = "your Requirement has been successfuly submited"
+       	format.html { redirect_to '/', notice: 'Widget was successfully created.' }
+       end
 	end
 
 	def about_us

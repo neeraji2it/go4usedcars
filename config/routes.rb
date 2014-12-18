@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root 'homes#index'
   resources :homes do
     collection do
-      get :home
+   
       get :about_us  
       get :buy_car
       get :sell_car
       get :auto_finance
       get :insurance
-      
+      match :home, via: [:get, :post]
       get :faq
       get :testimonial
       get :careers

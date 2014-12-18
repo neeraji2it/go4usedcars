@@ -70,6 +70,16 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+ config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    #    :domain => 'gmail.com',
+    :port => '587',
+    :user_name => 'dinemediahousing@gmail.com',
+    :password => 'dinemediapassword',
+    :authentication => 'plain'
+  }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
