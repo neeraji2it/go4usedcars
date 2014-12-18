@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217103942) do
+ActiveRecord::Schema.define(version: 20141218122318) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20141217103942) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "associate_partners", force: true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.text     "address"
+    t.string   "email"
+    t.string   "dealer_type"
+    t.string   "dealer_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "car_models", force: true do |t|
     t.integer  "manufacturer_id"
@@ -61,33 +72,6 @@ ActiveRecord::Schema.define(version: 20141217103942) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
-  end
-
-  create_table "cars", force: true do |t|
-    t.integer  "varient_id"
-    t.text     "location"
-    t.string   "body_style"
-    t.string   "exterior_color"
-    t.string   "reg_year"
-    t.string   "manufactured_year"
-    t.string   "milage"
-    t.string   "fuel_type"
-    t.string   "engine_type"
-    t.string   "transmission"
-    t.string   "registration_state"
-    t.string   "registration_no"
-    t.string   "sell_price"
-    t.string   "sterio"
-    t.string   "seat_covers"
-    t.string   "car_for"
-    t.string   "visible_status"
-    t.string   "where_is_car"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "manufacturers", force: true do |t|

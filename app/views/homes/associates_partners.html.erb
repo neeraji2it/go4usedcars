@@ -17,44 +17,24 @@
             <li>preferential treatment, including first choice of vehicle</li>
               </ol> 
               <br />
-            
+          <h4 style="text-decoration:none;font-size:16px"><b>If you wish to work us please fill in your contact details,  Associate with us as</b></h4><br />
+<%=form_for @associate_partner, :url => "/associate_partners", :method => "POST" do |f|%>
 
+ <%= f.select :dealer_type, options_for_select([["Select",""],["Dealer","Dealer"],
+    ["Freelancer","Freelancer"],["Others","Others"]]), {}, :id=>"utype",:class=>"form-control"%>
+   </br> 
+  <%=f.text_field :dealer_name,:placeholder=>"Dealership Name(for dealer)",:id=>"dealership",
+  :class=>"form-control"%></br>
+ <%=f.text_field :name,:placeholder=>"Name",:id=>"txtname",:class=>"form-control"%></br>
+ <%=f.text_field :phone,:placeholder=>"Phone",:id=>"txtphone",:class=>"form-control"%></br>
+ <%=f.text_field :email,:placeholder=>"Email Id",:id=>"txtemail",:class=>"form-control"%></br>
+ <%=f.text_area :address,:placeholder=>"Address",:id=>"txtaddress",:class=>"form-control"%>
+ </br>
 
-
-           
-              
-<form id="frmsignup" method="post" onsubmit="return validatesignup(this);">
-
-  <h4 style="text-decoration:none;font-size:16px"><b>If you wish to work us please fill in your contact details,  Associate with us as</b></h4><br />
-  <select id="utype" name="utype" class="form-control">
-   <option value="select">-- Select --</option>
-   <option value="Dealer">Dealer</option>
-   <option value="Freelancer">Freelancer</option>
-   <option value="Others">Others</option>
-  </select>  <br />	
-  
- 
-<input type="text" id="dealership" name="dealership" placeholder=" Dealership Name(for dealer)"  class="form-control" /><br />	
-  
-
-  <input type="text" id="txtname" name="txtname" placeholder="Name"  class="form-control"/> 
-<br />	
- 
-  <input type="text" id="txtphone" name="txtphone" placeholder="Phone"  class="form-control"/> 
-<br />	
-  <input type="text" id="txtemail" name="txtemail"  placeholder="Email Id"  class="form-control"/>  
-<br />	
-  
- <textarea id="txtaddress" name="txtaddress" placeholder="Address " class="form-control"></textarea> <br />	
   <input type="submit" id="submitsignup" name="submitsignup" value="Submit" class="btn btn-warning" /> <br />	
-  
-  <?php
-					   if(isset($_REQUEST['act']))
-					   {
-					    if($_REQUEST['act']=="saved"){echo "Your Request have been sent successfully";}
-					   }
-					  ?>
-</form><br />	
+ 
+<%end%>
+<br />	
 </div>
 
                      <div class="col-xs-6" style="text-align:center">

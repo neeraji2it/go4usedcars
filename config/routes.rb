@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins
   root 'homes#index'
   resources :homes do
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   end
   resources :testimonials 
   resources :careers
-
+  resources :associate_partners
   namespace :admin do
     resources :dashboards
     resources :stocks do

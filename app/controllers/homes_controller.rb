@@ -12,7 +12,8 @@ class HomesController < ApplicationController
       	params[:fuel_type1],params[:fuel_type2],params[:fuel_type3],params[:fuel_type4],
         params[:name], params[:email], params[:phone]).deliver
 	      flash[:notice] = "your Requirement has been successfuly submited"
-       	format.html { redirect_to '/', notice: 'Widget was successfully created.' }
+      	redirect_to '/'
+
        end
 	end
 
@@ -49,5 +50,6 @@ class HomesController < ApplicationController
 	end
 
 	def associates_partners
+		@associate_partner = AssociatePartner.new
 	end
 end

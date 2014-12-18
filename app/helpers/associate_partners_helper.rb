@@ -1,0 +1,2 @@
+module AssociatePartnersHelper
+end
