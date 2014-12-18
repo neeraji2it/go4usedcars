@@ -1,6 +1,6 @@
 <div class="sign"><h3 style="color:#fc6; font-weight:bold;">Post Requirement</h3></div>
    
-            <%= form_tag({:action => "home", :controller => "homes"}) do  %>
+<%= form_tag({:action => "home", :controller => "homes", :loc => params[:loc]}) do  %>
                  <label class="budget-label" for="selectreq">
 Budget: &nbsp;
 <%= select_tag :min_budget, options_for_select([["Min. Budget", "-1"], 

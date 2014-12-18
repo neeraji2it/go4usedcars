@@ -18,7 +18,7 @@
               </ol> 
               <br />
           <h4 style="text-decoration:none;font-size:16px"><b>If you wish to work us please fill in your contact details,  Associate with us as</b></h4><br />
-<%=form_for @associate_partner, :url => "/associate_partners", :method => "POST" do |f|%>
+<%=form_for @associate_partner, :url => "/associate_partners?loc=#{params[:loc]}", :method => "POST" do |f|%>
 
  <%= f.select :dealer_type, options_for_select([["Select",""],["Dealer","Dealer"],
     ["Freelancer","Freelancer"],["Others","Others"]]), {}, :id=>"utype",:class=>"form-control"%>
@@ -31,7 +31,8 @@
  <%=f.text_area :address,:placeholder=>"Address",:id=>"txtaddress",:class=>"form-control"%>
  </br>
 
-  <input type="submit" id="submitsignup" name="submitsignup" value="Submit" class="btn btn-warning" /> <br />	
+<%= f.submit :class => "btn btn-warning", :id => "submitsignup" %>
+  <br />	
  
 <%end%>
 <br />	
