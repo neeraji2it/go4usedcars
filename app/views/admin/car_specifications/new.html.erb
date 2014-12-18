@@ -23,9 +23,9 @@
         </tr>
         <% @technicals.each do |technical| %>
         <tr>
-          <th><%= technical.id %></th>
+          <th><%= check_box_tag "technical_ids[]", technical.id %></th>
           <th><%= technical.name %></th>
-          <th><%= f.text_field :name %></th>
+          <th><%= text_field_tag "technical_name[]" %></th>
         </tr>
         <% end %>
 
@@ -34,9 +34,9 @@
         </tr>
         <% @features.each do |technical| %>
         <tr>
-          <th><%= technical.id %></th>
+          <th><%= check_box_tag "feature_ids[]", technical.id %></th>
           <th><%= technical.name %></th>
-          <th><%= f.text_field :name %></th>
+          <th><%= text_field_tag "feature_name[]" %></th>
         </tr>
         <% end %>
 
@@ -45,9 +45,9 @@
         </tr>
         <% @entertainments.each do |technical| %>
         <tr>
-          <th><%= technical.id %></th>
+           <th><%= check_box_tag "entertainment_ids[]", technical.id %></th>
           <th><%= technical.name %></th>
-          <th><%= f.text_field :name %></th>
+          <th><%= text_field_tag "entertainment_name[]" %></th>
         </tr>
         <% end %>
 
@@ -56,9 +56,9 @@
         </tr>
         <% @safeties.each do |technical| %>
         <tr>
-          <th><%= technical.id %></th>
+           <th><%= check_box_tag "safety_ids[]", technical.id %></th>
           <th><%= technical.name %></th>
-          <th><%= f.text_field :name %></th>
+          <th><%= text_field_tag "safety_name[]" %></th>
         </tr>
         <% end %>
         
