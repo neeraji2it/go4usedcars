@@ -1,0 +1,75 @@
+<%= form_for @vehicle, :url => "/admin/car_specifications/#{params[:id]}", :method => "PUT" do |f| %>
+  <div class="row">
+    <div class="col-sm-2">
+      <b>Select Vehicle</b>
+    </div>
+    <div class="col-sm-8">
+      <%= select_tag :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <b>Car Specification</b>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+     <div class="table-responsive">
+       <table class="table table-bordered">
+        <tr>
+          <th colspan="3">Technical</th>
+        </tr>
+        <% @technical_car_specifications.each do |car_specif| %>
+        <tr>
+          <th><%= check_box_tag "technical_car_ids[]", car_specif.id %></th>
+          <th><%= car_specif.specification.name %></th>
+          <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
+        </tr>
+        <% end %>
+
+        <tr>
+          <th colspan="4">Features</th>
+        </tr>
+        <% @feature_car_specifications.each do |car_specif| %>
+        <tr>
+          <th><%= check_box_tag "feature_car_ids[]", car_specif.id %></th>
+          <th><%= car_specif.specification.name %></th>
+          <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
+        </tr>
+        <% end %>
+
+        <tr>
+          <th colspan="4">Entertainment</th>
+        </tr>
+        <% @entertainment_car_specifications.each do |car_specif| %>
+        <tr>
+           <th><%= check_box_tag "entertainment_car_ids[]", car_specif.id %></th>
+          <th><%= car_specif.specification.name %></th>
+          <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
+        </tr>
+        <% end %>
+
+        <tr>
+          <th colspan="4">Safety</th>
+        </tr>
+        <% @safety_car_specifications.each do |car_specif| %>
+        <tr>
+           <th><%= check_box_tag "safety_car_ids[]", car_specif.id %></th>
+          <th><%= car_specif.specification.name %></th>
+          <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
+        </tr>
+        <% end %>
+        
+       </table>
+     </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= f.submit "Save", :class => "btn btn-sm btn-warning" %>
+    </div>
+  </div>
+<% end %>
