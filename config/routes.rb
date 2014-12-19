@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get :about_us  
       get :buy_car
       get :sell_car
+      post :save_sell_car
       get :auto_finance
       get :insurance
       match :home, via: [:get, :post]

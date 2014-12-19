@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218122318) do
+ActiveRecord::Schema.define(version: 20141219070227) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -76,6 +76,35 @@ ActiveRecord::Schema.define(version: 20141218122318) do
 
   create_table "manufacturers", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sell_cars", force: true do |t|
+    t.integer  "varient_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "name"
+    t.datetime "manufacture_year"
+    t.string   "owner_type"
+    t.float    "kms_done",             limit: 24
+    t.string   "city"
+    t.string   "color"
+    t.string   "transmission"
+    t.string   "registration_no"
+    t.datetime "registration_at"
+    t.string   "ownership"
+    t.string   "car_insurence"
+    t.string   "when_to_sell"
+    t.datetime "insurence_valid_till"
+    t.float    "expected_price",       limit: 24
+    t.text     "comments"
+    t.string   "seller_name"
+    t.string   "seller_email"
+    t.string   "seller_phone"
+    t.string   "seller_organization"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

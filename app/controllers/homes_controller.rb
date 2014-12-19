@@ -23,6 +23,16 @@ class HomesController < ApplicationController
 	end
 
 	def sell_car
+		@sell_car = SellCar.new
+	end
+
+	def save_sell_car
+		@sell_car = SellCar.new(sell_car_params)
+		if @sell_car.save
+			redirect_to  sell_car_homes_path(:loc=>params[:loc])
+		else
+			render sell_car_homes_path(:loc=>params[:loc])
+		end
 	end
 
 	def auto_finance
@@ -50,5 +60,11 @@ class HomesController < ApplicationController
 
 	def associates_partners
 		@associate_partner = AssociatePartner.new
+	end
+
+	private
+
+	def sell_car_params
+		params.require(:sell_car).permit!
 	end
 end

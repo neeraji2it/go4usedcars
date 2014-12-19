@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#Admin.create!(
- # email: "admin@gmail.com",
-  #password: "admin123"
-  #)
+Admin.create!(
+  email: "admin@gmail.com",
+  password: "admin123"
+  )
 
 Manufacturer.find_or_create_by(name: 'Maruti')
 Manufacturer.find_or_create_by(name: 'Hyundai')

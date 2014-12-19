@@ -33,128 +33,40 @@
 
 <div class="col-sm-3 box-sell-cars">
 
-<form  action="savesellacarrequest.php" method="post" id="frmsavesell2" onsubmit="javascript:form_submit();" enctype="multipart/form-data" >
 
-
-
+<%=form_for @sell_car, :url=>"/homes/save_sell_car?loc=#{params[:loc]}",:method => "POST" do |f|%>
+ 
    <div class="inner-addon left-addon">
 
     <i class="fa fa-car"></i>	
-
-  
-
-    <select   name="txtcar" id="txtcar"  class="form-control" >
-
-                                                                <option value="select"  disabled="disabled"  selected="selected">&nbsp;&nbsp; &nbsp;Car*</option>
-
-                                                                <?php
-
-                                                                $carmake = isset($_SESSION['make']) ? $_SESSION['make'] : '';
-
-                                                                $makeresult = mysql_query("select *from usedcar_category order by cat_id asc");
-
-                                                                while ($row = mysql_fetch_array($makeresult)) {
-
-                                                                    ?>        
-
-                                                                    <option value=" <?php echo $row['cat_id']; ?>" <?php
-
-                                                                if ($carmake == $row['cat_id']) {
-
-                                                                    echo "selected";
-
-                                                                }
-
-                                                                    ?>>&nbsp;&nbsp; &nbsp;
-
-                                                                                <?php echo $row['category_name']; ?>
-
-                                                                    </option>
-
-                                                                <?php } ?>       
-
-                                                                     
-
-                                                            </select>
-
-                                                            
-
-    </div>
+<%=f.select :varient_id,options_for_select(Varient.all.map {|varient| varient.name}),
+:placeholder=>"car*",:class => "form-control" %>
+<br />
+       </div>
 
    
-
-    
-
-                                                     
 
     <p class="text-grey">(Manufacturer, Model & Varient)</p> 
 
     
 
-    <?php
+<div id ='messageBox' style="display:<?php echo $display; ?>">
+<div class = 'clear5'></div>
+<div class = 'clear3'></div>
 
-                                                                    $display = 'none';
+<div style = 'float:right;margin: 0px 5px 5px 0px;cursor:pointer;position:absolute;bottom:0px;right:0px;'><img src = '/assets/close.gif' onclick = "javascript: document.getElementById('messageBox').style.display='none';" />
+</div>
 
-                                                                    if (isset($_REQUEST['act'])) {
+</div>
 
-                                                                        if ($_REQUEST['act'] == "saved") {
-
-                                                                            $display = 'block';
-
-                                                                        }
-
-                                                                    }
-
-                                                                    ?>      
-
-
-
-
-
-                                                                    <div id ='messageBox' style="display:<?php echo $display; ?>">
-
-                                                                        <div id = 'message_title' style = 'background:url(/assets/bg6.jpg) repeat-x; width:290px; height:25px;padding-left:10px;padding-top:4px;font-weight:bold;'>Message</div>
-
-                                                                        <div class = 'clear5'></div>
-
-                                                                        <div id = 'message' style = 'padding:0px 10px 20px 10px;'> 
-
-                                                                            <p>Thank You!! <br/>
-
-                                                                                Your request have been sent successfully. <br/> 
-
-                                                                                Our executive will contact you very soon<br/>
-
-                                                                                OR <br />
-
-                                                                                <b>speak to our executive </b></p>
-
-                                                                            <p><b>Ph# 9910300023/29/31) </b>
-
-                                                                            </p>
-
-                                                                        </div>
-
-                                                                        <div class = 'clear3'></div>
-
-                                                                        <div style = 'float:right;margin: 0px 5px 5px 0px;cursor:pointer;position:absolute;bottom:0px;right:0px;'><img src = '/assets/close.gif' onclick = "javascript: document.getElementById('messageBox').style.display='none';" /></div>
-
-                                                                    </div>
-
-    
-
-    
-
-
-
-     <input type="file"  name="usercarimg" id="usercarimg" ><br />
-
+<%= f.file_field :image, :id=>"usercarimage" %>
+<br />
     <div class="inner-addon left-addon">
 
     <i class="fa fa-user"></i>	
 
-    <input type="text" class="form-control" placeholder="Name" /><br />
-
+  
+<%=f.text_field :name, :class=>"form-control",:placeholder=>"Name"%><br>
     </div>
 
   <label>Make Year</label>
@@ -163,35 +75,19 @@
 
   	 	<i class="fa fa-calendar"></i>
 
-    <input type="date" class="form-control" name="makemonth" id="makemonth" placeholder="Make Year" /><br />
+<%=f.date_field :manufacture_year,:placeholder=>"MakeYear",:class=>"form-control",:id=>"makemonth"%>
+
+  <br />
 
     </div>    
 
     <div class="inner-addon  left-addon">
 
-  	
+  	<%=f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]],:class=>"form-control",:id=>"drpOwner")%>
 
-    <select name="drpOwner" id="drpOwner" class="form-control">
-
-                                                                        <option selected="selected" value="">-- Select Owner --</option>
-
-                                                                        <option value="I bought it New">I bought it New</option>
-
-                                                                        <option value="I am the Second owner">I'm the Second owner</option>
-
-                                                                        <option value="I am the Third owner">I'm the Third owner</option>
-
-                                                                        <option value="I am the Fourth owner">I'm the Fourth owner</option>
-
-
-
-                                                                        <option value="5">Four or more previous owners</option>
-
-
-
-                                                                    </select> 
-
-                                                                    <span id="msgOwner" class="error"></span><br />
+            <span id="msgOwner" class="error"></span>
+            <br>
+            <br />
 
     </div>
 
@@ -199,40 +95,30 @@
 
     <i class=" fa fa-cab"></i>	
 
-    <input type="text" class="form-control text" name="txtKms" placeholder="Kms Done" id="txtKms" title="How many kilometers you have driven your car." /><br />
+<%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms"%>
+<br>
+    <br/>
 
     </div>
 
      <div class="inner-addon left-addon">
 
     <i class="fa fa-building"></i>	
-
-    <input type="text" class="form-control"  name="txtcity" id="txtcity" placeholder="City" /><br />
-
+  <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity"%><br>
     </div>
 
-            <div class="inner-addon left-addon">
+    <div class="inner-addon left-addon">
 
     <i class="fa fa-certificate"></i>	
-
-    <input type="text" class="form-control" name="txtColor" id="txtColor" placeholder="Color" /><br />
-
+  <%=f.text_field :color, :placeholder=>"Color",:class=>"form-control",:id=>"txtColor"%><br>
     </div>
 
     <div class="inner-addon left-addon ">
-
-
-
-    <select  class="form-control" id="selecttransmission" name="selecttransmission" >
-
-                                                                        <option selected="selected" value="">-- Select Transmission --</option>
-
-                                                                        <option value="Manual">Manual</option>
-
-                                                                        <option value="Automatic">Automatic</option>
-
-                                                                    </select><br/>
-
+  <%=f.select :transmission, options_for_select([["-- Select Transmission --",""],
+  ["Manual","Manual"],["Automatic","Automatic"]]), :class=>"form-control", 
+  :id=>"selecttransmission" %>
+<br>
+<br/>
     </div>
 
     
@@ -240,9 +126,8 @@
     <div class="inner-addon left-addon">
 
     <i class="fa fa-pencil  "></i>	
-
-    <input type="text" class="form-control" name="txtRegNo"  id="txtRegNo" placeholder="Registration No." /><br />
-
+     <%=f.text_field :registration_no,:placeholder=>"Registration No.",:class=>"form-control",:id=>"txtRegNo"%>
+    <br />
     </div>
 
     
@@ -250,9 +135,7 @@
     <div class="inner-addon left-addon">
 
     <i class="fa fa-pencil-square "></i>	
-
-    <input type="text" class="form-control" name="txtRegAt"  id="txtRegAt" placeholder="Registration At" /><br />
-
+   <%=f.text_field:registration_at,:placeholder=>"Registration At.",:class=>"form-control",:id=>"txtRegAt"%>
     </div>
 
     <div class="inner-addon left-addon">
@@ -260,18 +143,14 @@
     <label style="padding-right:20px;">Ownership*</label>
 
     <label class="radio-inline">
-
-  <input type="radio" name="inlineRadioOptions"  id="btnTaxI" name="Tax" value="Individual"  /> Individual
-
-</label>
+    <%=radio_button_tag :ownership, "Individual"%> Individual
+    </label>
 
  
 
 <label class="radio-inline">
-
-  <input type="radio" id="btnTaxC"  name="Tax" value="option3"> Corporate
-
-</label>
+<%=radio_button_tag :ownership, "Corporate",:id=>"btnTaxc"%> Corporate
+ </label>
 
 </div>
 
@@ -283,48 +162,35 @@
 
     <label class="radio-inline">
 
-  <input type="radio" id="rdoComprehensive" name="Insurance" value="option1"> Comprehensive
+  <%=radio_button_tag :car_insurence, "Comprehensive",:id=>"rdoComprehensive"%> Comprehensive
 
+<label class="radio-inline">
+ <%=radio_button_tag :car_insurence, "Third-Party",:id=>"rdoThirdParty"%> Third-Party
 </label>
 
 <label class="radio-inline">
-
-  <input type="radio" id="rdoThirdParty" name="Insurance" value="option2"> Third-Party
-
-</label>
-
-<label class="radio-inline">
-
-  <input type="radio"id="rdoNoInsurance" name="Insurance" value="option3"> No Insurance
-
+ <%=radio_button_tag :car_insurence, "No Insurance",:id=>"rdoNoInsurance"%> No Insurance
 </label>
 
  </div>
 
   <br />
 
-  <div class="inner-addon left-addon">
+<div class="inner-addon left-addon">
 
- <label style="padding-right:20px;">When you want to sell*</label>
+<label style="padding-right:20px;">When you want to sell*</label>
 
-    <label class="radio-inline">
-
-  <input type="radio" id="rdoComprehensive" name="TimeToSell" value="option1"> At the Earliest 
-
+<label class="radio-inline">
+  <%=radio_button_tag :when_to_sell, "At the Earliest",:id=>"rdoComprehensive"%> At the Earliest 
 </label>
 
 <label class="radio-inline">
-
-  <input type="radio" id="rdoThirdParty"  name="TimeToSell"  value="option2"> With in this month
-
+  <%=radio_button_tag :when_to_sell, "With in this month",:id=>"rdoThirdParty"%>  With in this month
 </label>
 
 <label class="radio-inline">
-
-  <input type="radio" id="rdoNoInsurance"  name="TimeToSell"  value="option3"> Just Evaluating
-
+ <%=radio_button_tag :when_to_sell, "Just Evaluating",:id=>"rdoNoInsurance"%>  Just Evaluating
 </label>
-
  </div> <br />
 
       
@@ -332,70 +198,68 @@
     
 <label>Insurance Valid Till</label>
     <div class="inner-addon left-addon">
-
   	<i class="fa fa-calendar"></i>
-
-    <input type="date" class="form-control" name="InsValidTillMonth" id="InsValidTillMonth" placeholder="Insurance Valid Till" /><br />
+<%=f.date_field :insurence_valid_till,:placeholder=>"Insurance Valid Till",
+  :id=>"InsValidTillMonth",:class=>"form-control"%>
+    <br />
 
     </div>    
 
     
 
     <div class="inner-addon left-addon">
-
-    <i class="fa fa-rupee "></i>	
-
-    <input type="text" name="txtPrice"  id="txtPrice" class="form-control" placeholder="Expected Price" /><br />
-
+      <i class="fa fa-rupee "></i>	
+ <%=f.text_field :expected_price,:placeholder=>"Expected Price",:id=>"txtPrice",:class=>"form-control"%>
+    <br />
     </div>
 
      <div class="inner-addon left-addon">
 
     <i class="fa fa-comment "></i>	
 
-    <input type="text" class="form-control"  name="txtComments" placeholder="Your Commments" /><br />
-
+  
+    <%=f.text_field :comments,:placeholder=>"Your Comments",:class=>"form-control"%>
+    <br />
     </div>
 
      <p class="text-grey">Your comments are optional. Use this space to tell buyers in brief why do you wish to sell this car & what is so special about this car.</p>
 
-     <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOU</h1>
+     <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOU
+     </h1>
 
      <div class="inner-addon left-addon">
 
     <i class="fa fa-user "></i>	
-
-    <input type="text" name="txtName" size="40" id="txtName" class="form-control" placeholder="Your Name*" /><br />
-
-    </div>
+    <%=f.text_field :seller_name,:placeholder=>"Your Name*",:id=>"txtName",:class=>"form-control"%>
+    <br />
+       </div>
 
     <div class="inner-addon left-addon">
 
     <i class="fa fa-envelope "></i>	
-
-    <input type="text" name="txtEmail"  size="40" id="txtEmail" class="form-control" placeholder="Email*" /><br />
-
-    </div>
+ <%=f.text_field :seller_email,:placeholder=>"Email*",:id=>"txtEmail",:class=>"form-control"%>
+    <br />
+       </div>
 
     <div class="inner-addon left-addon">
 
     <i class="fa fa-phone"></i>	
-
-    <input type="text"  name="txtMobile" id="txtMobile"  class="form-control" placeholder="Phone*" /><br />
-
+    <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control"%>
+    <br />
+  
     </div>
 
     <div class="inner-addon left-addon">
 
     <i class="fa fa-home "></i>	
 
-    <input  name="txtOrg" type="text" id="txtOrg" class="form-control" placeholder="Name of your Oraganization" /><br />
-
+  
+<%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control"%><br />
     </div>
 
-    <button type="submit"   value="Submit"  class="btn btn-warning" style="float:right;" >Submit</button><br />
-
-  </form>
+  
+    <%= f.submit :class=>"btn btn-warning",:style=>"float:right;"%></br>
+  <%end%>
 
  
 

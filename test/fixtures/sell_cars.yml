@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  manufacture_year: 2014-12-19 12:32:28
+  owner_type: MyString
+  kms_done: 1.5
+  city: MyString
+  color: MyString
+  transmission: MyString
+  registration_no: MyString
+  registration_at: 2014-12-19 12:32:28
+  ownership: MyString
+  car_insurence: MyString
+  when_to_sell: MyString
+  insurence_valid_till: 2014-12-19 12:32:28
+  expected_price: 1.5
+  comments: MyText
+  seller_name: MyString
+  seller_email: MyString
+  seller_price: MyString
+  seller_organization: MyString
+
+two:
+  name: MyString
+  manufacture_year: 2014-12-19 12:32:28
+  owner_type: MyString
+  kms_done: 1.5
+  city: MyString
+  color: MyString
+  transmission: MyString
+  registration_no: MyString
+  registration_at: 2014-12-19 12:32:28
+  ownership: MyString
+  car_insurence: MyString
+  when_to_sell: MyString
+  insurence_valid_till: 2014-12-19 12:32:28
+  expected_price: 1.5
+  comments: MyText
+  seller_name: MyString
+  seller_email: MyString
+  seller_price: MyString
+  seller_organization: MyString
