@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219070227) do
+
+ActiveRecord::Schema.define(version: 20141219084253) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -93,6 +94,16 @@ ActiveRecord::Schema.define(version: 20141219070227) do
     t.string   "car_for"
     t.string   "visible_status"
     t.string   "where_is_car"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.integer  "vehicle_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -189,6 +200,13 @@ ActiveRecord::Schema.define(version: 20141219070227) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "videos", force: true do |t|
+    t.integer  "vehicle_id"
+    t.string   "video_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
