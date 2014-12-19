@@ -12,8 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-<<<<<<< HEAD
 //= require bootstrap-datepicker
-=======
 //= require jquery_nested_form
->>>>>>> images upload with nested form and video feature added
