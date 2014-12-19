@@ -71,6 +71,7 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
  config.action_mailer.delivery_method = :smtp
+ config.action_mailer.default_url_options = { :host => 'https://.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
     :address => 'smtp.gmail.com',
@@ -80,7 +81,6 @@ Rails.application.configure do
     :password => 'dinemediapassword',
     :authentication => 'plain'
   }
-
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
