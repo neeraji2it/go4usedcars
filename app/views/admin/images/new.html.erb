@@ -1,7 +1,7 @@
 <div class="panel-body">
   <div class="row">
     <div class="col-sm-6">
-      <%= form_for @image, :url => "/admin/images", :method => "POST" do |f| %>
+      <%= nested_form_for @vehicle, :url => "/admin/images", :method => "POST", :html => {:multipart => true} do |f| %>
         <div class="form-group">
           <div class="row">
             <div class="col-sm-6">
@@ -13,11 +13,11 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-2">
-              <%= f.label :vehicle_id, "Vehicle" %>
+              <b>Vehicle</b>
             </div>
 
             <div class="col-sm-6">
-              <%= f.select :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), {}, :class => "form-control", :id => "select_vehicle" %>
+              <%= select_tag :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), :class => "form-control", :id => "select_vehicle" %>
             </div>
           </div>
         </div>
@@ -25,7 +25,15 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-6">
-              
+              <!--Implement here nested form for images-->
+              <%= f.fields_for :images do |task_form| %>
+              <%= task_form.file_field :image %>
+              <%= task_form.link_to_remove "Remove this task" %>
+              <% end %>
+              <p><%= f.link_to_add "Add a task", :images %></p>
+
+
+
             </div>
           </div>
         </div>
@@ -39,6 +47,15 @@
         </div>
       <% end %>
     </div>
+
+
+
+
+
+
+
+
+
 
     <div class="col-sm-6">
       <%= form_for @video, :url => create_video_admin_images_path, :method => "POST" do |f| %>

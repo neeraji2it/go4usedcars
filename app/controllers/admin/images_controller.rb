@@ -1,28 +1,24 @@
 class Admin::ImagesController < ApplicationController
   def new
-
     @vehicle = Vehicle.new
     if @vehicle.images.blank?
       @vehicle.images.build
     end
-
 
     @video = Video.new
     @vehicles = Vehicle.all
   end
 
   def create
-
     @vehicle = Vehicle.new(vehicle_params)
     if @vehicle.images.blank?
       @vehicle.images.build
     end
     @vehicles = Vehicle.all
     if @vehicle.save
-
-    @vehicles = Vehicle.all
-    @image = Image.new(image_params)
    
+    @vehicles = Vehicle.all
+    if @vehicle.save
       redirect_to "/"
     else
       render :action => :new

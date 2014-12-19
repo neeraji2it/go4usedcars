@@ -6,6 +6,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :varient
   has_one :car_specification
   has_many :images
+  accepts_nested_attributes_for :images, reject_if: :all_blank, :allow_destroy => true
   has_many :videos
 
   def carinfo
