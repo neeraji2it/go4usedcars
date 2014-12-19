@@ -27,7 +27,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -71,7 +71,7 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
  config.action_mailer.delivery_method = :smtp
- config.action_mailer.default_url_options = { :host => 'https://.herokuapp.com' }
+ config.action_mailer.default_url_options = { :host => 'http://go4usedcars.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
     :address => 'smtp.gmail.com',
