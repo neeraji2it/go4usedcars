@@ -396,8 +396,8 @@ width: 804px;
  
 
  
-
-}
+/*removed this additional bracket*/
+/*}*/
 
 
 @media (min-width:481px) and (max-width: 768px) {
