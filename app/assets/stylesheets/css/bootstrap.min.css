@@ -364,14 +364,14 @@
 	 -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; transition: all 0.4s ease-out;
 	 }
  
- .btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open>.dropdown-toggle.btn-success{color:#fff;border-color:#}
+ .btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open>.dropdown-toggle.btn-success{color:#fff}
  .btn-success1:hover,.btn-success1:focus,.btn-success1:active,.btn-success1.active,.open>.dropdown-toggle.btn-success1{color:#fff;;background-image: -webkit-linear-gradient(top, #FF6A22 0%, #F60 100%);opacity: 0.81; -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; transition: all 0.4s ease-out;
   background-image:      -o-linear-gradient(top, #FF6A22 0%, #F60 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#FF6A22), to(#F60));
-  background-image:         linear-gradient(to bottom, #FF6A22 0%,#F60	 100%);border-color:#}
+  background-image:         linear-gradient(bottom, #FF6A22 0%,#F60 100%)}
  .btn-success:active,.btn-success.active,.open>.dropdown-toggle.btn-success{background-image:none}
- .btn-success.disabled,.btn-success[disabled],fieldset[disabled] .btn-success,.btn-success.disabled:hover,.btn-success[disabled]:hover,fieldset[disabled] .btn-success:hover,.btn-success.disabled:focus,.btn-success[disabled]:focus,fieldset[disabled] .btn-success:focus,.btn-success.disabled:active,.btn-success[disabled]:active,fieldset[disabled] .btn-success:active,.btn-success.disabled.active,.btn-success[disabled].active,fieldset[disabled] .btn-success.active{background-color:#;border-color:#4cae4c}
- .btn-success .badge{color:#;background-color:#fff}
+ .btn-success.disabled,.btn-success[disabled],fieldset[disabled] .btn-success,.btn-success.disabled:hover,.btn-success[disabled]:hover,fieldset[disabled] .btn-success:hover,.btn-success.disabled:focus,.btn-success[disabled]:focus,fieldset[disabled] .btn-success:focus,.btn-success.disabled:active,.btn-success[disabled]:active,fieldset[disabled] .btn-success:active,.btn-success.disabled.active,.btn-success[disabled].active,fieldset[disabled] .btn-success.active{border-color:#4cae4c}
+ .btn-success .badge{background-color:#fff}
  .btn-info{color:#fff;background-color:#5bc0de;border-color:#46b8da}
  .btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open>.dropdown-toggle.btn-info{color:#fff;background-color:#31b0d5;border-color:#269abc}
  .btn-info:active,.btn-info.active,.open>.dropdown-toggle.btn-info{background-image:none}
