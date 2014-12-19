@@ -46,7 +46,7 @@ h2.hd2-red span{font-size:12px; float:right; color:#333333; font-weight:normal; 
 /* Sell Generalize */
 .sell_block{border:4px solid #E4E4E4; padding:15px 20px;}
 .sell_container{margin:auto; width:700px; margin-top:10px; margin-bottom:50px;}
-input.buttons, a.buttons{-moz-border-radius:5px 5px 5px 5px; scroll 0 0 #FFAA22;border:1px solid #FFAA22;color:#333333;display:inline-block;font-weight:bold;margin:0;padding:7px 15px;text-align:center;text-decoration:none;text-shadow:0 1px 0 #FFEE66; overflow:visible; width:auto; text-decoration:none;}
+input.buttons, a.buttons{-moz-border-radius:5px 5px 5px 5px; scroll: 0 0 #FFAA22;border:1px solid #FFAA22;color:#333333;display:inline-block;font-weight:bold;margin:0;padding:7px 15px;text-align:center;text-decoration:none;text-shadow:0 1px 0 #FFEE66; overflow:visible; width:auto; text-decoration:none;}
 
 /* Step 1 */
 .do-login{padding:5px 0 5px 25px; background-color:#F2F2F2; margin-bottom:5px;}
