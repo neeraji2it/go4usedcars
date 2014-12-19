@@ -14,8 +14,6 @@ class Admin::ImagesController < ApplicationController
     if @vehicle.images.blank?
       @vehicle.images.build
     end
-    @vehicles = Vehicle.all
-    if @vehicle.save
    
     @vehicles = Vehicle.all
     if @vehicle.save

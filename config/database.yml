@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: carsapp_production
-  username: carsapp
-  password: <%= ENV['CARSAPP_DATABASE_PASSWORD'] %>
+  username: root
+  password: root
