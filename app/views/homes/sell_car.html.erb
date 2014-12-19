@@ -29,7 +29,6 @@
 
   <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
 
-<p>Please Fill all the Required fields.
 
 <div class="col-sm-3 box-sell-cars">
 
@@ -39,8 +38,7 @@
    <div class="inner-addon left-addon">
 
     <i class="fa fa-car"></i>	
-<%=f.select :varient_id,options_for_select(Varient.all.map {|varient| varient.name}),
-:placeholder=>"car*",:id => "txtcar", :class => "form-control" %>
+<%= f.select :varient_id, options_for_select(Varient.all.map {|varient| varient.name}), {}, :id => "txtcar", :class => "form-control" %>
 <br />
        </div>
 
@@ -49,15 +47,6 @@
     <p class="text-grey">(Manufacturer, Model & Varient)</p> 
 
     
-
-<div id ='messageBox' style="display:<?php echo $display; ?>">
-<div class = 'clear5'></div>
-<div class = 'clear3'></div>
-
-<div style = 'float:right;margin: 0px 5px 5px 0px;cursor:pointer;position:absolute;bottom:0px;right:0px;'><img src = '/assets/close.gif' onclick = "javascript: document.getElementById('messageBox').style.display='none';" />
-</div>
-
-</div>
 
 <%= f.file_field :image, :id=>"usercarimage" %>
 <br />
@@ -83,12 +72,10 @@
 
     <div class="inner-addon  left-addon">
 
-  	<%=f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]],:class=>"form-control",:id=>"drpOwner")%>
+  	<%= f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]]), {}, :class=>"form-control",:id=>"drpOwner"%>
 
             <span id="msgOwner" class="error"></span>
-            <br>
-            <br />
-
+            <br/>
     </div>
 
   <div class="inner-addon left-addon">
@@ -97,7 +84,7 @@
 
 <%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms"%>
 <br>
-    <br/>
+    
 
     </div>
 
@@ -115,10 +102,9 @@
 
     <div class="inner-addon left-addon ">
   <%=f.select :transmission, options_for_select([["-- Select Transmission --",""],
-  ["Manual","Manual"],["Automatic","Automatic"]]), :class=>"form-control", 
+  ["Manual","Manual"],["Automatic","Automatic"]]), {}, :class=>"form-control", 
   :id=>"selecttransmission" %>
 <br>
-<br/>
     </div>
 
     
