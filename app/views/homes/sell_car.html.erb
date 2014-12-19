@@ -1,3 +1,417 @@
 <% @page_title = "Sell Car - Go4 Used Cars" %>
 
-remaining
+<div class="box-main-contant">
+<h1><span class="about-us">Sell Cars</span></h1>
+
+
+
+<div class="border-row"></div>
+
+<div class="row">
+
+  <div class="col-xs-6 col-sm-2 left-paddings"> <p><center><h5><b>Sell your car</b><br />Go4usedcars.com<br />
+
+ </h5>
+
+ <br />
+
+ </center></p>
+
+ 	<div class="border-row"></div>
+
+ 	
+
+  </div>
+
+  <div class="col-xs-6 col-sm-3 right-column-spacing">
+
+  
+
+  <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
+
+<p>Please Fill all the Required fields.
+
+<div class="col-sm-3 box-sell-cars">
+
+<form  action="savesellacarrequest.php" method="post" id="frmsavesell2" onsubmit="javascript:form_submit();" enctype="multipart/form-data" >
+
+
+
+   <div class="inner-addon left-addon">
+
+    <i class="fa fa-car"></i>	
+
+  
+
+    <select   name="txtcar" id="txtcar"  class="form-control" >
+
+                                                                <option value="select"  disabled="disabled"  selected="selected">&nbsp;&nbsp; &nbsp;Car*</option>
+
+                                                                <?php
+
+                                                                $carmake = isset($_SESSION['make']) ? $_SESSION['make'] : '';
+
+                                                                $makeresult = mysql_query("select *from usedcar_category order by cat_id asc");
+
+                                                                while ($row = mysql_fetch_array($makeresult)) {
+
+                                                                    ?>        
+
+                                                                    <option value=" <?php echo $row['cat_id']; ?>" <?php
+
+                                                                if ($carmake == $row['cat_id']) {
+
+                                                                    echo "selected";
+
+                                                                }
+
+                                                                    ?>>&nbsp;&nbsp; &nbsp;
+
+                                                                                <?php echo $row['category_name']; ?>
+
+                                                                    </option>
+
+                                                                <?php } ?>       
+
+                                                                     
+
+                                                            </select>
+
+                                                            
+
+    </div>
+
+   
+
+    
+
+                                                     
+
+    <p class="text-grey">(Manufacturer, Model & Varient)</p> 
+
+    
+
+    <?php
+
+                                                                    $display = 'none';
+
+                                                                    if (isset($_REQUEST['act'])) {
+
+                                                                        if ($_REQUEST['act'] == "saved") {
+
+                                                                            $display = 'block';
+
+                                                                        }
+
+                                                                    }
+
+                                                                    ?>      
+
+
+
+
+
+                                                                    <div id ='messageBox' style="display:<?php echo $display; ?>">
+
+                                                                        <div id = 'message_title' style = 'background:url(/assets/bg6.jpg) repeat-x; width:290px; height:25px;padding-left:10px;padding-top:4px;font-weight:bold;'>Message</div>
+
+                                                                        <div class = 'clear5'></div>
+
+                                                                        <div id = 'message' style = 'padding:0px 10px 20px 10px;'> 
+
+                                                                            <p>Thank You!! <br/>
+
+                                                                                Your request have been sent successfully. <br/> 
+
+                                                                                Our executive will contact you very soon<br/>
+
+                                                                                OR <br />
+
+                                                                                <b>speak to our executive </b></p>
+
+                                                                            <p><b>Ph# 9910300023/29/31) </b>
+
+                                                                            </p>
+
+                                                                        </div>
+
+                                                                        <div class = 'clear3'></div>
+
+                                                                        <div style = 'float:right;margin: 0px 5px 5px 0px;cursor:pointer;position:absolute;bottom:0px;right:0px;'><img src = '/assets/close.gif' onclick = "javascript: document.getElementById('messageBox').style.display='none';" /></div>
+
+                                                                    </div>
+
+    
+
+    
+
+
+
+     <input type="file"  name="usercarimg" id="usercarimg" ><br />
+
+    <div class="inner-addon left-addon">
+
+    <i class="fa fa-user"></i>	
+
+    <input type="text" class="form-control" placeholder="Name" /><br />
+
+    </div>
+
+  <label>Make Year</label>
+
+            <div class="inner-addon left-addon">
+
+  	 	<i class="fa fa-calendar"></i>
+
+    <input type="date" class="form-control" name="makemonth" id="makemonth" placeholder="Make Year" /><br />
+
+    </div>    
+
+    <div class="inner-addon  left-addon">
+
+  	
+
+    <select name="drpOwner" id="drpOwner" class="form-control">
+
+                                                                        <option selected="selected" value="">-- Select Owner --</option>
+
+                                                                        <option value="I bought it New">I bought it New</option>
+
+                                                                        <option value="I am the Second owner">I'm the Second owner</option>
+
+                                                                        <option value="I am the Third owner">I'm the Third owner</option>
+
+                                                                        <option value="I am the Fourth owner">I'm the Fourth owner</option>
+
+
+
+                                                                        <option value="5">Four or more previous owners</option>
+
+
+
+                                                                    </select> 
+
+                                                                    <span id="msgOwner" class="error"></span><br />
+
+    </div>
+
+  <div class="inner-addon left-addon">
+
+    <i class=" fa fa-cab"></i>	
+
+    <input type="text" class="form-control text" name="txtKms" placeholder="Kms Done" id="txtKms" title="How many kilometers you have driven your car." /><br />
+
+    </div>
+
+     <div class="inner-addon left-addon">
+
+    <i class="fa fa-building"></i>	
+
+    <input type="text" class="form-control"  name="txtcity" id="txtcity" placeholder="City" /><br />
+
+    </div>
+
+            <div class="inner-addon left-addon">
+
+    <i class="fa fa-certificate"></i>	
+
+    <input type="text" class="form-control" name="txtColor" id="txtColor" placeholder="Color" /><br />
+
+    </div>
+
+    <div class="inner-addon left-addon ">
+
+
+
+    <select  class="form-control" id="selecttransmission" name="selecttransmission" >
+
+                                                                        <option selected="selected" value="">-- Select Transmission --</option>
+
+                                                                        <option value="Manual">Manual</option>
+
+                                                                        <option value="Automatic">Automatic</option>
+
+                                                                    </select><br/>
+
+    </div>
+
+    
+
+    <div class="inner-addon left-addon">
+
+    <i class="fa fa-pencil  "></i>	
+
+    <input type="text" class="form-control" name="txtRegNo"  id="txtRegNo" placeholder="Registration No." /><br />
+
+    </div>
+
+    
+
+    <div class="inner-addon left-addon">
+
+    <i class="fa fa-pencil-square "></i>	
+
+    <input type="text" class="form-control" name="txtRegAt"  id="txtRegAt" placeholder="Registration At" /><br />
+
+    </div>
+
+    <div class="inner-addon left-addon">
+
+    <label style="padding-right:20px;">Ownership*</label>
+
+    <label class="radio-inline">
+
+  <input type="radio" name="inlineRadioOptions"  id="btnTaxI" name="Tax" value="Individual"  /> Individual
+
+</label>
+
+ 
+
+<label class="radio-inline">
+
+  <input type="radio" id="btnTaxC"  name="Tax" value="option3"> Corporate
+
+</label>
+
+</div>
+
+<br />
+
+ <div class="inner-addon left-addon">
+
+ <label style="padding-right:20px;">Car Insurance*</label>
+
+    <label class="radio-inline">
+
+  <input type="radio" id="rdoComprehensive" name="Insurance" value="option1"> Comprehensive
+
+</label>
+
+<label class="radio-inline">
+
+  <input type="radio" id="rdoThirdParty" name="Insurance" value="option2"> Third-Party
+
+</label>
+
+<label class="radio-inline">
+
+  <input type="radio"id="rdoNoInsurance" name="Insurance" value="option3"> No Insurance
+
+</label>
+
+ </div>
+
+  <br />
+
+  <div class="inner-addon left-addon">
+
+ <label style="padding-right:20px;">When you want to sell*</label>
+
+    <label class="radio-inline">
+
+  <input type="radio" id="rdoComprehensive" name="TimeToSell" value="option1"> At the Earliest 
+
+</label>
+
+<label class="radio-inline">
+
+  <input type="radio" id="rdoThirdParty"  name="TimeToSell"  value="option2"> With in this month
+
+</label>
+
+<label class="radio-inline">
+
+  <input type="radio" id="rdoNoInsurance"  name="TimeToSell"  value="option3"> Just Evaluating
+
+</label>
+
+ </div> <br />
+
+      
+
+    
+<label>Insurance Valid Till</label>
+    <div class="inner-addon left-addon">
+
+  	<i class="fa fa-calendar"></i>
+
+    <input type="date" class="form-control" name="InsValidTillMonth" id="InsValidTillMonth" placeholder="Insurance Valid Till" /><br />
+
+    </div>    
+
+    
+
+    <div class="inner-addon left-addon">
+
+    <i class="fa fa-rupee "></i>	
+
+    <input type="text" name="txtPrice"  id="txtPrice" class="form-control" placeholder="Expected Price" /><br />
+
+    </div>
+
+     <div class="inner-addon left-addon">
+
+    <i class="fa fa-comment "></i>	
+
+    <input type="text" class="form-control"  name="txtComments" placeholder="Your Commments" /><br />
+
+    </div>
+
+     <p class="text-grey">Your comments are optional. Use this space to tell buyers in brief why do you wish to sell this car & what is so special about this car.</p>
+
+     <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOU</h1>
+
+     <div class="inner-addon left-addon">
+
+    <i class="fa fa-user "></i>	
+
+    <input type="text" name="txtName" size="40" id="txtName" class="form-control" placeholder="Your Name*" /><br />
+
+    </div>
+
+    <div class="inner-addon left-addon">
+
+    <i class="fa fa-envelope "></i>	
+
+    <input type="text" name="txtEmail"  size="40" id="txtEmail" class="form-control" placeholder="Email*" /><br />
+
+    </div>
+
+    <div class="inner-addon left-addon">
+
+    <i class="fa fa-phone"></i>	
+
+    <input type="text"  name="txtMobile" id="txtMobile"  class="form-control" placeholder="Phone*" /><br />
+
+    </div>
+
+    <div class="inner-addon left-addon">
+
+    <i class="fa fa-home "></i>	
+
+    <input  name="txtOrg" type="text" id="txtOrg" class="form-control" placeholder="Name of your Oraganization" /><br />
+
+    </div>
+
+    <button type="submit"   value="Submit"  class="btn btn-warning" style="float:right;" >Submit</button><br />
+
+  </form>
+
+ 
+
+  
+
+ <div class="border-row"></div>
+
+  </div>
+
+   </p>
+
+   </div>
+
+</div>
+
+
+
+
+</div>
