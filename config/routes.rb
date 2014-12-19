@@ -41,5 +41,10 @@ Rails.application.routes.draw do
       end
     end
     resources :car_specifications
+    resources :images do
+      collection do
+        post :create_video
+      end
+    end
   end
 end

@@ -5,6 +5,8 @@ class Vehicle < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ['image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp']
   belongs_to :varient
   has_one :car_specification
+  has_many :images
+  has_many :videos
 
   def carinfo
     self.varient.car_model.manufacturer.name + " " + self.varient.car_model.name + " " + self.varient.name

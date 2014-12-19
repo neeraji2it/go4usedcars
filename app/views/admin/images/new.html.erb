@@ -1,0 +1,95 @@
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= form_for @image, :url => "/admin/images", :method => "POST" do |f| %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <b>Add Images of Cars</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-2">
+              <%= f.label :vehicle_id, "Vehicle" %>
+            </div>
+
+            <div class="col-sm-6">
+              <%= f.select :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), {}, :class => "form-control", :id => "select_vehicle" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-12">
+             <%= f.submit :class => "btn btn-md btn-warning" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= form_for @video, :url => create_video_admin_images_path, :method => "POST" do |f| %>
+         <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <b>Add Video of Cars</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-2">
+              <%= f.label :vehicle_id, "Vehicle" %>
+            </div>
+
+            <div class="col-sm-6">
+              <%= f.select :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), {}, :class => "form-control", :id => "select_vehicle" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-2">
+              <%= f.label :video_url, "Video Url" %>
+            </div>
+
+            <div class="col-sm-6">
+              <%= f.text_field :video_url, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-12">
+             <b class="text-muted"> Ex. http://www.youtube.com/embed/X3HlFewKByw</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-12">
+             <%= f.submit :class => "btn btn-md btn-warning" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
