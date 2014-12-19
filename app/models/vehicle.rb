@@ -7,6 +7,6 @@ class Vehicle < ActiveRecord::Base
   has_one :car_specification
 
   def carinfo
-    self.varient.car_model.manufacturer.name + " " + self.varient.car_model.name + " " + self.varient.name + " " + self.body_style + " " + self.registration_no
+    self.varient.car_model.manufacturer.name + " " + self.varient.car_model.name + " " + self.varient.name
   end
 end

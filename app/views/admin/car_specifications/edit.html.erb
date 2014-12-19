@@ -23,7 +23,13 @@
         </tr>
         <% @technical_car_specifications.each do |car_specif| %>
         <tr>
-          <th><%= check_box_tag "technical_car_ids[]", car_specif.id %></th>
+          <th>
+            <% if car_specif.name.present? %>
+              <%= check_box_tag "technical_car_ids[]", car_specif.id, true %>
+            <% else %>
+              <%= check_box_tag "technical_car_ids[]", car_specif.id %>
+            <% end %>
+          </th>
           <th><%= car_specif.specification.name %></th>
           <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
         </tr>
@@ -34,7 +40,13 @@
         </tr>
         <% @feature_car_specifications.each do |car_specif| %>
         <tr>
-          <th><%= check_box_tag "feature_car_ids[]", car_specif.id %></th>
+          <th>
+          <% if car_specif.name.present? %>
+            <%= check_box_tag "feature_car_ids[]", car_specif.id, true %>
+          <% else %>
+            <%= check_box_tag "feature_car_ids[]", car_specif.id %>
+          <% end %>
+          </th>
           <th><%= car_specif.specification.name %></th>
           <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
         </tr>
@@ -45,7 +57,13 @@
         </tr>
         <% @entertainment_car_specifications.each do |car_specif| %>
         <tr>
-           <th><%= check_box_tag "entertainment_car_ids[]", car_specif.id %></th>
+           <th>
+           <% if car_specif.name.present? %>
+              <%= check_box_tag "entertainment_car_ids[]", car_specif.id, true %>
+           <% else %>
+              <%= check_box_tag "entertainment_car_ids[]", car_specif.id %>
+           <% end %>
+           </th>
           <th><%= car_specif.specification.name %></th>
           <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
         </tr>
@@ -56,7 +74,13 @@
         </tr>
         <% @safety_car_specifications.each do |car_specif| %>
         <tr>
-           <th><%= check_box_tag "safety_car_ids[]", car_specif.id %></th>
+          <th>
+            <% if car_specif.name.present? %>
+              <%= check_box_tag "safety_car_ids[]", car_specif.id, true %>
+            <% else %>
+              <%= check_box_tag "safety_car_ids[]", car_specif.id %>
+            <% end %>
+          </th>
           <th><%= car_specif.specification.name %></th>
           <th><%= text_field_tag "name_#{car_specif.id}", car_specif.name %></th>
         </tr>
