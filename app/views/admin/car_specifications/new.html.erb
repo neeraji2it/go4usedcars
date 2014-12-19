@@ -23,7 +23,7 @@
         </tr>
         <% @technicals.each do |technical| %>
         <tr>
-          <th><%= check_box_tag "technical_ids[]", technical.id %></th>
+          <th><%= check_box_tag "technical_ids[]", technical.id, :checked => true %></th>
           <th><%= technical.name %></th>
           <th><%= text_field_tag "technical_name[]" %></th>
         </tr>
@@ -34,7 +34,7 @@
         </tr>
         <% @features.each do |technical| %>
         <tr>
-          <th><%= check_box_tag "feature_ids[]", technical.id %></th>
+          <th><%= check_box_tag "feature_ids[]", technical.id, :checked => true %></th>
           <th><%= technical.name %></th>
           <th><%= text_field_tag "feature_name[]" %></th>
         </tr>
@@ -45,7 +45,7 @@
         </tr>
         <% @entertainments.each do |technical| %>
         <tr>
-           <th><%= check_box_tag "entertainment_ids[]", technical.id %></th>
+           <th><%= check_box_tag "entertainment_ids[]", technical.id, :checked => true %></th>
           <th><%= technical.name %></th>
           <th><%= text_field_tag "entertainment_name[]" %></th>
         </tr>
@@ -56,7 +56,7 @@
         </tr>
       <% @safeties.each do |technical| %>
         <tr>
-           <th><%= check_box_tag "safety_ids[]", technical.id %></th>
+           <th><%= check_box_tag "safety_ids[]", technical.id, :checked => true %></th>
           <th><%= technical.name %></th>
           <th><%= text_field_tag "safety_name[]" %></th>
         </tr>
@@ -73,16 +73,3 @@
     </div>
   </div>
 <% end %>
-
-<script>
-  $(document).ready(function() {
-   var vehicle_id = $("#select_vehicle").val();
-   
-     $("#btn_save").click(function() {
-        if (vehicle_id == '') {
-          alert("Please select vehicle type first.");
-          return false;
-        }
-     });
-  });
-</script>
