@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse" role="navigation"  >
   <a href="#" id="pull" style="font-size:20px; vertical-align:middle; margin-top:20px; text-align:center;">Menu</a>
-<ul class="nav nav-pills">
+<ul class="nav nav-pills float-left">
   <% if params[:loc] == "gurgoan" %>
     <li ><a href="/homes/home?loc=gurgoan">Home</a></li>
   	<li><a href="/homes/about_us?loc=gurgoan" >About Us</a></li>
@@ -18,3 +18,7 @@
   <% end %>
 </ul>
 </nav>
+
+<style>
+.float-left{float: left;}
+</style>
