@@ -1,3 +1,5 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+
 <div class="panel-body">
   <div class="row">
     <div class="col-sm-6">
@@ -17,7 +19,7 @@
             </div>
 
             <div class="col-sm-6">
-              <%= select_tag :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), :class => "form-control", :id => "select_vehicle" %>
+                <%= select_tag :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), :class => "form-control", :id => "select_vehicle1" %>
             </div>
           </div>
         </div>
@@ -41,21 +43,12 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-12">
-             <%= f.submit :class => "btn btn-md btn-warning" %>
+             <%= f.submit :class => "btn btn-md btn-warning", :id => "submit1" %>
             </div>
           </div>
         </div>
       <% end %>
     </div>
-
-
-
-
-
-
-
-
-
 
     <div class="col-sm-6">
       <%= form_for @video, :url => create_video_admin_images_path, :method => "POST" do |f| %>
@@ -74,7 +67,7 @@
             </div>
 
             <div class="col-sm-6">
-              <%= f.select :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), {}, :class => "form-control", :id => "select_vehicle" %>
+              <%= f.select :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), {}, :class => "form-control",:id => "select_vehicle2" %>
             </div>
           </div>
         </div>
@@ -102,7 +95,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-12">
-             <%= f.submit :class => "btn btn-md btn-warning" %>
+             <%= f.submit :class => "btn btn-md btn-warning", :id => "submit2" %>
             </div>
           </div>
         </div>
@@ -110,3 +103,21 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).on("click", "#submit1", function(){
+    var vehicle = $("#select_vehicle1").val();
+    if (vehicle == '') {
+      alert("Please select vehicle first")
+      return false;
+    }
+  });
+
+  $(document).on("click", "#submit2", function(){
+    var vehicle = $("#select_vehicle2").val();
+    if (vehicle == '') {
+      alert("Please select vehicle first")
+      return false;
+    }
+  });
+</script>

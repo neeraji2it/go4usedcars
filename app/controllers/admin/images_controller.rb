@@ -1,6 +1,7 @@
 class Admin::ImagesController < ApplicationController
   def new
     @vehicle = Vehicle.new
+    
     if @vehicle.images.blank?
       @vehicle.images.build
     end
@@ -10,14 +11,11 @@ class Admin::ImagesController < ApplicationController
   end
 
   def create
-    @vehicle = Vehicle.new(vehicle_params)
-    if @vehicle.images.blank?
-      @vehicle.images.build
-    end
+    @vehicle = Vehicle.find(params[:vehicle_id])
    
     @vehicles = Vehicle.all
-    if @vehicle.save
-      redirect_to "/"
+    if @vehicle.update_attributes(vehicle_params)
+      redirect_to new_admin_image_path
     else
       render :action => :new
     end
@@ -27,7 +25,7 @@ class Admin::ImagesController < ApplicationController
     @vehicles = Vehicle.all
     @video = Video.new(video_params)
     if @video.save
-      redirect_to "/"
+      redirect_to new_admin_image_path
     else
       render :action => :new
     end
