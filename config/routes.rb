@@ -30,8 +30,12 @@ Rails.application.routes.draw do
         post :create_model
         post :create_varient
         get  :car_model
+        get :procure_enquiry
         get :add_master_specification
         post :create_master_specification
+      end
+      member do
+        delete :delete_procure_enquiry
       end
     end
     resources :vehicles do 

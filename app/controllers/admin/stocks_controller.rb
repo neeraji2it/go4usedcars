@@ -51,6 +51,17 @@ class Admin::StocksController < ApplicationController
     end
   end
 
+  def procure_enquiry
+    @sell_cars = SellCar.all
+  end
+
+  def delete_procure_enquiry
+    @sell_car = SellCar.find(params[:id])
+    if @sell_car.destroy
+      redirect_to procure_enquiry_admin_stocks_path
+    end
+  end
+
   private
   def car_model_params
     params.require(:car_model).permit!
