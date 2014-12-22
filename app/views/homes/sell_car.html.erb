@@ -64,7 +64,7 @@
 
   	 	<i class="fa fa-calendar"></i>
 
-<%=f.date_field :manufacture_year,:placeholder=>"MakeYear",:class=>"form-control",:id=>"makemonth"%>
+<%=f.date_field :manufacture_year,:placeholder=>"MakeYear",:class=>"datepicker",:id=>"makemonth"%>
 
   <br />
 
@@ -186,7 +186,7 @@
     <div class="inner-addon left-addon">
   	<i class="fa fa-calendar"></i>
 <%=f.date_field :insurence_valid_till,:placeholder=>"Insurance Valid Till",
-  :id=>"InsValidTillMonth",:class=>"form-control"%>
+  :id=>"InsValidTillMonth",:class=>"datepicker"%>
     <br />
 
     </div>    
@@ -265,3 +265,11 @@
 
 
 </div>
+
+
+
+<script>
+  $(document).ready(function(){
+    $('.datepicker').datepicker dateFormat: "yy-mm-dd";
+  });
+</script>
