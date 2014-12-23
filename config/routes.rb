@@ -31,8 +31,11 @@ Rails.application.routes.draw do
         post :create_varient
         get  :car_model
         get :procure_enquiry
+        get :display_car_varient
         get :add_master_specification
         post :create_master_specification
+        get :edit_stock
+        put :update_stock
       end
       member do
         delete :delete_procure_enquiry

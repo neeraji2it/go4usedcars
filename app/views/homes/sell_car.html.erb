@@ -1,275 +1,160 @@
 <% @page_title = "Sell Car - Go4 Used Cars" %>
 
 <div class="box-main-contant">
-<h1><span class="about-us">Sell Cars</span></h1>
-
-
-
-<div class="border-row"></div>
-
-<div class="row">
-
-  <div class="col-xs-6 col-sm-2 left-paddings"> <p><center><h5><b>Sell your car</b><br />Go4usedcars.com<br />
-
- </h5>
-
- <br />
-
- </center></p>
-
- 	<div class="border-row"></div>
-
- 	
-
-  </div>
-
-  <div class="col-xs-6 col-sm-3 right-column-spacing">
-
-  
-
-  <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
-
-
-<div class="col-sm-3 box-sell-cars">
-
-
-<%=form_for @sell_car, :url=>"/homes/save_sell_car?loc=#{params[:loc]}",:method => "POST" do |f|%>
- 
-   <div class="inner-addon left-addon">
-
-    <i class="fa fa-car"></i>	
-<%= f.select :varient_id, options_for_select(Varient.all.map {|varient| varient.name}), {}, :id => "txtcar", :class => "form-control" %>
-<br />
-       </div>
-
-   
-
-    <p class="text-grey">(Manufacturer, Model & Varient)</p> 
-
-    
-
-<%= f.file_field :image, :id=>"usercarimage" %>
-<br />
-    <div class="inner-addon left-addon">
-
-    <i class="fa fa-user"></i>	
-
-  
-<%=f.text_field :name, :class=>"form-control",:placeholder=>"Name"%><br>
+  <h1><span class="about-us">Sell Cars</span></h1>
+  <div class="border-row"></div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-2 left-paddings"> <p><center><h5><b>Sell your car</b><br />Go4usedcars.com<br />
+        </h5>
+        <br />
+      </center></p>
+      <div class="border-row"></div>
     </div>
-
-  <label>Make Year</label>
-
-            <div class="inner-addon left-addon">
-
-  	 	<i class="fa fa-calendar"></i>
-
-<%=f.date_field :manufacture_year,:placeholder=>"MakeYear",:class=>"datepicker",:id=>"makemonth"%>
-
-  <br />
-
-    </div>    
-
-    <div class="inner-addon  left-addon">
-
-  	<%= f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]]), {}, :class=>"form-control",:id=>"drpOwner"%>
-
+    <div class="col-xs-6 col-sm-3 right-column-spacing">
+      <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
+      <div class="col-sm-3 box-sell-cars">
+        <%=form_for @sell_car, :url=>"/homes/save_sell_car?loc=#{params[:loc]}",:method => "POST" do |f|%>
+          <div class="inner-addon left-addon">
+            <i class="fa fa-car"></i>	
+            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| varient.name}), {}, :id => "txtcar", :class => "form-control" %>
+            <br />
+          </div>
+          <p class="text-grey">(Manufacturer, Model & Varient)</p> 
+          <%= f.file_field :image, :id=>"usercarimage" %>
+          <br />
+          <div class="inner-addon left-addon">
+            <i class="fa fa-user"></i>	
+            <%=f.text_field :name, :class=>"form-control",:placeholder=>"Name"%><br>
+          </div>
+          <label>Make Year</label>
+          <div class="inner-addon left-addon">
+            <i class="fa fa-calendar"></i>
+            <%=f.date_field :manufacture_year,:placeholder=>"MakeYear",:class=>"datepicker",:id=>"makemonth"%>
+            <br />
+          </div>    
+          <div class="inner-addon  left-addon">
+            <%= f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]]), {}, :class=>"form-control",:id=>"drpOwner"%>
             <span id="msgOwner" class="error"></span>
             <br/>
+          </div>
+          <div class="inner-addon left-addon">
+            <i class=" fa fa-cab"></i>	
+            <%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms"%>
+            <br>
+          </div>
+          <div class="inner-addon left-addon">
+            <i class="fa fa-building"></i>	
+            <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity"%><br>
+          </div>
+          <div class="inner-addon left-addon">
+            <i class="fa fa-certificate"></i>	
+            <%=f.text_field :color, :placeholder=>"Color",:class=>"form-control",:id=>"txtColor"%><br>
+          </div>
+          <div class="inner-addon left-addon ">
+            <%=f.select :transmission, options_for_select([["-- Select Transmission --",""],
+                ["Manual","Manual"],["Automatic","Automatic"]]), {}, :class=>"form-control", 
+              :id=>"selecttransmission" %>
+            <br>
+          </div>
+          <div class="inner-addon left-addon">
+            <i class="fa fa-pencil  "></i>	
+            <%=f.text_field :registration_no,:placeholder=>"Registration No.",:class=>"form-control",:id=>"txtRegNo"%>
+            <br />
+          </div>
+          <div class="inner-addon left-addon">
+            <i class="fa fa-pencil-square "></i>	
+            <%=f.text_field:registration_at,:placeholder=>"Registration At.",:class=>"form-control",:id=>"txtRegAt"%>
+          </div>
+          <div class="inner-addon left-addon">
+            <label style="padding-right:20px;">Ownership*</label>
+            <label class="radio-inline">
+              <%=radio_button_tag :ownership, "Individual"%> Individual
+            </label>
+            <label class="radio-inline">
+              <%=radio_button_tag :ownership, "Corporate",:id=>"btnTaxc"%> Corporate
+            </label>
+          </div>
+          <br />
+          <div class="inner-addon left-addon">
+            <label style="padding-right:20px;">Car Insurance*</label>
+            <label class="radio-inline">
+              <%=radio_button_tag :car_insurence, "Comprehensive",:id=>"rdoComprehensive"%> Comprehensive
+              <label class="radio-inline">
+                <%=radio_button_tag :car_insurence, "Third-Party",:id=>"rdoThirdParty"%> Third-Party
+              </label>
+              <label class="radio-inline">
+                <%=radio_button_tag :car_insurence, "No Insurance",:id=>"rdoNoInsurance"%> No Insurance
+              </label>
+          </div>
+          <br />
+          <div class="inner-addon left-addon">
+            <label style="padding-right:20px;">When you want to sell*</label>
+            <label>Insurance Valid Till</label>
+            <div class="inner-addon left-addon">
+              <i class="fa fa-calendar"></i>
+              <%=f.date_field :insurence_valid_till,:placeholder=>"Insurance Valid Till",
+                :id=>"InsValidTillMonth",:class=>"datepicker"%>
+              <br />
+              <label class="radio-inline">
+                <%=radio_button_tag :when_to_sell, "At the Earliest",:id=>"rdoComprehensive"%> At the Earliest 
+              </label>
+              <label class="radio-inline">
+                <%=radio_button_tag :when_to_sell, "With in this month",:id=>"rdoThirdParty"%>  With in this month
+              </label>
+              <label class="radio-inline">
+                <%=radio_button_tag :when_to_sell, "Just Evaluating",:id=>"rdoNoInsurance"%>  Just Evaluating
+              </label>
+            </div> <br />
+            <label>Insurance Valid Till</label>
+            <div class="inner-addon left-addon">
+              <i class="fa fa-calendar"></i>
+              <%=f.date_field :insurence_valid_till,:placeholder=>"Insurance Valid Till",
+                :id=>"InsValidTillMonth",:class=>"form-control"%>
+              <br />
+            </div>    
+            <div class="inner-addon left-addon">
+              <i class="fa fa-rupee "></i>	
+              <%=f.text_field :expected_price,:placeholder=>"Expected Price",:id=>"txtPrice",:class=>"form-control"%>
+              <br />
+            </div>
+            <div class="inner-addon left-addon">
+              <i class="fa fa-comment "></i>	
+              <%=f.text_field :comments,:placeholder=>"Your Comments",:class=>"form-control"%>
+              <br />
+            </div>
+            <p class="text-grey">Your comments are optional. Use this space to tell buyers in brief why do you wish to sell this car & what is so special about this car.</p>
+            <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOU
+            </h1>
+            <div class="inner-addon left-addon">
+              <i class="fa fa-user "></i>	
+              <%=f.text_field :seller_name,:placeholder=>"Your Name*",:id=>"txtName",:class=>"form-control"%>
+              <br />
+            </div>
+            <div class="inner-addon left-addon">
+              <i class="fa fa-envelope "></i>	
+              <%=f.text_field :seller_email,:placeholder=>"Email*",:id=>"txtEmail",:class=>"form-control"%>
+              <br />
+            </div>
+            <div class="inner-addon left-addon">
+              <i class="fa fa-phone"></i>	
+              <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control"%>
+              <br />
+            </div>
+            <div class="inner-addon left-addon">
+              <i class="fa fa-home "></i>	
+              <%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control"%><br />
+            </div>
+            <%= f.submit :class=>"btn btn-warning",:style=>"float:right;"%></br>
+          <%end%>
+          <div class="border-row"></div>
+        </div>
+        </p>
+      </div>
     </div>
-
-  <div class="inner-addon left-addon">
-
-    <i class=" fa fa-cab"></i>	
-
-<%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms"%>
-<br>
-    
-
-    </div>
-
-     <div class="inner-addon left-addon">
-
-    <i class="fa fa-building"></i>	
-  <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity"%><br>
-    </div>
-
-    <div class="inner-addon left-addon">
-
-    <i class="fa fa-certificate"></i>	
-  <%=f.text_field :color, :placeholder=>"Color",:class=>"form-control",:id=>"txtColor"%><br>
-    </div>
-
-    <div class="inner-addon left-addon ">
-  <%=f.select :transmission, options_for_select([["-- Select Transmission --",""],
-  ["Manual","Manual"],["Automatic","Automatic"]]), {}, :class=>"form-control", 
-  :id=>"selecttransmission" %>
-<br>
-    </div>
-
-    
-
-    <div class="inner-addon left-addon">
-
-    <i class="fa fa-pencil  "></i>	
-     <%=f.text_field :registration_no,:placeholder=>"Registration No.",:class=>"form-control",:id=>"txtRegNo"%>
-    <br />
-    </div>
-
-    
-
-    <div class="inner-addon left-addon">
-
-    <i class="fa fa-pencil-square "></i>	
-   <%=f.text_field:registration_at,:placeholder=>"Registration At.",:class=>"form-control",:id=>"txtRegAt"%>
-    </div>
-
-    <div class="inner-addon left-addon">
-
-    <label style="padding-right:20px;">Ownership*</label>
-
-    <label class="radio-inline">
-    <%=radio_button_tag :ownership, "Individual"%> Individual
-    </label>
-
- 
-
-<label class="radio-inline">
-<%=radio_button_tag :ownership, "Corporate",:id=>"btnTaxc"%> Corporate
- </label>
-
-</div>
-
-<br />
-
- <div class="inner-addon left-addon">
-
- <label style="padding-right:20px;">Car Insurance*</label>
-
-    <label class="radio-inline">
-
-  <%=radio_button_tag :car_insurence, "Comprehensive",:id=>"rdoComprehensive"%> Comprehensive
-
-<label class="radio-inline">
- <%=radio_button_tag :car_insurence, "Third-Party",:id=>"rdoThirdParty"%> Third-Party
-</label>
-
-<label class="radio-inline">
- <%=radio_button_tag :car_insurence, "No Insurance",:id=>"rdoNoInsurance"%> No Insurance
-</label>
-
- </div>
-
-  <br />
-
-<div class="inner-addon left-addon">
-
-<label style="padding-right:20px;">When you want to sell*</label>
-
-<label class="radio-inline">
-  <%=radio_button_tag :when_to_sell, "At the Earliest",:id=>"rdoComprehensive"%> At the Earliest 
-</label>
-
-<label class="radio-inline">
-  <%=radio_button_tag :when_to_sell, "With in this month",:id=>"rdoThirdParty"%>  With in this month
-</label>
-
-<label class="radio-inline">
- <%=radio_button_tag :when_to_sell, "Just Evaluating",:id=>"rdoNoInsurance"%>  Just Evaluating
-</label>
- </div> <br />
-
-      
-
-    
-<label>Insurance Valid Till</label>
-    <div class="inner-addon left-addon">
-  	<i class="fa fa-calendar"></i>
-<%=f.date_field :insurence_valid_till,:placeholder=>"Insurance Valid Till",
-  :id=>"InsValidTillMonth",:class=>"datepicker"%>
-    <br />
-
-    </div>    
-
-    
-
-    <div class="inner-addon left-addon">
-      <i class="fa fa-rupee "></i>	
- <%=f.text_field :expected_price,:placeholder=>"Expected Price",:id=>"txtPrice",:class=>"form-control"%>
-    <br />
-    </div>
-
-     <div class="inner-addon left-addon">
-
-    <i class="fa fa-comment "></i>	
-
-  
-    <%=f.text_field :comments,:placeholder=>"Your Comments",:class=>"form-control"%>
-    <br />
-    </div>
-
-     <p class="text-grey">Your comments are optional. Use this space to tell buyers in brief why do you wish to sell this car & what is so special about this car.</p>
-
-     <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOU
-     </h1>
-
-     <div class="inner-addon left-addon">
-
-    <i class="fa fa-user "></i>	
-    <%=f.text_field :seller_name,:placeholder=>"Your Name*",:id=>"txtName",:class=>"form-control"%>
-    <br />
-       </div>
-
-    <div class="inner-addon left-addon">
-
-    <i class="fa fa-envelope "></i>	
- <%=f.text_field :seller_email,:placeholder=>"Email*",:id=>"txtEmail",:class=>"form-control"%>
-    <br />
-       </div>
-
-    <div class="inner-addon left-addon">
-
-    <i class="fa fa-phone"></i>	
-    <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control"%>
-    <br />
-  
-    </div>
-
-    <div class="inner-addon left-addon">
-
-    <i class="fa fa-home "></i>	
-
-  
-<%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control"%><br />
-    </div>
-
-  
-    <%= f.submit :class=>"btn btn-warning",:style=>"float:right;"%></br>
-  <%end%>
-
- 
-
-  
-
- <div class="border-row"></div>
-
   </div>
 
-   </p>
-
-   </div>
-
-</div>
-
-
-
-
-</div>
-
-
-
-<script>
-  $(document).ready(function(){
-    $('.datepicker').datepicker dateFormat: "yy-mm-dd";
-  });
-</script>
+  <script>
+    $(document).ready(function() {
+      $('.datepicker').datepicker dateFormat: "yy-mm-dd";
+    });
+  </script>

@@ -1,0 +1,85 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-6">
+       <%= form_tag @car_model, :url => update_stock_admin_stocks_path, :method => "PUT" do |f| %>        
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <b>Add Vehicle Model</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Manufacturer</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= select_tag :manufacturer_id, options_for_select([["- Select -", ""]] + @manufacturers.map {|m| [m.name, m.id]}), :class => "form-control", :id => "manufacturer_id", :onchange => "load_all(this)" %>
+            </div>
+          </div>
+        </div>
+
+        <div id="load_carmodels">
+          <%= render :partial => "admin/stocks/load_carmodels" %>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Enter Model</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= text_field_tag :name, nil, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+             
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+             <span class="text-muted">Ex: A-Star</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= submit_tag "Add Model", :class => "btn btn-md btn-warning" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>    
+  </div>
+</div>
+
+<script>
+  function load_all(obj) {
+    var manufacturer_id = obj.value;
+    $.ajax({
+      url: "/admin/stocks/car_model",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        manufacturer_id: manufacturer_id
+      }
+    });
+  }
+</script>

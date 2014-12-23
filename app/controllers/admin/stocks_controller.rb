@@ -62,6 +62,19 @@ class Admin::StocksController < ApplicationController
     end
   end
 
+  def edit_stock
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+  end
+
+  def display_car_varient
+
+  end
+
+  def update_stock
+    
+  end
+
   private
   def car_model_params
     params.require(:car_model).permit!
