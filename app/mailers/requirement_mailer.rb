@@ -30,11 +30,11 @@ class RequirementMailer < ActionMailer::Base
         @name=name
         @mail=mail
         @phone=phone
-        mail(:to =>"smaranreddy123@gmail.com", :subject => "User Requirements")
+        mail(:to =>"crystal.badu@gmail.com", :subject => "User Requirements")
   end
 
   def associate_partner(associate_partner)
     @associate = AssociatePartner.find(associate_partner.id)
-    mail(:to =>"smaranreddy123@gmail.com", :subject => "User Requirements")
+    mail(:to =>"crystal.badu@gmail.com", :subject => "User Requirements")
   end
 end
