@@ -1,0 +1,38 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag @vehicle, :url => "/admin/vehicles/update_vehicle", :method => "GET" do %>
+      <div class="form-group">
+        <div class="row">
+        <div class="col-sm-6">
+          <%= select_tag :vehicle_id, options_for_select([["Select", ""]] + @vehicles.all.map {|vehicle| [vehicle.carinfo, vehicle.id]} ), :class => "form-control" %>
+        </div>
+      </div>
+      </div>
+      <% end %>
+    </div>
+    
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="edit_vehicle">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on("change", "#vehicle_id", function() {
+    var vehicle_id = $(this).val();
+   $.ajax({
+     url: "/admin/vehicles/" + vehicle_id + "/edit",
+     dataType: "Script",
+     type: "GET"
+   });
+  });
+</script>

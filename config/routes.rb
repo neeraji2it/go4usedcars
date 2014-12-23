@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       collection do 
         get :load_car_model
         get :load_varients
+        get :edit_vehicle
       end
     end
     resources :car_specifications

@@ -14,6 +14,30 @@ class Admin::VehiclesController < ApplicationController
       render :action => :new
     end
   end
+  
+  def edit_vehicle
+    @vehicles = Vehicle.all
+  end
+  
+  def edit
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @varients = Varient.where("car_model_id=?", params[:car_model_id])
+    @vehicle = Vehicle.find(params[:id])
+  end
+  
+  def update
+    @vehicles = Vehicle.all
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @varients = Varient.where("car_model_id=?", params[:car_model_id])
+    @vehicle = Vehicle.find(params[:id])
+    if @vechicle.update_attributes(vehicle_params)
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
 
   def load_car_model
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
