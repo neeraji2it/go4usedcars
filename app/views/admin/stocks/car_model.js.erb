@@ -1,1 +1,7 @@
-$("#load_carmodels").html('<%= escape_javascript render :partial => "admin/stocks/load_carmodels" %>');
+child_id = "<%= params[:child_id]  %>"
+
+<% if params[:child_id] == "load_carmodels" %>
+  $("#"+child_id).html('<%= escape_javascript render :partial => "admin/stocks/load_carmodels" %>');
+<% elsif params[:child_id] == "load_varients"  %>
+  $("#"+child_id).html('<%= escape_javascript render :partial => "admin/stocks/load_carmodels_edit" %>');
+<% end %>

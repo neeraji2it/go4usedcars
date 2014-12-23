@@ -35,8 +35,9 @@ Rails.application.routes.draw do
         get :add_master_specification
         post :create_master_specification
         get :edit_stock
-        put :update_stock
         match :update_model, via: [:get, :put]
+        get :list_varient
+        match :update_varient, via: [:get, :put]
       end
       member do
         delete :delete_procure_enquiry

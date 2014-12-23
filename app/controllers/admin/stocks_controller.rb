@@ -69,16 +69,31 @@ class Admin::StocksController < ApplicationController
   def edit_stock
     @manufacturers = Manufacturer.all
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @car_varients = Varient.where("car_model_id=?", params[:model_id])
   end
   
   def update_model
-
     @carmodel = CarModel.find(params[:model_id])     
     model_name = params[:model_name]
     p "-------------------------"
     p model_name
     p "-------------------------"
     @carmodel.update_attributes(:name => model_name)
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def list_varient
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @car_varients = Varient.where("car_model_id=?", params[:model_id])
+  end
+
+  def update_varient
+    varient_name = params[:varient_name]     
+    @varient = Varient.find(params[:varient_id])
+    @varient.update_attributes(:name => varient_name)
     respond_to do |format|
       format.js
     end
