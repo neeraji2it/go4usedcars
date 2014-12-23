@@ -3,7 +3,7 @@
 <div class="panel-body">
   <div class="row">
     <div class="col-sm-6">
-       <%= form_tag @car_model, :url => update_stock_admin_stocks_path, :method => "PUT" do |f| %>        
+      <%= form_tag @car_model, :url => update_model_admin_stocks_path, :method => "GET", :remote => true do %>        
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
@@ -29,7 +29,7 @@
         <div id="load_carmodels">
           <%= render :partial => "admin/stocks/load_carmodels" %>
         </div>
-        
+
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -39,7 +39,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= text_field_tag :name, nil, :class => "form-control" %>
+              <%= text_field_tag :name, nil, :class => "form-control modal_name1" %>
             </div>
           </div>
         </div>
@@ -47,13 +47,13 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-             
+
             </div>
           </div>
 
           <div class="col-sm-6">
             <div class="form-group">
-             <span class="text-muted">Ex: A-Star</span>
+              <span class="text-muted">Ex: A-Star</span>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <%= submit_tag "Add Model", :class => "btn btn-md btn-warning" %>
+              <%= submit_tag "Add Model", :class => "btn btn-md btn-warning", :id => "btnSubmit" %>
             </div>
           </div>
         </div>
@@ -73,6 +73,10 @@
 <script>
   function load_all(obj) {
     var manufacturer_id = obj.value;
+    if (manufacturer_id == '') {
+      $(".model_name1").val("");
+      return false;
+    }
     $.ajax({
       url: "/admin/stocks/car_model",
       dataType: "Script",
@@ -82,4 +86,29 @@
       }
     });
   }
+
+  $(document).on("change", "#varient_car_model_id", function() {
+    var model_id = $("#varient_car_model_id").val();
+    var model_name = $("#varient_car_model_id option:selected").text();
+    if (model_id == ''){
+      $(".modal_name1").val('');
+    } else {
+      $(".modal_name1").val(model_name);
+    }
+  });
+  
+  $(document).on("click", "#btnSubmit", function() {
+    var model_id = $("#varient_car_model_id").val();
+    var model_name = $(".modal_name1").val();
+     
+     $.ajax({
+      url: "/admin/stocks/update_model",
+      dataType: "Script",
+      type: "PUT",
+      data: {
+        model_id: model_id,
+        model_name: model_name
+      }
+    });     
+  });
 </script>

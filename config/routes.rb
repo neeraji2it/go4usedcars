@@ -36,6 +36,7 @@ Rails.application.routes.draw do
         post :create_master_specification
         get :edit_stock
         put :update_stock
+        match :update_model, via: [:get, :put]
       end
       member do
         delete :delete_procure_enquiry
