@@ -1,56 +1,52 @@
 <%= render :partial => "admin/shared/stocks_navbar" %>
 <table class="table table-stripped">
-<tr>
-<th> Manufacture Year</th>
-<th>Owner Type</th>
-<th>Kms Done</th>
-<th>City</th>
-<th>Color</th>
-<th>Transmission</th>
-<th>Registration No</th>
-<th>Registration At</th>
-<th>Ownership</th>
-<th>Car Insurence</th>
-<th>When To Sell</th>
-<th>Insurence Valid Till</th>
-<th>Expected Price</th>
-<th>Comments</th>
-<th>Seller Name</th>
-<th>Seller Email</th>
-<th>Seller Phone</th>
-<th>Seller Organization</th>
-<th> </th>
-</tr>
-<%@sell_cars.each do |s|%>
-<tr>
-<td>
-<%= s.manufacture_year.strftime("%A, %b %d") if s.manufacture_year.present? %>
-</td>
-<td><%= s.owner_type%></td>
-<td><%= s.kms_done%></td>
-<td><%= s.city%></td>
-<td><%= s.color%></td>
-<td><%= s.transmission%></td>
-<td><%= s.registration_no%></td>
-<td><%= s.registration_at%></td>
-<td><%= s.ownership%></td>
-<td><%= s.car_insurence%></td>
-<td><%= s.when_to_sell%></td>
-<td><%= s.insurence_valid_till.strftime("%A, %b %d") if s.insurence_valid_till.present? %></td>
-<td><%= s.expected_price%></td>
-<td><%= s.comments%></td>
-<td><%= s.seller_name%></td>
-<td><%= s.seller_email%></td>
-<td><%= s.seller_phone%></td>
-<td><%= s.seller_organization%></td>
-<td> 
-<%= link_to "Evalute", :style => "background-color: green;"%>
-<%= link_to "Delete",  delete_procure_enquiry_admin_stock_path(s),:method => :delete, :data => {:confirm => "are you sure"} %>
-</td>
-</tr>
+  <tr>
+    <th> Manufacture Year</th>
+    <th>Owner Type</th>
+    <th>Kms Done</th>
+    <th>City</th>
+    <th>Color</th>
+    <th>Transmission</th>
+    <th>Registration No</th>
+    <th>Registration At</th>
+    <th>Ownership</th>
+    <th>Car Insurence</th>
+    <th>When To Sell</th>
+    <th>Insurence Valid Till</th>
+    <th>Expected Price</th>
+    <th>Comments</th>
+    <th>Seller Name</th>
+    <th>Seller Email</th>
+    <th>Seller Phone</th>
+    <th>Seller Organization</th>
+    <th> </th>
+  </tr>
+  <%@sell_cars.each do |s|%>
+  <tr>
+    <td>
+      <%= s.manufacture_year.strftime("%A, %b %d") if s.manufacture_year.present? %>
+    </td>
+    <td><%= s.owner_type%></td>
+    <td><%= s.kms_done%></td>
+    <td><%= s.city%></td>
+    <td><%= s.color%></td>
+    <td><%= s.transmission%></td>
+    <td><%= s.registration_no%></td>
+    <td><%= s.registration_at%></td>
+    <td><%= s.ownership%></td>
+    <td><%= s.car_insurence%></td>
+    <td><%= s.when_to_sell%></td>
+    <td><%= s.insurence_valid_till.strftime("%A, %b %d") if s.insurence_valid_till.present?%></td>
+    <td><%= s.expected_price%></td>
+    <td><%= s.comments%></td>
+    <td><%= s.seller_name%></td>
+    <td><%= s.seller_email%></td>
+    <td><%= s.seller_phone%></td>
+    <td><%= s.seller_organization%></td>
+    <td> 
+      <%= link_to "Evalute", :style => "background-color: green;"%>
+      <%= link_to "Delete",  delete_procure_enquiry_admin_stock_path(s),:method => :delete, :data => {:confirm => "are you sure"} %>
+    </td>
+  </tr>
 <% end %>
 </table>
-
-
-
-     
