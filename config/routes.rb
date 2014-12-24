@@ -49,8 +49,19 @@ Rails.application.routes.draw do
         get :load_varients
         get :edit_vehicle
       end
+      member do 
+        put :update_vehicle
+      end
     end
-    resources :car_specifications
+    resources :car_specifications do
+      collection do 
+        get :edit_car_specification
+      end
+      member do 
+        get :edit_car_specific
+        put :update_car_specific
+      end
+    end
     resources :images do
       collection do
         post :create_video

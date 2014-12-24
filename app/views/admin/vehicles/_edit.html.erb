@@ -1,9 +1,9 @@
 <div class="panel-body">
- <%= form_for @vehicle, :url => "/admin/vehicles/#{params[:id]}", :method => "PUT", :remote => true do |f| %>
+ <%= form_for @vehicle, :url => update_vehicle_admin_vehicle_path(:id => params[:id]), :method => "PUT", :remote => true do |f| %>
  <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <b>Car Detail Edit Form</b>
+        <b>Update Car Details</b>
       </div>
     </div>
   </div>
@@ -11,29 +11,6 @@
 
   <div class="row">
     <div class="col-sm-6">
-     
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="form-group">
-              <b>Manufacturer</b>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= select_tag :manufacturer_id, options_for_select([["- Select -", ""]] + @manufacturers.map {|m| [m.name, m.id]}), :class => "form-control", :id => "manufacturer_id", :onchange => "load_carmodels(this.value)" %>
-            </div>
-          </div>
-        </div>
-
-        <div id="load_carmodels">
-          <%= render :partial => "admin/vehicles/load_carmodels" %>
-        </div>
-
-        <div id="load_varients">
-          <%= render :partial => "admin/vehicles/load_varients" %>
-        </div>
-
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -43,7 +20,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.file_field :image %>
+              <%= f.file_field :image %> <br/>
             </div>
           </div>
         </div>
@@ -71,7 +48,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.select :body_style, options_for_select([["-- Select body type", ""], ["Hatchback", "Hatchback"], ["Convertible", "Convertible"], ["MUV_VAN", "MUV_VAN"],["Seden", "Seden"], ["SUV", "SUV"]]), {}, :class => "form-control" %>
+              <%= f.select :body_style, options_for_select([["-- Select body type", ""], ["Hatchback", "Hatchback"], ["Convertible", "Convertible"], ["MUV_VAN", "MUV_VAN"],["Seden", "Seden"], ["SUV", "SUV"]], :selected => f.object.body_style), {}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -173,7 +150,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.select :transmission, options_for_select([["Select", ""], ["Manual", "Manual"], ["Automatic", "Automatic"]]), {}, :class => "form-control" %>
+              <%= f.select :transmission, options_for_select([["Select", ""], ["Manual", "Manual"], ["Automatic", "Automatic"]], selected: f.object.transmission), {}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -257,7 +234,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.select :car_for, options_for_select([["-Select-", ""], ["User", "User"], ["Dealer", "Dealer"], ["Both", "Both"]]), {}, :class => "form-control" %>
+              <%= f.select :car_for, options_for_select([["-Select-", ""], ["User", "User"], ["Dealer", "Dealer"], ["Both", "Both"]], selected: f.object.car_for), {}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -271,7 +248,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.select :visible_status, options_for_select([["-Select-", ""], ["Visible", "Visible"], ["Invisible", "Invisible"]]), {}, :class => "form-control" %>
+              <%= f.select :visible_status, options_for_select([["-Select-", ""], ["Visible", "Visible"], ["Invisible", "Invisible"]], selected: f.object.visible_status), {}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -285,7 +262,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.select :where_is_car, options_for_select([["-Select-", ""], ["Dealer", "Dealer"], ["Freelancer", "Freelancer"], ["Show Room", "Show Room"], ["Park & Sell", "Park & Sell"]]), {}, :class => "form-control" %>
+              <%= f.select :where_is_car, options_for_select([["-Select-", ""], ["Dealer", "Dealer"], ["Freelancer", "Freelancer"], ["Show Room", "Show Room"], ["Park & Sell", "Park & Sell"]], selected: f.object.where_is_car), {}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -302,27 +279,3 @@
    <% end %> 
 </div>
 </div>
-
-<script>
-  function load_carmodels(obj) {
-    $.ajax({
-    url: "/admin/vehicles/load_car_model",
-    type: "GET",
-    dataType: "Script",
-    data: {
-      manufacturer_id: obj
-    }
-  });
-  }
-
-  function load_varients(car_model_id) {
-    $.ajax({
-      url: "/admin/vehicles/load_varients",
-      dataType: "Script",
-      type: "GET",
-      data: {
-        car_model_id: car_model_id
-      }
-    });
-  }
-</script>

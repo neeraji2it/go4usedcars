@@ -1,4 +1,5 @@
 class Admin::VehiclesController < ApplicationController
+   skip_before_action :verify_authenticity_token
   def new
     @vehicle = Vehicle.new
     @manufacturers = Manufacturer.all
@@ -24,19 +25,19 @@ class Admin::VehiclesController < ApplicationController
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
     @varients = Varient.where("car_model_id=?", params[:car_model_id])
     @vehicle = Vehicle.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
   
-  def update
-    @vehicles = Vehicle.all
-    @manufacturers = Manufacturer.all
-    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
-    @varients = Varient.where("car_model_id=?", params[:car_model_id])
+  def update_vehicle
     @vehicle = Vehicle.find(params[:id])
-    if @vechicle.update_attributes(vehicle_params)
+    p "--------------------------------------"
+    p @vehicle
+    @vehicle.update_attributes(vehicle_params)
       respond_to do |format|
         format.js
       end
-    end
   end
 
   def load_car_model

@@ -3,7 +3,7 @@
 <div class="panel-body">
   <div class="row">
     <div class="col-sm-12">
-      <%= form_tag @vehicle, :url => "/admin/vehicles/update_vehicle", :method => "GET" do %>
+      <%= form_tag @car_specification, :url => "/admin/vehicles/update", :method => "GET" do %>
         <div class="form-group">
           <div class="row">
             <div class="col-sm-6">
@@ -17,7 +17,7 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
-          <div id="edit_vehicle">
+          <div id="edit_car_specific">
 
           </div>
         </div>
@@ -30,7 +30,7 @@
   $(document).on("change", "#vehicle_id", function() {
     var vehicle_id = $(this).val();
     $.ajax({
-      url: "/admin/vehicles/" + vehicle_id + "/edit",
+      url: "/admin/car_specifications/" + vehicle_id + "/edit_car_specific",
       dataType: "Script",
       type: "GET"
     });

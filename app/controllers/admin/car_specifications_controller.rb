@@ -29,45 +29,43 @@ class Admin::CarSpecificationsController < ApplicationController
 
      if technical_ids.present?
       technical_ids.each_with_index do |val, i|
-        @car_specification1 = CarSpecification.new
-        @car_specification1.specification_id = val
-        @car_specification1.name = technical_names[i]
-        @car_specification1.vehicle_id = vehicle_id
-        @car_specification1.specification_category_id = @technical.id
-        @car_specification1.save
+        #@car_specification1 = CarSpecification.new
+        #@car_specification2.name = feature_names[i]
+        CarSpecification.where(
+          specification_category_id: @technical.id,
+          specification_id: val,
+          vehicle_id: vehicle_id
+        ).first_or_create
       end
      end
 
      if feature_ids.present?
       feature_ids.each_with_index do |val, i|
-        @car_specification2 = CarSpecification.new
-        @car_specification2.specification_id = val
-        @car_specification2.name = feature_names[i]
-        @car_specification2.vehicle_id = vehicle_id
-        @car_specification2.specification_category_id = @feature.id
-        @car_specification2.save
+        CarSpecification.where(
+          specification_category_id: @feature.id,
+          specification_id: val,
+          vehicle_id: vehicle_id
+        ).first_or_create
       end
      end
 
      if entertainment_ids.present?
       entertainment_ids.each_with_index do |val, i|
-        @car_specification3 = CarSpecification.new
-        @car_specification3.specification_id = val
-        @car_specification3.name = entertainment_names[i]
-        @car_specification3.vehicle_id = vehicle_id
-        @car_specification3.specification_category_id = @entertainment.id
-        @car_specification3.save
+        CarSpecification.where(
+          specification_category_id: @entertainment.id,
+          specification_id: val,
+          vehicle_id: vehicle_id
+        ).first_or_create
       end
      end
 
      if safety_ids.present?
       safety_ids.each_with_index do |val, i|
-        @car_specification = CarSpecification.new
-        @car_specification.specification_id = val
-        @car_specification.name = safety_names[i]
-        @car_specification.vehicle_id = vehicle_id
-        @car_specification.specification_category_id = @safety.id
-        @car_specification.save
+        CarSpecification.where(
+          specification_category_id: @safety.id,
+          specification_id: val,
+          vehicle_id: vehicle_id
+        ).first_or_create
       end
      end
 
@@ -75,6 +73,27 @@ class Admin::CarSpecificationsController < ApplicationController
   end
 
   def edit
+    load_edit_specification
+  end
+
+  def update
+     update_specification
+     redirect_to edit_admin_car_specification_path(params[:id])
+  end  
+  
+  def edit_car_specification
+     @vehicles = Vehicle.all
+  end
+  
+  def edit_car_specific
+    load_edit_specification
+  end
+  
+  def update_car_specific
+    update_specification
+  end
+  
+  def load_edit_specification
     @vehicle = Vehicle.find(params[:id])
     @vehicles = Vehicle.all
 
@@ -88,8 +107,8 @@ class Admin::CarSpecificationsController < ApplicationController
     @entertainment_car_specifications = CarSpecification.where("vehicle_id=? and specification_category_id=?", @vehicle.id, @entertainment.id)
     @safety_car_specifications = CarSpecification.where("vehicle_id=? and specification_category_id=?", @vehicle.id, @safety.id)
   end
-
-  def update
+  
+  def update_specification
      technical_car_ids        = params[:technical_car_ids]
      feature_car_ids          = params[:feature_car_ids]
      entertainment_car_ids    = params[:entertainment_car_ids]
@@ -129,8 +148,6 @@ class Admin::CarSpecificationsController < ApplicationController
         @car_specification4.save
       end
      end
-
-     redirect_to edit_admin_car_specification_path(params[:id])
   end
 
   private
