@@ -1,128 +1,46 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <% if !resource.is_a?(Admin) %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <strong class=""><h3>Log in</h3></strong>
 
-    <div>
+                </div>
+                <div class="panel-body">
 
- <table width="960px" cellpadding="0" cellspacing="0">
-  <tr>
-    <td style="height:100px; background-color:#EC971F; text-align:center">&nbsp;
-   <img src="/assets/logo.png" alt="Logo"  style="max-height:auto; max-width:100px; " /> &nbsp;&nbsp;&nbsp;
-    </td>
-  </tr>
-  <tr> 
-   <td style="height:40px; border-bottom:solid 4px #ccc; border-top:solid 4px #EC971F; background-image:url(/assets/headbgyellow.gif); color:#000000">
-   <span style="padding-left:10px; font-size:14px"><strong>Go4usedcar: Admin Dashboard </strong></span> </td> 
-  </tr>
-  <tr>
-   <td style="height:320px; border-left:solid 1px #EC971F; border-right:solid 1px #EC971F"> 
-     <table width="900px">
-      <tr>
-       <td style="border:solid 2px #CCCCCC"><table width="100%">
-         <tr> </tr>
-         <tr>
-           <td colspan="2">&nbsp;</td>
-         </tr>
-  <td valign="top"><table cellpadding="7" cellspacing="0" width="320"  style="font-size:12px; ">
-    <tr>
-      <td colspan="2" style="border:none"><span style="font-size:22px; color:#3171bf;text-align:center; text-transform: uppercase;"><h2>Please Login</h2> </span> </td>
-    </tr>
-    <tr>
-      <td><table cellpadding="7" cellspacing="0" border="0" width="300" height="100px" style="font-size:12px;">
-        <tr>
-          
-          <td>
-          <div class="input-group">
-           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input type="text" id="txtuname" name="txtuname" class="form-control" placeholder="Admin Login ID"/>         
-          </div>
-           </td>
-        </tr>
-        <tr>
-          
-          <td>
-           <div class="input-group">
-           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-          <input type="password" id="txtpwd" name="txtpwd" class="form-control" placeholder="Password" /> 
-          
-          </div>
-                   </td>
-        </tr>
-      </table></td>
-    </tr>
-    <tr >
-      <td  style="text-align:center"><input  type="submit" id="loginsubmit" name="loginsubmit" value="Login"  class="btn btn-warning"/></td>
-    </tr>
-  <tr>
-   <td>&nbsp;
-    <?php 
-     if(isset($_REQUEST['login']))
-     {
-      if($_REQUEST['login']=='wrong')
-    {
-     echo "<b style='color:red'> Please enter correct id and password </b>";
-    }    
-     }
-    ?>
-   </td>
-  </tr>
-  </table></td>
-      <td valign="top">
-    <!--<table cellpadding="7" cellspacing="0"  width="400px"  style="font-size:12px;">
-          <tr>
-            <td colspan="2" style="border:none"><span style="font-size:22px; color:#3366FF">Lost Password? </span> </td>
-          </tr>
-          <tr>
-            <td valign="top"><table cellpadding="7" cellspacing="0" border="1" width="400px" height="50px" style="font-size:12px;">
-                <tr>
-                  <td>Enter your Email-Address  </td>
-                  <td><input type="text" id="emailoruname" name="emailoruname" />                  </td>
-                </tr>
-                
-            </table></td>
-          </tr>
-          <tr>
-            <td ><input  type="submit" id="getpwd" name="getpwd" value="Get Password" /></td>
-          </tr>
-      </table>-->
-    
-    </td>
-  </tr>
-        <tr><td colspan="2" >&nbsp;</td></tr>
-       </table></td>
-      </tr>
-      
-     </table>
-   </td>
-  </tr>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
   
-  <tr> 
-   <td style="height:100px; border-bottom:solid 4px #CCCCCC; border-top:solid 4px #EC971F; background-color:#666666; color:#FFFFFF"><span style="padding-left:10px;">&nbsp; </span> </td> 
-  </tr>
- </table>
- 
+    <div class="input-group input-group-lg">
 
-  <% else %>
-    <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            <span class="input-group-addon">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+              <span class="fa fa-envelope"></span>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+            </span>
+            
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+        </div>
+        <br />
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-  <% end %>
+        <div class="input-group input-group-lg">
+
+            <span class="input-group-addon">
+
+              <span class="fa fa-lock fa-lg"></span>
+
+            </span>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control",
+             placeholder: "Password" %>
+
+        </div> 
+
+    <br />
+<%= f.submit "Sign in", class: 'btn btn-md btn-primary' %>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</td>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
