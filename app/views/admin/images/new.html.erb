@@ -30,9 +30,9 @@
               <!--Implement here nested form for images-->
               <%= f.fields_for :images do |task_form| %>
               <%= task_form.file_field :image %>
-              <%= task_form.link_to_remove "Remove this task" %>
+              <%= task_form.link_to_remove "Remove" %>
               <% end %>
-              <p><%= f.link_to_add "Add a task", :images %></p>
+              <p><%= f.link_to_add "Add More Image", :images %></p>
 
 
 
@@ -43,7 +43,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-sm-12">
-             <%= f.submit :class => "btn btn-md btn-warning", :id => "submit1" %>
+             <%= f.submit "Create Image", :class => "btn btn-md btn-warning", :id => "submit1" %>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
          <div class="form-group">
           <div class="row">
             <div class="col-sm-6">
-              <b>Add Video of Cars</b>
+              <b>Add Videos of Cars</b>
             </div>
           </div>
         </div>

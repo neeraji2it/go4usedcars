@@ -18,7 +18,7 @@
         <%=form_for @sell_car, :url=>"/homes/save_sell_car?loc=#{params[:loc]}",:method => "POST" do |f|%>
           <div class="inner-addon left-addon">
             <i class="fa fa-car"></i>	
-            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| varient.name}), {}, :id => "txtcar", :class => "form-control" %>
+            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| [varient.name, varient.id] }), {}, :id => "txtcar", :class => "form-control" %>
             <br />
           </div>
           <p class="text-grey">(Manufacturer, Model & Varient)</p> 

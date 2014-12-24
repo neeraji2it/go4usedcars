@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sell_car_id: 1
+  evaluator: MyString
+  remarks: MyText
+  expected_price: 1.5
+  evaluated_price: 1.5
+  deal_price1: 1.5
+  deal_price2: 1.5
+
+two:
+  sell_car_id: 1
+  evaluator: MyString
+  remarks: MyText
+  expected_price: 1.5
+  evaluated_price: 1.5
+  deal_price1: 1.5
+  deal_price2: 1.5

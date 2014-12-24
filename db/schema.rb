@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223054600) do
+ActiveRecord::Schema.define(version: 20141224065858) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 20141223054600) do
     t.string   "email"
     t.string   "dealer_type"
     t.string   "dealer_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "car_evaluations", force: true do |t|
+    t.integer  "sell_car_id"
+    t.string   "evaluator"
+    t.text     "remarks"
+    t.float    "expected_price",  limit: 24
+    t.float    "evaluated_price", limit: 24
+    t.float    "deal_price1",     limit: 24
+    t.float    "deal_price2",     limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
   end
