@@ -1,0 +1,28 @@
+<%= form_for @evaluation, url: "/admin/purchase_procedures/create_evaluation", :method => "POST", :remote => true do |f| %>
+  <%= f.hidden_field :sell_car_id, :value => params[:sell_car_id] %>
+  <div class="panel-body">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.select :evaluator, options_for_select([["-- Select --", ""], ["Ankit Jindal", "Ankit Jindal"], ["Pavan Rao", "Pavan Rao"]]), {}, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.text_area :remarks, :cols => "22", :rows => "5", :class => "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.submit "Assign to Evaluate", :class => "btn btn-warning btn-md" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

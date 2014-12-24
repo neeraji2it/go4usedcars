@@ -51,10 +51,6 @@ class Admin::StocksController < ApplicationController
     end
   end
 
-  def procure_enquiry
-    @sell_cars = SellCar.all
-  end
-
   def delete_procure_enquiry
     @sell_car = SellCar.find(params[:id])
     if @sell_car.destroy

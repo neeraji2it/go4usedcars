@@ -1,0 +1,42 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+<div class="table-responsive">
+  <table class="table table-stripped table-hover">
+    <tr>
+      <th>ID</th>
+      <th>Car_Detail</th>
+      <th>Kms & Exp.Price</th>
+      <th>Reg. Details</th>
+      <th>Insurance & Tax</th>
+      <th>Comments</th>
+      <th>User Detail</th>
+      <th></th>
+    </tr>
+    
+    <%@sell_cars.each do |s|%>
+      <tr>
+       <%= render :partial => "common_table_data", locals: {s: s} %>        
+        <td> 
+          <%= link_to "Evaluate", "#", :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModalWaiting", :id => "evaluate_modal", data: {id: "#{s.id}" } %>
+          <br/><br/>
+          <%= link_to "Delete",  delete_procure_enquiry_admin_stock_path(s),:method => :delete, :data => {:confirm => "are you sure"}, :class => "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= render :partial => "modal_waiting_to_evaluate" %>
+
+<script>
+  $(document).on("click", "#evaluate_modal", function(){
+    var sell_car_id = $(this).data("id");
+    $.ajax({
+      url: "/admin/purchase_procedures/deal",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        sell_car_id: sell_car_id
+      }
+    });
+  });
+</script>

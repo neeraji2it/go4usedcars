@@ -1,0 +1,39 @@
+<%= form_for @evaluation, url: "/admin/purchase_procedures/update_deal?sell_car_id=#{params[:sell_car_id]}", :method => "PUT", :remote => true do |f| %>
+  <%= f.hidden_field :sell_car_id, :value => params[:sell_car_id] %>
+  <div class="panel-body">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12">
+          Expected Price: 
+          <%= f.text_field :expected_price, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12">
+          Evaluated Price
+          <%= f.text_field :evaluated_price, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12">
+          Deal Price
+          <%= f.text_field :deal_price1, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.submit "Assign to Evaluate", :class => "btn btn-warning btn-md" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

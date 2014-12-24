@@ -30,7 +30,6 @@ Rails.application.routes.draw do
         post :create_model
         post :create_varient
         get  :car_model
-        get :procure_enquiry
         get :display_car_varient
         get :add_master_specification
         post :create_master_specification
@@ -65,6 +64,18 @@ Rails.application.routes.draw do
     resources :images do
       collection do
         post :create_video
+      end
+    end
+    resources :purchase_procedures do
+      collection do
+        get :procure_enquiry
+        get :new_evaluation
+        post :create_evaluation
+        get :waiting_to_evaluate
+        get :deal
+        put :update_deal
+        get :evaluated
+        get :purchased_car
       end
     end
   end
