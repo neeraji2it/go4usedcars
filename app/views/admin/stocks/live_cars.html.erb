@@ -1,0 +1,39 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+
+<div class="table-responsive">
+  <table class="table table-stripped table-hover">
+    <tr>
+      <th>S.No.</th>
+      <th>Cars</th>
+      <th>Price</th>
+      <th>Milege</th>
+      <th>Reg. Yr.</th>
+      <th>Location</th>
+      <th></th>
+    </tr>
+
+    <%@cars.each_with_index do |car, i|%>
+      <tr>
+        <td><%= i+1 %></td>
+        <td>
+          <%= car.carinfo %> <br/>
+        </td>
+        <td>
+          <%= car.sell_price %> <br/>
+        </td>
+        <td>
+          <%= car.milage %> <br/>
+        </td>
+        <td>
+          <%= car.reg_year %> <br/>
+        </td>
+        <td>
+          <%= car.location %> <br/>
+        </td>
+        <td> 
+          <%= link_to "Sold", sold_admin_stock_path(:id => car.id), :method => "PUT", remote: true, :class => "btn btn-warning btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

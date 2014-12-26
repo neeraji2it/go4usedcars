@@ -94,6 +94,32 @@ class Admin::StocksController < ApplicationController
       format.js
     end
   end
+  
+  def live_cars
+   @cars = Vehicle.live_cars 
+  end
+  
+  def sold_cars
+    @cars = Vehicle.sold_cars
+  end
+  
+  def sold
+    @vehicle = Vehicle.find(params[:id])
+    if @vehicle.update_attributes(:status => "#{Status::Vehicle::SOLD}")
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+  
+  def unsold
+    @vehicle = Vehicle.find(params[:id])
+    if @vehicle.update_attributes(:status => "#{Status::Vehicle::LIVE}")
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
 
   private
   def car_model_params

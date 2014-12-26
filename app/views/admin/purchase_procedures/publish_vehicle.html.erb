@@ -58,7 +58,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_area :location, :class => "form-control", :rows => "1" %>
+              <%= f.text_area :location, :value => @purchase_car.try(:city), :class => "form-control", :rows => "1" %>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_field :exterior_color, :class => "form-control" %>
+              <%= f.text_field :exterior_color, :value => @purchase_car.try(:color), :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_field :manufactured_year, :class => "form-control" %>
+              <%= f.text_field :manufactured_year, :value => @purchase_car.try(:manufacture_year), :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -202,7 +202,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_field :registration_no, :class => "form-control" %>
+              <%= f.text_field :registration_no, :class => "form-control", :value => @purchase_car.try(:registration_no) %>
             </div>
           </div>
         </div>

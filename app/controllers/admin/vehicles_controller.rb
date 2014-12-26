@@ -47,6 +47,15 @@ class Admin::VehiclesController < ApplicationController
   def load_varients
     @varients = Varient.where("car_model_id=?", params[:car_model_id])
   end
+  
+  def destroy
+    @vehicle = Vehicle.find(params[:id])
+    if @vehicle.destroy
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
 
   private
   def vehicle_params

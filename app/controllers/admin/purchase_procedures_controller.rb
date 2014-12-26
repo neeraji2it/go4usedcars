@@ -83,7 +83,8 @@ class Admin::PurchaseProceduresController < ApplicationController
     @purchase_car = SellCar.find(params[:sell_car_id])
     @vehicle = Vehicle.new(vehicle_params)
     if @vehicle.save
-#      @purchase_car.update_attributes(:status => "")
+      @purchase_car.update_attributes(:status => "#{Status::SellCar::INSTOCK}")
+      @vehicle.update_attributes(:status => "#{Status::Vehicle::LIVE}")
       redirect_to specification_entry_admin_purchase_procedures_path
     else
       render :action => :publish_vehicle

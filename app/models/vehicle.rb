@@ -12,4 +12,7 @@ class Vehicle < ActiveRecord::Base
   def carinfo
     "#{self.try(:varient).try(:car_model).try(:manufacturer).try(:name)}  #{self.try(:varient).try(:car_model).try(:name)}  #{self.try(:varient).try(:name)}"
   end
+  
+  scope :live_cars, lambda { where(:status => "#{Status::Vehicle::LIVE}") }
+  scope :sold_cars, lambda { where(:status => "#{Status::Vehicle::SOLD}") }
 end

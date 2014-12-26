@@ -37,9 +37,13 @@ Rails.application.routes.draw do
         match :update_model, via: [:get, :put]
         get :list_varient
         match :update_varient, via: [:get, :put]
+        get :live_cars
+        get :sold_cars
       end
       member do
         delete :delete_procure_enquiry
+        put :sold
+        put :unsold
       end
     end
     resources :vehicles do 
