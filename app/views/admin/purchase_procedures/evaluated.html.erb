@@ -9,15 +9,25 @@
       <th>Insurance & Tax</th>
       <th>Comments</th>
       <th>User Detail</th>
+      <th>Evaluator</th>
+      <th>Evaluation Details</th>
       <th></th>
     </tr>
-    
+
     <%@sell_cars.each do |s|%>
       <tr>
-       <%= render :partial => "common_table_data", locals: {s: s} %>
-        
+        <%= render :partial => "common_table_data", locals: {s: s} %>
+        <%= render :partial => "evaluator_info", locals: {s: s} %> 
+
+        <td>
+          <b>Expected:</b> <%= s.car_evaluation.expected_price %> <br/>
+          <b>Evaluated: </b> <%= s.car_evaluation.evaluated_price %> <br/>
+          <b>Deal Price: </b> <%= s.car_evaluation.deal_price1 %> <br/>
+          <b>Date: </b> <%= s.car_evaluation.updated_at.strftime("%Y-%m-%d") %>
+        </td>
+
         <td> 
-          <%= link_to "Evalute", "#", :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModalEvaluator", :id => "evaluate_modal", data: {id: "#{s.id}" } %>
+          <%= link_to "Purchased", "#", :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModalFinalDeal", :id => "final_deal_modal", data: {id: "#{s.id}" } %>
           <br/><br/>
           <%= link_to "Delete",  delete_procure_enquiry_admin_stock_path(s),:method => :delete, :data => {:confirm => "are you sure"}, :class => "btn btn-danger btn-sm" %>
         </td>
@@ -25,3 +35,19 @@
     <% end %>
   </table>
 </div>
+
+<%= render :partial => "modal_final_deal" %>
+
+<script>
+  $(document).on("click", "#final_deal_modal", function() {
+    var sell_car_id = $(this).data("id");
+    $.ajax({
+      url: "/admin/purchase_procedures/final_deal",
+      dataType: "Script",
+      type: "Get",
+      data: {
+        sell_car_id: sell_car_id
+      }
+    });
+  });
+</script>

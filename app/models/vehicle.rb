@@ -10,6 +10,6 @@ class Vehicle < ActiveRecord::Base
   has_many :videos
 
   def carinfo
-    self.varient.car_model.manufacturer.name + " " + self.varient.car_model.name + " " + self.varient.name
+    "#{self.try(:varient).try(:car_model).try(:manufacturer).try(:name)}  #{self.try(:varient).try(:car_model).try(:name)}  #{self.try(:varient).try(:name)}"
   end
 end

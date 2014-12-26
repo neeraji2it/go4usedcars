@@ -1,0 +1,342 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+<div class="panel-body">
+ <%= form_for @vehicle, :url => "/admin/purchase_procedures/save_vehicle?sell_car_id=#{params[:sell_car_id]}", :method => "POST" do |f| %>
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <b>Car Detail Form</b> &nbsp; &nbsp; <%= @purchase_car.try(:model_varient) %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+
+  <div class="row">
+    <div class="col-sm-6">
+     
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Manufacturer</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= select_tag :manufacturer_id, options_for_select([["- Select -", ""]] + @manufacturers.map {|m| [m.name, m.id]}), :class => "form-control", :id => "manufacturer_id", :onchange => "load_carmodels(this.value)" %>
+            </div>
+          </div>
+        </div>
+
+        <div id="load_carmodels">
+          <%= render :partial => "admin/vehicles/load_carmodels" %>
+        </div>
+
+        <div id="load_varients">
+          <%= render :partial => "admin/vehicles/load_varients" %>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Car Image</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.file_field :image %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Location</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_area :location, :class => "form-control", :rows => "1" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Body style</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :body_style, options_for_select([["-- Select body type", ""], ["Hatchback", "Hatchback"], ["Convertible", "Convertible"], ["MUV_VAN", "MUV_VAN"],["Seden", "Seden"], ["SUV", "SUV"]]), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Exterior Color</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :exterior_color, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Reg. Year</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :reg_year, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+        
+
+         <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Manufactured Year</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :manufactured_year, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Milage</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :milage, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Fuel type</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :fuel_type, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+     <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Engine Type</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :engine_type, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Transmission</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :transmission, options_for_select([["Select", ""], ["Manual", "Manual"], ["Automatic", "Automatic"]]), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Registration State</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :registration_state, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Registration No.</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :registration_no, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+       
+       <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Purchase Price</b>
+            </div>
+          </div>
+          
+          <div class="col-sm-6">
+            <div class="form-group text-info">
+              <%= @purchase_car.try(:car_evaluation).try(:deal_price2) %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Sell Price</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :sell_price, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+         <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Sterio</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :sterio, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+         <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Seat Covers</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.text_field :seat_covers, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+         <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Car For</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :car_for, options_for_select([["-Select-", ""], ["User", "User"], ["Dealer", "Dealer"], ["Both", "Both"]]), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+         <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Visible Status</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :visible_status, options_for_select([["-Select-", ""], ["Visible", "Visible"], ["Invisible", "Invisible"]]), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <b>Where is car?</b>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.select :where_is_car, options_for_select([["-Select-", ""], ["Dealer", "Dealer"], ["Freelancer", "Freelancer"], ["Show Room", "Show Room"], ["Park & Sell", "Park & Sell"]]), {}, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+             <%= f.submit "Save", :class => "btn btn-md btn-warning" %>
+            </div>
+          </div>
+     </div>
+
+  </div>
+   <% end %> 
+</div>
+
+<script>
+  function load_carmodels(obj) {
+    $.ajax({
+    url: "/admin/vehicles/load_car_model",
+    type: "GET",
+    dataType: "Script",
+    data: {
+      manufacturer_id: obj
+    }
+  });
+  }
+
+  function load_varients(car_model_id) {
+    $.ajax({
+      url: "/admin/vehicles/load_varients",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        car_model_id: car_model_id
+      }
+    });
+  }
+</script>

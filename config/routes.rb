@@ -75,7 +75,13 @@ Rails.application.routes.draw do
         get :deal
         put :update_deal
         get :evaluated
+        get :final_deal
+        put :update_final_deal
         get :purchased_car
+        get :publish_vehicle
+        post :save_vehicle
+        get :specification_entry
+        post :create_specification
       end
     end
   end

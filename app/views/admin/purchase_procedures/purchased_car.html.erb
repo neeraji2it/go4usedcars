@@ -9,17 +9,25 @@
       <th>Insurance & Tax</th>
       <th>Comments</th>
       <th>User Detail</th>
+      <th>Evaluator</th>
+      <th>Evaluation_Detail</th>
       <th></th>
     </tr>
-    
+
     <%@sell_cars.each do |s|%>
       <tr>
-       <%= render :partial => "common_table_data", locals: {s: s} %>
-        
+        <%= render :partial => "common_table_data", locals: {s: s} %>
+        <%= render :partial => "evaluator_info", locals: {s: s} %> 
+
+        <td>
+          <b>Expected:</b> <%= s.car_evaluation.expected_price %> <br/>
+          <b>Evaluated: </b> <%= s.car_evaluation.evaluated_price %> <br/>
+          <b>Deal Price: </b> <%= s.car_evaluation.deal_price2 %> <br/>
+          <b>Date: </b> <%= s.car_evaluation.updated_at.strftime("%Y-%m-%d") %>
+        </td>
+
         <td> 
-          <%= link_to "Evaluate", "#", :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModalEvaluator", :id => "evaluate_modal", data: {id: "#{s.id}" } %>
-          <br/><br/>
-          <%= link_to "Delete",  delete_procure_enquiry_admin_stock_path(s),:method => :delete, :data => {:confirm => "are you sure"}, :class => "btn btn-danger btn-sm" %>
+          <%= link_to "Publish Live", publish_vehicle_admin_purchase_procedures_path(:sell_car_id => s.id), :class => "btn btn-warning btn-sm" %>
         </td>
       </tr>
     <% end %>
