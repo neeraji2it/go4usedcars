@@ -1,0 +1,35 @@
+<%= render :partial=>"/admin/shared/dealers_navbar" %>
+<tr><td>Dealer's Detail </td></tr> 
+<div class="table-responsive">
+<table class="table table-stripped table-hover">
+  <tr>
+    <th>DealerID</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email_ID</th>
+    <th>Address</th>
+    <th>Type</th>
+    <th>Approved</th>
+    <th>password</th>
+    <th>PostDate</th>
+    <th></th>
+  </tr>
+  <% @associate_partners.each do |associate_partner| %>
+    <tr>
+      <td><%= associate_partner.id  %> </td>
+      <td><%= associate_partner.name %> </td>
+      <td><%= associate_partner.phone %> </td>
+      <td><%= associate_partner.email %> </td>
+      <td><%= associate_partner.address %> </td>
+      <td><%= associate_partner.dealer_type  %> </td>
+      <td><%#= associate_partner.  %> </td>
+      <td><%#= associate_partner.  %> </td>
+      <td><%= associate_partner.created_at.strftime("%d-%m-%Y")%> </td>
+      <td>
+        <%= link_to "Approve", "#" %> 
+        <%= link_to "Disapprove", "#" %>
+      </td>
+    </tr>
+  <%end%>
+</table> 
+</div>

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :dashboards do
       collection do
         get :testimonials
+        get :dealers
       end
     end
     resources :stocks do
