@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   resources :careers
   resources :associate_partners
   namespace :admin do
-    resources :dashboards
+    resources :dashboards do
+      collection do
+        get :testimonials
+      end
+    end
     resources :stocks do
       collection do
         get :addtostock

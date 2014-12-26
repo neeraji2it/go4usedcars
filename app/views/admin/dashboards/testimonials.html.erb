@@ -1,0 +1,23 @@
+<%= render :partial => "admin/shared/testimonials_navbar" %>
+
+<tr><td>Testimonials</td></tr>
+<table class="table table-stripped table-hover">
+
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email_ID</th>
+    <th>Testimonial</th>
+    <th>PostDate</th>
+    <th></th>
+  </tr>
+  <%@testimonials.each do |testimonial|%>
+    <tr>
+      <td><%= testimonial.id %></td>
+      <td><%= testimonial.name %></td>
+      <td><%= testimonial.email %></td>
+      <td><%= testimonial.testimonial %></td>
+      <td><%= testimonial.created_at.strftime("%d-%m-%Y") %></td>
+    </tr>
+  <%end%>
+</table>
