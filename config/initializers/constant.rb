@@ -10,5 +10,6 @@ module Status
   module Vehicle
     LIVE = "live"
     SOLD = "sold"
-  end
+  end  
 end
+YEAR = (1990..2014)

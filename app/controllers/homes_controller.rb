@@ -20,6 +20,13 @@ class HomesController < ApplicationController
 	end
 
 	def buy_car
+    if params[:loc] == "gurgaon"
+     @cars = Vehicle.gurgaon_cars
+    elsif params[:loc] == "bangalore"
+     @cars = Vehicle.bangalore_cars
+    else
+      @cars = ""
+    end
 	end
 
 	def sell_car

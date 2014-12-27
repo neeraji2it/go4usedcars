@@ -1,7 +1,16 @@
 <% @page_title = "Buy Car - Go4 Used Cars" %>
 
-<% if params[:loc] == "gurgaon" %>
-  <%= render :partial => "homes/buy_car_delhi" %>
-  <% elsif params[:loc] == "bangalore" %>
-  <%= render :partial => "homes/buy_car_bangalore" %>
-<% end %>
+<h1><span class="about-us text-testimonials">Buy Cars</span></h1>
+
+<div class="border-row"></div>
+<div class="row">
+  <div class="col-xs-6 col-sm-2 left-paddings buycar-paddings "> 
+    <%= render :partial => "car_search_menu" %>
+  </div>
+
+  <div class="col-xs-6 col-sm-3 buycar-width">
+    <div id="search_result">
+      <%= render :partial => "buy_car" %>
+    </div>
+  </div>
+</div>
