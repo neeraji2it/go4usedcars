@@ -1,5 +1,5 @@
 class Admin::StocksController < ApplicationController
-   before_filter :authenticate_admin!
+  before_filter :authenticate_admin!
 
   def addtostock
     @car_model =  CarModel.new
@@ -24,7 +24,7 @@ class Admin::StocksController < ApplicationController
   def create_varient
     @manufacturers = Manufacturer.all
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
-     @car_varient = Varient.new(car_varient_params)
+    @car_varient = Varient.new(car_varient_params)
     if @car_varient.save
       redirect_to addtostock_admin_stocks_path
     else
@@ -96,7 +96,7 @@ class Admin::StocksController < ApplicationController
   end
   
   def live_cars
-   @cars = Vehicle.live_cars 
+    @cars = Vehicle.live_cars 
   end
   
   def sold_cars
@@ -121,6 +121,44 @@ class Admin::StocksController < ApplicationController
     end
   end
 
+  def offer
+    @vehicles = Vehicle.all
+    @cars = Vehicle.where("offer_price != ?", '')
+    @vehicle = Vehicle.new
+  end
+  
+  def edit_offer
+    @vehicle = Vehicle.find(params[:vehicle_id])
+    @vehicles = Vehicle.all
+    @cars = Vehicle.where("offer_price != ?", '')
+  end
+ 
+  def update_offer
+    @cars = Vehicle.where("offer_price != ?", '')
+    @vehicles = Vehicle.all
+    @vehicle = Vehicle.find(params[:vehicle_id])
+    if @vehicle.update(vehicle_offer_params)
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+  
+  def offer_index
+   @vehicles = Vehicle.all
+   @cars = Vehicle.where("offer_price != ?", '')
+  end
+  
+  def remove_offer
+    @vehicle = Vehicle.find(params[:id])
+    @cars = Vehicle.where("offer_price != ?", '')
+    if @vehicle.update_attributes(:offer_price => '')
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+   
   private
   def car_model_params
     params.require(:car_model).permit!
@@ -133,4 +171,9 @@ class Admin::StocksController < ApplicationController
   def specification_params
     params.require(:specification).permit!
   end
+  
+  def vehicle_offer_params
+    params.require(:vehicle).permit!
+  end
+  
 end

@@ -1,0 +1,21 @@
+<%= form_for @vehicle, :url => update_offer_admin_stocks_path(:vehicle_id => params[:vehicle_id]), :method => "PUT", :remote => true do |f| %>
+  <div class="col-sm-1">
+    <div class="form-group">
+      <b>Offer</b>
+    </div>
+  </div>
+
+  <div id='form-offer'>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <%= f.text_field :offer_price, :class => "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <%= f.submit "Add Offer", :class=>"btn btn-warning",:id=>"submitoffer" %>
+    </div>
+  </div>
+<% end %> 

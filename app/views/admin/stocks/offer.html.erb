@@ -1,0 +1,45 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+
+<div class="panel-body">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag @vehicle_offer, :url => "/", :method => "PUT", :remote => true do %>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <b>Select Vehicle</b>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-group">
+            <%= select_tag :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), :class => "form-control", :id => "select_vehicle" %>
+          </div>
+        </div>
+      <% end %>
+      
+      <div id='edit_offer'>
+        <%= render :partial => "edit_offer" %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div id='offer_index'>
+  <%= render :partial => "offer_index" %>
+</div>
+
+<script>
+  $(document).on("change", "#select_vehicle", function(){
+    var vehicle_id = $(this).val();
+    
+    $.ajax({
+      url: "/admin/stocks/edit_offer",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        vehicle_id: vehicle_id
+      }
+    });
+  });
+</script>

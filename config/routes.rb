@@ -44,11 +44,15 @@ Rails.application.routes.draw do
         match :update_varient, via: [:get, :put]
         get :live_cars
         get :sold_cars
+        get :offer
+        get :edit_offer
+        put :update_offer
       end
       member do
         delete :delete_procure_enquiry
         put :sold
         put :unsold
+        put :remove_offer
       end
     end
     resources :vehicles do 
