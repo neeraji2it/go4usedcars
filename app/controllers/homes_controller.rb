@@ -27,7 +27,17 @@ class HomesController < ApplicationController
     else
       @cars = ""
     end
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
 	end
+  
+  def load_model
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+  end
+  
+  def search_car
+    
+  end
 
 	def sell_car
 		@sell_car = SellCar.new

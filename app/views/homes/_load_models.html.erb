@@ -1,0 +1,1 @@
+<%= select_tag :car_model, options_for_select([["- Select -", ""]] + @car_models.map {|x| [x.name, x.id]}), :style => "width:200px;", :class => "selectstyle" %>

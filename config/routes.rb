@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root 'homes#index'
   resources :homes do
     collection do
-   
       get :about_us  
       get :buy_car
+      get :load_model
+      get :search_car
       get :sell_car
       post :save_sell_car
       get :auto_finance

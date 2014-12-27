@@ -4,20 +4,20 @@
     <b>USED CARS SEARCH</b>
   </h5>           
   <table  cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="table-cars-search">
-    <%= form_tag @search, :url => "/", :method => "GET" do %>
+    <%= form_tag @search, :url => "/homes/search_car", :method => "GET" do %>
       <tr>
         <td style="height:10px;" > </td> 
       </tr>
       <tr>
         <td class="borderforleft"> 
-          <%= select_tag "category", options_for_select([["- Manufacturer -", ""]]), :id => "selectcategory", :style => "width:200px;", :class => "selectstyle" %>
+          <%= select_tag :manufacturer, options_for_select([["- Select -", ""]] + @manufacturers.map {|x| [x.name, x.id]}), :id => "select_manuf", :style => "width:200px;", :class => "selectstyle" %>
         </td>
       </tr>
-      <tr>
+      <tr id="load_carmodels">
         <td class="borderforleft"> 
-          <%= select_tag "car_model", options_for_select([["- Car Model -", ""]]), :id => "selectcategory", :style => "width:200px;", :class => "selectstyle" %>
+          <%= render :partial => "load_models" %>
         </td>
-      </tr>
+      </tr> 
       <tr>
         <td class="borderforleft"> 
           <%= select_tag "price", options_for_select([["- Price Range -", ""], ["Up to 1 lakh", "0"], ["1-3 lakhs", "1"],["3-5 lakhs", "2"],["5-8 lakhs", "3"],["8-13 lakhs", "4"],["13-20 lakhs", "5"], ["20 lakhs or above", "6"] ]), :id => "selectcategory", :style => "width:200px;", :class => "selectstyle" %>
@@ -46,3 +46,17 @@
 </p>
 
 <a href="" id="loginLink" style="font-weight:bold; width:200px; text-align:center; text-shadow:1px 1px 1px 1px #ccc; margin-top:20px;" class="btn btn-danger">Post Your Requirements</a>
+
+<script>
+  $(document).on("change", "#select_manuf", function() {
+    var manufacturer_id = $(this).val();
+    $.ajax({
+      url: "/homes/load_model",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        manufacturer_id: manufacturer_id
+      }
+    });
+  });
+</script>
