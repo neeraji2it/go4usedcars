@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20141227194828) do
 
   create_table "admins", force: true do |t|
@@ -180,6 +179,7 @@ ActiveRecord::Schema.define(version: 20141227194828) do
     t.string   "car_for"
     t.string   "visible_status"
     t.string   "where_is_car"
+    t.float    "offer_price",        limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -187,7 +187,6 @@ ActiveRecord::Schema.define(version: 20141227194828) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "status"
-    t.float    "offer_price",        limit: 24
     t.integer  "manufacturer_id"
     t.integer  "car_model_id"
   end
