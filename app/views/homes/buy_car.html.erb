@@ -14,3 +14,19 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).on("change", "#select_manuf", function() {
+    var manufacturer_id = $(this).val();
+    var location = $(this).data("loc");
+    $.ajax({
+      url: "/homes/load_model",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        manufacturer_id: manufacturer_id,
+        loc: location
+      }
+    });
+  });
+</script>

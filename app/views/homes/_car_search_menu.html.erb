@@ -4,40 +4,41 @@
     <b>USED CARS SEARCH</b>
   </h5>           
   <table  cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="table-cars-search">
-    <%= form_tag @search, :url => "/homes/search_car", :method => "GET" do %>
+    <%= form_tag(@search, :url => "/homes/buy_car?loc=#{params[:loc]}", :method => "GET") do %>
+      <%= hidden_field_tag :loc, nil, :value => params[:loc]  %>
+      <%= hidden_field_tag :car_model_id %>
       <tr>
         <td style="height:10px;" > </td> 
       </tr>
       <tr>
         <td class="borderforleft"> 
-          <%= select_tag :manufacturer, options_for_select([["- Select -", ""]] + @manufacturers.map {|x| [x.name, x.id]}), :id => "select_manuf", :style => "width:200px;", :class => "selectstyle" %>
+          <%= select_tag :manufacturer, options_for_select([["- Select -", ""]] + @manufacturers.map {|x| [x.name, x.id]}), :id => "select_manuf", data: {:loc => "#{params[:loc]}"}, :style => "width:200px;", :class => "selectstyle" %>
         </td>
       </tr>
-      <tr id="load_carmodels">
-        <td class="borderforleft"> 
+      <tr>
+        <td class="borderforleft"  id="load_carmodels"> 
           <%= render :partial => "load_models" %>
         </td>
       </tr> 
       <tr>
         <td class="borderforleft"> 
-          <%= select_tag "price", options_for_select([["- Price Range -", ""], ["Up to 1 lakh", "0"], ["1-3 lakhs", "1"],["3-5 lakhs", "2"],["5-8 lakhs", "3"],["8-13 lakhs", "4"],["13-20 lakhs", "5"], ["20 lakhs or above", "6"] ]), :id => "selectcategory", :style => "width:200px;", :class => "selectstyle" %>
+          <%= select_tag :price, options_for_select([["- Price Range -", ""], ["Up to 1 lakh", "0-100000"], ["1-3 lakhs", "100000-300000"],["3-5 lakhs", "300000-500000"],["5-8 lakhs", "500000-800000"],["8-13 lakhs", "800000-1300000"],["13-20 lakhs", "1300000-2000000"], ["20 lakhs or above", "2000000"] ]), :style => "width:200px;", :class => "selectstyle" %>
         </td>
       </tr>
       <tr>
         <td class="borderforleft"> 
-          <%= select_tag "price", options_for_select([["- Mileage -", ""], ["upto 5,000 KM", "0"], ["upto 10,000 KM", "1"],["upto 15,000 KM", "2"],["upto 20,000 KM", "3"],["upto 25,000 KM", "4"],["upto 30,000 KM", "5"], ["upto 35,000 KM", "6"], ["upto 40,000 KM", "7"], ["upto 45,000 KM", "8"], ["upto 50,000 KM", "9"], ["upto 55,000 KM", "10"], ["upto 60,000 KM", "11"], ["upto 65,000 KM", "12"], ["upto 70,000 KM", "13"], ["upto 75,000 KM", "14"], ["upto 80,000 KM", "15"], ["upto 85,000 KM", "16"], ["upto 90,000 KM", "17"], ["upto 95,000 KM", "18"], ["upto 1,00,000 KM", "19"], ["upto 1,50,000 KM", "20"] ]), :id => "selectcategory", :style => "width:200px;", :class => "selectstyle" %>
+          <%= select_tag :mileage, options_for_select([["- Mileage -", ""], ["upto 5,000 KM", "5000"], ["upto 10,000 KM", "10000"],["upto 15,000 KM", "15000"],["upto 20,000 KM", "20000"],["upto 25,000 KM", "25000"],["upto 30,000 KM", "30000"], ["upto 35,000 KM", "35000"], ["upto 40,000 KM", "40000"], ["upto 45,000 KM", "45000"], ["upto 50,000 KM", "50000"], ["upto 55,000 KM", "55000"], ["upto 60,000 KM", "60000"], ["upto 65,000 KM", "65000"], ["upto 70,000 KM", "70000"], ["upto 75,000 KM", "75000"], ["upto 80,000 KM", "80000"], ["upto 85,000 KM", "85000"], ["upto 90,000 KM", "90000"], ["upto 95,000 KM", "95000"], ["upto 1,00,000 KM", "100000"], ["upto 1,50,000 KM", "150000"]]), :style => "width:200px;", :class => "selectstyle" %>
         </td>
       </tr>
       <tr>
         <td class="borderforleft"> 
-          <%= select_tag "registration_year", options_for_select([["- Registration Year -", ""]] + YEAR.map {|x| [x, x]}), :id => "selectcategory", :style => "width:200px;", :class => "selectstyle" %>
+          <%= select_tag :registration_year, options_for_select([["- Registration Year -", ""]] + YEAR.map {|x| [x, x]}), :style => "width:200px;", :class => "selectstyle" %>
         </td>
       </tr>
-
       <tr><td style="height:5px;" class="borderforleft"> </td> </tr>
       <tr>
         <td class="borderforleft" style="text-align:center">
-          <input type="submit" id="searchsubmit2" name="searchsubmit2"  value="Search" />
+          <%= submit_tag "Search" %>
         </td>
       </tr>
     <% end %>
@@ -46,17 +47,3 @@
 </p>
 
 <a href="" id="loginLink" style="font-weight:bold; width:200px; text-align:center; text-shadow:1px 1px 1px 1px #ccc; margin-top:20px;" class="btn btn-danger">Post Your Requirements</a>
-
-<script>
-  $(document).on("change", "#select_manuf", function() {
-    var manufacturer_id = $(this).val();
-    $.ajax({
-      url: "/homes/load_model",
-      dataType: "Script",
-      type: "GET",
-      data: {
-        manufacturer_id: manufacturer_id
-      }
-    });
-  });
-</script>

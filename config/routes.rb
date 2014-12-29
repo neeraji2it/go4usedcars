@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   resources :homes do
     collection do
       get :about_us  
-      get :buy_car
+      match :buy_car, via: [:get, :post]
       get :load_model
-      get :search_car
       get :sell_car
       post :save_sell_car
       get :auto_finance

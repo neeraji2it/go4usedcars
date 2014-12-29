@@ -113,16 +113,34 @@
         <div class="als-viewport" >
 
           <ul class="als-wrapper">
+            <li class="als-item">
+              <%= link_to buy_car_homes_path(loc: "bangalore", bds: "convertible") do%>
+                <img  src="/assets/convertible.png" alt="Convertible" title="Convertible" />
+              <% end %>Convertible
+            </li>
 
-            <li class="als-item"><a href="buy-cars1.php?bds=convertible"><img  src="/assets/convertible.png" alt="Convertible" title="Convertible" /></a>Convertible</li>>
+            <li class="als-item">
+              <%= link_to buy_car_homes_path(loc: "bangalore", bds: "hatchback") do%>
+                <img src="/assets/hatchback.png" alt="Hatchback" title="Hatchback" />
+              <% end %>Hatchback
+            </li>
 
-            <li class="als-item"><a href="buy-cars1.php?bds=hatchback"><img src="/assets/hatchback.png" alt="Hatchback" title="Hatchback" /></a>Hatchback</li>
+            <li class="als-item">
+              <%= link_to buy_car_homes_path(loc: "bangalore", bds: "MUV_VAN") do%>
+                <img src="/assets/MUV_VAN.png" alt="MUV_VAN" title="MUV_VAN" />
+              <% end %>MUV_VAN</li>
 
-            <li class="als-item"><a href="buy-cars1.php?bds=MUV_VAN"><img src="/assets/MUV_VAN.png" alt="MUV_VAN" title="MUV_VAN" /></a>MUV_VAN</li>
+            <li class="als-item">
+              <%= link_to buy_car_homes_path(loc: "bangalore", bds: "seden") do%>
+                <img  src="/assets/sedan.png" alt="Sedan" title="Sedan" />
+              <% end %>Sedan
+            </li>
 
-            <li class="als-item"><a href="buy-cars1.php?bds=sedan"><img  src="/assets/sedan.png" alt="Sedan" title="Sedan" /></a>Sedan</li>
-
-            <li class="als-item"><a href="buy-cars1.php?bds=SUV"><img  src="/assets/SUV.png" alt="SUV" title="SUV" /></a>SUV</li>            
+            <li class="als-item">
+              <%= link_to buy_car_homes_path(loc: "bangalore", bds: "SUV") do%>
+                <img  src="/assets/SUV.png" alt="SUV" title="SUV" />
+              <% end %>SUV
+            </li>            
           </ul>
 
         </div>
