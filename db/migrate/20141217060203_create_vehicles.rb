@@ -19,7 +19,7 @@ class CreateVehicles < ActiveRecord::Migration
       t.string :car_for
       t.string :visible_status
       t.string :where_is_car
-      
+      t.float :offer_price
       t.timestamps
     end
   end
