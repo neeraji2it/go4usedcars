@@ -13,7 +13,7 @@ class CreateVehicles < ActiveRecord::Migration
       t.string :transmission
       t.string :registration_state
       t.string :registration_no
-      t.string :sell_price
+      t.float :sell_price
       t.string :sterio
       t.string :seat_covers
       t.string :car_for
