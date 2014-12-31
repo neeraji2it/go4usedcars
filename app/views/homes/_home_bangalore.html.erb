@@ -163,26 +163,17 @@
 
 <a href="/homes/auto_finance?loc=bangalore"><img  src="/assets/circle2.png" height="210" width="210" class="img-circle img-height-width  " draggable="false"></a>
 
-<a href="" id="loginLink" ><img  src="/assets/circle3.jpg" height="210" width="210"  class="img-circle img-height-width" draggable=" false"></a></center></div>
-</div>  
+<%= link_to '<img src="/assets/circle3.jpg" height="210" width="210" class="img-circle img-height-width" draggable=" false">'.html_safe, "", "data-toggle" => "modal", "data-target" => "#myModalPostRequirement" %>
+
+</center>
+</div>
 
 
 <ul>
   <li><a href="" class="overlayLink" data-action="login-form.html"></a></li>
   <li><a href="register.php" class="overlayLink" data-action="registration-form.html"></a></li>
 </ul>
-
-<div class="overlay" style="display: none;">
-  <div class="login-wrapper">
-    <div class="login-content">
-      <a class="close">x</a>
-      <%= render :partial => "post_requirements" %>
-  </div>
-</div>
-</div>
    
-    
-
 
 <div class="row  home-text">
 
@@ -197,6 +188,7 @@ PRESTIGE AUTOWORLD IS THE ONE OF THE LEAD ING AUTHORISED CERTIFIED PRE-OWNED CAR
 
 
 <h3 class="about-go">EMI Calculator </h3>
+
 <div class="demo" style="width:100%; ">
 <p>
     <label for="amount"><span style="font-size:16px; color:#000;">Loan Amount ?</span></label>
@@ -229,6 +221,5 @@ PRESTIGE AUTOWORLD IS THE ONE OF THE LEAD ING AUTHORISED CERTIFIED PRE-OWNED CAR
 
 </div> 
 
-</div>
 </div>
 </div>
