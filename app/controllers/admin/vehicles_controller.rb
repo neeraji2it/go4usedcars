@@ -8,7 +8,7 @@ class Admin::VehiclesController < ApplicationController
   end
 
   def create
-    @vehicle = Vehicle.new(vehicle_params.merge(:varient_id => params[:varient][:varient_id]))
+    @vehicle = Vehicle.new(vehicle_params.merge(:varient_id => params[:varient][:varient_id], :car_model_id => params[:varient][:car_model_id], :manufacturer_id => params[:manufacturer_id]))
     @vehicle.status = "#{Status::Vehicle::LIVE}"
     if @vehicle.save
       redirect_to new_admin_vehicle_path

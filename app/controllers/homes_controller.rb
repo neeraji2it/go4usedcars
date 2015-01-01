@@ -38,6 +38,7 @@ class HomesController < ApplicationController
     #    gurgaon cars
     @cars = Vehicle.gurgaon_cars if params[:loc] == "gurgaon"
     
+    #main search implementation
     if search.present?
       @cars = Vehicle.search "#{params[:search]}"
     end
