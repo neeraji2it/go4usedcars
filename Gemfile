@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use mysql as the database for Active Record
@@ -31,8 +29,8 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
   :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem "paperclip", "~> 4.1"
 gem 'devise'
-
-
 gem 'better_errors'
 gem 'binding_of_caller'
 gem "nested_form"
+gem 'thinking-sphinx', '~> 3.1.1'
+gem 'whenever', :require => false

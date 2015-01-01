@@ -17,5 +17,5 @@ class Vehicle < ActiveRecord::Base
   scope :live_cars, lambda { where(:status => "#{Status::Vehicle::LIVE}") }
   scope :sold_cars, lambda { where(:status => "#{Status::Vehicle::SOLD}") }
   scope :gurgaon_cars, lambda { where(:location => "gurgaon") }
-  scope :bangalore_cars, lambda { where(:location => "bangalore") }
+  scope :bangalore_cars, lambda { where(:location => "bangalore") }  
 end

@@ -32,10 +32,15 @@ class HomesController < ApplicationController
     car_model_id         = params[:car_model_id]
     manufacturer_id      = params[:manufacturer]
     body_style           = params[:bds]
+    search               = params[:search]
     # bangalore cars  
     @cars = Vehicle.bangalore_cars if params[:loc] == "bangalore"
     #    gurgaon cars
     @cars = Vehicle.gurgaon_cars if params[:loc] == "gurgaon"
+    
+    if search.present?
+      @cars = Vehicle.search "#{params[:search]}"
+    end
     
     #    filter by min & max prices
     if min.present? && max.blank?
