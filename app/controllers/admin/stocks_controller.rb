@@ -123,18 +123,18 @@ class Admin::StocksController < ApplicationController
 
   def offer
     @vehicles = Vehicle.all
-    @cars = Vehicle.where("offer_price != ?", nil)
+    @cars = Vehicle.where("offer_price != ?", '')
     @vehicle = Vehicle.new
   end
   
   def edit_offer
     @vehicle = Vehicle.find(params[:vehicle_id])
     @vehicles = Vehicle.all
-    @cars = Vehicle.where("offer_price != ?", nil)
+    @cars = Vehicle.where("offer_price != ?", '')
   end
  
   def update_offer
-    @cars = Vehicle.where("offer_price != ?", nil)
+    @cars = Vehicle.where("offer_price != ?", '')
     @vehicles = Vehicle.all
     @vehicle = Vehicle.find(params[:vehicle_id])
     if @vehicle.update(vehicle_offer_params)
@@ -146,13 +146,13 @@ class Admin::StocksController < ApplicationController
   
   def offer_index
    @vehicles = Vehicle.all
-   @cars = Vehicle.where("offer_price != ?", nil)
+   @cars = Vehicle.where("offer_price != ?", '')
   end
   
   def remove_offer
     @vehicle = Vehicle.find(params[:id])
-    @cars = Vehicle.where("offer_price != ?", nil)
-    if @vehicle.update_attributes(:offer_price => nil)
+    @cars = Vehicle.where("offer_price != ?", '')
+    if @vehicle.update_attributes(:offer_price => '')
       respond_to do |format|
         format.js
       end

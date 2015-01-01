@@ -1,13 +1,16 @@
 <%= render :partial => "admin/shared/stocks_navbar" %>
 
 <%= form_for @vehicle, :url => "/admin/car_specifications/#{params[:id]}", :method => "PUT" do |f| %>
-  <div class="row">
-    <div class="col-sm-2">
-      <b>Select Vehicle</b>
+  <div class="form-group">
+    <div class="row">
+    <div class="col-sm-3">
+      <b>Update Specification for Vehicle :</b>
     </div>
     <div class="col-sm-8">
-      <%= select_tag :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), :class => "form-control" %>
+      <%#= select_tag :vehicle_id, options_for_select([["- Select -", ""]] + @vehicles.all.map {|x| [x.carinfo, x.id]}), :class => "form-control" %>
+      <%= @vehicle.carinfo %>
     </div>
+  </div>
   </div>
 
   <div class="row">
