@@ -3,7 +3,9 @@ class Vehicle < ActiveRecord::Base
     :styles => {:thumb => "360x270#", :small=>"50x50#" },
      :default_url => "missing.jpg"
   
-  validates_attachment_content_type :image, :content_type => ['image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp']
+  validates_attachment_content_type :image, :content_type => ['image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp']  
+  belongs_to :manufacturer
+  belongs_to :car_model
   belongs_to :varient
   has_many :car_specification
   has_many :images
