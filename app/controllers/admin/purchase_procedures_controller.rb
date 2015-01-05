@@ -1,4 +1,6 @@
 class Admin::PurchaseProceduresController < ApplicationController
+  before_filter :authenticate_admin!
+  skip_before_action :verify_authenticity_token
   def procure_enquiry
     @sell_cars = SellCar.car_enquiries
     @evaluation = CarEvaluation.new

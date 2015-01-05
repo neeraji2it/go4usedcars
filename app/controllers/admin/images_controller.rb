@@ -1,4 +1,5 @@
 class Admin::ImagesController < ApplicationController
+  before_filter :authenticate_admin!
   def new
     @vehicle = Vehicle.new
     

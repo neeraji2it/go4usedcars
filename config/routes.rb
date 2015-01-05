@@ -29,6 +29,9 @@ Rails.application.routes.draw do
         get :testimonials
         get :dealers
       end
+      member do 
+        put :approved
+      end
     end
     resources :stocks do
       collection do

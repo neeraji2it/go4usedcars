@@ -21,13 +21,16 @@
       <td><%= associate_partner.phone %> </td>
       <td><%= associate_partner.email %> </td>
       <td><%= associate_partner.address %> </td>
-      <td><%= associate_partner.dealer_type  %> </td>
-      <td><%#= associate_partner.  %> </td>
+      <td><%= associate_partner.dealer_type %> </td>
+      <td><%= associate_partner.status  %> </td>
       <td><%#= associate_partner.  %> </td>
       <td><%= associate_partner.created_at.strftime("%d-%m-%Y")%> </td>
       <td>
-        <%= link_to "Approve", "#" %> 
-        <%= link_to "Disapprove", "#" %>
+        <% if associate_partner.status == "No" %>
+          <%= link_to "Approve", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true %> 
+        <% elsif associate_partner.status == "Yes" %>
+          <%= link_to "Disapprove", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true %> 
+        <% end %>
       </td>
     </tr>
   <%end%>

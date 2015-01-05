@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105055924) do
+ActiveRecord::Schema.define(version: 20150105111725) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150105055924) do
     t.string   "dealer_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",      default: "No"
   end
 
   create_table "car_evaluations", force: true do |t|

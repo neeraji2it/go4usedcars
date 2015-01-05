@@ -1,4 +1,5 @@
 class Admin::CarSpecificationsController < ApplicationController
+  before_filter :authenticate_admin!
   def new
     @car_specification = CarSpecification.new
     @vehicles = Vehicle.all

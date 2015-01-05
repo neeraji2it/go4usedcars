@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   def  after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
      admin_dashboards_path
+    elsif resource_or_scope.is_a?(User)
+     admin_dashboards_path
     end
   end
 
@@ -23,8 +25,8 @@ class ApplicationController < ActionController::Base
    protected
 
   def get_layout
-     if devise_controller? && resource_name == :admin
-    "admin"
+     if devise_controller? && (resource_name == :admin || resource_name == :user)
+      "login"
     elsif self.class.parent == Admin
       "admin"
     else
