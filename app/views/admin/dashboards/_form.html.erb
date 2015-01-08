@@ -1,0 +1,9 @@
+<%= form_for @user, url: "/users", method: "POST" do |f| %>
+  <%= f.email_field :email %>
+<br/>
+  <%= f.password_field :password %>
+<br/>
+<%= f.password_field :password_confirmation, autocomplete: "off" %>
+<br/>
+  <%= f.submit %>
+<% end %>

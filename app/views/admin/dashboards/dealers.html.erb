@@ -27,12 +27,31 @@
       <td><%= associate_partner.created_at.strftime("%d-%m-%Y")%> </td>
       <td>
         <% if associate_partner.status == "No" %>
-          <%= link_to "Approve", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true %> 
+          <%#= link_to "Approve", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true, :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModal" %> 
+          <%= link_to "Register", "#", :class => "btn btn-warning btn-sm", :id => "register", "data-toggle" => "modal", "data-target" => "#myModal1", :data => { :id => associate_partner.id } %> 
+
         <% elsif associate_partner.status == "Yes" %>
-          <%= link_to "Disapprove", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true %> 
+          <%= link_to "Disapprove", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true, :class => "btn btn-warning btn-sm" %>
         <% end %>
       </td>
     </tr>
   <%end%>
 </table> 
 </div>
+
+<div id="register">
+  <%= render :partial => "user/registrations/new" %>
+</div>
+
+<script>
+  $(document).on("click", "#register", function(){
+    var partner_id = $(this).data["id"];
+    alert(partner_id);
+    return false;
+    $.ajax({
+      url: "/user/registrations/new",
+      dataType: "Script",
+      type: "GET"
+    });
+  });
+</script>

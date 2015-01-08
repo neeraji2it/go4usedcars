@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def get_layout
      if devise_controller? && (resource_name == :admin || resource_name == :user)
-      "login"
+      "admin"
     elsif self.class.parent == Admin
       "admin"
     else
