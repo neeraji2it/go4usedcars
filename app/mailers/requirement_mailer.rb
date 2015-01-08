@@ -32,6 +32,11 @@ class RequirementMailer < ActionMailer::Base
         @phone=phone
         mail(:to =>"crystal.badu@gmail.com", :subject => "User Requirements")
   end
+  
+  def sent_user(user)
+    @user = user
+    mail(:to =>user.email, :subject => "Login Credentials")
+  end
 
   def associate_partner(associate_partner)
     @associate = AssociatePartner.find(associate_partner.id)

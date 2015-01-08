@@ -1,107 +1,127 @@
 <table border="0" width="100%" class="table table-striped">
-  <tr>
-    <td colspan="2" class=" mainhead" ><span style="background-color:#ccc;color:#fff; font-size:22px;">
-        USED CAR <span style="padding:0px 5px 7px 5px; color:#f9cc01; width:100px;"> 
-          <b><%= @cars.present? ? @cars.try(:count) : "0" %></b></span>SEARCH RESULT(S) FOUND</span>
-    </td>
-  </tr>
-  <tr><td colspan="2">&nbsp; </td></tr>
-  <% if @cars.present? %>
-    <% @cars.each do |car| %>
-      <tr>
-        <td colspan="2">
-          <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-              <td style="width:150px">                 
-                <%= image_tag(car.try(:image).url, :style => "width:150px; height:110px; border:solid 1px #CCCCCC;") %>
-              </td>
-              <td style="vertical-align:top; "> 
-                <table width="100%">
-                  <tr>
-                    <td colspan="3" style="vertical-align:top; border-bottom:solid 1px #CCCCCC; font-weight:bold">
-                      <%= car.try(:carinfo) %>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
-                      <table width="100%">
-                        <tr>
-                          <td>Color </td>
-                          <td>:</td>
-                          <td><%= car.try(:exterior_color) %></td>
-                        </tr>
-                        <tr>
-                          <td colspan="3" style="height:5px;"></td>
-                        </tr>
-                        <tr>
-                          <td style="width:80px;">Location</td>
-                          <td>:</td>
-                          <td><%= car.try(:location) %></td>
-                        </tr>
-                      </table>
-                    </td>
-
-                    <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
-                      <table width="100%">
-                        <tr>
-                          <td>Mileage </td>
-                          <td>:</td>
-                          <td><%= car.try(:milage) %></td>
-                        </tr>
-                        <tr> <td colspan="3" style="height:5px;"></td></tr>
-                        <tr>
-                          <td>Fuel Type </td>
-                          <td>:</td>
-                          <td><%= car.try(:fuel_type) %></td>
-                        </tr>
-                      </table>
-                    </td>
-
-                    <td style="vertical-align:top;"> 
-                      <table width="100%">
-                        <tr>
-                          <td>Reg Yr. </td>
-                          <td>:</td>
-                          <td><%= car.try(:reg_year) %></td>
-                        </tr>
-                        <tr> <td colspan="3" style="height:5px;"></td></tr>
-                        <tr>
-                          <td>Price </td>
-                          <td>:</td>
-                          <td><%= car.try(:sell_price) %></td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
-                      <table width="100%">
-                        <tr>
-                          <td>Body Style</td>
-                          <td>:</td>
-                          <td><%= car.try(:body_style) %></td>
-                        </tr>
-                        <tr> <td colspan="3" style="height:5px;"></td></tr>
-                        <tr>
-                          <td style="width:80px;"></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                      </table>
-                    </td>
-                    <td colspan="2" style="height:10px;"></td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
+    <tr>
+        <td colspan="2" class=" mainhead" ><span style="background-color:#ccc;color:#fff; font-size:22px;">
+                USED CAR <span style="padding:0px 5px 7px 5px; color:#f9cc01; width:100px;"> 
+                    <b><%= @cars.present? ? @cars.try(:count) : "0" %></b></span>SEARCH RESULT(S) FOUND</span>
         </td>
-      </tr>
+    </tr>
+    <tr><td colspan="2">&nbsp; </td></tr>
+    <% if @cars.present? %>
+      <% @cars.each do |car| %>
+        <tr>
+            <td colspan="2">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="width:150px">                 
+                            <%= image_tag(car.try(:image).url, :style => "width:150px; height:110px; border:solid 1px #CCCCCC;") %>
+                        </td>
+                        <td style="vertical-align:top; "> 
+                            <table width="100%">
+                                <tr>
+                                    <td colspan="3" style="vertical-align:top; border-bottom:solid 1px #CCCCCC; font-weight:bold">
+                                        <%= car.try(:carinfo) %>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
+                                        <table width="100%">
+                                            <tr>
+                                                <td>Color </td>
+                                                <td>:</td>
+                                                <td><%= car.try(:exterior_color) %></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" style="height:5px;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:80px;">Location</td>
+                                                <td>:</td>
+                                                <td><%= car.try(:location) %></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
+                                        <table width="100%">
+                                            <tr>
+                                                <td>Mileage </td>
+                                                <td>:</td>
+                                                <td><%= car.try(:milage) %></td>
+                                            </tr>
+                                            <tr> <td colspan="3" style="height:5px;"></td></tr>
+                                            <tr>
+                                                <td>Fuel Type </td>
+                                                <td>:</td>
+                                                <td><%= car.try(:fuel_type) %></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <td style="vertical-align:top;"> 
+                                        <table width="100%">
+                                            <tr>
+                                                <td>Reg Yr. </td>
+                                                <td>:</td>
+                                                <td><%= car.try(:reg_year) %></td>
+                                            </tr>
+                                            <tr> <td colspan="3" style="height:5px;"></td></tr>
+                                            <tr>
+                                                <td>Price </td>
+                                                <td>:</td>
+                                                <td><%= car.try(:sell_price) %></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
+                                        <table width="100%">
+                                            <tr>
+                                                <td>Body Style</td>
+                                                <td>:</td>
+                                                <td><%= car.try(:body_style) %></td>
+                                            </tr>
+                                            <tr> <td colspan="3" style="height:5px;"></td></tr>
+                                            <tr>
+                                                <td style="width:80px;"></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td colspan="2" style="height:10px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
+                                        <table width="100%">
+                                            <tr>
+                                                <td></td>
+                                                <td>:</td>
+                                                <td>
+                                                    <%= link_to "Print", print_path(:id => car.id, :format => "pdf") %>
+                                                </td>
+                                            </tr>
+                                            <tr> <td colspan="3" style="height:5px;"></td></tr>
+                                            <tr>
+                                                <td style="width:80px;"></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td colspan="2" style="height:10px;"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <p>No Records Found.</p>
     <% end %>
-  <% else %>
-    <p>No Records Found.</p>
-  <% end %>
-  <tr> <td colspan="2" style="height:10px;"> </td></tr>
-  <tr> <td colspan="2" style="height:7px; border-top:solid 1px #CCCCCC;"> </td></tr>
+    <tr> <td colspan="2" style="height:10px;"> </td></tr>
+    <tr> <td colspan="2" style="height:7px; border-top:solid 1px #CCCCCC;"> </td></tr>
 </table>

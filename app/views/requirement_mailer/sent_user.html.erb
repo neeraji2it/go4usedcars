@@ -1,0 +1,8 @@
+<p>Welcome <%= @user.email %>!</p>
+
+<p>Password <%= @user.password %>!</p>
+
+<p>You can click the link below to login:</p>
+
+<p><%= link_to 'Sign In', new_user_session_url() %></p>
+

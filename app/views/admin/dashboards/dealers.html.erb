@@ -1,57 +1,52 @@
 <%= render :partial=>"/admin/shared/dealers_navbar" %>
 <tr><td>Dealer's Detail </td></tr> 
 <div class="table-responsive">
-<table class="table table-stripped table-hover">
-  <tr>
-    <th>DealerID</th>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email_ID</th>
-    <th>Address</th>
-    <th>Type</th>
-    <th>Approved</th>
-    <th>password</th>
-    <th>PostDate</th>
-    <th></th>
-  </tr>
-  <% @associate_partners.each do |associate_partner| %>
-    <tr>
-      <td><%= associate_partner.id  %> </td>
-      <td><%= associate_partner.name %> </td>
-      <td><%= associate_partner.phone %> </td>
-      <td><%= associate_partner.email %> </td>
-      <td><%= associate_partner.address %> </td>
-      <td><%= associate_partner.dealer_type %> </td>
-      <td><%= associate_partner.status  %> </td>
-      <td><%#= associate_partner.  %> </td>
-      <td><%= associate_partner.created_at.strftime("%d-%m-%Y")%> </td>
-      <td>
-        <% if associate_partner.status == "No" %>
-          <%#= link_to "Approve", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true, :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModal" %> 
-          <%= link_to "Register", "#", :class => "btn btn-warning btn-sm", :id => "register", "data-toggle" => "modal", "data-target" => "#myModal1", :data => { :id => associate_partner.id } %> 
-
-        <% elsif associate_partner.status == "Yes" %>
-          <%= link_to "Disapprove", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true, :class => "btn btn-warning btn-sm" %>
-        <% end %>
-      </td>
-    </tr>
-  <%end%>
-</table> 
+    <table class="table table-stripped table-hover">
+        <tr>
+            <th>DealerID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email_ID</th>
+            <th>Address</th>
+            <th>Type</th>
+            <th>Approved</th>
+            <th>PostDate</th>
+            <th></th>
+        </tr>
+        <% @associate_partners.each do |associate_partner| %>
+          <tr>
+              <td><%= associate_partner.id  %> </td>
+              <td><%= associate_partner.name %> </td>
+              <td><%= associate_partner.phone %> </td>
+              <td><%= associate_partner.email %> </td>
+              <td><%= associate_partner.address %> </td>
+              <td><%= associate_partner.dealer_type %> </td>
+              <td><%= associate_partner.status  %> </td>
+              <td><%= associate_partner.created_at.strftime("%d-%m-%Y")%> </td>
+              <% @user1 = User.find_by_email(associate_partner.email) %>
+              <td>
+                  <% if !@user1.present? %>
+                    <a class="btn btn-primary announce" data-toggle="modal" data-id="<%= associate_partner.email %>" >Register</a>
+                  <% else %>
+                    <%= link_to associate_partner.status == "Yes" ? "Disapprove" : "Approve", approved_admin_dashboard_path(associate_partner.id), :method => "PUT", :remote => true, :class => "btn btn-warning btn-sm" %>
+                  <% end %>
+              </td>
+          </tr>
+        <%end%>
+    </table> 
 </div>
 
-<div id="register">
-  <%= render :partial => "user/registrations/new" %>
+<div class="modal fade bs-example-modal-sm" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <%= render :partial => "user/registrations/new" %>
+    </div>
 </div>
 
 <script>
-  $(document).on("click", "#register", function(){
-    var partner_id = $(this).data["id"];
-    alert(partner_id);
-    return false;
-    $.ajax({
-      url: "/user/registrations/new",
-      dataType: "Script",
-      type: "GET"
-    });
+  $(document).ready(function () {
+      $(".announce").click(function () { // Click to only happen on announce links
+          $("#user_email").val($(this).data('id'));
+          $('#myModal1').modal('show');
+      });
   });
 </script>

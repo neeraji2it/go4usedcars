@@ -13,13 +13,8 @@ class Admin::DashboardsController < ApplicationController
   
   def approved
     @associate_partner = AssociatePartner.find(params[:id])
-#        if @associate_partner.status == "No"
-#          @associate_partner.update_attributes(:status => "Yes")
-#        else
-#          @associate_partner.update_attributes(:status => "No")
-#        end
-    if @associate_partner.status == "Yes"
-      @associate_partner.update_attributes(:status => "No")
-    end
+    @user = User.find_by_email(@associate_partner.email)
+    @associate_partner.status == "Yes" ? @associate_partner.update_attributes(:status => "No") : @associate_partner.update_attributes(:status => "Yes")
+    @user.approved == true ? (@user.update_attribute(:approved, false)) : (@user.update_attribute(:approved, true))
   end
 end

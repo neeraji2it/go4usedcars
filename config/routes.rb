@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_for :admins
+  get '/print/:id' => 'homes#print', :as => :print
   root 'homes#index'
   resources :homes do
     collection do
@@ -103,6 +104,10 @@ Rails.application.routes.draw do
     end
   end
   namespace :user do
-    resources :registrations
+    resources :registrations do
+      collection do
+        get :update_status
+      end
+    end
   end
 end

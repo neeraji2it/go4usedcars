@@ -1,20 +1,24 @@
-<!-- Modal -->
-<div class="modal fade bs-example-modal-sm" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
+<div class="modal-content">
+    <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Assign to Evaluator</h4>
-      </div>
-      <div class="modal-body">
-        <div id="final_deal">
-          dfadsf
-          dsf
-          dsf
-          sdf
-          dsfdffd
-        </div>
-      </div>
     </div>
-  </div>
+    <div class="modal-body">
+        <div id="final_deal">
+            <%= form_for @user, :url => user_registrations_path() do |f| %>
+              <div class="frow">
+                  <div>Email:</div>
+                  <div><%= f.email_field :email, :readonly => true %></div>
+              </div>
+              <div class="frow">
+                  <div>Password:</div>
+                  <div><%= f.text_field :password %></div>
+              </div>
+              <div class="frow">
+                  <div></div>
+                  <div><%= f.submit "Save", :class => "btn btn-success btn-sm" %></div>
+              </div>
+            <% end %>
+        </div>
+    </div>
 </div>

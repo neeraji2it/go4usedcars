@@ -88,6 +88,10 @@ class HomesController < ApplicationController
     end
   end
   
+  def print
+    @car = Vehicle.find_by_id(params[:id])
+  end
+  
   def load_model
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
   end
