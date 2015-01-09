@@ -1,90 +1,31 @@
-<table border="0" width="100%" class="table table-striped">
-    <tr><td colspan="2">&nbsp; </td></tr>
-    <tr>
-        <td colspan="2">
-            <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td style="vertical-align:top; "> 
-                        <table width="100%">
-                            <tr>
-                                <td colspan="3" style="vertical-align:top; border-bottom:solid 1px #CCCCCC; font-weight:bold">
-                                    <%= @car.try(:carinfo) %>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
-                                    <table width="100%">
-                                        <tr>
-                                            <td>Color </td>
-                                            <td>:</td>
-                                            <td><%= @car.try(:exterior_color) %></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" style="height:5px;"></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:80px;">Location</td>
-                                            <td>:</td>
-                                            <td><%= @car.try(:location) %></td>
-                                        </tr>
-                                    </table>
-                                </td>
-
-                                <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
-                                    <table width="100%">
-                                        <tr>
-                                            <td>Mileage </td>
-                                            <td>:</td>
-                                            <td><%= @car.try(:milage) %></td>
-                                        </tr>
-                                        <tr> <td colspan="3" style="height:5px;"></td></tr>
-                                        <tr>
-                                            <td>Fuel Type </td>
-                                            <td>:</td>
-                                            <td><%= @car.try(:fuel_type) %></td>
-                                        </tr>
-                                    </table>
-                                </td>
-
-                                <td style="vertical-align:top;"> 
-                                    <table width="100%">
-                                        <tr>
-                                            <td>Reg Yr. </td>
-                                            <td>:</td>
-                                            <td><%= @car.try(:reg_year) %></td>
-                                        </tr>
-                                        <tr> <td colspan="3" style="height:5px;"></td></tr>
-                                        <tr>
-                                            <td>Price </td>
-                                            <td>:</td>
-                                            <td><%= @car.try(:sell_price) %></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align:top; border-right:solid 1px #CCCCCC"> 
-                                    <table width="100%">
-                                        <tr>
-                                            <td>Body Style</td>
-                                            <td>:</td>
-                                            <td><%= @car.try(:body_style) %></td>
-                                        </tr>
-                                        <tr> <td colspan="3" style="height:5px;"></td></tr>
-                                        <tr>
-                                            <td style="width:80px;"></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td colspan="2" style="height:10px;"></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
+<div id="car-details">
+    <div id="car-info">
+        <div>Car Info</div>
+        <div><%= @car.try(:carinfo) %></div>
+    </div>
+    <br />
+    <div id="car-color">
+        <div>Color</div>
+        <div><%= @car.try(:exterior_color) %></div>
+    </div>
+    <br />
+    <div id="car-location">
+        <div>Location</div>
+        <div><%= @car.try(:location) %></div>
+    </div>
+    <br />
+    <div id="car-milage">
+        <div>Milage</div>
+        <div><%= @car.try(:milage) %></div>
+    </div>
+    <br />
+    <div id="car-fuel">
+        <div>Fuel Type</div>
+        <div><%= @car.try(:fuel_type) %></div>
+    </div>
+</div>
+<style>
+    @media print {
+        .freez-header{display: none;}
+    }
+</style>
