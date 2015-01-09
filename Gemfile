@@ -34,5 +34,4 @@ gem 'binding_of_caller'
 gem "nested_form"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'whenever', :require => false
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+gem 'prawn-rails'
