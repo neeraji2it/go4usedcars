@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
   get '/print/:id' => 'homes#print', :as => :print
+  get '/send_details' => 'homes#send_details', :as => :send_details
   root 'homes#index'
   resources :homes do
     collection do

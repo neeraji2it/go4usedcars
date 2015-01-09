@@ -92,6 +92,12 @@ class HomesController < ApplicationController
     @car = Vehicle.find_by_id(params[:id])
   end
   
+  def send_details
+    @car = Vehicle.find_by_id(params[:car_id])
+    RequirementMailer.send_car_details(@car, params[:email]).deliver if params[:email].present?
+    redirect_to root_path
+  end
+  
   def load_model
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
   end

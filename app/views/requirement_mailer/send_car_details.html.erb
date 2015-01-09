@@ -1,0 +1,32 @@
+<h1>Car Details</h1>
+<hr />
+<table>
+    <tr>
+        <td>Car Info:</td>
+        <td><%= @car.try(:carinfo) %></td>
+    </tr>
+    <tr>
+        <td>Car Color:</td>
+        <td><%= @car.try(:exterior_color) %></td>
+    </tr>
+    <tr>
+        <td>Location:</td>
+        <td><%= @car.try(:location) %></td>
+    </tr>
+    <tr>
+        <td>Milage:</td>
+        <td><%= @car.try(:milage) %></td>
+    </tr>
+    <tr>
+        <td>Fuel Type:</td>
+        <td><%= @car.try(:fuel_type) %></td>
+    </tr>
+    <tr>
+        <td>Body Type:</td>
+        <td><%= @car.try(:body_type) %></td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td><%= @car.try(:sell_price) %></td>
+    </tr>
+</table>

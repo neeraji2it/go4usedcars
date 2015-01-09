@@ -99,7 +99,7 @@
                                                 <td></td>
                                                 <td>:</td>
                                                 <td>
-                                                    <%= link_to "Print", print_path(:id => car.id, :format => "pdf") %>
+                                                    <%= link_to "Print", print_path(:id => car.id, :format => "pdf"), :target => '_blank', :class => "btn btn-primary btn-sm" %> | <a class="btn btn-primary btn-sm announce" data-toggle="modal" data-id="<%= car.id %>" >E-mail</a>
                                                 </td>
                                             </tr>
                                             <tr> <td colspan="3" style="height:5px;"></td></tr>
@@ -125,3 +125,15 @@
     <tr> <td colspan="2" style="height:10px;"> </td></tr>
     <tr> <td colspan="2" style="height:7px; border-top:solid 1px #CCCCCC;"> </td></tr>
 </table>
+<div class="modal fade bs-example-modal-sm" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <%= render :partial => "/homes/email" %>
+    </div>
+</div>
+
+<script>
+  $(".announce").click(function () { // Click to only happen on announce links
+      $("#car_id").val($(this).data('id'));
+      $('#myModal1').modal('show');
+  });
+</script>

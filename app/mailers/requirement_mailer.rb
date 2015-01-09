@@ -37,6 +37,11 @@ class RequirementMailer < ActionMailer::Base
     @user = user
     mail(:to =>user.email, :subject => "Login Credentials")
   end
+  
+  def send_car_details(car, email)
+    @car = car
+    mail(:to => email, :subject => "Car Details")
+  end
 
   def associate_partner(associate_partner)
     @associate = AssociatePartner.find(associate_partner.id)
