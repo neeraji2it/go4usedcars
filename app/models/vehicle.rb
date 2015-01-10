@@ -11,6 +11,7 @@ class Vehicle < ActiveRecord::Base
   has_many :images
   accepts_nested_attributes_for :images, reject_if: :all_blank, :allow_destroy => true
   has_many :videos
+  belongs_to :user
 
   def carinfo
     "#{self.try(:varient).try(:car_model).try(:manufacturer).try(:name)}  #{self.try(:varient).try(:car_model).try(:name)}  #{self.try(:varient).try(:name)}"
@@ -21,4 +22,5 @@ class Vehicle < ActiveRecord::Base
   scope :gurgaon_cars, lambda { where(:location => "gurgaon") }
   scope :bangalore_cars, lambda { where(:location => "bangalore") }  
   validates :manufacturer_id, :car_model_id, :varient_id, :registration_no, presence: true
+  scope :dealer_cars, lambda { where(:status => "#{Vehicle::DEALER}")}
 end

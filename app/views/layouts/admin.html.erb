@@ -15,7 +15,11 @@
   </head>
 
   <body>
-    <%= render :partial => "layouts/header_admin" %>
+    <% if current_admin %>
+      <%= render :partial => "layouts/header_admin" %>
+    <% elsif current_user %>
+      <%= render :partial => "layouts/header_user" %>
+    <% end %>
     <section>
       <div class="container">
         <%= render :partial => "/layouts/notice" %>
