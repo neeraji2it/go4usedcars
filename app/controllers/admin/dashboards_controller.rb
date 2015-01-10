@@ -1,5 +1,5 @@
 class Admin::DashboardsController < ApplicationController
-  before_filter :authenticate_admin!, :only => [:testimonials]
+  before_filter :authenticate_admin!
   def index
   end
   
