@@ -1,0 +1,2 @@
+module Dealer::VehiclesHelper
+end

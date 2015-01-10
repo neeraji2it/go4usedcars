@@ -111,4 +111,9 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  namespace :dealer do
+    resources :dashboards
+    resources :vehicles
+  end
 end
