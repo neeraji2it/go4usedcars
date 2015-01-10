@@ -20,4 +20,5 @@ class Vehicle < ActiveRecord::Base
   scope :sold_cars, lambda { where(:status => "#{Status::Vehicle::SOLD}") }
   scope :gurgaon_cars, lambda { where(:location => "gurgaon") }
   scope :bangalore_cars, lambda { where(:location => "bangalore") }  
+  validates :manufacturer_id, :car_model_id, :varient_id, :registration_no, presence: true
 end

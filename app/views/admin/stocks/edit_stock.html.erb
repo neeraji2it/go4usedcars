@@ -3,7 +3,15 @@
 <div class="panel-body">
   <div class="row">
     <div class="col-sm-6">
-      <%= form_tag @car_model, :url => update_model_admin_stocks_path, :method => "GET", :remote => true do %>        
+      <%= form_tag @car_model, :url => update_model_admin_stocks_path, :method => "GET", :remote => true do %>   
+        <div class="row error1">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <p style="color: red;">Select Manufacturer and Model.</p>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
@@ -71,6 +79,14 @@
     <div class="col-sm-6">
       <div id="load_variant">
         <%= form_tag @car_varient, :url => update_varient_admin_stocks_path, :method => "GET" , :remote => true do %>
+          <div class="row error2">
+            <div class="col-sm-8">
+              <div class="form-group">
+                <p style="color: red;">Select Manufacturer, Model and Varient.</p>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
@@ -100,20 +116,20 @@
           <div id="varient_list">
             <%= render :partial => "admin/stocks/varient_list"  %>
           </div>    
-        
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="form-group">
-              <b>Enter Varient</b>
-            </div>
-          </div>
 
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= text_field_tag :varient_name, nil, :class => "form-control varient_name1" %>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <b>Enter Varient</b>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= text_field_tag :varient_name, nil, :class => "form-control varient_name1" %>
+              </div>
             </div>
           </div>
-        </div>
 
 
           <div class="row">
@@ -144,6 +160,11 @@
 </div>
 
 <script>
+  $(document).ready(function(){
+    $(".error1").hide();
+    $(".error2").hide();
+  });
+  
   $(document).on("change", "#manufacturer_id", function() {
     var dataid = $(this).data('child-id');
     var manufacturer_id = this.value;
@@ -175,7 +196,11 @@
   $(document).on("click", "#btnSubmit", function() {
     var model_id = $("#varient_car_model_id").val();
     var model_name = $(".modal_name1").val();
-
+    if (model_id == '' || model_name == '') {
+      $(".error1").show();
+      return false;
+    } 
+    
     $.ajax({
       url: "/admin/stocks/update_model",
       dataType: "Script",
@@ -186,7 +211,7 @@
       }
     });
   });
-  
+
   $(document).on("change", "#varient_car_model_id1", function() {
     var model_id = $(this).val();
     $.ajax({
@@ -198,22 +223,25 @@
       }
     });
   });
-  
-  $(document).on("change", "#varient_car_varient_id1", function(){
+
+  $(document).on("change", "#varient_car_varient_id1", function() {
     var varient_id = $(this).val();
     var varient_name = $("#varient_car_varient_id1 option:selected").text();
-    
+
     if (varient_id == '') {
       $(".varient_name1").val('');
     } else {
       $(".varient_name1").val(varient_name);
-    }   
+    }
   });
-    
-  $(document).on("click", "#btnSubmit2", function(){
+
+  $(document).on("click", "#btnSubmit2", function() {
     var varient_id = $("#varient_car_varient_id1").val();
-    
     var varient_name = $(".varient_name1").val();
+    if (varient_id == '' || varient_name == '') {
+      $(".error2").show();
+      return false;
+    } 
     $.ajax({
       url: "/admin/stocks/update_varient",
       dataType: "Script",

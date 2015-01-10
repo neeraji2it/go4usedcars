@@ -4,6 +4,18 @@
   <div class="row">
     <div class="col-sm-6">
       <%= form_for @specification, :url => create_master_specification_admin_stocks_path, :method => "POST" do |f| %>
+      
+      <% if @specification.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@specification.errors.count, "error") %> prohibited this category from being saved:</h2>
+    
+            <ul>
+              <% @specification.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
         
         <div class="row">
           <div class="col-sm-12">

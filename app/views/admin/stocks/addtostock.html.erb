@@ -3,8 +3,19 @@
 <div class="panel-body">
   <div class="row">
     <div class="col-sm-6">
-       <%= form_for @car_model, :url => create_model_admin_stocks_path, :method => "POST" do |f| %>
-        
+       <%= form_for(@car_model, :url => create_model_admin_stocks_path, :method => "POST") do |f| %>        
+         <% if @car_model.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@car_model.errors.count, "error") %> prohibited this category from being saved:</h2>
+    
+            <ul>
+              <% @car_model.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
@@ -67,7 +78,19 @@
 
     <div class="col-sm-6">
       <div id="load_variant">
-        <%= form_for @car_varient, :url => create_varient_admin_stocks_path, :method => "POST" do |form| %>
+        <%= form_for(@car_varient, :url => create_varient_admin_stocks_path, :method => "POST") do |form| %>
+        <% if @car_varient.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@car_varient.errors.count, "error") %> prohibited this category from being saved:</h2>
+    
+            <ul>
+              <% @car_varient.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
