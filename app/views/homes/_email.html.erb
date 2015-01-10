@@ -7,6 +7,7 @@
         <div id="final_deal">
             <%= form_tag send_details_path(), :method => :get do %>
               <%= hidden_field_tag :car_id %>
+              <%= hidden_field_tag :loc, params[:loc] %>
               <div class="frow">
                   <div>Email:</div>
                   <div><%= email_field_tag :email %></div>

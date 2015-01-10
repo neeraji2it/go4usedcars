@@ -13,7 +13,7 @@ class HomesController < ApplicationController
       	params[:body_type7],params[:body_type8],params[:body_type9],
       	params[:fuel_type1],params[:fuel_type2],params[:fuel_type3],params[:fuel_type4],
         params[:name], params[:email], params[:phone]).deliver
-      flash[:notice] = "Your Requirement has been successfuly submited"
+      flash[:notice] = "Your Requirement has been successfuly submited."
       redirect_to home_homes_path(:loc => params[:loc])
     end
 	end
@@ -95,7 +95,7 @@ class HomesController < ApplicationController
   def send_details
     @car = Vehicle.find_by_id(params[:car_id])
     RequirementMailer.send_car_details(@car, params[:email]).deliver if params[:email].present?
-    redirect_to root_path
+    redirect_to buy_car_homes_path(:loc => params[:loc])
   end
   
   def load_model
