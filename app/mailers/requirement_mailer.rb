@@ -1,35 +1,19 @@
 class RequirementMailer < ActionMailer::Base
   default from: "from@example.com"
 
-  def send_requirement(
-        min_budget, max_budget, car_year, car_year1, make, 
-        model,body_type1,body_type2,body_type3,
-       	body_type4,body_type5,
-       	body_type6,body_type7,body_type8,body_type9,
-        fuel_type1,fuel_type2,fuel_type3,fuel_type4,name,email,phone
-        )
-        @min_budget = min_budget
-        @max_budget = max_budget
-        @car_year = car_year
-        @car_year1 = car_year1
-        @make = make
-        @model = model
-        @body_type1 = body_type1
-        @body_type2 = body_type2
-        @body_type3 = body_type3
-        @body_type4 = body_type4
-        @body_type5 = body_type5
-        @body_type6 = body_type6
-        @body_type7 = body_type7
-        @body_type8 = body_type8
-        @body_type9 = body_type9
-        @fuel_type1=fuel_type1
-        @fuel_type2=fuel_type2
-        @fuel_type3=fuel_type3
-        @fuel_type4=fuel_type4
-        @name=name
-        @mail=mail
-        @phone=phone
+  def send_requirement(post_req)
+        @post_req = PostRequirement.find(post_req.id)
+        @min_budget = @post_req.min_budget
+        @max_budget = @post_req.max_budget
+        @min_year = @post_req.min_year
+        @max_year = @post_req.max_year
+        @make = @post_req.make
+        @model = @post_req.model
+        @body_type = @post_req.body_type.split(",").join(", ")
+        @fuel_type = @post_req.fuel_type.split(",").join(", ")
+        @name = @post_req.name
+        @mail = @post_req.email
+        @phone = @post_req.phone
         mail(:to =>"crystal.badu@gmail.com", :subject => "User Requirements")
   end
   

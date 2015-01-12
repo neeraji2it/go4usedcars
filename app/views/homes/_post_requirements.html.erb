@@ -1,34 +1,34 @@
-<%= form_tag({:action => "home", :controller => "homes", :loc => params[:loc]}) do  %>
+<%= form_for(@post_req, :url => "/homes/save_post_req?loc=#{params[:loc]}", :method => "POST") do  |f| %>
   <div class="form-group">
     <span style="margin-right: 42px; font-weight: bold;">Budget:</span>
     <label class="budget-label" for="selectreq">
-      <%= select_tag :min_budget, options_for_select([["Min. Budget", ""], 
+      <%= f.select :min_budget, options_for_select([["Min. Budget", ""], 
           ["Below 1 Lakh", "0"],["1 Lakh", "100000"],["2 Lakh", "200000"],["3 Lakh", "300000"],["4 Lakh", "400000"],["5 Lakh", "500000"],  ["6 Lakh", "600000"],["7 Lakh", "700000"],
-          ["8 Lakh", "800000"],["9 Lakh", "900000"],["10 Lakh", "1000000"] ]),:id=>"min-budget", 
+          ["8 Lakh", "800000"],["9 Lakh", "900000"],["10 Lakh", "1000000"] ]), {}, :id=>"min-budget", 
         :style=>"width:210px;", :class => "form-control", :required => true %>
     </label>
 
     <label for="selectcity" class="budget-label">
-      <%= select_tag :max_budget, options_for_select([["Max. Budget", ""], 
+      <%=  f.select :max_budget, options_for_select([["Max. Budget", ""], 
           ["Below 1 Lakh", "0"],["2 Lakh", "200000"],["3 Lakh", "300000"],["4 Lakh", "400000"],["5 Lakh", "500000"],["6 Lakh", "600000"],  ["7 Lakh", "700000"],["8 Lakh", "800000"],
           ["9 Lakh", "900000"],["10 Lakh", "1000000"],["11 Lakh", "1100000"],["12 Lakh", "1200000"],
           ["13 Lakh", "1300000"],["14 Lakh", "1400000"],["15 Lakh", "1500000"],
-          ["Above 15 Lakh", "1600000"] ]),:id=>"max-budget", :style=>"width:210px;", :class => "form-control", :required => true %>
+          ["Above 15 Lakh", "1600000"] ]), {}, :id=>"max-budget", :style=>"width:210px;", :class => "form-control", :required => true %>
     </label>
   </div>
 
   <div class="form-group">
     <span style="margin-right: 31px; font-weight: bold;">Car Year:</span>
     <label for="selectcity" class="budget-label">
-      <%=select_tag :car_year,options_for_select([["Min. Year", ""],["Below 2000","0"],
+      <%= f.select :min_year,options_for_select([["Min. Year", ""],["Below 2000","0"],
           ["2001","2001"],["2002","2002"],["2003","2003"],["2004","2004"],["2005","2005"],["2006","2006"],["2007","2007"],["2008","2008"],["2009","2009"],["2010","2010"],["2011","2011"],
-          ["2012","2012"],["2013","2013"],["2014","2014"],["2015","2015"]]),:id=>"car-year",
+          ["2012","2012"],["2013","2013"],["2014","2014"],["2015","2015"]]), {}, :id=>"car-year",
         :style=>"width:210px;", :class => "form-control", :required => true %>
     </label>
 
     <label for="max-city" class="budget-label">
-      <%=select_tag :car_year1,options_for_select([["Max. Year", ""], ["2001","2001"],["2002","2002"],["2003","2003"],["2004","2004"],["2005","2005"],["2006","2006"],["2007","2007"],["2008","2008"],["2009","2009"],["2010","2010"],["2011","2011"],
-          ["2012","2012"],["2013","2013"],["2014","2014"],["2015","2015"]]),:id=>"car-year1",
+      <%= f.select :max_year,options_for_select([["Max. Year", ""], ["2001","2001"],["2002","2002"],["2003","2003"],["2004","2004"],["2005","2005"],["2006","2006"],["2007","2007"],["2008","2008"],["2009","2009"],["2010","2010"],["2011","2011"],
+          ["2012","2012"],["2013","2013"],["2014","2014"],["2015","2015"]]), {}, :id=>"car-year1",
         :style=>"width:210px;", :class => "form-control", :required => true%>
     </label>
   </div>
@@ -37,7 +37,7 @@
   <div class="form-group">
     <span style="margin-right: 13px; font-weight: bold;">Make/Mode:</span>
     <label for="max-city" class="budget-label">  
-      <%=select_tag :make, options_for_select([["--Select Make--",""],["Ashok Layland","53"],["Aston Martin","49"],["Audi","18"],["Austin","58"],["Bentley","22"],["BMW","1"],["Bugatti","47"],
+      <%= f.select :make, options_for_select([["--Select Make--",""],["Ashok Layland","53"],["Aston Martin","49"],["Audi","18"],["Austin","58"],["Bentley","22"],["BMW","1"],["Bugatti","47"],
           ["Cadillac","48"],["Caterham","52"],["Chevrolet","2"],["Chrysler","28"],["Daewoo","3"],["Datsun","56"],["Dodge","46"],["Ferrari","33"],["Fiat","4"],["Force Motors","50"],["Ford","5"],
           ["Hindustan Motors","6"],
 
@@ -48,62 +48,54 @@
           ["Pontiac","41"],["Porsche","19"],["Premier","14"],["Renault","45"],["Rolls-Royce","25"],
           ["San","26"],["Sipani","32"],["Skoda","15"],["Smart","60"],["Ssangyong","54"],
           ["Studebaker","64"],["Subaru","39"],["Tata","16"],["Toyota","17"],["Volkswagen","20"],
-          ["Volvo","37"],["Willys","42"] ]),:id=>"make",:style=>"width:210px;", :class => "form-control", :required => true%>
+          ["Volvo","37"],["Willys","42"] ]), {}, :id=>"make",:style=>"width:210px;", :class => "form-control", :required => true%>
     </label>
   </div>
 
   <div class="form-group">
     <span style="margin-right: 21px; font-weight: bold;">Car Model:</span>
-    <%=text_field_tag :model, nil, :id=>"model", :style=>"width:210px;", :required => true %>
+    <%= f.text_field :model, :id=>"model", :style=>"width:210px;", :required => true %>
   </div>
 
   <div class="form-group">
     <span style="margin-right: 19px;">Body Type:</span>
     <label>
-      <%= check_box_tag :body_type1, "Sedan" %> Sedan
-      <%= check_box_tag :body_type2, "Coupe" %> Coupe
-      <%= check_box_tag :body_type3, "Hatchback" %> Hatchback
-      <%= check_box_tag :body_type4, "Minivan/Van" %> Minivan/Van
-      <%= check_box_tag :body_type5, "Convertible" %> Convertible
+      <% BODY_TYPES.each do |type| %>
+      <%= check_box_tag "body_types[]", type %> <%= type %>
+      <% end %>
     </label>
 
     <span style="margin-right: 95px;"></span>
-    <label>
-      <%= check_box_tag :body_type6, "SUV/MUV" %> SUV/MUV
-      <%= check_box_tag :body_type7, "Truck" %> Truck
-      <%= check_box_tag :body_type8, "Station Wagon" %> Station Wagon
-      <%= check_box_tag :body_type9, "MUV" %> MUV
-    </label>
+   
   </div>
 
   <div class="form-group">
     <span style="margin-right: 23px; font-weight: bold;">Fuel Type:</span>
     <label>
-      <%=check_box_tag :fuel_type1, "Petrol"%>Petrol
-      <%=check_box_tag :fuel_type2, "Diesel"%>Diesel
-      <%=check_box_tag :fuel_type3, "CNG"%>CNG
-      <%=check_box_tag :fuel_type4, "LPG"%>LPG
+     <% FUEL_TYPES.each do |fuel| %>
+      <%= check_box_tag "fuel_types[]", fuel %> <%= fuel %>
+      <% end %>
     </label>
   </div>
 
   <div class="form-group">
     <span style="margin-right: 48px; font-weight: bold;">Name:</span>
     <label for="username" class="spacing-remove budget-label">
-      <%=text_field_tag :name, nil, :placeholder=>"Name", :id=>"username", :style=>"width:210px;", :required => true%>
+      <%= f.text_field :name, :placeholder=>"Name", :id=>"username", :style=>"width:210px;", :required => true%>
     </label>
   </div>
 
   <div class="form-group">
     <span style="margin-right: 50px; font-weight: bold;">Email:</span>
     <label for="Email" class="spacing-remove budget-label">
-      <%=email_field_tag :email, nil,:placeholder=>"Email",:id=>"email", :style=>"width:210px;", :required => true %>
+      <%= f.email_field :email, :placeholder=>"Email",:id=>"email", :style=>"width:210px;", :required => true %>
     </label> 
   </div>
 
   <div class="form-group">
     <span style="margin-right: 43px; font-weight: bold;">Phone:</span>
     <label for="tel" class="spacing-remove budget-label">       
-      <%=text_field_tag :phone, nil,:placeholder=>"Phone", :id=>"phone", :style=>"width:210px;", :required => true %>
+      <%= f.text_field :phone, :placeholder=>"Phone", :id=>"phone", :style=>"width:210px;", :required => true %>
     </label>
   </div>
 
@@ -111,5 +103,3 @@
     <button type="submit" value="Submit"  id="submitreq" name="submitreq" class="btn btn-warning" style="width:100%">Post Requirements</button>
   </div>
 <%end%> 
-
-

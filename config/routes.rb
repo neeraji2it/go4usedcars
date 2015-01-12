@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :careers
       get :contact_us
       get :associates_partners
+      post :save_post_req
     end
   end
   resources :testimonials 
@@ -103,6 +104,11 @@ Rails.application.routes.draw do
         post :save_vehicle
         get :specification_entry
         post :create_specification
+      end
+    end
+    resources :sell_procedures do
+      collection do
+        get :enquiry
       end
     end
   end
