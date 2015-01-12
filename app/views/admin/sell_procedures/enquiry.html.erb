@@ -1,0 +1,48 @@
+<%= render :partial => "admin/shared/stocks_navbar" %>
+<div class="table-responsive">
+  <table class="table table-stripped table-hover">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Requirement</th>
+      <th>Date</th>
+      <th>Delete</th>
+      <th></th>
+    </tr>
+
+    <%@enquiries.each do |s|%>
+      <tr>
+        <td>
+          <%= s.id %>
+        </td>
+        <td>
+          <%= s.name %>
+        </td>
+        <td>
+          <%= s.email %>
+        </td>
+        <td>
+          <%= s.phone %>
+        </td>
+        <td>
+          <b>Model:</b> <%= s.model %> <br/>
+          <b>Make: </b> <%= s.make %> <br/>
+          <b>Body Type: </b> <%= s.body_type%> <br/>
+          <b>Fuel Type: </b> <%= s.fuel_type%> <br/>
+          <b>Min Budget: </b> <%= s.min_budget%> <br/>
+          <b>Max Budget: </b> <%= s.max_budget%> <br/>
+          <b>Min Year: </b> <%= s.min_year%> <br/>
+          <b>Max Year: </b> <%= s.max_year%> <br/>
+        </td>
+        <td>
+          <%= s.created_at %>
+        </td>
+        <td>
+          <%= link_to "Delete", admin_sell_procedure_path(s.id), :method => :delete, data: {:confirm => "Are you sure?"} %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

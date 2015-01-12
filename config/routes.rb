@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get :careers
       get :contact_us
       get :associates_partners
+      post :save_post_req
     end
   end
   resources :testimonials 
@@ -33,9 +34,11 @@ Rails.application.routes.draw do
       collection do
         get :testimonials
         get :dealers
+        get :dealer_cars
       end
       member do 
         put :approved
+        put :move_to_stock
       end
     end
     resources :stocks do
@@ -106,6 +109,11 @@ Rails.application.routes.draw do
         post :create_specification
       end
     end
+    resources :sell_procedures do
+      collection do
+        get :enquiry
+      end
+    end
   end
   namespace :user do
     resources :registrations do
@@ -113,5 +121,10 @@ Rails.application.routes.draw do
         get :update_status
       end
     end
+  end
+
+  namespace :dealer do
+    resources :dashboards
+    resources :vehicles
   end
 end

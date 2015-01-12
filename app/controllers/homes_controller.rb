@@ -6,22 +6,34 @@ class HomesController < ApplicationController
 	end
 
 	def home
-    if request.post?
-      RequirementMailer.send_requirement(
-      	params[:min_budget],params[:max_budget],params[:car_year],params[:car_year1],params[:make],params[:model],
-      	params[:body_type1],params[:body_type2],params[:body_type3],params[:body_type4],params[:body_type5],params[:body_type6],
-      	params[:body_type7],params[:body_type8],params[:body_type9],
-      	params[:fuel_type1],params[:fuel_type2],params[:fuel_type3],params[:fuel_type4],
-        params[:name], params[:email], params[:phone]).deliver
-      flash[:notice] = "Your Requirement has been successfuly submited"
-      redirect_to home_homes_path(:loc => params[:loc])
+    @post_req = PostRequirement.new
+  end
+
+  def save_post_req
+    @post_req = PostRequirement.new(post_requirement_params)
+    if params[:body_types].present?
+      @body_types = params[:body_types]
     end
-	end
+    if params[:body_types].present?
+      @fuel_types = params[:fuel_types]
+    end
+    @post_req.body_type = @body_types.join(",")
+    @post_req.fuel_type = @fuel_types.join(",")
+    if @post_req.save
+      RequirementMailer.send_requirement(@post_req).deliver
+      flash[:notice] = "Your Requirement has been successfuly submited."
+      redirect_to home_homes_path(:loc => params[:loc])
+    else
+      render :action => :home
+    end
+  end
 
 	def about_us
 	end
 
 	def buy_car
+    @post_req = PostRequirement.new
+    
     amount = split_price(params[:price])
     if amount.present?
       min = amount[0]
@@ -95,7 +107,7 @@ class HomesController < ApplicationController
   def send_details
     @car = Vehicle.find_by_id(params[:car_id])
     RequirementMailer.send_car_details(@car, params[:email]).deliver if params[:email].present?
-    redirect_to root_path
+    redirect_to buy_car_homes_path(:loc => params[:loc])
   end
   
   def load_model
@@ -147,4 +159,8 @@ class HomesController < ApplicationController
 	def sell_car_params
 		params.require(:sell_car).permit!
 	end
+
+  def post_requirement_params
+    params.require(:post_requirement).permit!
+  end
 end

@@ -59,18 +59,18 @@
   <%= form_for @testimonial, :url => "/testimonials?loc=#{params[:loc]}", :method => "POST" do |f| %>
     <div class="inner-addon left-addon">
     <i class="fa fa-user"></i>
-    <%= f.text_field :name, :class => "form-control", :placeholder => "Name", :id => "txtname"  %>
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Name", :id => "txtname", :required => true  %>
    </div>
   <br/>
   <div class="inner-addon left-addon">
     <i class="fa fa-envelope "></i>	
-    <%= f.text_field :email, :class => "form-control", :placeholder => "Email", :id => "txtemail"  %>
+    <%= f.email_field :email, :class => "form-control", :placeholder => "Email", :id => "txtemail", :required => true  %>
     <br/>
   </div>
   
   <div class="inner-addon left-addon">
     <i class="fa fa-pencil " ></i>	
-    <%= f.text_area :testimonial, :id => "testimonial", :class => "form-control", :placeholder => "Testimonials", :rows => "5", :cols => "45" %>
+    <%= f.text_area :testimonial, :id => "testimonial", :class => "form-control", :placeholder => "Testimonials", :rows => "5", :cols => "45", :required => true %>
     <br />
     
     <p class="alright">		  

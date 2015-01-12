@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if resource_or_scope.is_a?(Admin)
      admin_dashboards_path
     elsif resource_or_scope.is_a?(User)
-     admin_dashboards_path
+     dealer_dashboards_path
     end
   end
 
@@ -25,9 +25,11 @@ class ApplicationController < ActionController::Base
    protected
 
   def get_layout
-     if devise_controller? && (resource_name == :admin || resource_name == :user)
+    if devise_controller? && (resource_name == :admin || resource_name == :user)
       "admin"
     elsif self.class.parent == Admin
+      "admin"
+    elsif self.class.parent == Dealer
       "admin"
     else
       "application"

@@ -12,59 +12,65 @@
     </div>
 
     <div class="col-xs-6 col-sm-3 right-column-spacing">
-      <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
+      
+      <div class="col-sm-3 box-sell-cars" style="border: 1px solid #ccc;">
+        <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
       <p>Please Fill all the Required fields.
-      <div class="col-sm-3 box-sell-cars">
         <%=form_for @sell_car, :url=>"/homes/save_sell_car?loc=#{params[:loc]}",:method => "POST" do |f|%>
+        <p class="text-grey">(Manufacturer, Model & Varient)</p> 
           <div class="inner-addon left-addon">
             <i class="fa fa-car"></i>	
-            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| [varient.name, varient.id] }), {}, :id => "txtcar", :class => "form-control" %>
+            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| [varient.name, varient.id] }), {}, :id => "txtcar", :class => "form-control", :style => "padding: 6px 28px;", :required => true %>
             <br />
           </div>
-          <p class="text-grey">(Manufacturer, Model & Varient)</p> 
+          
           <%= f.file_field :image, :id=>"usercarimage" %>
           <br />
           <div class="inner-addon left-addon">
             <i class="fa fa-user"></i>	
-            <%=f.text_field :name, :class=>"form-control",:placeholder=>"Name"%><br>
+            <%=f.text_field :name, :class=>"form-control",:placeholder=>"Name", :required => true%><br>
           </div>
           <label>Make Year</label>
-        
-             <%=f.text_field :manufacture_year,:placeholder=>"MakeYear", :class=>"form-control datepicker", :id=>"makemonth" %>
+          <div class="inner-addon  left-addon">
+            <i class="fa fa-calendar"></i>	
+            <%=f.text_field :manufacture_year,:placeholder=>"MakeYear", :class=>"form-control datepicker", :id=>"makemonth", :required => true %>
+          </div> 
             <br />
           
           <div class="inner-addon  left-addon">
-            <%= f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]]), {}, :class=>"form-control",:id=>"drpOwner"%>
+             <i class="fa fa-user"></i>
+            <%= f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]]), {}, :class=>"form-control",:id=>"drpOwner", :style => "padding: 6px 28px;", :required => true%>
             <span id="msgOwner" class="error"></span>
             <br/>
           </div>
           <div class="inner-addon left-addon">
             <i class=" fa fa-cab"></i>	
-            <%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms"%>
+            <%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms", :required => true%>
             <br>
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-building"></i>	
-            <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity"%><br>
+            <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity", :required => true%><br>
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-certificate"></i>	
-            <%=f.text_field :color, :placeholder=>"Color",:class=>"form-control",:id=>"txtColor"%><br>
+            <%=f.text_field :color, :placeholder=>"Color",:class=>"form-control",:id=>"txtColor", :required => true%><br>
           </div>
           <div class="inner-addon left-addon ">
+            <i class="fa fa-circle-o"></i>	
             <%=f.select :transmission, options_for_select([["-- Select Transmission --",""],
                 ["Manual","Manual"],["Automatic","Automatic"]]), {}, :class=>"form-control", 
-              :id=>"selecttransmission" %>
+              :id=>"selecttransmission", :style => "padding: 6px 28px;", :required => true %>
             <br>
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-pencil  "></i>	
-            <%=f.text_field :registration_no,:placeholder=>"Registration No.",:class=>"form-control",:id=>"txtRegNo"%>
+            <%=f.text_field :registration_no,:placeholder=>"Registration No.",:class=>"form-control",:id=>"txtRegNo", :required => true%>
             <br />
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-pencil-square "></i>	
-            <%=f.text_field:registration_at,:placeholder=>"Registration At.",:class=>"form-control",:id=>"txtRegAt"%>
+            <%=f.text_field :registration_at,:placeholder=>"Registration At.",:class=>"form-control",:id=>"txtRegAt", :required => true%>
             <br/>
           </div>
           <div class="inner-addon left-addon">
@@ -104,13 +110,14 @@
           </div> <br />
           <label>Insurance Valid Till</label>
           <div class="inner-addon left-addon">
+            <i class="fa fa-calendar"></i>
             <%=f.text_field :insurence_valid_till,:placeholder=>"Insurance Valid Till",
-              :class=>"form-control datepicker", :id => "InsValidTillMonth"%>
+              :class=>"form-control datepicker", :id => "InsValidTillMonth", :required => true%>
             <br />
           </div>    
           <div class="inner-addon left-addon">
             <i class="fa fa-rupee "></i>	
-            <%=f.text_field :expected_price,:placeholder=>"Expected Price",:id=>"txtPrice",:class=>"form-control"%>
+            <%=f.text_field :expected_price,:placeholder=>"Expected Price",:id=>"txtPrice",:class=>"form-control", :required => true%>
             <br />
           </div>
           <div class="inner-addon left-addon">
@@ -123,26 +130,26 @@
           </h1>
           <div class="inner-addon left-addon">
             <i class="fa fa-user "></i>	
-            <%=f.text_field :seller_name,:placeholder=>"Your Name*",:id=>"txtName",:class=>"form-control"%>
+            <%=f.text_field :seller_name,:placeholder=>"Your Name*",:id=>"txtName",:class=>"form-control", :required => true%>
             <br />
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-envelope "></i>	
-            <%=f.text_field :seller_email,:placeholder=>"Email*",:id=>"txtEmail",:class=>"form-control"%>
+            <%=f.text_field :seller_email,:placeholder=>"Email*",:id=>"txtEmail",:class=>"form-control", :required => true%>
             <br />
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-phone"></i>	
-            <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control"%>
+            <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control", :required => true%>
             <br />
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-home "></i>	
-            <%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control"%><br />
+            <%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control", :required => true%><br />
           </div>
           <%= f.submit :class=>"btn btn-warning",:style=>"float:right;"%></br>
         <%end%>
-        <div class="border-row"></div>
+       
       </div>
       </p>
 

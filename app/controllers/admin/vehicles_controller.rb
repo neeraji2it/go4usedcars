@@ -1,5 +1,6 @@
 class Admin::VehiclesController < ApplicationController
-   skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
+  
   def new
     @vehicle = Vehicle.new
     @manufacturers = Manufacturer.all
@@ -8,6 +9,9 @@ class Admin::VehiclesController < ApplicationController
   end
 
   def create
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @varients = Varient.where("car_model_id=?", params[:car_model_id])
     @vehicle = Vehicle.new(vehicle_params.merge(:varient_id => params[:varient][:varient_id], :car_model_id => params[:varient][:car_model_id], :manufacturer_id => params[:manufacturer_id]))
     @vehicle.status = "#{Status::Vehicle::LIVE}"
     if @vehicle.save

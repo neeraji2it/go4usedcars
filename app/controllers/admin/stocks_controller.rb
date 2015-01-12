@@ -13,7 +13,10 @@ class Admin::StocksController < ApplicationController
   end
 
   def create_model
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @car_varient = Varient.new
     @car_model =  CarModel.new(car_model_params)
+     @manufacturers = Manufacturer.all
     if @car_model.save
       redirect_to addtostock_admin_stocks_path
     else
@@ -22,6 +25,7 @@ class Admin::StocksController < ApplicationController
   end
 
   def create_varient
+    @car_model =  CarModel.new
     @manufacturers = Manufacturer.all
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
     @car_varient = Varient.new(car_varient_params)
@@ -43,11 +47,17 @@ class Admin::StocksController < ApplicationController
   end
 
   def create_master_specification
+    @technicals = SpecificationCategory.where(:name => "Technical Specification").first.specifications
+    @features = SpecificationCategory.where(:name => "Features").first.specifications
+    @entertainments = SpecificationCategory.where(:name => "Entertainment").first.specifications
+    @safeties = SpecificationCategory.where(:name => "Safety").first.specifications
+    @others = SpecificationCategory.where(:name => "Others").first.specifications
+    
     @specification = Specification.new(specification_params)
     if @specification.save
       redirect_to add_master_specification_admin_stocks_path
     else
-      return :add_master_specification
+      render :add_master_specification
     end
   end
 
@@ -71,9 +81,6 @@ class Admin::StocksController < ApplicationController
   def update_model
     @carmodel = CarModel.find(params[:model_id])     
     model_name = params[:model_name]
-    p "-------------------------"
-    p model_name
-    p "-------------------------"
     @carmodel.update_attributes(:name => model_name)
     respond_to do |format|
       format.js

@@ -7,23 +7,23 @@
                 A promising partnership with us also means that you are meeting up with infinite possibilities and has innumerable benefits and advantages.
                     
                 <%= form_for @career, :url => "/careers?loc=#{params[:loc]}", :multipart => true do |f| %>
-                  <%= f.text_field :resume_title, :id => "Resume_tlt", :placeholder => "Resume title", :class => "form-control" %>
+                  <%= f.text_field :resume_title, :id => "Resume_tlt", :placeholder => "Resume title", :class => "form-control", :required => true %>
                 <br/>
-                  <%= f.text_field :name, :id => "Resume_tlt", :placeholder => "Name", :class => "form-control" %>
+                  <%= f.text_field :name, :id => "Resume_tlt", :placeholder => "Name", :class => "form-control", :required => true %>
                 <br/>
-                  <%= f.select(:sex, [['Select Sex', nil], ["Male", "Male"], ["Female", "Female"]], {}, :class => "form-control", :id => "txtsex") %>
+                  <%= f.select(:sex, [['Select Sex', ""], ["Male", "Male"], ["Female", "Female"]], {}, :class => "form-control", :id => "txtsex", :required => true) %>
                 <br/>
-                  <%= f.text_area :address, :id => "txtaddress", :placeholder => "Address", :class => "form-control", :cols => "45", :rows => "5" %>
+                  <%= f.text_area :address, :id => "txtaddress", :placeholder => "Address", :class => "form-control", :cols => "45", :rows => "5", :required => true %>
                 <br/>
-                  <%= f.text_field :email, :id => "txtemail", :placeholder => "Email", :class => "form-control" %>
+                  <%= f.email_field :email, :id => "txtemail", :placeholder => "Email", :class => "form-control", :required => true %>
                   <br/>
-                  <%= f.text_field :phone, :id => "txtphone", :placeholder => "Phone", :class => "form-control" %>
+                  <%= f.text_field :phone, :id => "txtphone", :placeholder => "Phone", :class => "form-control", :required => true %>
                   <br/>
-                  <%= f.select(:job_category, [["Select Job Category", nil], ["Sales", "Sales"], ["Service", "Service"], ["Sales and service", "Sales and service"], ["Marketing", "Marketing"], ["Human resource", "Human resource"], ["Accounts", "Accounts"], ["Administration", "Administration"], ["Communication", "Communication"], ["Information technology", "Information technology"], ["Others", "Others"]], {}, :id => "txtjob", :placeholder => "Job Category", :class => "form-control") %>
+                  <%= f.select(:job_category, [["Select Job Category", nil], ["Sales", "Sales"], ["Service", "Service"], ["Sales and service", "Sales and service"], ["Marketing", "Marketing"], ["Human resource", "Human resource"], ["Accounts", "Accounts"], ["Administration", "Administration"], ["Communication", "Communication"], ["Information technology", "Information technology"], ["Others", "Others"]], {}, :id => "txtjob", :placeholder => "Job Category", :class => "form-control", :required => true) %>
                
                   <br/>
                   <%= f.label :resume, "Attach your resume" %>             
-                  <%= f.file_field :resume, :class => "txt_field2", :id => "uploadresume" %>
+                  <%= f.file_field :resume, :class => "txt_field2", :id => "uploadresume", :required => true %>
                           
                          <br /><br />
                            <input type="submit" src="/assets/submit.jpg" name="submitcareer" id="submitcareer"  class="btn btn-warning" value="Submit" />                
