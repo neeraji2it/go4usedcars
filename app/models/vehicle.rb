@@ -14,7 +14,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :user
 
   def carinfo
-    "#{self.try(:varient).try(:car_model).try(:manufacturer).try(:name)}  #{self.try(:varient).try(:car_model).try(:name)}  #{self.try(:varient).try(:name)}"
+    "#{self.try(:varient).try(:car_model).try(:manufacturer).try(:name)}  #{self.try(:varient).try(:car_model).try(:name)}  #{self.try(:varient).try(:name)} (#{self.try(:registration_no)})"
   end
   
   scope :live_cars, lambda { where(:status => "#{Status::Vehicle::LIVE}") }
@@ -22,5 +22,6 @@ class Vehicle < ActiveRecord::Base
   scope :gurgaon_cars, lambda { where(:location => "gurgaon") }
   scope :bangalore_cars, lambda { where(:location => "bangalore") }  
   validates :manufacturer_id, :car_model_id, :varient_id, :registration_no, presence: true
-  scope :dealer_cars, lambda { where(:status => "#{Vehicle::DEALER}")}
+  validates :registration_no, uniqueness: true
+  scope :dealer_cars, lambda { where(:status => "#{Status::Vehicle::DEALER}")}
 end

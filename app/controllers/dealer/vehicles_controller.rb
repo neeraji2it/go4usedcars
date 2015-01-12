@@ -3,11 +3,17 @@ class Dealer::VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @varients = Varient.where("car_model_id=?", params[:car_model_id])
   end
 
   def create
-    @vehicle = Vehicle.new(vehicle_params.merge(:user_id => current_user.id))
-    @vehicle.status = Vehicle::DEALER
+    @manufacturers = Manufacturer.all
+    @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
+    @varients = Varient.where("car_model_id=?", params[:car_model_id])
+    @vehicle = Vehicle.new(vehicle_params.merge(:varient_id => params[:varient][:varient_id], :car_model_id => params[:varient][:car_model_id], :manufacturer_id => params[:manufacturer_id], :user_id => current_user.id))
+    @vehicle.status = "#{Vehicle::DEALER}"
     if @vehicle.save
       redirect_to dealer_vehicles_path
     else
@@ -16,6 +22,11 @@ class Dealer::VehiclesController < ApplicationController
   end
 
   def index
-    @vehicles = Vehicle.dealer_cars
+    @vehicles = current_user.vehicles
+  end
+  
+  private
+  def vehicle_params
+    params.require(:vehicle).permit!
   end
 end

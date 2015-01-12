@@ -30,9 +30,11 @@ Rails.application.routes.draw do
       collection do
         get :testimonials
         get :dealers
+        get :dealer_cars
       end
       member do 
         put :approved
+        put :move_to_stock
       end
     end
     resources :stocks do
