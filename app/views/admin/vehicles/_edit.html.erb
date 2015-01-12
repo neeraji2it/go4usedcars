@@ -1,16 +1,16 @@
 <div class="panel-body">
- <%= form_for @vehicle, :url => update_vehicle_admin_vehicle_path(:id => params[:id]), :method => "PUT", :remote => true do |f| %>
- <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <b>Update Car Details</b>
+  <%= form_for @vehicle, :url => update_vehicle_admin_vehicle_path(:id => params[:id]), :method => "PUT", :remote => true do |f| %>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <b>Update Car Details</b>
+        </div>
       </div>
     </div>
-  </div>
-  <hr/>
+    <hr/>
 
-  <div class="row">
-    <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -80,9 +80,9 @@
             </div>
           </div>
         </div>
-        
 
-         <div class="row">
+
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Manufactured Year</b>
@@ -99,7 +99,7 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-              <b>Milage</b>
+              <b>Mileage</b>
             </div>
           </div>
 
@@ -124,9 +124,6 @@
           </div>
         </div>
 
-    </div>
-
-     <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -141,6 +138,9 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -197,7 +197,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Sterio</b>
@@ -211,7 +211,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Seat Covers</b>
@@ -225,7 +225,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Car For</b>
@@ -239,7 +239,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Visible Status</b>
@@ -270,12 +270,12 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-             <%= f.submit "Save", :class => "btn btn-md btn-warning" %>
+              <%= f.submit "Update Vehicle", :class => "btn btn-md btn-warning" %>
             </div>
           </div>
-     </div>
+        </div>
 
+      </div>
+    <% end %> 
   </div>
-   <% end %> 
-</div>
 </div>

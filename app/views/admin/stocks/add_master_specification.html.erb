@@ -7,7 +7,7 @@
       
       <% if @specification.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@specification.errors.count, "error") %> prohibited this category from being saved:</h2>
+            <h2><%= pluralize(@specification.errors.count, "error") %> prohibited this specification from being saved:</h2>
     
             <ul>
               <% @specification.errors.full_messages.each do |msg| %>
@@ -56,7 +56,7 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.submit "Submit", :class => "btn btn-md btn-warning" %>
+              <%= f.submit "Add Specification", :class => "btn btn-md btn-warning" %>
             </div>
           </div>
         </div>
@@ -129,4 +129,3 @@
     </div>
     </div>
   </div>
-</div>
