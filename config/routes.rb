@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => {:omniauth_callbacks => "share_on_fbs"}
+  devise_scope :user do
+    get '/users/auth/:provider/callback' => 'share_on_fbs#create'
+  end
   devise_for :admins
   get '/print/:id' => 'homes#print', :as => :print
   get '/send_details' => 'homes#send_details', :as => :send_details

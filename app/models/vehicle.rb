@@ -1,7 +1,7 @@
 class Vehicle < ActiveRecord::Base
   has_attached_file :image,
     :styles => {:thumb => "360x270#", :small=>"50x50#" },
-     :default_url => "missing.jpg"
+    :default_url => "missing.jpg"
   
   validates_attachment_content_type :image, :content_type => ['image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp']  
   belongs_to :manufacturer
@@ -20,4 +20,11 @@ class Vehicle < ActiveRecord::Base
   scope :sold_cars, lambda { where(:status => "#{Status::Vehicle::SOLD}") }
   scope :gurgaon_cars, lambda { where(:location => "gurgaon") }
   scope :bangalore_cars, lambda { where(:location => "bangalore") }  
+  
+  def post(post)
+    me = FbGraph::User.me(ShareFb.first.secret_token)
+    me.feed!(
+      :message => post.carinfo
+    )
+  end
 end

@@ -35,3 +35,7 @@ gem "nested_form"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'whenever', :require => false
 gem 'prawn-rails'
+gem 'omniauth-facebook'
+gem 'fb_graph'
+gem 'execjs'
+gem 'therubyracer'
