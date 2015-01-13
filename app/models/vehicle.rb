@@ -30,7 +30,10 @@ class Vehicle < ActiveRecord::Base
   def post(post)
     me = FbGraph::User.me(ShareFb.first.secret_token)
     me.feed!(
-      :message => post.carinfo
+      :message => "Car Enquiry",
+      :name => post.carinfo,
+      :link => BASE_URL,
+      :description => "Color: #{post.exterior_color} Location: #{post.location} Body Style: #{post.body_style} Mileage: #{post.milage} Fuel Type: #{post.fuel_type} Reg Yr: #{post.reg_year} Price: #{post.sell_price}"
     )
   end
 end
