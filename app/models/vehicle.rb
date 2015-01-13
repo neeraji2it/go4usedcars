@@ -23,7 +23,14 @@ class Vehicle < ActiveRecord::Base
   scope :bangalore_cars, lambda { where(:location => "bangalore") }  
   
   validates :manufacturer_id, :car_model_id, :varient_id, :registration_no,
-            :location, :reg_year, :milage, :sell_price, presence: true
+    :location, :reg_year, :milage, :sell_price, presence: true
   validates :registration_no, uniqueness: true
   scope :dealer_cars, lambda { where(:status => "#{Status::Vehicle::DEALER}")}
+  
+  def post(post)
+    me = FbGraph::User.me(ShareFb.first.secret_token)
+    me.feed!(
+      :message => post.carinfo
+    )
+  end
 end
