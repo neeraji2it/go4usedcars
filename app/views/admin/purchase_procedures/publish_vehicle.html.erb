@@ -1,18 +1,31 @@
 <%= render :partial => "admin/shared/stocks_navbar" %>
 <div class="panel-body">
- <%= form_for @vehicle, :url => "/admin/purchase_procedures/save_vehicle?sell_car_id=#{params[:sell_car_id]}", :method => "POST" do |f| %>
- <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <b>Car Detail Form</b> &nbsp; &nbsp; <%= @purchase_car.try(:model_varient) %>
+  <%= form_for @vehicle, :url => "/admin/purchase_procedures/save_vehicle?sell_car_id=#{params[:sell_car_id]}", :method => "POST" do |f| %>
+
+    <% if @vehicle.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+        <ul>
+          <% @vehicle.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <b>Car Detail Form</b> &nbsp; &nbsp; <%= @purchase_car.try(:model_varient) %>
+        </div>
       </div>
     </div>
-  </div>
-  <hr/>
+    <hr/>
 
-  <div class="row">
-    <div class="col-sm-6">
-     
+    <div class="row">
+      <div class="col-sm-6">
+
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -22,7 +35,9 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= select_tag :manufacturer_id, options_for_select([["- Select -", ""]] + @manufacturers.map {|m| [m.name, m.id]}), :class => "form-control", :id => "manufacturer_id", :onchange => "load_carmodels(this.value)" %>
+              <% if @manufacturers.present? %>
+                <%= select_tag :manufacturer_id, options_for_select([["- Select -", ""]] + @manufacturers.map {|m| [m.name, m.id]}), :class => "form-control", :id => "manufacturer_id", :onchange => "load_carmodels(this.value)" %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -104,9 +119,9 @@
             </div>
           </div>
         </div>
-        
 
-         <div class="row">
+
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Manufactured Year</b>
@@ -148,9 +163,9 @@
           </div>
         </div>
 
-    </div>
+      </div>
 
-     <div class="col-sm-6">
+      <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -206,14 +221,14 @@
             </div>
           </div>
         </div>
-       
-       <div class="row">
+
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Purchase Price</b>
             </div>
           </div>
-          
+
           <div class="col-sm-6">
             <div class="form-group text-info">
               <%= @purchase_car.try(:car_evaluation).try(:deal_price2) %>
@@ -235,7 +250,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Sterio</b>
@@ -249,7 +264,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Seat Covers</b>
@@ -263,7 +278,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Car For</b>
@@ -277,7 +292,7 @@
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <b>Visible Status</b>
@@ -308,35 +323,35 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-             <%= f.submit "Save", :class => "btn btn-md btn-warning" %>
+              <%= f.submit "Save", :class => "btn btn-md btn-warning" %>
             </div>
           </div>
-     </div>
+        </div>
 
+      </div>
+    <% end %> 
   </div>
-   <% end %> 
-</div>
 
-<script>
-  function load_carmodels(obj) {
-    $.ajax({
-    url: "/admin/vehicles/load_car_model",
-    type: "GET",
-    dataType: "Script",
-    data: {
-      manufacturer_id: obj
+  <script>
+    function load_carmodels(obj) {
+      $.ajax({
+        url: "/admin/vehicles/load_car_model",
+        type: "GET",
+        dataType: "Script",
+        data: {
+          manufacturer_id: obj
+        }
+      });
     }
-  });
-  }
 
-  function load_varients(car_model_id) {
-    $.ajax({
-      url: "/admin/vehicles/load_varients",
-      dataType: "Script",
-      type: "GET",
-      data: {
-        car_model_id: car_model_id
-      }
-    });
-  }
-</script>
+    function load_varients(car_model_id) {
+      $.ajax({
+        url: "/admin/vehicles/load_varients",
+        dataType: "Script",
+        type: "GET",
+        data: {
+          car_model_id: car_model_id
+        }
+      });
+    }
+  </script>
