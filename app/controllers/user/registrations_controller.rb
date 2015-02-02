@@ -7,7 +7,7 @@ class User::RegistrationsController < ApplicationController
     @user = User.new(user_params)
     @user.save
     @email = AssociatePartner.find_by_email(@user.email)
-    @email.update_attribute(:status, "Yes")
+    @email.update_attribute(:status, "No")
     RequirementMailer.sent_user(@user).deliver
     redirect_to dealers_admin_dashboards_path
   end
