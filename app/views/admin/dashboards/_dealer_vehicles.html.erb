@@ -41,7 +41,13 @@
 
 
         <td>
-          <b>Email:</b> <%= s.try(:user).try(:email) %>
+          <% @partner = AssociatePartner.user_partner(s.try(:user).try(:email)) %>
+          <b>Email:</b> <%= @partner.email %> <br/>
+          <b>Name:</b> <%= @partner.name %> <br/>
+          <b>Phone:</b> <%= @partner.phone %> <br/>
+          <b>Address:</b> <%= @partner.address %> <br/>
+          <b>Type:</b> <%= @partner.dealer_type %> <br/>
+          <b>Dealer Name:</b> <%= @partner.dealer_name %>
         </td>
 
         <td>
