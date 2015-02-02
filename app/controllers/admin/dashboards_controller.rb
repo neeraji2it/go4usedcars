@@ -25,7 +25,7 @@ class Admin::DashboardsController < ApplicationController
   
   def move_to_stock
     @vehicle = Vehicle.find(params[:id])
-    if @vehicle.update_attributes(:status => "#{Status::Vehicle::LIVE}")
+    if @vehicle.update_attributes!(:status => "#{Status::Vehicle::LIVE}")
       flash[:notice] = "You have successfully added this vehicle to your stock."
       redirect_to dealer_cars_admin_dashboards_path
     end

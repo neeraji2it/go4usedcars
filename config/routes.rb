@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       end
       member do 
         put :approved
-        put :move_to_stock
+        match :move_to_stock, via: [:get, :put]
       end
     end
     resources :stocks do
