@@ -4,6 +4,7 @@
   <table class="table table-stripped table-hover">
     <tr>
       <th>S.No.</th>
+      <th>Id</th>
       <th>Cars</th>
       <th>Price</th>
       <th>Milege</th>
@@ -15,6 +16,7 @@
     <%@cars.each_with_index do |car, i|%>
       <tr>
         <td><%= i+1 %></td>
+        <td><%= car.id %></td>
         <td>
           <%= car.carinfo %> <br/>
         </td>
