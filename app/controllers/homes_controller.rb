@@ -123,7 +123,7 @@ class HomesController < ApplicationController
 		if @sell_car.save
 			redirect_to  sell_car_homes_path(:loc=>params[:loc])
 		else
-			render sell_car_homes_path(:loc=>params[:loc])
+			render :action => 'sell_car'
 		end
 	end
 

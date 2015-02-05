@@ -14,65 +14,70 @@
     <div class="col-xs-6 col-sm-3 right-column-spacing">
       
       <div class="col-sm-3 box-sell-cars" style="border: 1px solid #ccc;">
-        <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
-      <p>Please Fill all the Required fields.
         <%=form_for @sell_car, :url=>"/homes/save_sell_car?loc=#{params[:loc]}",:method => "POST" do |f|%>
-        <p class="text-grey">(Manufacturer, Model & Varient)</p> 
+        <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
+            <% if @sell_car.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@sell_car.errors.count, "error") %> prohibited this vehicle info from being saved.</h2>
+        <ul style="float: left;">
+          <% @sell_car.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+        
+          
+        
+          <p class="text-grey">(Manufacturer, Model & Varient)</p> 
           <div class="inner-addon left-addon">
             <i class="fa fa-car"></i>	
-            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| [varient.name, varient.id] }), {}, :id => "txtcar", :class => "form-control", :style => "padding: 6px 28px;", :required => true %>
+            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| [varient.name, varient.id] }), {}, :id => "txtcar", :class => "form-control", :style => "padding: 6px 28px;" %>
             <br />
           </div>
-          
+
           <%= f.file_field :image, :id=>"usercarimage" %>
           <br />
-          <div class="inner-addon left-addon">
-            <i class="fa fa-user"></i>	
-            <%=f.text_field :name, :class=>"form-control",:placeholder=>"Name", :required => true%><br>
-          </div>
+
           <label>Make Year</label>
           <div class="inner-addon  left-addon">
             <i class="fa fa-calendar"></i>	
-            <%=f.text_field :manufacture_year,:placeholder=>"MakeYear", :class=>"form-control datepicker", :id=>"makemonth", :required => true %>
+            <%=f.text_field :manufacture_year,:placeholder=>"MakeYear", :class=>"form-control datepicker", :id=>"makemonth" %>
           </div> 
-            <br />
-          
+          <br />
+
           <div class="inner-addon  left-addon">
-             <i class="fa fa-user"></i>
-            <%= f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]]), {}, :class=>"form-control",:id=>"drpOwner", :style => "padding: 6px 28px;", :required => true%>
+            <i class="fa fa-user"></i>
+            <%= f.select :owner_type, options_for_select([["Select Owner",""],["I bought it New","I bought it New"],["I am the Second owner","I am the Second owner"],["I am the Third owner","I am the Third owner"],["I am the Fourth owner","I am the Fourth owner"],["Four or more previous owners","Four or more previous owners"]]), {}, :class=>"form-control",:id=>"drpOwner", :style => "padding: 6px 28px;"%>
             <span id="msgOwner" class="error"></span>
             <br/>
           </div>
           <div class="inner-addon left-addon">
             <i class=" fa fa-cab"></i>	
-            <%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms", :required => true%>
+            <%=f.text_field:kms_done,:placeholder=>"Kms Done",:class=>"form-control",:id=>"txtKms"%>
             <br>
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-building"></i>	
-            <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity", :required => true%><br>
+            <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity"%><br>
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-certificate"></i>	
-            <%=f.text_field :color, :placeholder=>"Color",:class=>"form-control",:id=>"txtColor", :required => true%><br>
+            <%=f.text_field :color, :placeholder=>"Color",:class=>"form-control",:id=>"txtColor"%><br>
           </div>
           <div class="inner-addon left-addon ">
             <i class="fa fa-circle-o"></i>	
             <%=f.select :transmission, options_for_select([["-- Select Transmission --",""],
                 ["Manual","Manual"],["Automatic","Automatic"]]), {}, :class=>"form-control", 
-              :id=>"selecttransmission", :style => "padding: 6px 28px;", :required => true %>
+              :id=>"selecttransmission", :style => "padding: 6px 28px;" %>
             <br>
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-pencil  "></i>	
-            <%=f.text_field :registration_no,:placeholder=>"Registration No.",:class=>"form-control",:id=>"txtRegNo", :required => true%>
+            <%=f.text_field :registration_no,:placeholder=>"Registration No.",:class=>"form-control",:id=>"txtRegNo"%>
             <br />
           </div>
-          <div class="inner-addon left-addon">
-            <i class="fa fa-pencil-square "></i>	
-            <%=f.text_field :registration_at,:placeholder=>"Registration At.",:class=>"form-control",:id=>"txtRegAt", :required => true%>
-            <br/>
-          </div>
+
           <div class="inner-addon left-addon">
             <label style="padding-right:20px;">Ownership*</label>
             <label class="radio-inline">
@@ -87,7 +92,7 @@
             <label style="padding-right:20px;">Car Insurance*</label>
             <label class="radio-inline">
               <%=f.radio_button :car_insurence, "Comprehensive",:id=>"rdoComprehensive"%> Comprehensive
-  
+
               <label class="radio-inline">
                 <%=f.radio_button :car_insurence, "Third-Party",:id=>"rdoThirdParty"%> Third-Party
               </label>
@@ -99,25 +104,25 @@
           <div class="inner-addon left-addon">
             <label style="padding-right:20px;">When you want to sell*</label>
             <label class="radio-inline">
-              <%=radio_button :when_to_sell, "At the Earliest",:id=>"rdoComprehensive"%> At the Earliest 
+              <%=f.radio_button :when_to_sell, "At the Earliest",:id=>"rdoComprehensive"%> At the Earliest 
             </label>
             <label class="radio-inline">
-              <%=radio_button :when_to_sell, "With in this month",:id=>"rdoThirdParty"%>  With in this month
+              <%=f.radio_button :when_to_sell, "With in this month",:id=>"rdoThirdParty"%>  With in this month
             </label>
             <label class="radio-inline">
-              <%=radio_button :when_to_sell, "Just Evaluating",:id=>"rdoNoInsurance"%>  Just Evaluating
+              <%=f.radio_button :when_to_sell, "Just Evaluating",:id=>"rdoNoInsurance"%>  Just Evaluating
             </label>
           </div> <br />
           <label>Insurance Valid Till</label>
           <div class="inner-addon left-addon">
             <i class="fa fa-calendar"></i>
             <%=f.text_field :insurence_valid_till,:placeholder=>"Insurance Valid Till",
-              :class=>"form-control datepicker", :id => "InsValidTillMonth", :required => true%>
+              :class=>"form-control datepicker", :id => "InsValidTillMonth"%>
             <br />
           </div>    
           <div class="inner-addon left-addon">
             <i class="fa fa-rupee "></i>	
-            <%=f.text_field :expected_price,:placeholder=>"Expected Price",:id=>"txtPrice",:class=>"form-control", :required => true%>
+            <%=f.text_field :expected_price,:placeholder=>"Expected Price",:id=>"txtPrice",:class=>"form-control"%>
             <br />
           </div>
           <div class="inner-addon left-addon">
@@ -130,43 +135,62 @@
           </h1>
           <div class="inner-addon left-addon">
             <i class="fa fa-user "></i>	
-            <%=f.text_field :seller_name,:placeholder=>"Your Name*",:id=>"txtName",:class=>"form-control", :required => true%>
+            <%=f.text_field :seller_name,:placeholder=>"Your Name*",:id=>"txtName",:class=>"form-control"%>
             <br />
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-envelope "></i>	
-            <%=f.text_field :seller_email,:placeholder=>"Email*",:id=>"txtEmail",:class=>"form-control", :required => true%>
+            <%=f.text_field :seller_email,:placeholder=>"Email*",:id=>"txtEmail",:class=>"form-control"%>
             <br />
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-phone"></i>	
-            <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control", :required => true%>
+            <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control"%>
             <br />
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-home "></i>	
-            <%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control", :required => true%><br />
+            <%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control"%><br />
           </div>
           <%= f.submit :class=>"btn btn-warning",:style=>"float:right;"%></br>
-        <%end%>
-       
+        
+
       </div>
       </p>
-
+<%end%>
     </div> <br />
   </div>
 </div>    
 
-      
+
 
 
 <script>
-  $(function(){
+  $(function() {
     $(".datepicker").datepicker({
-    dateFormat: 'dd-mm-yy',
-    todayHighlight: true,
-    todayBtn: 'linked',
-    autoclose: true
-  });
+      dateFormat: 'dd-mm-yy',
+      todayHighlight: true,
+      todayBtn: 'linked',
+      autoclose: true
+    });
   });
 </script>
+
+<style>
+  #error_explanation {
+   color: #f00;
+   border: 1px solid #CCC;
+   margin-bottom: 20px;
+   padding: 10px;
+   height: 480px;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  padding: 1px;
+  background-color: #f00;
+}
+</style>  

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112120900) do
+ActiveRecord::Schema.define(version: 20150205070100) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -125,7 +125,6 @@ ActiveRecord::Schema.define(version: 20150112120900) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "name"
     t.datetime "manufacture_year"
     t.string   "owner_type"
     t.float    "kms_done",             limit: 24
@@ -133,7 +132,6 @@ ActiveRecord::Schema.define(version: 20150112120900) do
     t.string   "color"
     t.string   "transmission"
     t.string   "registration_no"
-    t.string   "registration_at"
     t.string   "ownership"
     t.string   "car_insurence"
     t.string   "when_to_sell"
