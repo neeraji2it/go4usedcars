@@ -1,64 +1,93 @@
 <% @page_title = "Associates and Partners - Go4 Used Cars" %>
 
 <h1><span class="about-us">Partner with Us</span></h1>
-            <div class="border-row"></div>
+<div class="border-row"></div>
 
-  <div class="col-xs-6 width-inmobile">
+<div class="col-xs-6 width-inmobile">
   <br />
-     <h4 style="text-decoration:none;">Together, we grow.</h4>
-          
-        
-       <p>A promising partnership with us also means that you are meeting up with infinite possibilities and has innumerable benefits and advantages. <p>
-       
-       
-          <h4 style="text-decoration:none">A partnership with Go4usedcars gives you:</h4>
-            <ol class="no-float">
-              
-            <li>better commission rates,</li>
-            <li>faster transactions,</li>
-            <li>preferential treatment, including first choice of vehicle</li>
-              </ol> 
-              <br />
-          <h4 style="text-decoration:none;font-size:16px"><b>If you wish to work us please fill in your contact details,  Associate with us as</b></h4><br />
-<%=form_for @associate_partner, :url => "/associate_partners?loc=#{params[:loc]}", :method => "POST" do |f|%>
+  <h4 style="text-decoration:none;">Together, we grow.</h4>
 
- <%= f.select :dealer_type, options_for_select([["Select",""],["Dealer","Dealer"],
-    ["Freelancer","Freelancer"],["Others","Others"]]), {}, :id=>"utype",:class=>"form-control"%>
-   </br> 
-  <%=f.text_field :dealer_name,:placeholder=>"Dealership Name(for dealer)",:id=>"dealership",
-  :class=>"form-control"%></br>
- <%=f.text_field :name,:placeholder=>"Name",:id=>"txtname",:class=>"form-control"%></br>
- <%=f.text_field :phone,:placeholder=>"Phone",:id=>"txtphone",:class=>"form-control"%></br>
- <%=f.text_field :email,:placeholder=>"Email Id",:id=>"txtemail",:class=>"form-control"%></br>
- <%=f.text_area :address,:placeholder=>"Address",:id=>"txtaddress",:class=>"form-control"%>
- </br>
 
-<%= f.submit :class => "btn btn-warning", :id => "submitsignup" %>
+  <p>A promising partnership with us also means that you are meeting up with infinite possibilities and has innumerable benefits and advantages. <p>
+
+
+  <h4 style="text-decoration:none">A partnership with Go4usedcars gives you:</h4>
+  <ol class="no-float">
+
+    <li>better commission rates,</li>
+    <li>faster transactions,</li>
+    <li>preferential treatment, including first choice of vehicle</li>
+  </ol> 
+  <br />
+  <h4 style="text-decoration:none;font-size:16px"><b>If you wish to work us please fill in your contact details,  Associate with us as</b></h4><br />
+  <%=form_for @associate_partner, :url => "/associate_partners?loc=#{params[:loc]}", :method => "POST" do |f|%>
+    <% if @associate_partner.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@associate_partner.errors.count, "error") %> prohibited this  info from being saved.</h2>
+        <ul style="float: left;">
+          <% @associate_partner.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.select :dealer_type, options_for_select([["Select",""],["Dealer","Dealer"],
+        ["Freelancer","Freelancer"],["Others","Others"]]), {}, :id=>"utype",:class=>"form-control"%>
+    </br> 
+    <%=f.text_field :dealer_name,:placeholder=>"Dealership Name(for dealer)",:id=>"dealership",
+      :class=>"form-control"%></br>
+    <%=f.text_field :name,:placeholder=>"Name",:id=>"txtname",:class=>"form-control"%></br>
+    <%=f.text_field :phone,:placeholder=>"Phone",:id=>"txtphone",:class=>"form-control"%></br>
+    <%=f.text_field :email,:placeholder=>"Email Id",:id=>"txtemail",:class=>"form-control"%></br>
+    <%=f.text_area :address,:placeholder=>"Address",:id=>"txtaddress",:class=>"form-control"%>
+    </br>
+
+    <%= f.submit :class => "btn btn-warning", :id => "submitsignup" %>
+    <br />	
+
+  <%end%>
   <br />	
- 
-<%end%>
-<br />	
 </div>
 
-                     <div class="col-xs-6" style="text-align:center">
+<div class="col-xs-6" style="text-align:center">
 
-        <img src="/assets/shake_prtner.jpg"  class="img-responsive" /></div>
-    
-      
-  <div class="col-width">
-           <h4 style="text-decoration:none; background:#ccc;padding:14px"><b>ASSOCIATES WITH US</b></h4>
-   
-            
+  <img src="/assets/shake_prtner.jpg"  class="img-responsive" /></div>
 
-       
-        	<img src="/assets/jasanz.png" width="120" height="120" />
-            <img src="/assets/fida.png" width="120" height="120" />
-            <img src="/assets/mahindra_finance_logo.jpg" width="120" height="120" />
-            <img src="/assets/carplus.jpg" width="110" height="110" />
-            <img src="/assets/hdfc-logo.jpg" />
-            <img src="/assets/mytvs.jpg" width="120" height="120" />
-            <img src="/assets/carz.jpg" width="110" height="110" />	
-           <img src="/assets/HDFC_10.jpg" width="120" height="120" />           
-     
-      
-     </div>
+
+<div class="col-width">
+  <h4 style="text-decoration:none; background:#ccc;padding:14px"><b>ASSOCIATES WITH US</b></h4>
+
+
+
+
+  <img src="/assets/jasanz.png" width="120" height="120" />
+  <img src="/assets/fida.png" width="120" height="120" />
+  <img src="/assets/mahindra_finance_logo.jpg" width="120" height="120" />
+  <img src="/assets/carplus.jpg" width="110" height="110" />
+  <img src="/assets/hdfc-logo.jpg" />
+  <img src="/assets/mytvs.jpg" width="120" height="120" />
+  <img src="/assets/carz.jpg" width="110" height="110" />	
+  <img src="/assets/HDFC_10.jpg" width="120" height="120" />           
+
+
+</div>
+
+
+<style>
+  #error_explanation {
+    color: #f00;
+    border: 1px solid #CCC;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 480px;
+    ul {
+      list-style: none;
+      margin: 0 0 18px 0;
+    }
+  }
+
+  .field_with_errors {
+    padding: 1px;
+    background-color: #f00;
+  }
+</style>  

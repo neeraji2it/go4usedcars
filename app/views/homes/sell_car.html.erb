@@ -12,23 +12,20 @@
     </div>
 
     <div class="col-xs-6 col-sm-3 right-column-spacing">
-      
+
       <div class="col-sm-3 box-sell-cars" style="border: 1px solid #ccc;">
         <%=form_for @sell_car, :url=>"/homes/save_sell_car?loc=#{params[:loc]}",:method => "POST" do |f|%>
-        <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
-            <% if @sell_car.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@sell_car.errors.count, "error") %> prohibited this vehicle info from being saved.</h2>
-        <ul style="float: left;">
-          <% @sell_car.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+          <h1 class="font-size-sellcar" style=" background-color:#fc6; text-indent:20px; ">ABOUT YOUR CAR</h1>
+          <% if @sell_car.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@sell_car.errors.count, "error") %> prohibited this vehicle info from being saved.</h2>
+              <ul style="float: left;">
+                <% @sell_car.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
-        </ul>
-      </div>
-    <% end %>
-        
-          
-        
           <p class="text-grey">(Manufacturer, Model & Varient)</p> 
           <div class="inner-addon left-addon">
             <i class="fa fa-car"></i>	
@@ -59,7 +56,7 @@
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-building"></i>	
-            <%=f.text_field :city, :placeholder=>"City",:class=>"form-control",:id=>"txtcity"%><br>
+            <%=f.select :city, options_for_select([["Select Location", ""],["Bangalore","bangalore"],["Delhi","gurgaon"]],:selected => f.object.city), {},:id=>"txtcity", :class => "form-control", :rows => "1",:style => "padding: 6px 28px;" %><br>
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-certificate"></i>	
@@ -153,11 +150,11 @@
             <%=f.text_field :seller_organization,:placeholder=>"Name of Your Oraganization",:id=>"txtOrg",:class=>"form-control"%><br />
           </div>
           <%= f.submit :class=>"btn btn-warning",:style=>"float:right;"%></br>
-        
 
-      </div>
-      </p>
-<%end%>
+
+        </div>
+        </p>
+      <%end%>
     </div> <br />
   </div>
 </div>    
@@ -178,19 +175,20 @@
 
 <style>
   #error_explanation {
-   color: #f00;
-   border: 1px solid #CCC;
-   margin-bottom: 20px;
-   padding: 10px;
-   height: 480px;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
+    color: #f00;
+    border: 1px solid #CCC;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 480px;
+    ul {
+      list-style: none;
+      margin: 0 0 18px 0;
+    }
   }
-}
 
-.field_with_errors {
-  padding: 1px;
-  background-color: #f00;
-}
-</style>  
+  .field_with_errors {
+    padding: 1px;
+    background-color: #f00;
+  }
+</style>
+

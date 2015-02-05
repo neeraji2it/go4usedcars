@@ -1,36 +1,68 @@
 <% @page_title = "Careers - Go4 Used Cars" %>
 <h1><span class="about-us">Career</span></h1><img src="/assets/header_space.jpg" width="2" height="10" />
- <div class="border-row"></div>
-  <div class="col-xs-6 width-inmobile">
+<div class="border-row"></div>
+<div class="col-xs-6 width-inmobile">
+  <br />
+  <h4 style="text-decoration:none;">Together, we grow.</h4>
+  A promising partnership with us also means that you are meeting up with infinite possibilities and has innumerable benefits and advantages.
+
+  <%= form_for @career, :url => "/careers?loc=#{params[:loc]}", :multipart => true do |f| %>
+    <% if @career.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@career.errors.count, "error") %> prohibited this JoinUs info from being saved.</h2>
+        <ul style="float: left;">
+          <% @career.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.text_field :resume_title, :id => "Resume_tlt", :placeholder => "Resume title", :class => "form-control" %>
+    <br/>
+    <%= f.text_field :name, :id => "Resume_tlt", :placeholder => "Name", :class => "form-control" %>
+    <br/>
+    <%= f.select(:sex, [['Select Sex', ""], ["Male", "Male"], ["Female", "Female"]], {}, :class => "form-control", :id => "txtsex") %>
+    <br/>
+    <%= f.text_area :address, :id => "txtaddress", :placeholder => "Address", :class => "form-control", :cols => "45", :rows => "5" %>
+    <br/>
+    <%= f.email_field :email, :id => "txtemail", :placeholder => "Email", :class => "form-control" %>
+    <br/>
+    <%= f.text_field :phone, :id => "txtphone", :placeholder => "Phone", :class => "form-control" %>
+    <br/>
+    <%= f.select(:job_category, [["Select Job Category", nil], ["Sales", "Sales"], ["Service", "Service"], ["Sales and service", "Sales and service"], ["Marketing", "Marketing"], ["Human resource", "Human resource"], ["Accounts", "Accounts"], ["Administration", "Administration"], ["Communication", "Communication"], ["Information technology", "Information technology"], ["Others", "Others"]], {}, :id => "txtjob", :placeholder => "Job Category", :class => "form-control") %>
+
+    <br/>
+    <%= f.label :resume, "Attach your resume" %>             
+    <%= f.file_field :resume, :class => "txt_field2", :id => "uploadresume" %>
+
+    <br /><br />
+    <input type="submit" src="/assets/submit.jpg" name="submitcareer" id="submitcareer"  class="btn btn-warning" value="Submit" />                
     <br />
-      <h4 style="text-decoration:none;">Together, we grow.</h4>
-                A promising partnership with us also means that you are meeting up with infinite possibilities and has innumerable benefits and advantages.
-                    
-                <%= form_for @career, :url => "/careers?loc=#{params[:loc]}", :multipart => true do |f| %>
-                  <%= f.text_field :resume_title, :id => "Resume_tlt", :placeholder => "Resume title", :class => "form-control", :required => true %>
-                <br/>
-                  <%= f.text_field :name, :id => "Resume_tlt", :placeholder => "Name", :class => "form-control", :required => true %>
-                <br/>
-                  <%= f.select(:sex, [['Select Sex', ""], ["Male", "Male"], ["Female", "Female"]], {}, :class => "form-control", :id => "txtsex", :required => true) %>
-                <br/>
-                  <%= f.text_area :address, :id => "txtaddress", :placeholder => "Address", :class => "form-control", :cols => "45", :rows => "5", :required => true %>
-                <br/>
-                  <%= f.email_field :email, :id => "txtemail", :placeholder => "Email", :class => "form-control", :required => true %>
-                  <br/>
-                  <%= f.text_field :phone, :id => "txtphone", :placeholder => "Phone", :class => "form-control", :required => true %>
-                  <br/>
-                  <%= f.select(:job_category, [["Select Job Category", nil], ["Sales", "Sales"], ["Service", "Service"], ["Sales and service", "Sales and service"], ["Marketing", "Marketing"], ["Human resource", "Human resource"], ["Accounts", "Accounts"], ["Administration", "Administration"], ["Communication", "Communication"], ["Information technology", "Information technology"], ["Others", "Others"]], {}, :id => "txtjob", :placeholder => "Job Category", :class => "form-control", :required => true) %>
-               
-                  <br/>
-                  <%= f.label :resume, "Attach your resume" %>             
-                  <%= f.file_field :resume, :class => "txt_field2", :id => "uploadresume", :required => true %>
-                          
-                         <br /><br />
-                           <input type="submit" src="/assets/submit.jpg" name="submitcareer" id="submitcareer"  class="btn btn-warning" value="Submit" />                
-                           <br />
-                          <br /> <br />                         
-                     <% end %>                  
-                     </div>
-                
-                  <div class="col-xs-6 width-inmobile">
-                  <img src="/assets/career.jpg" class="img-responsive" /></div>
+    <br /> <br />                         
+  <% end %>                  
+</div>
+
+<div class="col-xs-6 width-inmobile">
+  <img src="/assets/career.jpg" class="img-responsive" /></div> 
+
+
+
+
+<style>
+  #error_explanation {
+    color: #f00;
+    border: 1px solid #CCC;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 480px;
+    ul {
+      list-style: none;
+      margin: 0 0 18px 0;
+    }
+  }
+
+  .field_with_errors {
+    padding: 1px;
+    background-color: #f00;
+  }
+</style>  

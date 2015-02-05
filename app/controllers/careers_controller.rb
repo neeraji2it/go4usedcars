@@ -1,10 +1,12 @@
 class CareersController < ApplicationController
-	def create
+	
+  def create
     @career = Career.new(career_params)
     if @career.save
       redirect_to careers_homes_path(:loc => params[:loc])
     else
-      redirect_to careers_homes_path(:loc => params[:loc])
+     # render careers_homes_path(:loc => params[:loc])
+      render  "/homes/careers" 
     end
 	end
 
@@ -13,3 +15,5 @@ class CareersController < ApplicationController
     params.require(:career).permit!
   end
 end
+
+

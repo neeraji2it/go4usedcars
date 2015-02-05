@@ -5,7 +5,8 @@ class AssociatePartnersController < ApplicationController
 		   RequirementMailer.associate_partner(@associate_partner).deliver
 			redirect_to associates_partners_homes_path(:loc => params[:loc])
 		else
-			render :action => :associates_partners
+			#render :action => :associates_partners
+      render "/homes/associates_partners"
 		end
 	end
 
