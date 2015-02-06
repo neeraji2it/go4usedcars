@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-xs-9"></div>
- </div> 
+</div> 
 
 <div class="row">
 
   <% if params[:loc] == "gurgaon" %>
-  <%= render :partial => "layouts/footer_link_delhi" %>
+    <%= render :partial => "layouts/footer_link_delhi" %>
   <% elsif params[:loc] == "bangalore" %>
-  <%= render :partial => "layouts/footer_link_bangalore" %>
-<% end %>
+    <%= render :partial => "layouts/footer_link_bangalore" %>
+  <% end %>
 
 
 
@@ -16,37 +16,60 @@
 
   <div class="col-xs-12 col-sm-4 bottom-menu1 social-bottom "><center> <H4  style="font-size:13px;" class="join-align" >JOIN ON US </H4>
 
-  <table cellpadding="5" cellspacing="5">
+      <table cellpadding="5" cellspacing="5">
 
-              <tr>
+        <tr>
 
-                  <th class="menu-padding font-size" ><i class="fa fa-twitter btn1 btn-twitter "></i></th>
+          <th class="menu-padding font-size" ><i class="fa fa-twitter btn1 btn-twitter "></i></th>
 
-                  <th class="menu-padding font-size"><a href=" https://plus.google.com/app/basic/106338495929548322721" ><i class="fa fa-google-plus btn1 btn-google-plus "></i></a></th>
+          <th class="menu-padding font-size"><a href=" https://plus.google.com/app/basic/106338495929548322721" ><i class="fa fa-google-plus btn1 btn-google-plus "></i></a></th>
 
-                  <th class="menu-padding font-size"> <i class="fa  fa-facebook btn1 btn-facebook "></i></th>
+          <th class="menu-padding font-size"> <i class="fa  fa-facebook btn1 btn-facebook "></i></th>
 
-                  <th class="menu-padding font-size"><i class="fa fa-linkedin btn1 btn-linkedin "></i></th>
+          <th class="menu-padding font-size"><i class="fa fa-linkedin btn1 btn-linkedin "></i></th>
 
-                  <th class="menu-padding font-size"><a href=" http://www.pinterest.com/go4usedcars/"><i class="fa fa-pinterest btn1 btn-pinterest "></i></a></th>
+          <th class="menu-padding font-size"><a href=" http://www.pinterest.com/go4usedcars/"><i class="fa fa-pinterest btn1 btn-pinterest "></i></a></th>
 
-                </tr>
+        </tr>
+</table>
+      <table >
+        <tr>
+          <th class="btn-bottom-right" >
+          <%= link_to "Dealer Login", user_session_path, :class => "btn btn-info",  :style => "padding-right:37%;padding-left:33%"; %>
+          </th>
+        </tr>
+</table>
 
-             </table></center> 
+      
+    </center> 
 
-</div></div>
+ 
+  </div>
+ 
+    
+  
+
+</div>
 
 <div class="row menu-color">
 
-<ul class=" nav-pills ">
+  <ul class=" nav-pills ">
 
 
 
- 
-<li class="menu-padding  " >Copyright © 2014 Go4usedcars. All Rights Reserved.</li><li class="menu-padding" >|</li>
 
-<li class="menu-padding  " ><a href="">AVANI DIMS</a></li><li class="menu-padding" ></li>
+    <li class="menu-padding  " >Copyright © 2014 Go4usedcars. All Rights Reserved.</li><li class="menu-padding" >|</li>
 
-</ul>
+    <li class="menu-padding  " ><a href="">AVANI DIMS</a></li><li class="menu-padding" ></li>
 
-         </div>
+  </ul>
+
+</div>
+<style>
+  .btn-bottom-right{
+    width:100%; padding-left: 10px; padding-right: 10px;
+  }
+  .btn .btn-danger .btn-padding{
+    width: 100%;
+  }
+</style>

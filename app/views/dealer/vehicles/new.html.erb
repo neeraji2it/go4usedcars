@@ -70,7 +70,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_area :location, :class => "form-control", :rows => "1" %>
+              <%= f.select :location, options_for_select([["Select", ""],["Bangalore","bangalore"],["Delhi","gurgaon"]], :selected => f.object.location), {}, :class => "form-control", :rows => "1" %>
             </div>
           </div>
         </div>
@@ -146,23 +146,23 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="form-group">
-              <b>Fuel type</b>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= f.text_field :fuel_type, :class => "form-control" %>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <b>Fuel type</b>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.select :fuel_type, options_for_select([["Select",""],["Petrol","Petrol"],["Diesel","Diesel"],["CNG","CNG"],["LPG","LPG"],["Hybrid","Hybrid"]],:selected => f.object.fuel_type), {}, :class => "form-control" %>
+              </div>
+            </div>
+          </div>
+        
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
@@ -236,13 +236,13 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-              <b>Sterio</b>
+              <b>Music System</b>
             </div>
           </div>
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_field :sterio, :class => "form-control" %>
+              <%= f.select :sterio, options_for_select([["-Select-", ""],["Yes","Yes"],["No","No"]], :selected => f.object.sterio),{}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -256,49 +256,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_field :seat_covers, :class => "form-control" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="form-group">
-              <b>Car For</b>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= f.select :car_for, options_for_select([["-Select-", ""], ["User", "User"], ["Dealer", "Dealer"], ["Both", "Both"]]), {}, :class => "form-control" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="form-group">
-              <b>Visible Status</b>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= f.select :visible_status, options_for_select([["-Select-", ""], ["Visible", "Visible"], ["Invisible", "Invisible"]]), {}, :class => "form-control" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="form-group">
-              <b>Where is car?</b>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= f.select :where_is_car, options_for_select([["-Select-", ""], ["Dealer", "Dealer"], ["Freelancer", "Freelancer"], ["Show Room", "Show Room"], ["Park & Sell", "Park & Sell"]]), {}, :class => "form-control" %>
+              <%= f.select :seat_covers,  options_for_select([["-Select-", ""],["Fabric","Fabric"],["Leather","Leather"],["Faux leather","Faux leather"]],:selected => f.object.seat_covers),{}, :class => "form-control" %>
             </div>
           </div>
         </div>
