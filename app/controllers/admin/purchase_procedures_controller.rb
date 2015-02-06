@@ -2,7 +2,8 @@ class Admin::PurchaseProceduresController < ApplicationController
   before_filter :authenticate_admin!
   skip_before_action :verify_authenticity_token
   def procure_enquiry
-    @sell_cars = SellCar.car_enquiries
+  # @sell_cars = SellCar.car_enquiries
+   @sell_cars = SellCar.car_enquiries.all.page(params[:page]).per(15)
     @evaluation = CarEvaluation.new
   end 
   
@@ -27,7 +28,7 @@ class Admin::PurchaseProceduresController < ApplicationController
   end
   
   def waiting_to_evaluate
-    @sell_cars = SellCar.car_waiting_for_evaluation
+    @sell_cars = SellCar.car_waiting_for_evaluation.all.page(params[:page]).per(15)
     @evaluation = CarEvaluation.new
   end
   
@@ -49,7 +50,7 @@ class Admin::PurchaseProceduresController < ApplicationController
   
   def evaluated
     @evaluation = CarEvaluation.new
-    @sell_cars = SellCar.car_evaluated
+    @sell_cars = SellCar.car_evaluated.all.page(params[:page]).per(15)
   end
   
   def final_deal
@@ -69,7 +70,7 @@ class Admin::PurchaseProceduresController < ApplicationController
   end
   
   def purchased_car
-    @sell_cars = SellCar.car_purchased
+    @sell_cars = SellCar.car_purchased.all.page(params[:page]).per(15)
   end
   
   #add_to_stock
@@ -83,7 +84,7 @@ class Admin::PurchaseProceduresController < ApplicationController
   
   def save_vehicle
     @purchase_car = SellCar.find(params[:sell_car_id])
-    @vehicle = Vehicle.new(vehicle_params)
+    @vehicle = Vehicle.new(vehicle_params.merge(:manufacturer_id => params[:manufacturer_id], :car_model_id => params[:varient][:car_model_id], :varient_id => params[:varient][:varient_id]))
     if @vehicle.save
       @purchase_car.update_attributes(:status => "#{Status::SellCar::INSTOCK}")
       @vehicle.update_attributes(:status => "#{Status::Vehicle::LIVE}")

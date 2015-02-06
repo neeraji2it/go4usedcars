@@ -103,11 +103,11 @@ class Admin::StocksController < ApplicationController
   end
   
   def live_cars
-    @cars = Vehicle.live_cars 
+    @cars = Vehicle.live_cars.all.page(params[:page]).per(15)
   end
   
   def sold_cars
-    @cars = Vehicle.sold_cars
+    @cars = Vehicle.sold_cars.all.page(params[:page]).per(15)
   end
   
   def sold

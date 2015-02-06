@@ -4,11 +4,11 @@ class Admin::DashboardsController < ApplicationController
   end
   
   def testimonials
-    @testimonials = Testimonial.all
+    @testimonials = Testimonial.all.page(params[:page]).per(15)
   end
   
   def dealers
-    @associate_partners = AssociatePartner.all
+    @associate_partners = AssociatePartner.all.page(params[:page]).per(15)
     @user = User.new
   end
   
@@ -20,7 +20,7 @@ class Admin::DashboardsController < ApplicationController
   end
   
   def dealer_cars
-    @vehicles = Vehicle.dealer_cars
+    @vehicles = Vehicle.dealer_cars.all.page(params[:page]).per(15)
   end
   
   def move_to_stock

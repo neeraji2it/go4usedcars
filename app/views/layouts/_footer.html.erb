@@ -32,10 +32,10 @@
 
         </tr>
 </table>
-      <table >
+      <table class="tble-margin" >
         <tr>
-          <th class="btn-bottom-right" >
-          <%= link_to "Dealer Login", user_session_path, :class => "btn btn-info",  :style => "padding-right:37%;padding-left:33%"; %>
+          <th class="th-btn-width" >
+          <%= link_to "Dealer Login", user_session_path, :class => "btn-bottom-right" %>
           </th>
         </tr>
 </table>
@@ -66,10 +66,52 @@
 
 </div>
 <style>
+  .th-btn-width{ width: 100%;}
   .btn-bottom-right{
-    width:100%; padding-left: 10px; padding-right: 10px;
-  }
-  .btn .btn-danger .btn-padding{
     width: 100%;
+    padding: 9px 101px 13px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #49c0f0; background-image: -webkit-gradient(linear, left top, left bottom, from(#49c0f0), to(#2CAFE3));
+ background-image: -webkit-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: -moz-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: -ms-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: -o-linear-gradient(top, #49c0f0, #2CAFE3);
+ background-image: linear-gradient(to bottom, #49c0f0, #2CAFE3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#49c0f0, endColorstr=#2CAFE3);
   }
+  .btn-bottom-right:hover{
+    background-color: #1ab0ec; background-image: -webkit-gradient(linear, left top, left bottom, from(#1ab0ec), to(#1a92c2));
+ background-image: -webkit-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: -moz-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: -ms-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: -o-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: linear-gradient(to bottom, #1ab0ec, #1a92c2);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#1a92c2);
+  }
+
+
+  @media screen and (max-width: 320px){
+ 
+  .tble-margin{
+    margin:20px;
+  }
+  .btn-bottom-right{
+   
+    padding: 9px 65px;
+    
+  }
+  }
+  @media screen and (min-width:321px) and (max-width: 950px){
+ 
+  .tble-margin{
+    margin-bottom:10px;
+    
+  }
+  
+  .btn-bottom-right{
+   
+    padding: 9px 67px;
+    
+  }
+  }
+ 
 </style>

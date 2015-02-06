@@ -89,6 +89,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     libv8 (3.16.14.7)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -230,6 +233,7 @@ DEPENDENCIES
   fb_graph
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   mysql2
   nested_form
   omniauth-facebook

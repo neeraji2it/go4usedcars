@@ -22,7 +22,7 @@ class Dealer::VehiclesController < ApplicationController
   end
 
   def index
-    @vehicles = current_user.vehicles
+    @vehicles = current_user.vehicles.all.page(params[:page]).per(15)
   end
   
   private

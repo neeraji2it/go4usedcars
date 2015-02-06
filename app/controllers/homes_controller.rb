@@ -87,6 +87,8 @@ class HomesController < ApplicationController
       @cars = @cars.where(body_style: body_style)
     end
     
+    @cars = @cars.page(params[:page]).per(15)
+
     #  filter by manufacturer
     @manufacturers = Manufacturer.all
     @car_models = CarModel.where("manufacturer_id = ?", params[:manufacturer_id])

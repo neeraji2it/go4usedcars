@@ -1,7 +1,7 @@
 class Admin::SellProceduresController < ApplicationController
   before_filter :authenticate_admin!
   def enquiry
-    @enquiries = PostRequirement.all
+    @enquiries = PostRequirement.all.page(params[:page]).per(15)
   end
   
   def destroy

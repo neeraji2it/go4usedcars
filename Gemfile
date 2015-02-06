@@ -39,3 +39,4 @@ gem 'omniauth-facebook'
 gem 'fb_graph'
 gem 'execjs'
 gem 'therubyracer'
+gem "kaminari"
