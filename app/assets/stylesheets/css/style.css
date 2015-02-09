@@ -160,12 +160,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .search-img-responsive { height: 28px; margin-top: -38px; width: 72px; display:none; }
 .search-responsive { }
 .logo-responsive2 { margin-left:  126px; }
-.about-go { }
-.paragraph { }
+.about-go {margin-bottom: 35px; }
+.paragraph { color: #333333; text-transform:uppercase; font-family: sans-serif; font-size: 14px; }
 .buycar-paddings { }
 .buycar-width { }
 .join-align { margin-left: 130px; }
-.btn1 { display:inline-block; padding:8px 12px; margin-bottom:0; font-size:20px; font-weight:bold; line-height:1.42857143; text-align:center; white-space:nowrap; vertical-align:middle; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; background-image:none; border:1px solid transparent; border-radius:4px }
+.btn1 { display:inline-block; padding:8px 12px; margin-bottom:0; font-size:20px; font-weight:bold; line-height:1.42857143; text-align:center; white-space:nowrap; vertical-align:middle; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; background-image:none; border:1px solid transparent; border-radius:4px }
 
 
 div ol .no-float{float:right;}
@@ -374,7 +374,7 @@ html body #lista1 .als-next { right: 70px; }
 html body .container-fluid{ z-index:10000; }
 
 
-html body #myCarousel .carousel-inner{ height:430px;}
+html body #myCarousel .carousel-inner{ height:430px; }
 html body #myCarousel .carousel-inner .item img{ max-width:1600px; width:100%;  margin:0px auto;}
 html body #myCarousel.Carousel-inner .carousel-inner .item img{ max-height:300px; width:auto; margin:0px auto;}
 
@@ -395,9 +395,14 @@ html body #myCarousel.Carousel-inner .carousel-inner .item img{ max-height:300px
 
 
 
-html body .carousel-indicators{ z-index:10000;}
+html body .carousel-indicators{ z-index:1;}
 
 
 html body .slider-details{ padding-top:20px;}
 
 html body .slider-details .carousel-inner{ height: inherit !important;}
+
+div span input{
+  border:0; color:#000; font-weight:bold; text-align:center;
+    
+}   

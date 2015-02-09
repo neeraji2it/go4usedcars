@@ -45,13 +45,37 @@
     </head>
 
     <body>
-        <div class="freez-header">
+        <div class="freez-header navbar-fixed-top"  >
             <%= render :partial => "layouts/header_banner" %>
             <%= render :partial => "layouts/headernav" %>
         </div>
+      
         <%= render :partial => "/layouts/notice" %>
         <%= yield %>
 
         <%= render :partial => "layouts/footer" %>
     </body>
 </html>
+<style>
+  .freez-header{
+    background-color: #fff;
+  }
+  
+  @media screen and (min-width:769px){
+    .freez-header{
+      position: fixed;
+      z-index: 99999;}
+      html body #myCarousel .carousel-inner{ height:430px; margin-top: 18%; }
+
+  }
+   
+    @media screen and (min-width:700px) and (max-width:768px){
+    .freez-header{
+      position: fixed;
+      z-index: 99999;
+    }
+     html body #myCarousel .carousel-inner{  height: 380px;   margin-top: 39%;}
+     .btn-success1{ top: -127px;}
+     
+  }
+</style>
