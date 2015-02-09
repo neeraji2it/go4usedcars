@@ -1,6 +1,6 @@
 <%= render :partial => "admin/shared/testimonials_navbar" %>
 
-<tr><td>Testimonials</td></tr>
+<div class="pull-right" style="margin-bottom: 5px;"><%= link_to "Add New Testimonial", new_admin_testimonial_path, :class => "btn btn-md btn-warning" %></div>
 <table class="table table-stripped table-hover">
   <tr>
     <th>ID</th>
@@ -8,15 +8,25 @@
     <th>Email_ID</th>
     <th>Testimonial</th>
     <th>PostDate</th>
-    <th></th>
+    <th>Status</th>
+    <th>Action</th>
   </tr>
   <%@testimonials.each do |testimonial|%>
     <tr>
       <td><%= testimonial.id %></td>
       <td><%= testimonial.name %></td>
       <td><%= testimonial.email %></td>
-      <td><%= testimonial.testimonial %></td>
+      <td>
+      <% if testimonial.display == "User_create" %>
+        <%= testimonial.testimonial %>
+      <% elsif testimonial.display == "Admin_create" %>    
+        <%= image_tag testimonial.customer_image(:small) %> 
+        <%= image_tag testimonial.feedback_image(:small) %> 
+      <% end %>
+      </td>
       <td><%= testimonial.created_at.strftime("%d-%m-%Y") %></td>
+      <td><%= testimonial.is_approved? %></td>
+      <td><%= link_to "#{testimonial.approve? ? 'Disapprove' : 'Approve'}", approve_testimonial_admin_dashboard_path(testimonial.id), :method => "PUT", :remote => true %></td>
     </tr>
   <%end%>
 </table>

@@ -142,6 +142,8 @@ class HomesController < ApplicationController
 	end
 
 	def testimonial
+    @approved_users = Testimonial.approved_user_section
+    @approved_admins = Testimonial.approved_admin_section
     @testimonial = Testimonial.new
 	end
 

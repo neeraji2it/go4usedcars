@@ -15,6 +15,7 @@ class Admin::VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params.merge(:varient_id => params[:varient][:varient_id], :car_model_id => params[:varient][:car_model_id], :manufacturer_id => params[:manufacturer_id]))
     @vehicle.status = "#{Status::Vehicle::LIVE}"
     if @vehicle.save
+      flash[:notice] = "Car record is saved successfully."
       redirect_to new_admin_vehicle_path
     else
       render :action => :new
@@ -40,6 +41,7 @@ class Admin::VehiclesController < ApplicationController
     p "--------------------------------------"
     p @vehicle
     @vehicle.update_attributes(vehicle_params)
+    flash[:notice] = "Car record is updated successfully."
       respond_to do |format|
         format.js
       end
@@ -56,6 +58,7 @@ class Admin::VehiclesController < ApplicationController
   def destroy
     @vehicle = Vehicle.find(params[:id])
     if @vehicle.destroy
+      flash[:notice] = "Car record is deleted successfully."
       respond_to do |format|
         format.js
       end

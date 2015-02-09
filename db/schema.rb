@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205070100) do
+ActiveRecord::Schema.define(version: 20150207163732) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -176,6 +176,16 @@ ActiveRecord::Schema.define(version: 20150205070100) do
     t.text     "testimonial"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approve",                     default: false
+    t.string   "customer_image_file_name"
+    t.string   "customer_image_content_type"
+    t.integer  "customer_image_file_size"
+    t.datetime "customer_image_updated_at"
+    t.string   "feedback_image_file_name"
+    t.string   "feedback_image_content_type"
+    t.integer  "feedback_image_file_size"
+    t.datetime "feedback_image_updated_at"
+    t.string   "display"
   end
 
   create_table "users", force: true do |t|

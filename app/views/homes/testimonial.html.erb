@@ -1,62 +1,49 @@
 <% @page_title = "Testimonial - Go4 Used Cars" %>
 
-<h1 style="margin-left:300px;"><span class="about-us">testimonial</span></h1>
+<h1 style="margin-left:300px;"><span class="about-us">Testimonial</span></h1>
 <div class="border-row"></div>
-<div class="row">
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px;">              
-    <img src="/assets/anthony.jpg" class="img-responsive" />
+
+<% if @approved_admins.present? %>
+  <% @approved_admins.each do |approve| %>
+  <div class="row">
+    <div class="col-xs-7" style="padding-left:50px;margin-top:25px;">              
+      <img src="<%= approve.customer_image.url(:thumb) %>" class="img-responsive" />
+    </div>
+    <div class="col-xs-5" style="padding-left:25px;margin-top:25px;">
+      <a href="<%= approve.feedback_image.url(:thumb) %>" target="_blank"><img src="<%= approve.feedback_image.url(:thumb) %>" class="img-responsive" /></a>
+    </div>
   </div>
-  <div class="col-xs-5" style="padding-left:25px;margin-top:25px;">
-    <a href="/assets/anthony_big.jpg" target="_blank"><img src="/assets/anthony_feedback.jpg" class="img-responsive" /></a>
+  <% end %>
+<% end %>
+
+<div class="form-group"></div>
+<% if @approved_users.present? %>
+<div class="row">
+  <div class="col-xs-12 down-space">
+    <ul class="bxslider">
+  <% @approved_users.each do |approve| %>
+    <li>
+      <div class="slide-box">
+        <b>Name: <%= approve.try(:name) %></b>
+        
+        <br/>
+        <%= approve.try(:testimonial) %>
+      </div>
+    </li>
+  <% end %>  
+</ul>
   </div>
 </div>
+<% end %>
+
 
 <div class="row">
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
-    <img src="/assets/binu.png" class="img-responsive" />
-  </div>
-
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-    <a href="/assets/binu_big.jpg"target="_blank"><img src="/assets/binu_feedback.jpg"  class="img-responsive" /></a>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
-    <img src="/assets/himansi.jpg" class="img-responsive" />
-  </div>
-
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-    <a href="/assets/himanshi_big.jpg" target="_blank"><img src="/assets/himanshi_feedback.jpg"  class="img-responsive" /></a>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
-    <img src="/assets/prashant_rana.jpg"  class="img-responsive" />
-  </div>
-
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-    <a  href="/assets/rana_big.jpg" target="_blank"><img src="/assets/rana_feedback.jpg"  class="img-responsive" /></a>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-7" style="padding-left:50px;margin-top:25px; ">              
-    <img src="/assets/rohit_mani.jpg"  class="img-responsive" />
-  </div>
-  <div class="col-xs-5" style="padding-left:25px; margin-top:25px;">
-    <a  href="/assets/rohit_big.jpg" target="_blank"><img  src="/assets/rohit_mani_feedback.jpg"   class="img-responsive" /></a>
-  </div>
-</div>
-
-<div class="row">
-
 <h1 class="font-size-sellcar text-submit" style=" background-color:#fc6; text-indent:30px; ">Submit your testimonial</h1>
-
 <div class="col-md-4 box-submit-detail">
   
   <%= form_for @testimonial, :url => "/testimonials?loc=#{params[:loc]}", :method => "POST" do |f| %>
+    <%= f.hidden_field :display, :value => "User_create" %>
+
     <div class="inner-addon left-addon">
     <i class="fa fa-user"></i>
     <%= f.text_field :name, :class => "form-control", :placeholder => "Name", :id => "txtname", :required => true  %>
@@ -79,3 +66,36 @@
   <% end %>
 </div>
 </div>
+
+
+
+<style>
+  .slide-box {
+    border: 1px solid #CCC;
+    padding: 5px 5px 5px 5px;
+    background-color: #F0F0F0;
+  }
+
+  .down-space {
+    margin-bottom: 30px; 
+    margin-top: 30px;
+  }
+</style>
+
+
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $('.bxslider').bxSlider({
+          auto: true,  
+          slideWidth: 200,
+          infiniteLoop: true,
+          speed: 10000,
+          pager: false,
+          autoHover: true,
+          minSlides: 1,
+          maxSlides: 5,
+          slideMargin: 30,
+          adaptiveHeight: false
+        });
+      });        
+    </script>

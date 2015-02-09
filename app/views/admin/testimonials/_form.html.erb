@@ -1,0 +1,85 @@
+<%= form_for(@testimonial, :url => "/admin/testimonials", :method => "POST", :html => { :multipart => true }) do |f| %>
+  <% if @testimonial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
+
+      <ul>
+        <% @testimonial.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <b>Testimonial Form</b>
+        </div>
+      </div>
+    </div>
+    <hr/>
+
+    <%= f.hidden_field :display, :value => "Admin_create" %>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <b>Customer Name</b>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+    </div>   
+
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <b>Customer Email</b>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+        <%= f.text_field :email %>
+        </div>
+      </div>
+    </div>   
+
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <b>Customer Image</b>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.file_field :customer_image %>
+        </div>
+      </div>
+    </div>   
+
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <b>Feedback Image</b>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.file_field :feedback_image %>
+        </div>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.submit "Save Testimonial", :class => "btn btn-md btn-warning" %>
+      </div>
+    </div>
+<% end %>

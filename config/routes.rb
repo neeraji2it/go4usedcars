@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :testimonials 
   resources :careers
   resources :associate_partners
+
   namespace :admin do
     resources :dashboards do
       collection do
@@ -39,8 +40,10 @@ Rails.application.routes.draw do
       member do 
         put :approved
         match :move_to_stock, via: [:get, :put]
+        put :approve_testimonial
       end
     end
+
     resources :stocks do
       collection do
         get :addtostock
@@ -67,6 +70,7 @@ Rails.application.routes.draw do
         put :remove_offer
       end
     end
+
     resources :vehicles do 
       collection do 
         get :load_car_model
@@ -77,6 +81,7 @@ Rails.application.routes.draw do
         put :update_vehicle
       end
     end
+
     resources :car_specifications do
       collection do 
         get :edit_car_specification
@@ -86,11 +91,13 @@ Rails.application.routes.draw do
         put :update_car_specific
       end
     end
+
     resources :images do
       collection do
         post :create_video
       end
     end
+
     resources :purchase_procedures do
       collection do
         get :procure_enquiry
@@ -109,12 +116,17 @@ Rails.application.routes.draw do
         post :create_specification
       end
     end
+
     resources :sell_procedures do
       collection do
         get :enquiry
       end
     end
+
+    resources :testimonials
+
   end
+
   namespace :user do
     resources :registrations do
       collection do

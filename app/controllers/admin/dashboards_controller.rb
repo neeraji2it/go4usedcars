@@ -6,6 +6,16 @@ class Admin::DashboardsController < ApplicationController
   def testimonials
     @testimonials = Testimonial.all.page(params[:page]).per(15)
   end
+
+  def approve_testimonial
+    @testimonial = Testimonial.find(params[:id])
+    @testimonial.approve? ? (@testimonial.update_attributes(approve: false)) : (@testimonial.update_attributes(approve: true))
+    respond_to do |format|
+      format.js {
+        @testimonial
+      }
+    end
+  end
   
   def dealers
     @associate_partners = AssociatePartner.all.page(params[:page]).per(15)

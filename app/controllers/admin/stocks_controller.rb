@@ -18,6 +18,7 @@ class Admin::StocksController < ApplicationController
     @car_model =  CarModel.new(car_model_params)
      @manufacturers = Manufacturer.all
     if @car_model.save
+      flash[:notice] = "Car model is created successfully."
       redirect_to addtostock_admin_stocks_path
     else
       render :action => :addtostock
@@ -30,6 +31,7 @@ class Admin::StocksController < ApplicationController
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
     @car_varient = Varient.new(car_varient_params)
     if @car_varient.save
+      flash[:notice] = "Car varient is saved successfully."
       redirect_to addtostock_admin_stocks_path
     else
       render :action => :addtostock
@@ -55,6 +57,7 @@ class Admin::StocksController < ApplicationController
     
     @specification = Specification.new(specification_params)
     if @specification.save
+      flash[:notice] = "Car specification is saved successfully."
       redirect_to add_master_specification_admin_stocks_path
     else
       render :add_master_specification
@@ -64,6 +67,7 @@ class Admin::StocksController < ApplicationController
   def delete_procure_enquiry
     @sell_car = SellCar.find(params[:id])
     if @sell_car.destroy
+      flash[:notice] = "You have remove procur enquiry."
       redirect_to procure_enquiry_admin_stocks_path
     end
   end
@@ -82,6 +86,7 @@ class Admin::StocksController < ApplicationController
     @carmodel = CarModel.find(params[:model_id])     
     model_name = params[:model_name]
     @carmodel.update_attributes(:name => model_name)
+    flash[:notice] = "Car model is updated successfully."
     respond_to do |format|
       format.js
     end
@@ -97,6 +102,7 @@ class Admin::StocksController < ApplicationController
     varient_name = params[:varient_name]     
     @varient = Varient.find(params[:varient_id])
     @varient.update_attributes(:name => varient_name)
+    flash[:notice] = "Car varient is updated successfully."
     respond_to do |format|
       format.js
     end
