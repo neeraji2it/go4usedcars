@@ -12,6 +12,6 @@ class Testimonial < ActiveRecord::Base
     self.approve? ? "approved" : "disapproved"
   end
 
-  scope :approved_user_section, -> { where("approve=? && display=?", true, "User_create") }
-  scope :approved_admin_section, -> { where("approve=? && display=?", true, "Admin_create") }
+  scope :approved_user_section, -> { where("approve=? and display=?", true, "User_create") }
+  scope :approved_admin_section, -> { where("approve=? and display=?", true, "Admin_create") }
 end

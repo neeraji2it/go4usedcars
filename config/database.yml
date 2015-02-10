@@ -26,3 +26,12 @@ production:
   <<: *default
   database: carsapp_production
 
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: carapp_production
+#   host: localhost
+#   pool: 5
+#   username: username
+#   password: password
