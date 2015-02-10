@@ -24,9 +24,13 @@ class Vehicle < ActiveRecord::Base
   scope :gurgaon_cars, lambda { where("location=? and visible_status=? and (car_for=? || car_for=? )", 'gurgaon', 'Visible', 'Both', 'User') }
   scope :bangalore_cars, lambda { where("location=? and visible_status=? and (car_for=? || car_for=? )", 'bangalore', 'Visible', 'Both', 'User') }
   
+  #these are the vehicle created by admin for user || dealer and whose status=visible
+  scope :visible_user_dealer_cars, lambda { where("visible_status=? && (car_for=? || car_for=?) ", 'Visible', 'Both', 'Dealer') }
+  
   validates :manufacturer_id, :car_model_id, :varient_id, :registration_no,
     :location, :reg_year, :milage, :sell_price, :visible_status, :car_for, presence: true
   validates :registration_no, uniqueness: true
+  #these are the status which is created by dealer
   scope :dealer_cars, lambda { where(:status => "#{Status::Vehicle::DEALER}")}
   
   def post(post)
