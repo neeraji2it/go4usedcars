@@ -31,4 +31,14 @@ class RequirementMailer < ActionMailer::Base
     @associate = AssociatePartner.find(associate_partner.id)
     mail(:to =>"crystal.badu@gmail.com", :subject => "User Requirements")
   end
+  
+  def evaluation_desc_image(sell_car, eval)
+    @car = SellCar.find(sell_car.id)
+    @eval = @car.car_evaluation
+    if @car.city == 'bangalore'
+      mail(:to =>"crystal.badu@gmail.com", :subject => "Car Evaluation Important Information")
+    elsif @car.city == 'gurgaon'
+      mail(:to =>"badu.crystal@gmail.com", :subject => "User Requirements")
+    end
+  end
 end

@@ -1,0 +1,42 @@
+<p>Hi Admin,</p>
+<p>
+  Car detail is evaluated. Please check below for more information.
+</p>
+<br/>
+<p>
+ <b>Car:</b> <%= @car.model_varient.capitalize %>
+</p>
+<br/>
+<p>
+  <b>Make Yr: </b> <%= @car.manufacture_year.strftime("%Y-%m-%d") if @car.manufacture_year.present? %>
+</p>
+
+<p>
+  <b>City:</b> <%= @car.city.capitalize %>  <br/>  
+</p>
+
+<p>
+  <b>Reg.No:</b> <%= @car.registration_no %>  <br/>
+</p>
+
+<p>
+  <b>Name:</b> <%= @car.seller_name.capitalize %> <br/>
+</p>
+
+<p>
+  <b>Email:</b> <%= @car.seller_email %>  <br/>
+</p>
+
+<p>
+  <b>Phone:</b> <%= @car.seller_phone %>  <br/>
+</p>
+
+<p>
+  <b>Evaluated by:</b> <%= @eval.evaluator.capitalize %>
+</p>
+
+<p>
+  <%= image_tag(@eval.evaluation_image.url(:thumb)) %>
+</p>
+
+<p>Thanks</p>
