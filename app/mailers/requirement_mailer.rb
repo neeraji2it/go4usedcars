@@ -15,9 +15,9 @@ class RequirementMailer < ActionMailer::Base
     @mail = @post_req.email
     @phone = @post_req.phone
     if loc == 'bangalore'
-      mail(:to =>"crystal.badu@gmail.com", :subject => "User Requirements")
+      mail(:to => BANGALORE_ADMIN, :subject => "User Requirements")
     elsif loc == 'gurgaon'
-      mail(:to =>"badu.crystal@gmail.com", :subject => "User Requirements")
+      mail(:to => DELHI_ADMIN, :subject => "User Requirements")
     end
   end
   
@@ -40,9 +40,9 @@ class RequirementMailer < ActionMailer::Base
     @car = SellCar.find(sell_car.id)
     @eval = @car.car_evaluation
     if @car.city == 'bangalore'
-      mail(:to =>"crystal.badu@gmail.com", :subject => "Car Evaluation Important Information")
+      mail(:to => BANGALORE_ADMIN, :subject => "Car Evaluation Important Information")
     elsif @car.city == 'gurgaon'
-      mail(:to =>"badu.crystal@gmail.com", :subject => "Car Evaluation Important Information")
+      mail(:to =>  DELHI_ADMIN, :subject => "Car Evaluation Important Information")
     end
   end
 end
