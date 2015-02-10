@@ -1,4 +1,13 @@
 <%= render :partial => "admin/shared/stocks_navbar" %>
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="form-group">
+       <%= link_to 'Export Excel', procure_enquiry_admin_purchase_procedures_path(:format => :xlsx), :class => "btn btn-sm btn-warning" %>
+     </div>
+   </div>
+ </div>
+
 <div class="table-responsive">
   <table class="table table-stripped table-hover">
     <tr>

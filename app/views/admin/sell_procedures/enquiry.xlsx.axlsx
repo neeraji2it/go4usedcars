@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Sell Enquiry") do |sheet|
+    sheet.add_row ["ID", "Name", "Email", "Phone", "Model", "Make", "Body Type", "Fuel Type", "Min Budget", "Max Budget", "Min Year", "Max Year" ]
+    @enquiries.each do |e|
+        sheet.add_row [e.id, e.name, e.email, e.phone, e.model, e.make, e.body_type, e.fuel_type, e.min_budget, e.max_budget, e.min_year, e.max_year]
+    end
+end

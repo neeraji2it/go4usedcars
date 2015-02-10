@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Procure Enquiry") do |sheet|
+    sheet.add_row ["ID", "Name", "Email", "Phone", "Car", "Make Yr", 'Owner Type', 'Color', 'Km Done', 'Exptd. Price', 'City', 'Reg.No', 'Insur', 'Insurance Till' ]
+    @sell_cars.each do |e|
+        sheet.add_row [e.id, e.seller_name, e.seller_email, e.seller_phone, e.model_varient, e.manufacture_year.strftime("%Y-%m-%d"), e.owner_type, e.color, e.kms_done, e.expected_price, e.city, e.registration_no, e.car_insurence, e.insurence_valid_till.strftime("%Y-%m-%d")
+        ]
+    end
+end

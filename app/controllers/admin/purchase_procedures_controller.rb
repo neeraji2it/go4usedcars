@@ -1,10 +1,14 @@
 class Admin::PurchaseProceduresController < ApplicationController
   before_filter :authenticate_admin!
   skip_before_action :verify_authenticity_token
+
   def procure_enquiry
-  # @sell_cars = SellCar.car_enquiries
    @sell_cars = SellCar.car_enquiries.all.page(params[:page]).per(15)
     @evaluation = CarEvaluation.new
+    respond_to do |format|
+      format.html # don't forget if you pass html
+      format.xlsx {render xlsx: 'procure_enquiry', filename: "Purchase_Enquiry-#{Time.now.strftime("%Y%m%d%H%M%S")}.xls"}
+    end
   end 
   
   def new_evaluation

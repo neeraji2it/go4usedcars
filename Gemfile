@@ -40,3 +40,5 @@ gem 'fb_graph'
 gem 'execjs'
 gem 'therubyracer'
 gem "kaminari"
+gem 'axlsx', '~> 2.0'
+gem "axlsx_rails"
