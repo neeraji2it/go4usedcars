@@ -18,7 +18,7 @@
       <th>Phone</th>
       <th>Requirement</th>
       <th>Date</th>
-      <th>Delete</th>
+      <th>Action</th>
       <th></th>
     </tr>
 
@@ -50,7 +50,7 @@
           <%= s.created_at %>
         </td>
         <td>
-          <%= link_to "Delete", admin_sell_procedure_path(s.id), :method => :delete, data: {:confirm => "Are you sure?"} %>
+          <%= link_to "Delete", admin_sell_procedure_path(s.id), :method => :delete, data: {:confirm => "Are you sure?"}, :class => "btn btn-sm btn-danger" %>
         </td>
       </tr>
     <% end %>
