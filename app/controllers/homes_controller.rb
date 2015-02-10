@@ -20,7 +20,7 @@ class HomesController < ApplicationController
     @post_req.body_type = @body_types.join(",")
     @post_req.fuel_type = @fuel_types.join(",")
     if @post_req.save
-      RequirementMailer.send_requirement(@post_req).deliver
+      RequirementMailer.send_requirement(@post_req, params[:loc]).deliver
       flash[:notice] = "Your Requirement has been successfuly submited."
       redirect_to home_homes_path(:loc => params[:loc])
     else

@@ -1,4 +1,5 @@
 <p>Hi Admin,</p>
+
 <p>
   Car detail is evaluated. Please check below for more information.
 </p>
@@ -36,7 +37,12 @@
 </p>
 
 <p>
-  <%= image_tag(@eval.evaluation_image.url(:thumb)) %>
+  <b>Evaluation Image:</b>
+</p>
+
+<p>
+  <%= image_tag(@eval.evaluation_image.url(:thumb), :width => 200, :height => 150) %>
 </p>
 
 <p>Thanks</p>
+<p>Team Go4UsedCar</p>

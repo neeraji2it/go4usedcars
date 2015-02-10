@@ -18,3 +18,4 @@ BODY_TYPES = ["Sedan", "Coupe", "Hatchback", "Minivan/Van", "Convertible", "SUV/
               "Station Wagon", "MUV"]
 FUEL_TYPES = ["Petrol", "Diesel", "CNG", "LPG"]
 BASE_URL = "http://go4usedcars.herokuapp.com"
+ADMIN = ["crystal.badu@gmail.com", "badu.crystal@gmail.com"]
