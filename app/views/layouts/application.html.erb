@@ -50,32 +50,71 @@
             <%= render :partial => "layouts/headernav" %>
         </div>
       
+      <div class="container2">
         <%= render :partial => "/layouts/notice" %>
         <%= yield %>
+      </div>
 
         <%= render :partial => "layouts/footer" %>
     </body>
 </html>
 <style>
+  .container2 {
+    
+      margin-top: 18%;
+  }
+  
   .freez-header{
     background-color: #fff;
   }
   
-  @media screen and (min-width:769px){
-    .freez-header{
-      position: fixed;
-      z-index: 99999;}
-      html body #myCarousel .carousel-inner{ height:430px; margin-top: 18%; }
+  @media screen and (max-width:980px){
+    .container2{
+       margin-top: 24%;
+      }
+      html body #myCarousel .carousel-inner{ height:430px;  }
 
   }
-   
-    @media screen and (min-width:700px) and (max-width:768px){
-    .freez-header{
-      position: fixed;
-      z-index: 99999;
-    }
-     html body #myCarousel .carousel-inner{  height: 380px;   margin-top: 39%;}
-     .btn-success1{ top: -127px;}
+   @media screen and (max-width:800px){
+    .container2{
+       margin-top: 28%;
+      }
+      html body #myCarousel .carousel-inner{ height:430px;  }
+      
+ 
+  }
+   @media screen and (max-width:768px){
+    .container2{
+       margin-top: 28%;
+      }
+      html body #myCarousel .carousel-inner{ height:430px;  }
+      .btn-success1 {
+        top: -127px;
+     }
+ 
+  }
+  
+   @media screen and (max-width:320px){
+    
+      .btn-success1 {
+        top: -10px;
+          position:relative;
+     }
+     .container2{
+       margin-top: 0;
+      }
+      .btn-bottom-right {
+    padding: 9px 63px;
+}
+ 
+  }
+     @media screen and (min-width:481px){
+    
      
+      .freez-header{
+        position: fixed;
+          
+  }
+ 
   }
 </style>
