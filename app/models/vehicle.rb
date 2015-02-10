@@ -19,8 +19,10 @@ class Vehicle < ActiveRecord::Base
   
   scope :live_cars, lambda { where(:status => "#{Status::Vehicle::LIVE}") }
   scope :sold_cars, lambda { where(:status => "#{Status::Vehicle::SOLD}") }
-  scope :gurgaon_cars, lambda { where(:location => "gurgaon") }
-  scope :bangalore_cars, lambda { where(:location => "bangalore") }  
+
+  #gurgaon cars and bangalore cars which are for User && visible to User
+  scope :gurgaon_cars, lambda { where("location=? and visible_status=? and (car_for=? || car_for=? )", 'gurgaon', 'Visible', 'Both', 'User') }
+  scope :bangalore_cars, lambda { where("location=? and visible_status=? and (car_for=? || car_for=? )", 'bangalore', 'Visible', 'Both', 'User') }
   
   validates :manufacturer_id, :car_model_id, :varient_id, :registration_no,
     :location, :reg_year, :milage, :sell_price, :visible_status, :car_for, presence: true
