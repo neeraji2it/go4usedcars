@@ -27,7 +27,7 @@
         </td>
 
         <td> 
-          <%= link_to "Purchased", "#", :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModalFinalDeal", :id => "final_deal_modal", data: {id: "#{s.id}" } %>
+          <%= link_to "Approve", "#", :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModalFinalDeal", :id => "final_deal_modal", data: {id: "#{s.id}" } %>
           <br/><br/>
           <%= link_to "Delete",  delete_procure_enquiry_admin_stock_path(s),:method => :delete, :data => {:confirm => "are you sure"}, :class => "btn btn-danger btn-sm" %>
         </td>

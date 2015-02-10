@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207163732) do
+ActiveRecord::Schema.define(version: 20150210061348) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -47,12 +47,16 @@ ActiveRecord::Schema.define(version: 20150207163732) do
     t.integer  "sell_car_id"
     t.string   "evaluator"
     t.text     "remarks"
-    t.float    "expected_price",  limit: 24
-    t.float    "evaluated_price", limit: 24
-    t.float    "deal_price1",     limit: 24
-    t.float    "deal_price2",     limit: 24
+    t.float    "expected_price",                limit: 24
+    t.float    "evaluated_price",               limit: 24
+    t.float    "deal_price1",                   limit: 24
+    t.float    "deal_price2",                   limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "evaluation_image_file_name"
+    t.string   "evaluation_image_content_type"
+    t.integer  "evaluation_image_file_size"
+    t.datetime "evaluation_image_updated_at"
   end
 
   create_table "car_models", force: true do |t|
