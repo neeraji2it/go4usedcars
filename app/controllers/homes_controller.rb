@@ -94,6 +94,16 @@ class HomesController < ApplicationController
     @car_models = CarModel.where("manufacturer_id = ?", params[:manufacturer_id])
 	end
   
+  def car_description
+    @car = Vehicle.find_by_id(params[:id])
+    @images = @car.images
+  end
+  
+  def call_me
+    RequirementMailer.get_info(params[:id], params[:name], params[:email], params[:phone], params[:description]).deliver      
+    redirect_to :back
+  end
+  
   def split_price(price)
     if price.present?
       min = price.split("-")[0].to_f

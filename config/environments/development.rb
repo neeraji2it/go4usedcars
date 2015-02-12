@@ -40,7 +40,7 @@ Rails.application.configure do
 #    :domain => 'gmail.com',
     :port => '587',
     :user_name => 'go4usedcar@gmail.com',
-    :password => 'go4usedcar@123@ti0n',
+    :password => 'go4usedcar@123',
     :authentication => 'plain'
   }
   # Raises error for missing translations

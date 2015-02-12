@@ -18,12 +18,16 @@ Rails.application.routes.draw do
       get :auto_finance
       get :insurance
       match :home, via: [:get, :post]
+      get :call_me
       get :faq
       get :testimonial
       get :careers
       get :contact_us
       get :associates_partners
       post :save_post_req
+    end
+    member do
+      get :car_description
     end
   end
   resources :testimonials 

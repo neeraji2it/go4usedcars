@@ -21,6 +21,15 @@ class RequirementMailer < ActionMailer::Base
     end
   end
   
+  def get_info(car, name, email, phone, description)
+    @car = Vehicle.find(car)
+    @name = name
+    @email = email
+    @phone = phone
+    @description = description
+    mail(:to => ADMIN, :subject => "Get Detailed Car Info") 
+  end
+  
   def sent_user(user)
     @user = user
     mail(:to =>user.email, :subject => "Login Credentials")
