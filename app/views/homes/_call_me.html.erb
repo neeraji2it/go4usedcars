@@ -14,7 +14,7 @@
         </div>
 
         <div class="col-sm-4">
-          <%= @car.try(:sell_price) %>
+          <%= number_to_currency(@car.try(:sell_price), :unit => "Rs.") %>
         </div>
       </div>
     </div>
@@ -76,7 +76,6 @@
             <span class="fa fa-envelope"></span>
           </span>
           <%= email_field_tag :email,nil, autofocus: true, class: "form-control", :placeholder => "Email", :required  => true %>
-      <%#= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
           </div>
           <br />
 
@@ -93,7 +92,7 @@
               <span class="input-group-addon">
                 <span class="fa fa-file-text"></span>
               </span>
-              <%= text_area_tag :description, nil, autofocus: true,   :placeholder => " I'm a TrueCar customer and I would like to learn more about this vehicle. Could you please send in all the information you have on this?",  :cols => "22", :rows => "6", :required  => true %>
+              <%= text_area_tag :description, nil, autofocus: true, :placeholder => " I'm a TrueCar customer and I would like to learn more about this vehicle. Could you please send in all the information you have on this?",  :cols => "22", :rows => "6", :required  => true %>
             </div>
             <br />
 
@@ -103,4 +102,3 @@
           <% end %>
         </div> 
       </div>
-
