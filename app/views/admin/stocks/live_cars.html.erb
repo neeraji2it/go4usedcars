@@ -21,7 +21,7 @@
           <%= car.carinfo %> <br/>
         </td>
         <td>
-          <%= car.sell_price %> <br/>
+          <%= number_to_currency((car.sell_price), :unit => "Rs.") %> <br/>
         </td>
         <td>
           <%= car.milage %> <br/>
@@ -30,7 +30,7 @@
           <%= car.reg_year %> <br/>
         </td>
         <td>
-          <%= car.location %> <br/>
+          <%= car.location.capitalize%> <br/>
         </td>
         <td> 
           <%= link_to "Sold", sold_admin_stock_path(:id => car.id), :method => "PUT", remote: true, :class => "btn btn-warning btn-sm" %>
@@ -40,3 +40,4 @@
   </table>
 </div>
 <%= paginate @cars %>
+         

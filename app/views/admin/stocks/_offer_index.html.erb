@@ -11,10 +11,12 @@
         <tr>
           <td><%= i+1 %></td>
           <td><%= vehicle.carinfo %></td>
-          <td><%= vehicle.offer_price %></td>
+          <td><%= number_to_currency((vehicle.offer_price), :unit => "Rs.") %></td>
           <td><%= link_to "Remove", remove_offer_admin_stock_path(:id => vehicle.id), :method => "PUT", :remote => true, :data => {:confirm => "Are you sure to remove?"} %></td>
         </tr>
       <% end %>
     <% end %>
   </table>
 </div>
+
+            

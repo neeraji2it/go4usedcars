@@ -38,8 +38,9 @@
 
           <div class="row-fluid">
             <div class="span4"> Price:</div>
-            <div class="span4"><%= @car.try(:sell_price) %></div>
+            <div class="span4"> <%= number_to_currency(@car.try(:sell_price), :unit => "Rs.") %></div>
           </div>
+
 
           <div class="row-fluid">
             <div class="span4">Exterior Color:</div>
@@ -99,6 +100,6 @@
 
 <style>
   .modal-header {
-   border-bottom: none;
+    border-bottom: none;
   }
 </style>

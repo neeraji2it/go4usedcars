@@ -14,7 +14,7 @@
   <%@testimonials.each do |testimonial|%>
     <tr>
       <td><%= testimonial.id %></td>
-      <td><%= testimonial.name %></td>
+      <td><%= testimonial.name.capitalize %></td>
       <td><%= testimonial.email %></td>
       <td>
       <% if testimonial.display == "User_create" %>
@@ -25,7 +25,7 @@
       <% end %>
       </td>
       <td><%= testimonial.created_at.strftime("%d-%m-%Y") %></td>
-      <td><%= testimonial.is_approved? %></td>
+      <td><%= testimonial.is_approved?.capitalize %></td>
       <td><%= link_to "#{testimonial.approve? ? 'Disapprove' : 'Approve'}", approve_testimonial_admin_dashboard_path(testimonial.id), :method => "PUT", :remote => true %></td>
     </tr>
   <%end%>

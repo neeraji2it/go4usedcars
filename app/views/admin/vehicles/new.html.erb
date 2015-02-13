@@ -308,7 +308,7 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-              <%= f.submit "Add Vehicle", :class => "btn btn-md btn-warning" %>
+              <%= f.submit "Add Vehicle", :class => "btn btn-md btn-warning", :id => "save_vehicle" %>
             </div>
           </div>
         </div>
@@ -318,6 +318,14 @@
   </div>
 
   <script>
+    $(document).on("click", "#save_vehicle", function() {
+      var make_id = $("#manufacturer_id").val();
+      if (make_id === '') {
+        alert("Please Select Manufacturer to Proceed.");
+        return false;
+      }
+    });
+
     function load_carmodels(obj) {
       $.ajax({
         url: "/admin/vehicles/load_car_model",
