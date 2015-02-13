@@ -36,25 +36,21 @@
             <div class="span4"><%=@car.try(:milage) %></div>
           </div>
 
-
-
-
-
           <div class="row-fluid">
-            <div class="span4">Sell Price:</div>
+            <div class="span4"> Price:</div>
             <div class="span4"><%= @car.try(:sell_price) %></div>
           </div>
 
           <div class="row-fluid">
-            <div class="span4">Registration State:</div>
-            <div class="span4"><%= @car.try(:registration_state) %></div>
+            <div class="span4">Exterior Color:</div>
+            <div class="span4"><%= @car.try(:exterior_color) %></div>
           </div>
-         
+
         </div>
-      
+
       </div>
-    <%= link_to "Call me, i am Interested", "", "data-toggle" => "modal", "data-target" => "#myModalPostRequirement", :style => "font-weight:bold; width:200px; text-align:center; text-shadow:1px 1px 1px 1px #ccc; margin-top:20px;", :class => "btn btn-danger" %>
-    
+      <%= link_to "Call me, i am Interested", "", "data-toggle" => "modal", "data-target" => "#myModalPostRequirement", :style => "font-weight:bold; width:300px; text-align:center; text-shadow:1px 1px 1px 1px #ccc; margin-top:20px;", :class => "btn btn-danger" %>
+
     </div>
   </div>
 </div>
@@ -74,13 +70,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 style="color:#fc6; font-weight:bold; text-decoration: none;" >
-          Great Choice! Let’s go ahead
-        </h3>
       </div>
       <div class="modal-body">
         <div id="final_deal">
-     <%= render :partial => "call_me" %>
+          <%= render :partial => "call_me" %>
         </div>
       </div>
     </div>
@@ -103,3 +96,12 @@
   });
 </script>
 
+
+<style>
+  .modal-header {
+   border-bottom: none;
+
+  }
+
+
+</style>

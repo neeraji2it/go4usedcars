@@ -1,22 +1,106 @@
-<%= form_tag call_me_homes_path, :method => "get" do %>
-  <%= hidden_field_tag :id, params[:id] %>
-  <div class="form-group">
-    <%= text_field_tag :name, nil, :placeholder => "Name", :required  => true %>
+<div class="row">
+  <div class="col-xs-6 width-inmobile">
+    <h3>
+      Great Choice! Let’s go ahead.
+    </h3>
+    <h5>
+      Here's a quick snapshot of your dream car's details.
+    </h5>  
+    <br/> 
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-4">
+          <b>Price</b>
+        </div>
+
+        <div class="col-sm-4">
+          <%= @car.try(:sell_price) %>
+        </div>
+      </div>
+    </div>
+    
+       <div class="form-group">
+      <div class="row">
+        <div class="col-sm-4">
+          <b>Mileage</b>
+        </div>
+
+        <div class="col-sm-4">
+          <%= @car.try(:milage) %>
+        </div>
+      </div>
+    </div>
+    
+    
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-4">
+          <b>Year</b>
+        </div>
+
+        <div class="col-sm-4">
+          <%= @car.try(:manufactured_year) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-4">
+          <b> Color</b>
+        </div>
+
+        <div class="col-sm-4">
+          <%= @car.try(:exterior_color) %>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="form-group">
-    <%= text_field_tag :email, nil, :placeholder => "Email", :required  => true %>
-  </div>
+  <div class="col-xs-6 width-inmobile">
+    <%= form_tag call_me_homes_path, :method => "get" do %>
+      <%= hidden_field_tag :id, params[:id] %>
+      <h5>Fill in the Details</h5>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon">
+          <span class="fa fa-user"></span>
+        </span>
+        <%= text_field_tag :name,nil, autofocus: true, class: "form-control", :placeholder => "Name", :required  => true %>
+        </div>
+        <br />
 
-  <div class="form-group">
-    <%= text_field_tag :phone, nil, :placeholder => "Phone", :required  => true %>
-  </div>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <span class="fa fa-envelope"></span>
+          </span>
+          <%= email_field_tag :email,nil, autofocus: true, class: "form-control", :placeholder => "Email", :required  => true %>
+      <%#= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+          </div>
+          <br />
 
-  <div class="form-group">
-    <%= text_area_tag :description, nil, :placeholder => " I'm a TrueCar customer and I would like to learn more about this vehicle. Could you please send in all the information you have on this?", :required  => true %>
-  </div>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon">
+              <span class="fa fa-phone"></span>
+            </span>
+            <%= text_field_tag :phone, nil, autofocus: true, class: "form-control", :placeholder => "Phone", :required  => true %>   
+            </div>
 
-  <div class="form-group">
-    <button type="submit" value="Submit"  class="btn btn-warning" style="width:100%">Submit Now</button>
-  </div>
-<% end %>
+            <br />
+
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">
+                <span class="fa fa-file-text"></span>
+              </span>
+              <%= text_area_tag :description, nil, autofocus: true,   :placeholder => " I'm a TrueCar customer and I would like to learn more about this vehicle. Could you please send in all the information you have on this?",  :cols => "22", :rows => "6", :required  => true %>
+            </div>
+            <br />
+
+            <div class="form-group">
+              <button type="submit" value="Submit"  class="btn btn-warning" style="width:100%">Submit Now</button>
+            </div>
+          <% end %>
+        </div> 
+      </div>
+
