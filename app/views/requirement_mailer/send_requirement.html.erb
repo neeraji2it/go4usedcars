@@ -1,6 +1,9 @@
 <h1>Hi Admin.</h1>
-<p>User with email: <%= @mail %> has posted new requirements.</p>
+
+<h5>User with email: <%= @mail %> has posted new requirements.</h5>
+
 <p>Below are the requirements: </p>
+
 <b>Min Budget:</b> <%= @min_budget if @min_budget.present? %> <br/>
 
 <b>Max Budget:</b> <%= @max_budget if @max_budget.present? %> <br/>
@@ -23,5 +26,6 @@
 
 <b>Phone:</b> <%= @phone if @phone.present? %> <br/>
 
+<br/>
 <p>Thanks</p>
 <p>Team Go4UsedCar</p>

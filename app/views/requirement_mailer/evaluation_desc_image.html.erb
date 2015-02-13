@@ -3,11 +3,11 @@
 <p>
   Car detail is evaluated. Please check below for more information.
 </p>
-<br/>
+
 <p>
  <b>Car:</b> <%= @car.model_varient.capitalize %>
 </p>
-<br/>
+
 <p>
   <b>Make Yr: </b> <%= @car.manufacture_year.strftime("%Y-%m-%d") if @car.manufacture_year.present? %>
 </p>

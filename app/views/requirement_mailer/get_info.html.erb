@@ -1,50 +1,42 @@
 <p>Hi Admin,</p>
 
-<p>
-  Somebody wants to get more information on below car detail.
-</p>
+<h5>
+  Customer <%= @email %> wants to get more information on below car detail.
+</h5>
 
-<table>
-  <tr>
-    <th>Car Info</th>
-    <th>Body Style</th>
-    <th>Fuel Type</th>
-    <th>Engine Type</th>
-    <th>Mileage</th>
-  </tr>
+<h5>Car Info</h5>
+<h5>Body Style</h5>
+<h5>Fuel Type</h5>
+<h5>Engine Type</h5>
+<h5>Mileage</h5>
   
-  <tr>
-    <td><%=@car.try(:carinfo) %><td>
-    <td><%=@car.try(:body_style) %><td>
-    <td><%= @car.try(:fuel_type) %><td>
-    <td><%= @car.try(:engine_type) %><td>
-    <td><%=@car.try(:milage) %><td>
-  </tr>
-</table>
+<p><%=@car.try(:carinfo) %><p>
+<p><%=@car.try(:body_style).capitalize %><p>
+<p><%= @car.try(:fuel_type).capitalize %><p>
+<p><%= @car.try(:engine_type).capitalize %><p>
+<p><%=@car.try(:milage).capitalize %><p>
 
-<br/>
 <h5>
   Customer Info
 </h5>
-<br/>
 
 <p>
  Name: <%= @name %> 
 </p>
-<br/>
+
 <p>
   Email: <%= @email %>
 </p>
-<br/>
+
 <p>
   Phone: <%= @phone %>
 </p>
-<br/>
+
 <p>
   Description: <%= @description %>
 </p>
 <br/>
-<br/>
+
 
 <p>Thanks</p>
 <p>Team Go4UsedCar</p>

@@ -1,39 +1,40 @@
-<h1>Car Details</h1>
+<h2>Thanks for you interest in following Car.</h2>
 <hr />
 <table>
     <tr>
-        <td>Car Info:</td>
+        <td><b>Car Info:</b></td>
         <td><%= @car.try(:carinfo) %></td>
     </tr>
     <tr>
-        <td>Car Color:</td>
+        <td><b>Car Color:</b></td>
         <td><%= @car.try(:exterior_color) %></td>
     </tr>
     <tr>
-        <td>Location:</td>
+        <td><b>Location:</b></td>
         <td><%= @car.try(:location) %></td>
     </tr>
     <tr>
-        <td>Mileage:</td>
+        <td><b>Mileage:</b></td>
         <td><%= @car.try(:milage) %></td>
     </tr>
     <tr>
-        <td>Fuel Type:</td>
+        <td><b>Fuel Type:</b></td>
         <td><%= @car.try(:fuel_type) %></td>
     </tr>
     <tr>
-        <td>Body Type:</td>
+        <td><b>Body Type:</b></td>
         <td><%= @car.try(:body_type) %></td>
     </tr>
     <tr>
-        <td>Price:</td>
+        <td><b>Price:</b></td>
         <td><%= @car.try(:sell_price) %></td>
     </tr>
     <tr>
-      <td>Image:</td>
+      <td><b>Image:</b></td>
       <td><%= image_tag(@car.image.url(:original), :width => 150, :height => 100) %></td>
     </tr>
 </table>
 
+<br/>
 <p>Thanks</p>
 <p>Team Go4UsedCar</p>
