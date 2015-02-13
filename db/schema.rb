@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210061348) do
+ActiveRecord::Schema.define(version: 20150213100726) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20150210061348) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved",   default: false
   end
 
   create_table "sell_cars", force: true do |t|
@@ -149,6 +150,14 @@ ActiveRecord::Schema.define(version: 20150210061348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status",                          default: "enquiry"
+  end
+
+  create_table "sell_evaluations", force: true do |t|
+    t.integer  "post_requirement_id"
+    t.string   "evaluator"
+    t.text     "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "share_fbs", force: true do |t|

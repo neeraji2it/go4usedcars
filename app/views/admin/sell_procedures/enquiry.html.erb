@@ -18,6 +18,7 @@
       <th>Phone</th>
       <th>Requirement</th>
       <th>Date</th>
+      <th>Status</th>
       <th>Action</th>
       <th></th>
     </tr>
@@ -46,10 +47,26 @@
           <b>Min Year: </b> <%= s.min_year%> <br/>
           <b>Max Year: </b> <%= s.max_year%> <br/>
         </td>
+        
         <td>
           <%= s.created_at %>
         </td>
+        
         <td>
+          <%= s.approved? ? ("Approved") : ("Not Approved") %>
+          <br/><br/>
+          <% if s.approved? %>
+            <% evaluation = s.sell_evaluation %>
+          <b>Evaluator:</b> <%= evaluation.evaluator %> <br/>
+          <b>Remarks:</b> <%= evaluation.remarks.html_safe %>
+          <% end %>
+        </td>
+        
+        <td>
+          <% if !s.approved? %>
+            <%= link_to "Approve", "#", :class => "btn btn-warning btn-sm", "data-toggle" => "modal", "data-target" => "#myModalApprove", :id => "evaluate_modal", data: {id: "#{s.id}" } %>
+            <br/><br/>
+          <% end %>
           <%= link_to "Delete", admin_sell_procedure_path(s.id), :method => :delete, data: {:confirm => "Are you sure?"}, :class => "btn btn-sm btn-danger" %>
         </td>
       </tr>
@@ -58,3 +75,35 @@
 </div>
 
 <%= paginate @enquiries %>
+
+
+
+<div class="modal fade bs-example-modal-sm" id="myModalApprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Assign to Evaluator</h4>
+      </div>
+      <div class="modal-body">
+        <div id="new_evaluation">
+          <%= render :partial => "new_evaluation" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on("click", "#evaluate_modal", function(){
+    var requirement_id = $(this).data("id");
+    $.ajax({
+      url: "/admin/sell_procedures/new_evaluation",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        requirement_id: requirement_id
+      }
+    });
+  });
+</script>

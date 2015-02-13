@@ -124,6 +124,8 @@ Rails.application.routes.draw do
     resources :sell_procedures do
       collection do
         get :enquiry
+        get :new_evaluation
+        post :create_evaluation
       end
     end
 
