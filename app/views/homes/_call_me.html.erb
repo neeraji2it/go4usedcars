@@ -13,7 +13,7 @@
           <b>Price</b>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <%= number_to_currency(@car.try(:sell_price), :unit => "Rs.") %>
         </div>
       </div>
@@ -25,7 +25,7 @@
           <b>Mileage</b>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <%= @car.try(:milage) %>
         </div>
       </div>
@@ -39,8 +39,8 @@
           <b>Year</b>
         </div>
 
-        <div class="col-sm-4">
-          <%= @car.try(:manufactured_year) %>
+        <div class="col-sm-6">
+          <%= Time.parse(@car.try(:manufactured_year)).strftime("%Y-%m-%d") %>
         </div>
       </div>
     </div>
@@ -51,8 +51,8 @@
           <b> Color</b>
         </div>
 
-        <div class="col-sm-4">
-          <%= @car.try(:exterior_color) %>
+        <div class="col-sm-6">
+          <%= @car.try(:exterior_color).capitalize %>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@
           <span class="input-group-addon">
             <span class="fa fa-envelope"></span>
           </span>
-          <%= email_field_tag :email,nil, autofocus: true, class: "form-control", :placeholder => "Email", :required  => true %>
+          <%= email_field_tag :email,nil, class: "form-control", :placeholder => "Email", :required  => true %>
           </div>
           <br />
 
@@ -83,11 +83,11 @@
             <span class="input-group-addon">
               <span class="fa fa-phone"></span>
             </span>
-            <%= text_field_tag :phone, nil, autofocus: true, class: "form-control", :placeholder => "Phone", :required  => true %>   
+            <%= telephone_field_tag :phone, nil, class: "form-control", :placeholder => "Phone", :required  => true %>   
             </div>
 
             <br />
-
+            
             <div class="input-group input-group-lg">
               <span class="input-group-addon">
                 <span class="fa fa-file-text"></span>
@@ -102,3 +102,10 @@
           <% end %>
         </div> 
       </div>
+
+<script>
+  $(document).ready(function() {
+    $('#phone').mask('(000) 000-0000');
+  });
+</script>
+

@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap-datepicker
 //= require jquery_nested_form
+//= require jquery.mask.min
