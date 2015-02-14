@@ -23,7 +23,6 @@
   <%=form_for @associate_partner, :url => "/associate_partners?loc=#{params[:loc]}", :method => "POST" do |f|%>
     <% if @associate_partner.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@associate_partner.errors.count, "error") %> prohibited this  info from being saved.</h2>
         <ul style="float: left;">
           <% @associate_partner.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -71,24 +70,3 @@
 
 
 </div>
-
-
-<style>
-  #error_explanation {
-    color: #f00;
-    border: 1px solid #CCC;
-    margin-bottom: 20px;
-    padding: 10px;
-    height: auto;
-    display:inline-block;
-    ul {
-      list-style: none;
-      margin: 0 0 18px 0;
-    }
-  }
-
-  .field_with_errors {
-    padding: 1px;
-    background-color: #f00;
-  }
-</style>  

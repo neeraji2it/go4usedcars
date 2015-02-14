@@ -1,0 +1,28 @@
+#error_explanation {
+    color: #f00;
+    border: 1px solid #CCC;
+    margin-bottom: 20px;
+    padding: 25px;
+    display: inline-block;
+    height: auto;
+    ul {
+      list-style: none;
+      margin: 0 0 18px 0;
+    }
+  }
+
+  .field_with_errors {
+    padding: 1px;
+    background-color: #F5384B;
+  }
+
+  .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+    background-color: #333;
+    color: blue;
+    display: block;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+}
