@@ -27,7 +27,7 @@
     <br/>
     <%= f.email_field :email, :id => "txtemail", :placeholder => "Email", :class => "form-control" %>
     <br/>
-    <%= f.text_field :phone, :id => "txtphone", :placeholder => "Phone", :class => "form-control" %>
+    <%= f.telephone_field :phone, :id => "phone", :placeholder => "Phone", :class => "form-control" %>
     <br/>
     <%= f.select(:job_category, [["Select Job Category", nil], ["Sales", "Sales"], ["Service", "Service"], ["Sales and service", "Sales and service"], ["Marketing", "Marketing"], ["Human resource", "Human resource"], ["Accounts", "Accounts"], ["Administration", "Administration"], ["Communication", "Communication"], ["Information technology", "Information technology"], ["Others", "Others"]], {}, :id => "txtjob", :placeholder => "Job Category", :class => "form-control") %>
 
@@ -66,4 +66,13 @@
     padding: 1px;
     background-color: #f00;
   }
+
 </style>  
+
+<script>
+  $(document).ready(function() {
+    $('#phone').mask('(000) 000-0000');
+  });
+</script>
+
+
