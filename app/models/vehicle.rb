@@ -27,9 +27,17 @@ class Vehicle < ActiveRecord::Base
   #these are the vehicle created by admin for user || dealer and whose status=visible
   scope :visible_user_dealer_cars, lambda { where("visible_status=? and (car_for=? or car_for=?) ", 'Visible', 'Both', 'Dealer') }
   
-  validates :manufacturer_id, :car_model_id, :varient_id, :registration_no,
-    :location, :reg_year, :milage, :sell_price, :visible_status, :car_for, presence: true
+  validates :image, :body_style, :exterior_color, :fuel_type, :manufactured_year, :manufacturer_id, :car_model_id, :varient_id, :registration_no,
+    :location, :reg_year, :milage, :sell_price, :visible_status, :engine_type, :car_for,
+    :transmission, :registration_state, :seat_covers, :sterio, presence: true
+  
+  validates_numericality_of :reg_year,:manufactured_year,:milage, :only_integer => true, 
+    :message => "can only be number."
+
+  validates :sell_price , numericality: {only_float: true}
+
   validates :registration_no, uniqueness: true
+  
   #these are the status which is created by dealer
   scope :dealer_cars, lambda { where(:status => "#{Status::Vehicle::DEALER}")}
   
