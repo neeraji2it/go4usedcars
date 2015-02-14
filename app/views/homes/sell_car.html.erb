@@ -25,7 +25,7 @@
               </ul>
             </div>
           <% end %>
-          <p class="text-grey">(Manufacturer, Model & Varient)</p> 
+          <p class="text-grey">Select your car:</p> 
           <div class="inner-addon left-addon">
             <i class="fa fa-car"></i>	
             <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| [varient.name, varient.id] }), {}, :id => "txtcar", :class => "form-control", :style => "padding: 6px 28px;" %>
