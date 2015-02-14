@@ -12,13 +12,13 @@
 
 
   <h4 style="text-decoration:none">A partnership with Go4usedcars gives you:</h4>
-  <ol class="no-float">
-
+  <ul class="no-float" style="list-style: none;">
     <li>better commission rates,</li>
     <li>faster transactions,</li>
     <li>preferential treatment, including first choice of vehicle</li>
-  </ol> 
+  </ul> 
   <br />
+
   <h4 style="text-decoration:none;font-size:16px"><b>If you wish to work us please fill in your contact details,  Associate with us as</b></h4><br />
   <%=form_for @associate_partner, :url => "/associate_partners?loc=#{params[:loc]}", :method => "POST" do |f|%>
     <% if @associate_partner.errors.any? %>
