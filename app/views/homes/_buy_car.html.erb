@@ -99,7 +99,7 @@
                           <td></td>
                           <td>:</td>
                           <td>
-                            <%= link_to "Print", print_path(:id => car.id, :format => "pdf"), :target => '_blank', :class => "btn btn-primary btn-sm" %> | <a class="btn btn-primary btn-sm announce" data-toggle="modal" data-id="<%= car.id %>" >E-mail</a> | <%= link_to "Facebook", "/users/auth/facebook?drive_id=#{car.id}", :class => "btn btn-primary btn-sm" %>
+                            <%= link_to "Print", print_path(:id => car.id, :format => "pdf"), :target => '_blank', :class => "btn btn-primary btn-sm" %>  <a class="btn btn-primary btn-sm announce" data-toggle="modal" data-id="<%= car.id %>" >E-mail</a>  <%= link_to "Facebook", "/users/auth/facebook?drive_id=#{car.id}", :class => "btn btn-primary btn-sm" %>
                             <%= link_to "View Details",  car_description_home_path(:id => car.id, :loc => params[:loc]), :class => "btn btn-primary btn-sm" %>
                           </td>
                         </tr>
