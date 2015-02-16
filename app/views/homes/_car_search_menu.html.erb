@@ -12,7 +12,7 @@
       </tr>
       <tr>
         <td class="borderforleft"> 
-          <%= select_tag :manufacturer, options_for_select([["- Select -", ""]] + @manufacturers.map {|x| [x.name, x.id]}), :id => "select_manuf", data: {:loc => "#{params[:loc]}"}, :style => "width:200px;", :class => "selectstyle" %>
+          <%= select_tag :manufacturer, options_for_select([["-  Manufacturer -", ""]] + @manufacturers.map {|x| [x.name, x.id]}), :id => "select_manuf", data: {:loc => "#{params[:loc]}"}, :style => "width:200px;", :class => "selectstyle" %>
         </td>
       </tr>
       <tr>
@@ -27,7 +27,7 @@
       </tr>
       <tr>
         <td class="borderforleft"> 
-          <%= select_tag :mileage, options_for_select([["- Mileage -", ""], ["upto 5,000 KM", "5000"], ["upto 10,000 KM", "10000"],["upto 15,000 KM", "15000"],["upto 20,000 KM", "20000"],["upto 25,000 KM", "25000"],["upto 30,000 KM", "30000"], ["upto 35,000 KM", "35000"], ["upto 40,000 KM", "40000"], ["upto 45,000 KM", "45000"], ["upto 50,000 KM", "50000"], ["upto 55,000 KM", "55000"], ["upto 60,000 KM", "60000"], ["upto 65,000 KM", "65000"], ["upto 70,000 KM", "70000"], ["upto 75,000 KM", "75000"], ["upto 80,000 KM", "80000"], ["upto 85,000 KM", "85000"], ["upto 90,000 KM", "90000"], ["upto 95,000 KM", "95000"], ["upto 1,00,000 KM", "100000"], ["upto 1,50,000 KM", "150000"]]), :style => "width:200px;", :class => "selectstyle" %>
+          <%= select_tag :mileage, options_for_select([["- KMs Done -", ""], ["upto 5,000 KM", "5000"], ["upto 10,000 KM", "10000"],["upto 15,000 KM", "15000"],["upto 20,000 KM", "20000"],["upto 25,000 KM", "25000"],["upto 30,000 KM", "30000"], ["upto 35,000 KM", "35000"], ["upto 40,000 KM", "40000"], ["upto 45,000 KM", "45000"], ["upto 50,000 KM", "50000"], ["upto 55,000 KM", "55000"], ["upto 60,000 KM", "60000"], ["upto 65,000 KM", "65000"], ["upto 70,000 KM", "70000"], ["upto 75,000 KM", "75000"], ["upto 80,000 KM", "80000"], ["upto 85,000 KM", "85000"], ["upto 90,000 KM", "90000"], ["upto 95,000 KM", "95000"], ["upto 1,00,000 KM", "100000"], ["upto 1,50,000 KM", "150000"]]), :style => "width:200px;", :class => "selectstyle" %>
         </td>
       </tr>
       <tr>

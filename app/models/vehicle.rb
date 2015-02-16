@@ -31,7 +31,7 @@ class Vehicle < ActiveRecord::Base
     :location, :reg_year, :milage, :sell_price, :visible_status, :engine_type, :car_for,
     :transmission, :registration_state, :seat_covers, :sterio, presence: true
   
-  validates_numericality_of :reg_year,:manufactured_year,:milage, :only_integer => true, 
+  validates_numericality_of :milage, :only_integer => true, 
     :message => "can only be number."
 
   validates :sell_price , numericality: {only_float: true}
