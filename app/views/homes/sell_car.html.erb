@@ -137,7 +137,7 @@
           </div>
           <div class="inner-addon left-addon">
             <i class="fa fa-phone"></i>	
-            <%=f.text_field :seller_phone,:placeholder=>"Phone*",:id=>"txtMobile",:class=>"form-control"%>
+            <%=f.telephone_field :seller_phone,:placeholder=>"Phone*",:id=>"txtphone",:class=>"form-control"%>
             <br />
           </div>
           <div class="inner-addon left-addon">
@@ -166,4 +166,10 @@
       autoclose: true
     });
   });
+  
+  $(document).ready(function() {
+    $('#txtphone').mask('(000) 000-0000');
+  });
+
+
 </script>
