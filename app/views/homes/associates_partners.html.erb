@@ -36,7 +36,7 @@
     <%=f.text_field :dealer_name,:placeholder=>"Dealership Name(for dealer)",:id=>"dealership",
       :class=>"form-control"%></br>
     <%=f.text_field :name,:placeholder=>"Name",:id=>"txtname",:class=>"form-control"%></br>
-    <%=f.text_field :phone,:placeholder=>"Phone",:id=>"txtphone",:class=>"form-control"%></br>
+    <%=f.telephone_field :phone,:placeholder=>"Phone",:id=>"txtphone",:class=>"form-control"%></br>
     <%=f.text_field :email,:placeholder=>"Email Id",:id=>"txtemail",:class=>"form-control"%></br>
     <%=f.text_area :address,:placeholder=>"Address",:id=>"txtaddress",:class=>"form-control"%>
     </br>
@@ -69,4 +69,12 @@
   <img src="/assets/HDFC_10.jpg" width="120" height="120" />           
 
 
-</div>
+</div> 
+
+
+
+<script>
+  $(document).ready(function() {
+    $('#txtphone').mask('(000) 000-0000');
+  });
+</script>
