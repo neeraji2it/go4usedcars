@@ -8,7 +8,7 @@ pdf.text "Color: #{@car.try(:exterior_color)}", :style => :bold
 
 pdf.text "Location: #{@car.try(:location)}", :style => :bold
 
-pdf.text "Mileage: #{@car.try(:milage)}", :style => :bold
+pdf.text "KMs Done: #{@car.try(:milage)}", :style => :bold
 
 pdf.text "Fuel Type: #{@car.try(:fuel_type)}", :style => :bold
 

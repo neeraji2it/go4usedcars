@@ -16,20 +16,20 @@
         </td>
         <td>
           <b>Car:</b> <%= s.try(:carinfo) %> <br/>
-          <b>Make Yr: </b> <%= s.try(:manufacture_year) %> <br/>
+          <b>Make Yr: </b> <%= s.try(:manufactured_year) %> <br/>
           <b>Owner: </b> <%= s.try(:owner_type) %> <br/>
-          <b>Color: </b> <%= s.try(:color)%>
+          <b>Color: </b> <%= s.try(:exterior_color).capitalize%>
         </td>
 
         <td>
-          <b>KMs.Done:</b> <%= s.try(:kms_done) %>  <br/>
-          <b>Exptd. Price:</b> <%= s.try(:expected_price) %>
+          <b>KMs.Done:</b> <%= s.try(:milage) %>  <br/>
+           <b>Exptd. Price:</b> <%= number_to_currency(s.try(:sell_price), :unit => "Rs.") %>
         </td>
 
         <td>
-          <b>City:</b> <%= s.try(:city) %>  <br/>
+          <b>City:</b> <%= s.try(:location).capitalize %>  <br/>
           <b>Reg.No:</b> <%= s.try(:registration_no) %>  <br/>
-          <b>Reg. at:</b> <%= s.try(:registration_at) %>
+          <b>Reg. at:</b> <%= s.try(:registration_state).capitalize  %>
         </td>
 
         <td>
@@ -39,5 +39,5 @@
       </tr>
     <% end %>
   </table>
-  
+</div>
   <%= paginate @vehicles %>
