@@ -19,12 +19,12 @@ BODY_TYPES = ["Sedan", "Coupe", "Hatchback", "Minivan/Van", "Convertible", "SUV/
 FUEL_TYPES = ["Petrol", "Diesel", "CNG", "LPG"]
 BASE_URL = "http://go4usedcars.herokuapp.com"
 
- ADMIN = ["crystal.badu@gmail.com", "badu.crystal@gmail.com"]
+# ADMIN = ["crystal.badu@gmail.com", "badu.crystal@gmail.com"]
 
-# ADMIN = ["sunish@prestigeworld.in" ,"chand@prestigeworld.in"]
+ ADMIN = ["sunish@prestigeworld.in" ,"chand@prestigeworld.in"]
 
-DELHI_ADMIN = "badu.crystal@gmail.com"
-BANGALORE_ADMIN = "crystal.badu@gmail.com"
+#DELHI_ADMIN = "badu.crystal@gmail.com"
+#BANGALORE_ADMIN = "crystal.badu@gmail.com"
 
-# DELHI_ADMIN = "chand@prestigeworld.in"
-# BANGALORE_ADMIN = "sunish@prestigeworld.in"
+ DELHI_ADMIN = "chand@prestigeworld.in"
+ BANGALORE_ADMIN = "sunish@prestigeworld.in"
