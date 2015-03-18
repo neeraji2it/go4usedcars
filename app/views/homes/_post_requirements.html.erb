@@ -63,9 +63,9 @@
   </div>
 
   <div class="form-group">
-    <span style="margin-right: 19px;">Body Type:</span>
-          <% BODY_TYPES.each do |type| %>
-      <%= check_box_tag "body_types[]", type %> <%= type %>
+    <span style="margin-right: 19px; font-weight: bold;">Body Type:</span>
+      <% BODY_TYPES.each do |type| %>
+        <%= check_box_tag "body_types[]", type %> <%= type %>
       <% end %>
        <span style="margin-right: 95px;"></span>
      </div>
@@ -73,7 +73,7 @@
   <div class="form-group">
     <span style="margin-right: 23px; font-weight: bold;">Fuel Type:</span>
       <% FUEL_TYPES.each do |fuel| %>
-      <%= check_box_tag "fuel_types[]", fuel %> <%= fuel %>
+        <%= check_box_tag "fuel_types[]", fuel %> <%= fuel %>
       <% end %>
    </div>
 

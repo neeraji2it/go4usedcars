@@ -14,9 +14,11 @@ module Status
   end  
 end
 YEAR = (1990..2014)
-BODY_TYPES = ["Sedan", "Coupe", "Hatchback", "Minivan/Van", "Convertible", "SUV/MUV", "Truck",
-              "Station Wagon", "MUV"]
-FUEL_TYPES = ["Petrol", "Diesel", "CNG", "LPG"]
+# BODY_TYPES = ["Sedan", "Coupe", "Hatchback", "Minivan/Van", "Convertible", "SUV/MUV", "Truck",
+              # "Station Wagon", "MUV"]
+BODY_TYPES = ["Sedan", "Coupe", "Hatchback", "Minivan/Van", "Convertible", "SUV/MUV"]
+# FUEL_TYPES = ["Petrol", "Diesel", "CNG", "LPG"]
+FUEL_TYPES = ["Petrol", "Diesel", "CNG", "LPG", "Hybrid"]
 BASE_URL = "http://go4usedcars.herokuapp.com"
 
 # ADMIN = ["crystal.badu@gmail.com", "badu.crystal@gmail.com"]
