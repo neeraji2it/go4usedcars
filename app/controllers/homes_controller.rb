@@ -100,7 +100,7 @@ class HomesController < ApplicationController
   end
   
   def call_me
-    RequirementMailer.get_info(params[:id], params[:name], params[:email], params[:phone], params[:description]).deliver      
+    RequirementMailer.get_info(params[:id], params[:name], params[:email], params[:phone], params[:description], params[:loc]).deliver      
     redirect_to :back
   end
   

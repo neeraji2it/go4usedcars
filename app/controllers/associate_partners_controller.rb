@@ -2,7 +2,7 @@ class AssociatePartnersController < ApplicationController
   def create
 		@associate_partner = AssociatePartner.new(associate_params)
 		if @associate_partner.save
-		   RequirementMailer.associate_partner(@associate_partner).deliver
+		   RequirementMailer.associate_partner(@associate_partner, params[:loc]).deliver
 			redirect_to associates_partners_homes_path(:loc => params[:loc])
 		else
 			#render :action => :associates_partners

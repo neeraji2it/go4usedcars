@@ -17,17 +17,22 @@ class RequirementMailer < ActionMailer::Base
     if loc == 'bangalore'
       mail(:to => BANGALORE_ADMIN, :subject => "User Requirements")
     elsif loc == 'gurgaon'
-      mail(:to => DELHI_ADMIN, :subject => "User Requirements")
+      #mail(:to => DELHI_ADMIN, :subject => "User Requirements")
+      mail(:to => ADMIN, :subject => "Get Detailed Car Info") 
     end
   end
   
-  def get_info(car, name, email, phone, description)
+  def get_info(car, name, email, phone, description, loc)
     @car = Vehicle.find(car)
     @name = name
     @email = email
     @phone = phone
     @description = description
-    mail(:to => ADMIN, :subject => "Get Detailed Car Info") 
+    if loc == 'bangalore'
+      mail(:to => BANGALORE_ADMIN, :subject => "User Requirements")
+    elsif loc == 'gurgaon'
+      mail(:to => ADMIN, :subject => "Get Detailed Car Info") 
+    end
   end
   
   def sent_user(user)
@@ -40,9 +45,14 @@ class RequirementMailer < ActionMailer::Base
     mail(:to => email, :subject => "Car Details")
   end
 
-  def associate_partner(associate_partner)
+  def associate_partner(associate_partner, loc)
     @associate = AssociatePartner.find(associate_partner.id)
-    mail(:to => ADMIN, :subject => "User Requirements")
+
+    if loc == 'bangalore'
+      mail(:to => BANGALORE_ADMIN, :subject => "User Requirements")
+    elsif loc == 'gurgaon'
+      mail(:to => ADMIN, :subject => "Get Detailed Car Info") 
+    end
   end
   
   def evaluation_desc_image(sell_car, eval)
