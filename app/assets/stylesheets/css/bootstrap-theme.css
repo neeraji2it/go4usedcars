@@ -492,7 +492,7 @@
 
 }
 
-.navbar-inverse {
+/*.navbar-inverse {
 
   background-image: -webkit-linear-gradient(top, #fc6 0%, #fc0 100%);
 
@@ -508,6 +508,17 @@
 
   background-repeat: repeat-x;
 
+}
+*/
+
+.navbar-inverse {
+
+background-color: #ffc579; background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc579), to(#fb9d23));
+ background-image: -webkit-linear-gradient(top, #ffc579, #fb9d23);
+ background-image: -moz-linear-gradient(top, #ffc579, #fb9d23);
+ background-image: -ms-linear-gradient(top, #ffc579, #fb9d23);
+ background-image: -o-linear-gradient(top, #ffc579, #fb9d23);
+ background-image: linear-gradient(to bottom, #ffc579, #fb9d23);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc579, endColorstr=#fb9d23);
 }
 
 .navbar-inverse .navbar-nav > .active > a {
