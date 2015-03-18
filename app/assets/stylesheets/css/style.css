@@ -434,6 +434,9 @@ div span input{
   text-align: justify;
 }
 
+/*this is related to navbar*/
 ul.nav.nav-pills {
   margin-left: 125px;
 }
+
+@media (max-width:360px) {html body ul.nav.nav-pills {margin-left: 0px;}}
