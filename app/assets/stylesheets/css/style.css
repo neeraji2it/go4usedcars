@@ -421,3 +421,11 @@ div span input{
 .fixed-width{
     min-width: 90px;
 }
+
+.footer-header {
+  font-size: 40px;
+  font-family: 'Helvetica Neue Thin Extended',sans-serif;
+  font-weight: lighter;
+  text-shadow: 1px 1px 0 #000;
+  letter-spacing: -2.5px;
+}
