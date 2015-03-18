@@ -433,3 +433,7 @@ div span input{
 .about-us-justify {
   text-align: justify;
 }
+
+ul.nav.nav-pills {
+  margin-left: 125px;
+}
