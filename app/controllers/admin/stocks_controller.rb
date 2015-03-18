@@ -150,7 +150,9 @@ class Admin::StocksController < ApplicationController
     @cars = Vehicle.where("offer_price IS NOT NULL")
     @vehicles = Vehicle.all
     @vehicle = Vehicle.find(params[:vehicle_id])
-    if @vehicle.update(vehicle_offer_params)
+    @vehicle.offer_price = params[:vehicle][:offer_price] if params[:vehicle][:offer_price].present?
+    
+    if @vehicle.save(:validate => false)
       respond_to do |format|
         format.js
       end
