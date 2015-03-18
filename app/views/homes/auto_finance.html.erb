@@ -2,41 +2,41 @@
 
 <script>
 
-		$(function() {
+    $(function() {
 
-			var pull= $('#pull');
+      var pull= $('#pull');
 
-				menu= $('nav ul');
+        menu= $('nav ul');
 
-				menuHeight= menu.height();
-
-
-
-			$(pull).on('click', function(e) {
-
-				e.preventDefault();
-
-				menu.slideToggle();
-
-			});
+        menuHeight= menu.height();
 
 
 
-			$(window).resize(function(){
+      $(pull).on('click', function(e) {
 
-        		var w = $(window).width();
+        e.preventDefault();
 
-        		if(w > 480 && menu.is(':hidden')) {
+        menu.slideToggle();
 
-        			menu.removeAttr('style');
+      });
 
-        		}
 
-    		});
 
-		});
+      $(window).resize(function(){
 
-	</script>
+            var w = $(window).width();
+
+            if(w > 480 && menu.is(':hidden')) {
+
+              menu.removeAttr('style');
+
+            }
+
+        });
+
+    });
+
+  </script>
 
     
 
@@ -44,9 +44,9 @@
 
  div .list-icon ul{
 
-	 list-style-image:url(/assets/icon.jpg);
+   list-style-image:url(/assets/icon.jpg);
 
-	 	
+    
 
  }
 
@@ -205,23 +205,38 @@
 
 <div class="row">
 
-  <div class="col-xs-6 col-sm-2 left-paddings"> <p style="padding-top:20px; "><center  class="finance-spacing"><img src="/assets/hdfc.png" class="img-responsive" /> </center></p>
+  <div class="col-xs-6 col-sm-2 left-paddings"> <p style="padding-top:20px; "><center  class="finance-spacing">
+  <img src="/assets/hdfc.png" height="100px" width="200px;" class="img-responsive" /> 
+  </center></p>
 
- 	<div class="border-row"></div>
+  <div class="border-row"></div>
 
- 	
+  
 
-   <center> <p  style="padding-top:20px;"><img src="/assets/mahindra.png"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+   <center> <p  style="padding-top:20px;">
+   <img src="/assets/mahindra.png"  height="100px" width="200px;" class="img-responsive" />
+   </p></center><br /> <div class="border-row"></div>
    
- <center> <p  style="padding-top:20px;"><img  src="/assets/icici.jpg"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+ <center> <p  style="padding-top:20px;">
+ <img  src="/assets/icici.jpg"  height="100px" width="200px;" class="img-responsive" />
+ </p></center><br /> <div class="border-row"></div>
  
-  <center> <p  style="padding-top:20px;"><img src="/assets/axis.JPG"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+  <center> <p  style="padding-top:20px;">
+  <img src="/assets/axis.JPG"  height="100px" width="200px;" class="img-responsive" />
+  </p></center><br /> <div class="border-row"></div>
   
-  <center> <p  style="padding-top:20px;"><img src="/assets/bmw.JPG"  class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+  <center>
+   <p  style="padding-top:30px;  margin-left: -65px;">
+   <%= image_tag("bmw.JPG", height: "125px", width: "360px") %>
+  </p></center><br /> <div class="border-row"></div>
   
-  <center> <p  style="padding-top:20px;"><img  src="/assets/tata.jpg" class="img-responsive" /></p></center><br /> <div class="border-row"></div>
+  <center> <p  style="padding-top:20px;">
+  <img  src="/assets/tata.jpg"  height="100px" width="170px;" class="img-responsive" />
+  </p></center><br /> <div class="border-row"></div>
   
-  <center> <p  style="padding-top:20px;"><img src="/assets/magma.PNG"	 class="img-responsive" /></p></center><br /> <div class="border-row"></div> 
+  <center> <p  style="padding-top:20px;">
+  <img src="/assets/magma.PNG" height="100px" width="200px;" class="img-responsive" />
+  </p></center><br /> <div class="border-row"></div> 
   
   </div>
 
@@ -229,46 +244,12 @@
 
 <p>It's now time to own that new car you have always desired. To help you with your dream we now provide several customised FINANCIAL options for new as well as used carsat low interest rates. What's more, the process ensures maximum flexibility, minimum paperwork and customised loans to suit your needs.</p><br />
 
-<p style="padding-bottom:0px;"><b>Speak to our loan expert cell no :</b> 9650006200 <br />
+<p style="padding-bottom:0px;"><b>Speak to our loan expert cell no :</b> 9910300025 <br />
 
-<b>Email :</b> anuj@prestigeworld.in<hr />	
+<b>Email :</b> finance@prestigeworld.in<hr /> 
 
  </p>
-<div class="demo" style="border:solid;">
-<p>
-    <label for="amount"><span style="font-size:12px; color:#076391;">Loan Amount ?</span></label>
-    <span style="font-size:13px; color:#333333;">Rs. &nbsp;<input type="text" id="amount" size="15" style="border:0; color:#f6931f; font-weight:bold; text-align:left" /></span>
-</p>
-<div id="slider1"></div>
-<br/>
 
-<p>
-    <label for="per"><span style="font-size:12px; color:#076391;">Interest Rate ?</span></label>
-    <span style="font-size:13px; color:#333333;"><input type="text" id="per" size="5" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp;% p.a</span>
-</p>
-<div id="slider-per1"></div>
-<br/>
-
-<p>
-    <label for="tenure"><span style="font-size:12px; color:#076391;">Tenure ?</span></label>
-    <span style="font-size:13px; color:#333333;"><input type="text" id="tenure" size="5" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp; years</span>
-</p>
-<div id="slider-ten1"></div>
-<br/>
-
-<p style="display: none; visibility: hidden;">
-    <label for="fee"><span style="font-size:12px; color:#076391;">Processing Fee ?</span></label>
-    <span style="font-size:13px; color:#333333;"><input type="text" size="5" id="fee" style="border:0; color:#f6931f; font-weight:bold; text-align:right" />&nbsp;% of loan amount</span>
-</p>
-<div id="slider-fee1" style="display: none; visibility: hidden;"></div>
-<br/>
-
-<p>
-    <label for="per" style="color:#a45301; font-size:14px;"><strong>Your EMI Rs</strong> &nbsp;</label>
-    <span bgcolor="#666666" style="color:#FFFFFF; font-size:14px;"><input type="text" size="10" id="total" style="border:0; color:#f6931f; font-weight:bold; border:1px;" /></span>
-</p>
-
-</div> 
  
 
  
@@ -277,23 +258,23 @@
  <p style="font-size:15px; font-weight:bold;">Go4usedcars offers a range of attractive finance options. Now owning your favourite luxury car becomes quick and easy.</p>
 <div class="box-left-salaried" style="height:auto;"> 
 <div class="panel-group" id="accordion">
-				
+        
   <div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title"> 
-							<div class="inner-addon left-addon" style="font-size:20px; color:#fff;">
-							
-							<a href="#collapse1" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:200px;" ><span><i class="fa fa-dollar"></i></span> Salaried <i class="fa fa-angle-down"></i>
+          <div class="panel-heading">
+            <h4 class="panel-title"> 
+              <div class="inner-addon left-addon" style="font-size:20px; color:#fff;">
+              
+              <a href="#collapse1" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:200px;" ><span><i class="fa fa-dollar"></i></span> Salaried <i class="fa fa-angle-down"></i>
 </button></a>
- 						</div>
- 					</h4>
-					</div>
-					<div id="collapse1" class="panel-collapse collapse in">
-						<div class="panel-body">
-							<div>
-							<ul  id="list1"  style="padding-bottom:70px; margin-left: 20px" >
+            </div>
+          </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div>
+              <ul  id="list1"  style="padding-bottom:70px; margin-left: 20px" >
 
-              	<li>Last 2 years' individual ITR or Form 16 and latest 4 months' salary slips</li>
+                <li>Last 2 years' individual ITR or Form 16 and latest 4 months' salary slips</li>
 
                 <li>Address proof</li>
 
@@ -310,25 +291,25 @@
                 <li>Two references</li>
 
                </ul>
-			   				</div>
-						</div>
-					</div>
-				</div>
+                </div>
+            </div>
+          </div>
+        </div>
   
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-						<div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
-						
-						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><button type="button" class="btn btn-warning" style="font-size:20px; padding-right:37px; " ><span><i class="fa fa-suitcase"></i></span> Self Employed (Proprietor) <i class="fa fa-angle-down"></i></button></a> 
-						</div>
-						</h4>
-					</div>
-					<div id="collapse2" class="panel-collapse collapse">
-						<div class="panel-body">
-                        	<ul  id="list2"   style="padding-bottom:90px;" >
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+            <div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
+            
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><button type="button" class="btn btn-warning" style="font-size:20px; padding-right:37px; " ><span><i class="fa fa-suitcase"></i></span> Self Employed (Proprietor) <i class="fa fa-angle-down"></i></button></a> 
+            </div>
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+                          <ul  id="list2"   style="padding-bottom:90px;" >
 
-              	<li>Last 2 years' ITR with P&L A/C and balance sheet</li>
+                <li>Last 2 years' ITR with P&L A/C and balance sheet</li>
 
                 <li>Address proof</li>
 
@@ -345,25 +326,25 @@
                 <li>Two references</li>
 
               </ul>
-						</div>
-					</div>
-				</div>
+            </div>
+          </div>
+        </div>
   
   
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-						<div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
-						
-						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:128px;" ><span><i class="fa fa-hand-o-right"></i></span> Partnership Firm <i class="fa fa-angle-down"></i></button></a> 
-						</div>
-						</h4>
-					</div>
-					<div id="collapse3" class="panel-collapse collapse">
-						<div class="panel-body">
-                        		<ul id="list3"   style="padding-bottom:48px; margin-left: 20px" >
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+            <div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
+            
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:128px;" ><span><i class="fa fa-hand-o-right"></i></span> Partnership Firm <i class="fa fa-angle-down"></i></button></a> 
+            </div>
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body">
+                            <ul id="list3"   style="padding-bottom:48px; margin-left: 20px" >
 
-              	<li>Last 2 years' ITS with P&L A/C and balance sheet
+                <li>Last 2 years' ITS with P&L A/C and balance sheet
 
                 <li>Partnership deed</li>
 
@@ -386,23 +367,23 @@
                 <li>Two references</li>
 
               </ul>
-						</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-						<div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
-						
-						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:29px;" ><span><i  class="fa fa-area-chart"></i></span> Ltd / Private Ltd Companies <i class="fa fa-angle-down"></i></button></a> 
-						</div>
-						</h4>
-					</div>
-					<div id="collapse4" class="panel-collapse collapse">
-						<div class="panel-body">
-                        		<ul   id="list4" style="padding-bottom:48px;" >
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+            <div class="inner-addon left-addon" style="font-size:20px; color:#fff;"> 
+            
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"><button type="button" class="btn btn-warning" style="font-size:20px;  padding-right:29px;" ><span><i  class="fa fa-area-chart"></i></span> Ltd / Private Ltd Companies <i class="fa fa-angle-down"></i></button></a> 
+            </div>
+            </h4>
+          </div>
+          <div id="collapse4" class="panel-collapse collapse">
+            <div class="panel-body">
+                            <ul   id="list4" style="padding-bottom:48px;" >
 
-              	<li>Company PAN card</li>
+                <li>Company PAN card</li>
 
                 <li>Company ITR for last 2 years with balance sheet and P&L A/C</li>
 
@@ -423,11 +404,11 @@
                 <li>Two references</li>
 
               </ul>
-						</div>
-					</div>
-				</div>
-				
-			</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
 </div>
 
 
