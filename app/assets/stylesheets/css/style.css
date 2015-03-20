@@ -441,3 +441,7 @@ ul.nav.nav-pills {
 }
 
 @media (max-width:360px) {html body ul.nav.nav-pills {margin-left: 0px;}}
+
+#list1, #list2, #list3, #list4 {
+  list-style: none;
+}
