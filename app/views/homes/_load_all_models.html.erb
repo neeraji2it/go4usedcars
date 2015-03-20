@@ -4,6 +4,8 @@
 <%= select_tag :car_model_id, options_for_select([["- Select -", ""]] + @car_models.map {|x| [x.name, x.id]}), :class => "selectstyle form-control", :onchange => "load_all_varients(this)" %>
 <% end %>
 
+<br/>
+
 <script>
   function load_all_varients(object) {
     var car_model_id = object.value;

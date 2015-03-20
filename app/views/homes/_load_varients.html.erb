@@ -3,3 +3,5 @@
 
 <%= select_tag :varient_id, options_for_select([["- Select -", ""]] + @car_varients.map {|x| [x.name, x.id]}), :class => "selectstyle form-control" %>
 <% end %>
+
+<br/>
