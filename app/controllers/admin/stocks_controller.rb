@@ -118,7 +118,8 @@ class Admin::StocksController < ApplicationController
   
   def sold
     @vehicle = Vehicle.find(params[:id])
-    if @vehicle.update_attributes(:status => "#{Status::Vehicle::SOLD}")
+    @vehicle.status = "#{Status::Vehicle::SOLD}"
+    if @vehicle.save(:validate => false)
       respond_to do |format|
         format.js
       end
@@ -127,7 +128,8 @@ class Admin::StocksController < ApplicationController
   
   def unsold
     @vehicle = Vehicle.find(params[:id])
-    if @vehicle.update_attributes(:status => "#{Status::Vehicle::LIVE}")
+    @vehicle.status = "#{Status::Vehicle::LIVE}"
+    if @vehicle.save(:validate => false)
       respond_to do |format|
         format.js
       end

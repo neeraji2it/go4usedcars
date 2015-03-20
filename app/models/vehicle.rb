@@ -9,7 +9,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :varient
   has_many :car_specification, :dependent => :destroy
   has_many :images, :dependent => :destroy
-  accepts_nested_attributes_for :images, reject_if: :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :images,  :allow_destroy => true, reject_if: :all_blank
   has_many :videos, :dependent => :destroy
   belongs_to :user
 

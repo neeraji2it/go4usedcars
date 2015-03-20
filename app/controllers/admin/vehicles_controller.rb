@@ -12,7 +12,15 @@ class Admin::VehiclesController < ApplicationController
     @manufacturers = Manufacturer.all
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
     @varients = Varient.where("car_model_id=?", params[:car_model_id])
-    @vehicle = Vehicle.new(vehicle_params.merge(:varient_id => params[:varient][:varient_id], :car_model_id => params[:varient][:car_model_id], :manufacturer_id => params[:manufacturer_id]))
+    @vehicle = Vehicle.new(vehicle_params)
+    p "---------------------------------"
+    @vehicle.manufacturer_id = params[:manufacturer_id]
+    if params[:varient].present?
+      @vehicle.varient_id = params[:varient][:varient_id] 
+      @vehicle.car_model_id = params[:varient][:car_model_id]
+    end
+    p "---------------------------------"
+
     @vehicle.status = "#{Status::Vehicle::LIVE}"
     if @vehicle.save
       flash[:notice] = "Car record is saved successfully."
