@@ -125,13 +125,17 @@ class HomesController < ApplicationController
   def load_model
     @car_models = CarModel.where("manufacturer_id=?", params[:manufacturer_id])
   end
+
+  def load_varient
+    @car_varients = Varient.where("car_model_id=?", params[:car_model_id])
+  end
   
 	def sell_car
 		@sell_car = SellCar.new
 	end
 
 	def save_sell_car
-		@sell_car = SellCar.new(sell_car_params)
+		@sell_car = SellCar.new(sell_car_params.merge(:varient_id => params[:varient_id], :car_model_id => params[:car_model_id]))
 		if @sell_car.save
 			redirect_to  sell_car_homes_path(:loc=>params[:loc])
 		else

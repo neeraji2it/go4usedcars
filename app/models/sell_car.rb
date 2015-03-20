@@ -6,7 +6,7 @@ class SellCar < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :seller_phone, :presence => true, format: { with: /\A\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/,
     message: " Phone numbers must be in xxx-xxx-xxxx format" }
-  validates :image, :manufacture_year,:owner_type,:kms_done,:city,:color,:registration_no,:ownership,:car_insurence,:when_to_sell,:insurence_valid_till,:expected_price,:seller_name,:seller_email,:seller_organization, :presence => true
+  validates :manufacturer_id, :image, :manufacture_year,:owner_type,:kms_done,:city,:color,:registration_no,:ownership,:car_insurence,:when_to_sell,:insurence_valid_till,:expected_price,:comments,:seller_name,:seller_email,:seller_organization, :presence => true
   validates :kms_done, :expected_price , numericality: {only_float: true}
 
   def model_varient

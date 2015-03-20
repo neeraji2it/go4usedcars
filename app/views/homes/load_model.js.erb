@@ -1,1 +1,5 @@
-$("#load_carmodels").html('<%= escape_javascript render :partial => "load_models" %>');
+<% if(params[:sell]=="true") %>
+  $("#load_carmodels").html('<%= escape_javascript render :partial => "load_all_models" %>');
+<% else %>
+  $("#load_carmodels").html('<%= escape_javascript render :partial => "load_models" %>');
+<% end %>

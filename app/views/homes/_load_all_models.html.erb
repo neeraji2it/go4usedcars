@@ -1,0 +1,19 @@
+<% if @car_models.present? %>
+<p>Select Model:</p>
+
+<%= select_tag :car_model_id, options_for_select([["- Select -", ""]] + @car_models.map {|x| [x.name, x.id]}), :class => "selectstyle form-control", :onchange => "load_all_varients(this)" %>
+<% end %>
+
+<script>
+  function load_all_varients(object) {
+    var car_model_id = object.value;
+    $.ajax({
+      url: "/homes/load_varient",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        car_model_id: car_model_id
+      }
+    });
+  }
+</script>

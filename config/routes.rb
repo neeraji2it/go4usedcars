@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :about_us  
       match :buy_car, via: [:get, :post]
       get :load_model
+      get :load_varient
       get :sell_car
       post :save_sell_car
       get :auto_finance

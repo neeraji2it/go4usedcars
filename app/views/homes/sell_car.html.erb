@@ -25,12 +25,26 @@
               </ul>
             </div>
           <% end %>
-          <p class="text-grey">Select your car:</p> 
-          <div class="inner-addon left-addon">
-            <i class="fa fa-car"></i>	
-            <%= f.select :varient_id, options_for_select(Varient.all.map {|varient| [varient.name, varient.id] }), {}, :id => "txtcar", :class => "form-control", :style => "padding: 6px 28px;" %>
-            <br />
-          </div>
+          
+          <p class="text-grey">Select Make:</p> 
+                     <div class="inner-addon left-addon">
+                      <i class="fa fa-car"></i> 
+                      <%= f.select :manufacturer_id, options_for_select(Manufacturer.all.map {|manufacturer| [manufacturer.name, manufacturer.id] }), {}, :id => "txtcar", :class => "form-control", :style => "padding: 6px 28px;", :onchange => "load_all_model(this)" %>
+                       <br />
+                     </div>
+           
+                    <div id="load_carmodels">
+                      
+                    </div>
+          
+                    <br/>
+                    
+                    <div id="load_varients">
+                      
+                    </div>
+          
+                    <br />
+
 
           <%= f.file_field :image, :id=>"usercarimage" %>
           <br />
@@ -172,4 +186,20 @@
   });
 
 
+</script>
+
+<script>
+  function load_all_model(obj) {
+    var manufacturer_id = obj.value;
+    
+    $.ajax({
+      url: "/homes/load_model",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        manufacturer_id: manufacturer_id,
+        sell: true
+      }
+    });
+  }
 </script>
