@@ -416,6 +416,7 @@ div span input{
  background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
  background-image: linear-gradient(to bottom, #f2f5f6, #c8d7dc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f2f5f6, endColorstr=#c8d7dc);
  margin: 5px;
+ width: 100%;
 }
 
 .fixed-width{
