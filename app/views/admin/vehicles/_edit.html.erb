@@ -1,6 +1,12 @@
 <div class="panel-body">
   <%= form_for @vehicle, :url => update_vehicle_admin_vehicle_path(:id => params[:id]), :method => "PUT", :remote => true do |f| %>
     <div class="row">
+      <div class="error">
+        
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
           <b>Update Car Details</b>

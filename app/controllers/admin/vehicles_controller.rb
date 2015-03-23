@@ -48,11 +48,12 @@ class Admin::VehiclesController < ApplicationController
     @vehicle = Vehicle.find(params[:id])
     p "--------------------------------------"
     p @vehicle
-    @vehicle.update_attributes(vehicle_params)
-    flash[:notice] = "Car record is updated successfully."
-      respond_to do |format|
-        format.js
-      end
+    if @vehicle.update_attributes(vehicle_params)
+      flash[:notice] = "Car record is updated successfully."
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def load_car_model

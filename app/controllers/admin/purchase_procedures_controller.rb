@@ -23,8 +23,9 @@ class Admin::PurchaseProceduresController < ApplicationController
     sell_car_id = params["car_evaluation"]["sell_car_id"]
     @car = SellCar.find(sell_car_id)
     @evaluation = CarEvaluation.new(car_evaluation_params)
-    if @evaluation.save
-      @car.update_attributes(status: "waiting")
+    if @evaluation.save!(:validate => false)
+      @car.status = "waiting"
+      @car.save(:validate => false)
       respond_to do |format|
         format.js
       end
@@ -45,7 +46,8 @@ class Admin::PurchaseProceduresController < ApplicationController
     @car = SellCar.find(params[:sell_car_id])
     @evaluation = CarEvaluation.where(:sell_car_id => @car.id).try(:first)
     if @evaluation.update_attributes(car_evaluation_params)
-      @car.update_attributes(status: "evaluated")
+      @car.status = "evaluated"
+      @car.save(:validate => false)
       RequirementMailer.evaluation_desc_image(@car, @evaluation).deliver
       redirect_to :back
     else
@@ -67,7 +69,8 @@ class Admin::PurchaseProceduresController < ApplicationController
     @car = SellCar.find(params[:sell_car_id])
     @evaluation = CarEvaluation.where(:sell_car_id => @car.id).try(:first)
     if @evaluation.update_attributes(car_evaluation_params)
-      @car.update_attributes(status: "purchased")
+      @car.status = "purchased"
+      @car.save(:validate => false)
       respond_to do |format|
         format.js
       end
