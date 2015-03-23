@@ -137,6 +137,7 @@ class HomesController < ApplicationController
 	def save_sell_car
 		@sell_car = SellCar.new(sell_car_params.merge(:varient_id => params[:varient_id], :car_model_id => params[:car_model_id]))
 		if @sell_car.save
+      flash[:notice] = "Car details are created successfully."
 			redirect_to  sell_car_homes_path(:loc=>params[:loc])
 		else
 			render :action => 'sell_car'
