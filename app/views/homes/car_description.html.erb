@@ -55,13 +55,14 @@
       <%= link_to "Call me, i am Interested", "", "data-toggle" => "modal", "data-target" => "#myModalPostRequirement", :style => "font-weight:bold; width:300px; text-align:center; text-shadow:1px 1px 1px 1px #ccc; margin-top:20px;", :class => "btn btn-danger" %>
       <br/><br/>
 
-      <p><b>Watch Video</b></p>
-      <% @videos.each do |v| %>
-        <div class="row">
-          <%= link_to(v.video_url, v.video_url, :target => '_blank') %>
-        </div>
-      <% end %>
-
+      <% if @videos.present? %>
+        <p><b>Watch Video</b></p>
+        <% @videos.each do |v| %>
+          <div class="row">
+            <%= link_to(v.video_url, v.video_url, :target => '_blank') %>
+          </div>
+        <% end %>
+        <% end %>
 
     </div>
   </div>
