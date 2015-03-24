@@ -6,29 +6,23 @@
 <div class="form-group"></div>
 
 <% @offers.each do |offer| %>
-<div class="row car-block">
-  <div class="col-sm-4">
+  <%= link_to car_description_home_path(offer.id, :loc => params[:loc]) do %>
+  <div class="row car-block">
+    <div class="col-sm-4">
 
-    <div class="img-responsive">
-      <%= image_tag offer.image, height: "150", width: "200" %>
+      <div class="img-responsive">
+        <%= image_tag offer.image, height: "150", width: "200" %>
+      </div>
+    </div>
+    
+
+    <div class="col-sm-4">
+      <%= offer.carinfo %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= offer.offer_price.capitalize %>
     </div>
   </div>
-  
-
-  <div class="col-sm-4">
-    <%= offer.carinfo %>
-  </div>
-
-  <div class="col-sm-4">
-    <%= offer.offer_price %>
-  </div>
-</div>
+  <% end %>
 <% end %>
-
-<style>
-  .car-block {
-    display: block;
-    border-top: 1px solid #CCC;
-    padding: 5px;
-  }
-</style>

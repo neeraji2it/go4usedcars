@@ -445,3 +445,9 @@ ul.nav.nav-pills {
 #list1, #list2, #list3, #list4 {
   list-style: none;
 }
+
+.car-block {
+  display: block;
+  border-top: 1px solid #CCC;
+  padding: 20px;
+}
