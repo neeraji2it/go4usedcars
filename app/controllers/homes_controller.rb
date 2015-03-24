@@ -174,6 +174,10 @@ class HomesController < ApplicationController
 		@associate_partner = AssociatePartner.new
 	end
 
+  def offers
+    @offers = Vehicle.offers
+  end
+
 	private
 
 	def sell_car_params

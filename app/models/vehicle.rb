@@ -40,6 +40,8 @@ class Vehicle < ActiveRecord::Base
   
   #these are the status which is created by dealer
   scope :dealer_cars, lambda { where(:status => "#{Status::Vehicle::DEALER}")}
+
+  scope :offers, -> { where("offer_price IS NOT NULL") }
   
   def post(post)
     me = FbGraph::User.me(ShareFb.first.secret_token)

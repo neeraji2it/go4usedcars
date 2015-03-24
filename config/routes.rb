@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get :contact_us
       get :associates_partners
       post :save_post_req
+      get :offers
     end
     member do
       get :car_description
