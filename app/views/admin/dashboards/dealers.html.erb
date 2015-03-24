@@ -16,10 +16,10 @@
         <% @associate_partners.each do |associate_partner| %>
           <tr>
               <td><%= associate_partner.id  %> </td>
-              <td><%= associate_partner.name %> </td>
+              <td><%= associate_partner.name.titleize %> </td>
               <td><%= associate_partner.phone %> </td>
               <td><%= associate_partner.email %> </td>
-              <td><%= associate_partner.address %> </td>
+              <td><%= associate_partner.address.capitalize %> </td>
               <td><%= associate_partner.dealer_type %> </td>
               <td><%= associate_partner.status  %> </td>
               <td><%= associate_partner.created_at.strftime("%d-%m-%Y")%> </td>

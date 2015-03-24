@@ -5,8 +5,7 @@
       <th>Car_Detail</th>
       <th>Kms & Exp.Price</th>
       <th>Reg. Details</th>
-      <th>Insurance & Tax</th>  
-        <th>Status</th>
+      <th>Status</th>
       <th></th>
     </tr>
 
@@ -19,7 +18,6 @@
         <td>
           <b>Car:</b> <%= s.try(:carinfo) %> <br/>
           <b>Make Yr: </b> <%= s.try(:manufactured_year) %> <br/>
-          <b>Owner: </b> <%= s.try(:car_for) %> <br/>
           <b>Color: </b> <%= s.try(:exterior_color)%>
         </td>
 
@@ -32,12 +30,6 @@
           <b>City:</b> <%= s.try(:location) %>  <br/>
           <b>Reg.No:</b> <%= s.try(:registration_no) %>  <br/>
           <b>Reg. at:</b> <%= s.try(:registration_state) %>
-        </td>
-
-        <td>
-          <b>Tax:</b>  <br/>
-          <b>Insur:</b> <%= s.try(:car_insurence) %>  <br/>
-          <b>Insurance Till:</b> <%= s.try(:insurence_valid_till) %>
         </td>
 
         <td>

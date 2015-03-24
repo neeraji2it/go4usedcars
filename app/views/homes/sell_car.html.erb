@@ -26,7 +26,7 @@
             </div>
           <% end %>
           
-          <p class="text-grey">Select Make:</p> 
+          <p class="text-grey"><b>Select Make</b></p> 
                      <div class="inner-addon left-addon">
                       <i class="fa fa-car"></i> 
                       <%= f.select :manufacturer_id, options_for_select([["-- Manufacturer --", ""]] + Manufacturer.all.map {|manufacturer| [manufacturer.name, manufacturer.id] }), {}, :id => "txtcar", :class => "form-control", :style => "padding: 6px 28px;", :onchange => "load_all_model(this)" %>

@@ -5,7 +5,6 @@
       <th>Car_Detail</th>
       <th>Kms & Exp.Price</th>
       <th>Reg. Details</th>
-      <th>Insurance & Tax</th>  
       <th></th>
     </tr>
 
@@ -17,7 +16,6 @@
         <td>
           <b>Car:</b> <%= s.try(:carinfo) %> <br/>
           <b>Make Yr: </b> <%= s.try(:manufactured_year) %> <br/>
-          <b>Owner: </b> <%= s.try(:owner_type) %> <br/>
           <b>Color: </b> <%= s.try(:exterior_color).capitalize%>
         </td>
 
@@ -31,11 +29,7 @@
           <b>Reg.No:</b> <%= s.try(:registration_no) %>  <br/>
           <b>Reg. at:</b> <%= s.try(:registration_state).capitalize  %>
         </td>
-
-        <td>
-          <b>Insur:</b> <%= s.try(:car_insurence) %>  <br/>
-          <b>Insurance Till:</b> <%= s.try(:insurence_valid_till) %>
-        </td>     
+   
       </tr>
     <% end %>
   </table>

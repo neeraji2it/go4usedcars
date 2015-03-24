@@ -1,5 +1,5 @@
 <% if @car_varients.present? %>
-<p>Select Varient:</p>
+<p><b>Select Varient</b></p>
 
 <%= select_tag :varient_id, options_for_select([["- Select -", ""]] + @car_varients.map {|x| [x.name, x.id]}), :class => "selectstyle form-control" %>
 <% end %>

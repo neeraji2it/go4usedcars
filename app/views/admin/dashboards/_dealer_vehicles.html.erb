@@ -5,7 +5,6 @@
       <th>Car_Detail</th>
       <th>Kms & Exp.Price</th>
       <th>Reg. Details</th>
-      <th>Insurance </th>
       <th>Dealer Information</th>
       <th>Action</th>
     </tr>
@@ -18,7 +17,6 @@
         <td>
           <b>Car:</b> <%= s.try(:carinfo) %> <br/>
           <b>Make Yr: </b> <%= s.try(:manufactured_year) %> <br/>
-          <b>Owner: </b>  <br/>
           <b>Color: </b> <%= s.try(:exterior_color).capitalize%>
         </td>
 
@@ -34,20 +32,13 @@
         </td>
 
         <td>
-        
-          <b>Insur:</b> <%= s.try(:car_insurence) %>  <br/>
-          <b>Insurance Till:</b> <%= s.try(:insurence_valid_till) %>
-        </td>
-
-
-        <td>
           <% @partner = AssociatePartner.user_partner(s.try(:user).try(:email)) %>
           <b>Email:</b> <%= @partner.email %> <br/>
-          <b>Name:</b> <%= @partner.name %> <br/>
+          <b>Name:</b> <%= @partner.name.titleize %> <br/>
           <b>Phone:</b> <%= @partner.phone %> <br/>
-          <b>Address:</b> <%= @partner.address %> <br/>
-          <b>Type:</b> <%= @partner.dealer_type %> <br/>
-          <b>Dealer Name:</b> <%= @partner.dealer_name %>
+          <b>Address:</b> <%= @partner.address.capitalize %> <br/>
+          <b>Type:</b> <%= @partner.dealer_type.capitalize %> <br/>
+          <b>Dealer Name:</b> <%= @partner.dealer_name.capitalize %>
         </td>
 
         <td>
