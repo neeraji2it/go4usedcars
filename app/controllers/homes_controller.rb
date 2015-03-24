@@ -97,6 +97,7 @@ class HomesController < ApplicationController
   def car_description
     @car = Vehicle.find_by_id(params[:id])
     @images = @car.images
+    @videos = @car.videos
   end
   
   def call_me
