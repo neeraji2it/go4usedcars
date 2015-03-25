@@ -175,7 +175,11 @@ class HomesController < ApplicationController
 	end
 
   def offers
-    @offers = Vehicle.offers
+    if params[:loc] == "bangalore"
+      @offers = Vehicle.bangalore_offers
+    else
+      @offers = Vehicle.gurgaon_offers
+    end
   end
 
 	private

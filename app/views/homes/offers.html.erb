@@ -4,25 +4,32 @@
 
 
 <div class="form-group"></div>
+<% if @offers.present? %>
+  <% @offers.each do |offer| %>
+    <%= link_to car_description_home_path(offer.id, :loc => params[:loc]) do %>
+    <div class="row car-block">
+      <div class="col-sm-4">
 
-<% @offers.each do |offer| %>
-  <%= link_to car_description_home_path(offer.id, :loc => params[:loc]) do %>
-  <div class="row car-block">
-    <div class="col-sm-4">
+        <div class="img-responsive">
+          <%= image_tag offer.image, height: "150", width: "200" %>
+        </div>
+      </div>
+      
 
-      <div class="img-responsive">
-        <%= image_tag offer.image, height: "150", width: "200" %>
+      <div class="col-sm-4">
+        <%= offer.carinfo %>
+      </div>
+
+      <div class="col-sm-4">
+        <%= offer.offer_price.capitalize %>
       </div>
     </div>
-    
-
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="row car-block">
     <div class="col-sm-4">
-      <%= offer.carinfo %>
-    </div>
-
-    <div class="col-sm-4">
-      <%= offer.offer_price.capitalize %>
+      <p>No offers there yet.</p>
     </div>
   </div>
-  <% end %>
 <% end %>
