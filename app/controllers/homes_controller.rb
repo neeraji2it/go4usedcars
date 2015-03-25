@@ -69,7 +69,7 @@ class HomesController < ApplicationController
     
     #    filter by mileage
     if mileage.present?
-      @cars = @cars.where("milage BETWEEN ? AND ?", "0", mileage)
+      @cars = @cars.where("milage BETWEEN ? AND ?", 0, mileage)
     end
     
     #  filter by car model
