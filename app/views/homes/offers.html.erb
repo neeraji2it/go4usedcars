@@ -2,16 +2,17 @@
 
 <h1 ><span class="about-us">Car Offer</span></h1>
 
-
+<div class="container back-color-offer">
 <div class="form-group"></div>
+
 <% if @offers.present? %>
   <% @offers.each do |offer| %>
-    <%= link_to car_description_home_path(offer.id, :loc => params[:loc]) do %>
+    <%= link_to car_description_home_path(offer.id, :loc => params[:loc]), :class => "offer-link" do %>
     <div class="row car-block">
       <div class="col-sm-4">
 
         <div class="img-responsive">
-          <%= image_tag offer.image, height: "150", width: "200" %>
+          <%= image_tag offer.image, height: "120", width: "120" %>
         </div>
       </div>
       
@@ -29,7 +30,8 @@
 <% else %>
   <div class="row car-block">
     <div class="col-sm-4">
-      <p>No offers there yet.</p>
+      <p>We will come with flat offer soon.</p>
     </div>
   </div>
 <% end %>
+</div>

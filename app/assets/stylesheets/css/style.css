@@ -450,4 +450,14 @@ ul.nav.nav-pills {
   display: block;
   border-top: 1px solid #CCC;
   padding: 20px;
+  background-color: #f2f5f6;
+  background-image: linear-gradient(to bottom, #f2f5f6, #c8d7dc);
+  border: 1px solid #d1dcdf;
+  margin: 10px;
 }
+
+.offer-link {
+  color: #000;
+}
+
+.offer-link:hover{color: #00b7ea;}
