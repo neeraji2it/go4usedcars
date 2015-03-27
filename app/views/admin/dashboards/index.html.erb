@@ -1,5 +1,15 @@
 <%= render :partial => "admin/shared/dashboards_navbar" %>
 
-<%= link_to image_tag("imgs/stock-manage.png", :height => "200px", :width => "150px"), addtostock_admin_stocks_path %>
-<%= link_to image_tag("imgs/testimonials.jpg", :height => "200px", :width => "150px"), testimonials_admin_dashboards_path %>
-<%= link_to image_tag("imgs/dealer.png", :height => "200px", :width => "150px"), dealers_admin_dashboards_path %>
+<div class="row">
+  <div class="col-sm-4">
+    <%= link_to image_tag("imgs/stock-manage.png", :height => "200px", :width => "220px"), addtostock_admin_stocks_path %>
+  </div>
+
+  <div class="col-sm-4">
+    <%= link_to image_tag("imgs/testimonials.jpg", :height => "200px", :width => "230px"), testimonials_admin_dashboards_path %>
+  </div>
+
+  <div class="col-sm-4">
+    <%= link_to image_tag("imgs/dealer.png", :height => "200px", :width => "200px"), dealers_admin_dashboards_path %>
+  </div>
+</div>
