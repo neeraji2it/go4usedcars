@@ -160,8 +160,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .search-img-responsive { height: 28px; margin-top: -38px; width: 72px; display:none; }
 .search-responsive { }
 .logo-responsive2 { margin-left:  126px; }
-.about-go {margin-bottom: 35px; }
-.paragraph { color: #333333; text-transform:uppercase; font-family: sans-serif; font-size: 14px; }
+.about-go {margin-bottom: 35px; color: #e1f2dc; font-family: "Helvetica Neue Thin Extended",sans-serif;}
+.paragraph { color: #f7fffd; text-transform:uppercase; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
 .buycar-paddings { }
 .buycar-width { }
 .join-align { margin-left: 130px; }
