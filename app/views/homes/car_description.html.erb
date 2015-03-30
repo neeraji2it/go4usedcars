@@ -55,6 +55,15 @@
       <%= link_to "Call me, i am Interested", "", "data-toggle" => "modal", "data-target" => "#myModalPostRequirement", :style => "font-weight:bold; width:300px; text-align:center; text-shadow:1px 1px 1px 1px #ccc; margin-top:20px;", :class => "btn btn-danger" %>
       <br/><br/>
 
+        <% if @car.offer_price.present? %>
+          <div class="row">
+          <span class="car-desc-offer">
+            <%= @car.offer_price.capitalize %> fdafsjdsf daskfjdsf asdkfjasdflsdf asdkfjadsklf sadkfjsd;f kldas fkdsfj adskfjadsf jkasdf 
+          </span>
+          </div>
+         <br/><br/>
+        <% end %>
+
       <% if @videos.present? %>
         <p><b>Watch Video</b></p>
         <% @videos.each do |v| %>
@@ -62,12 +71,12 @@
             <%= link_to(v.video_url, v.video_url, :target => '_blank') %>
           </div>
         <% end %>
+        
+        <br/><br/>
         <% end %>
-
     </div>
   </div>
 </div>
-<br/><br/>
 
 <% if @images.present? %>
   <ul class="bxslider">
@@ -77,6 +86,7 @@
   </ul> 
 <% end %>
 
+<br/><br/>
 <!-- Modal -->
 <div class="modal fade" id="myModalPostRequirement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -92,6 +102,8 @@
     </div>
   </div>
 </div>
+
+
 <script type="text/javascript" charset="utf-8">
   $(function() {
     $('.bxslider').bxSlider({

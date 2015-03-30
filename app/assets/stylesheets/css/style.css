@@ -461,3 +461,8 @@ ul.nav.nav-pills {
 }
 
 .offer-link:hover{color: #00b7ea;}
+
+.car-desc-offer {
+  color: #7d7e7d;
+  font-size: 18px;
+}

@@ -43,3 +43,4 @@ gem "kaminari"
 gem 'axlsx', '~> 2.0'
 gem "axlsx_rails"
 gem 'remotipart', '~> 1.2'
+
