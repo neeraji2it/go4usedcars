@@ -1,7 +1,7 @@
 <div class="table-responsive">
   <table class="table table-stripped table-hover">
     <tr>
-      <th>ID</th>
+      <th>Car ID</th>
       <th>Car_Detail</th>
       <th>Kms & Exp.Price</th>
       <th>Reg. Details</th>
@@ -27,7 +27,7 @@
 
         <td>
           <b>City:</b> <%= s.try(:location).capitalize %>  <br/>
-          <b>Reg.No:</b> <%= s.try(:registration_no) %>  <br/>
+          <b>Reg. No:</b> <%= s.try(:registration_no) %>  <br/>
           <b>Reg. at:</b> <%= s.try(:registration_state).capitalize %>
         </td>
 
