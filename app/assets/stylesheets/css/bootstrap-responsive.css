@@ -2194,7 +2194,7 @@ nav {
 
     content:"";
 
-    background:url(../images/nav-icon.png) no-repeat 0px 4px;
+    background:url(/assets/nav-icon.png) no-repeat 0px 4px;
 
     width: 30px;
 
@@ -2761,7 +2761,7 @@ padding: 6px;
 
     content:"";
 
-    background:url(../images/nav-icon.png) no-repeat;
+    background:url(/assets/nav-icon.png) no-repeat;
 
     width: 30px;
 
@@ -3703,7 +3703,7 @@ margin-left:0px auto !important;
 
     content:"";
 
-    background:url(../images/nav-icon.png) no-repeat;
+    background:url(/assets/nav-icon.png) no-repeat;
 
     width: 30px;
 
