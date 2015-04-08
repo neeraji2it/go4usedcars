@@ -119,8 +119,14 @@ class HomesController < ApplicationController
   
   def send_details
     @car = Vehicle.find_by_id(params[:car_id])
-    RequirementMailer.send_car_details(@car, params[:email]).deliver if params[:email].present?
-    redirect_to buy_car_homes_path(:loc => params[:loc])
+    if params[:email].present?
+      RequirementMailer.send_car_details(@car, params[:email]).deliver
+      flash[:notice] = "Email is sent successfully with selected car details."
+      redirect_to buy_car_homes_path(:loc => params[:loc])
+    else
+      flash[:alert] = "Oops! Email is required."
+      redirect_to :back
+    end
   end
   
   def load_model
