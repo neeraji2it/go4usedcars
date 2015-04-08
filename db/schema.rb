@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323083347) do
+ActiveRecord::Schema.define(version: 20150408095251) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 20150323083347) do
   create_table "careers", force: true do |t|
     t.string   "resume_title"
     t.string   "name"
-    t.string   "sex"
     t.text     "address"
     t.string   "email"
     t.string   "phone"

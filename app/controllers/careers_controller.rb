@@ -3,6 +3,7 @@ class CareersController < ApplicationController
   def create
     @career = Career.new(career_params)
     if @career.save
+      flash[:notice] = "You have successfully submitted your resume."
       redirect_to careers_homes_path(:loc => params[:loc])
     else
      # render careers_homes_path(:loc => params[:loc])
@@ -15,5 +16,3 @@ class CareersController < ApplicationController
     params.require(:career).permit!
   end
 end
-
-
