@@ -473,3 +473,11 @@ ul.nav.nav-pills {
   color: #7d7e7d;
   font-size: 18px;
 }
+
+/*Search btn style*/
+input[type="submit"].btnSearch {
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  height: 35px;
+  width: 197px;
+}
