@@ -1,5 +1,6 @@
 <%= form_for @evaluation, url: "/admin/purchase_procedures/create_evaluation", :method => "POST", :remote => true do |f| %>
   <%= f.hidden_field :sell_car_id, :value => params[:sell_car_id] %>
+  <%= f.hidden_field :amount_field_validate, :value => "valid_amount" %>
   <div class="panel-body">
     <div class="form-group">
      <div class="error"></div>

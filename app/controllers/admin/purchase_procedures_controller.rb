@@ -25,7 +25,7 @@ class Admin::PurchaseProceduresController < ApplicationController
     @evaluation = CarEvaluation.new(car_evaluation_params)
     if @evaluation.save
       @car.status = "waiting"
-      @car.save(:validate => false)
+      @car.save
       respond_to do |format|
         format.js
       end
@@ -47,11 +47,11 @@ class Admin::PurchaseProceduresController < ApplicationController
     @evaluation = CarEvaluation.where(:sell_car_id => @car.id).try(:first)
     if @evaluation.update_attributes(car_evaluation_params)
       @car.status = "evaluated"
-      @car.save(:validate => false)
+      @car.save
       RequirementMailer.evaluation_desc_image(@car, @evaluation).deliver
-      redirect_to :back
-    else
-      render :action => :waiting_to_evaluate
+      respond_to do |format|
+        format.js
+      end
     end
   end
   
@@ -70,7 +70,7 @@ class Admin::PurchaseProceduresController < ApplicationController
     @evaluation = CarEvaluation.where(:sell_car_id => @car.id).try(:first)
     if @evaluation.update_attributes(car_evaluation_params)
       @car.status = "purchased"
-      @car.save(:validate => false)
+      @car.save
       respond_to do |format|
         format.js
       end

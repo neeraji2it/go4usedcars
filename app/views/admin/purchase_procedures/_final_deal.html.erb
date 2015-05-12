@@ -1,5 +1,8 @@
 <%= form_for @evaluation, :url => "/admin/purchase_procedures/update_final_deal?sell_car_id=#{params[:sell_car_id]}", :method => "PUT", remote: true do |f| %>
   <%= f.hidden_field :sell_car_id, :value => params[:sell_car_id] %>
+    <div class="final_deal_error"></div>
+    <%= f.hidden_field :amount_field_validate, :value => "deal_amount2" %>
+
   <div class="panel-body">
     <div class="form-group">
       <div class="row">

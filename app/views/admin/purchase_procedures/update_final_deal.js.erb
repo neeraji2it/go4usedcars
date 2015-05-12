@@ -1,1 +1,5 @@
-window.location.reload();
+<% if @evaluation.errors.any? %>
+  $(".final_deal_error").html("<%= escape_javascript render :partial => 'error' %>");
+<% else %>
+  window.location.reload();
+<% end %>
