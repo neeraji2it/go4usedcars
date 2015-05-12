@@ -71,13 +71,15 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => '107.155.113.112' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.smtp_settings = {
     :address => 'smtp.gmail.com',
     #    :domain => 'gmail.com',
     :port => '587',
-    :user_name => 'go4usedcar@gmail.com',
-    :password => 'go4usedcar@123',
+    # :user_name => 'go4usedcar@gmail.com',
+    # :password => 'go4usedcar@123',
+    :user_name => 'oe.member1@gmail.com',
+    :password => '0nlineeduc@ti0n',
     :authentication => 'plain',
     :enable_starttls_auto => true
   }

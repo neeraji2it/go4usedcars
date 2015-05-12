@@ -23,7 +23,7 @@ class Admin::PurchaseProceduresController < ApplicationController
     sell_car_id = params["car_evaluation"]["sell_car_id"]
     @car = SellCar.find(sell_car_id)
     @evaluation = CarEvaluation.new(car_evaluation_params)
-    if @evaluation.save!(:validate => false)
+    if @evaluation.save
       @car.status = "waiting"
       @car.save(:validate => false)
       respond_to do |format|
