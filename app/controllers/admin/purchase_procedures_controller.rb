@@ -26,6 +26,7 @@ class Admin::PurchaseProceduresController < ApplicationController
     if @evaluation.save
       @car.status = "waiting"
       @car.save
+      flash[:notice] = 'Evaluation for Procur Enquiry done! Move to Waiting For Evaluation.'
       respond_to do |format|
         format.js
       end
@@ -48,6 +49,7 @@ class Admin::PurchaseProceduresController < ApplicationController
     if @evaluation.update_attributes(car_evaluation_params)
       @car.status = "evaluated"
       @car.save
+      flash[:notice] = 'Waiting evaluation for car is done! Move to Evaluated page.'
       RequirementMailer.evaluation_desc_image(@car, @evaluation).deliver
       respond_to do |format|
         format.js
@@ -70,6 +72,7 @@ class Admin::PurchaseProceduresController < ApplicationController
     @evaluation = CarEvaluation.where(:sell_car_id => @car.id).try(:first)
     if @evaluation.update_attributes(car_evaluation_params)
       @car.status = "purchased"
+      flash[:notice] = 'Congrats! Evaluation is done and you have purchased the car. Go to Accept in stock and fill correct car details!'
       @car.save
       respond_to do |format|
         format.js
