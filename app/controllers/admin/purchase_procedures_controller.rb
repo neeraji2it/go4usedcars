@@ -96,12 +96,12 @@ class Admin::PurchaseProceduresController < ApplicationController
   def save_vehicle
     @purchase_car = SellCar.find(params[:sell_car_id])
     @vehicle = Vehicle.new(vehicle_params.merge(:manufacturer_id => params[:manufacturer_id], :car_model_id => params[:varient][:car_model_id], :varient_id => params[:varient][:varient_id]))
-    if @vehicle.save
-      @purchase_car.update_attributes(:status => "#{Status::SellCar::INSTOCK}")
-      @vehicle.update_attributes(:status => "#{Status::Vehicle::LIVE}")
-      redirect_to specification_entry_admin_purchase_procedures_path
-    else
-      render :action => :publish_vehicle
+    @vehicle.save
+    @purchase_car.update_attributes(:status => "#{Status::SellCar::INSTOCK}")
+    @vehicle.update_attributes(:status => "#{Status::Vehicle::LIVE}")
+    flash[:notice] = "Purchased vechicle is now Live. Add car specications, images and videos if any!."
+    respond_to do |format|
+      format.js
     end
   end
   

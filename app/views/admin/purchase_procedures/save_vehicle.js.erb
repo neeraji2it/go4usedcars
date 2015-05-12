@@ -1,0 +1,5 @@
+<% if @vehicle.errors.any? %>
+  $(".vehicle-error").html('<%= escape_javascript render :partial => "error_vehicle" %>');
+<% else %>
+  window.location.href = "/admin/purchase_procedures/specification_entry"
+<% end %> 

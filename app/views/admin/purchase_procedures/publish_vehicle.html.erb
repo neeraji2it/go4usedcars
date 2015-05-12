@@ -1,18 +1,8 @@
 <%= render :partial => "admin/shared/stocks_navbar" %>
 <div class="panel-body">
-  <%= form_for @vehicle, :url => "/admin/purchase_procedures/save_vehicle?sell_car_id=#{params[:sell_car_id]}", :method => "POST" do |f| %>
+  <%= form_for @vehicle, :url => "/admin/purchase_procedures/save_vehicle?sell_car_id=#{params[:sell_car_id]}", :method => "POST", :remote => true do |f| %>
 
-    <% if @vehicle.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
-
-        <ul>
-          <% @vehicle.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <div class="vehicle-error"></div>
 
     <div class="row">
       <div class="col-sm-12">
@@ -323,7 +313,7 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-              <%= f.submit "Save", :class => "btn btn-md btn-warning" %>
+              <%= f.submit "Save", :class => "btn btn-md btn-warning vechicle-save" %>
             </div>
           </div>
         </div>
@@ -354,4 +344,12 @@
         }
       });
     }
+
+    $(document).on("click", ".vechicle-save", function() {
+      var make_id = $("#manufacturer_id").val();
+      if (make_id == '') {  
+        alert("Select Manufacturer To Proceed!");
+        return false;
+      }
+    });
   </script>
