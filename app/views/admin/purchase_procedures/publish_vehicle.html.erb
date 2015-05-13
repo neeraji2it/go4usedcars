@@ -6,8 +6,10 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <div class="form-group">
-          <b>Car Detail Form</b> &nbsp; &nbsp; <%= @purchase_car.try(:model_varient) %>
+        <div class="form-group"> 
+          <b>Manufacturer:</b> <%= Manufacturer.where(:id => @purchase_car.manufacturer_id).first.name %>
+          <b>Model:</b> <%= @purchase_car.car_model_id.present? ? (CarModel.where(:id => @purchase_car.car_model_id).first.name) : '' %>
+          <b>Varient:</b> <%= @purchase_car.varient_id.present? ? (Varient.where(:id => @purchase_car.varient_id).first.name) : '' %>
         </div>
       </div>
     </div>
@@ -134,7 +136,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.text_field :milage, :class => "form-control" %>
+              <%= f.text_field :milage, :class => "form-control", :value => @purchase_car.try(:kms_done).to_i %>
             </div>
           </div>
         </div>
@@ -179,7 +181,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.select :transmission, options_for_select([["Select", ""], ["Manual", "Manual"], ["Automatic", "Automatic"]]), {}, :class => "form-control" %>
+              <%= f.select :transmission, options_for_select([["Select", ""], ["Manual", "Manual"], ["Automatic", "Automatic"]], :selected => @purchase_car.try(:transmission) ), {}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -249,7 +251,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-               <%= f.select :sterio, options_for_select([["-Select-", ""],["Yes","Yes"],["No","No"]], :selected => f.object.sterio),{}, :class => "form-control" %>
+               <%= f.select :sterio, options_for_select([["-Select-", ""],["Yes","Yes"],["No","No"]]),{}, :class => "form-control" %>
             </div>
           </div>
         </div>
@@ -263,7 +265,7 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.select :seat_covers,  options_for_select([["-Select-", ""],["Fabric","Fabric"],["Leather","Leather"],["Faux leather","Faux leather"]], :selected => f.object.seat_covers),{}, :class => "form-control" %>
+              <%= f.select :seat_covers,  options_for_select([["-Select-", ""],["Fabric","Fabric"],["Leather","Leather"],["Faux leather","Faux leather"]]),{}, :class => "form-control" %>
             </div>
           </div>
         </div>
