@@ -22,6 +22,7 @@ set :deploy_to, '/var/www/go4usedcars.com/public_html'
 set :branch, 'master'
 set :deploy_user, 'shivraj'
 set :log_level, :debug
+set :rails_env, 'production'
 
 # Custom SSH Options
 # ==================

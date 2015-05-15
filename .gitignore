@@ -17,3 +17,5 @@
 /nbproject/private/
 /public/system
 /db/sphinx/*
+/config/secrets.yml
+/config/*.sphinx.conf
