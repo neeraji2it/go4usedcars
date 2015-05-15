@@ -51,10 +51,10 @@ namespace :deploy do
   task :update_crontab do
  p "********************************************crontab1"
     on roles(:app) do
-      within current_path do
+      within release_path do
         with rails_env: fetch(:rails_env) do
  p "********************************************crontab2"
-         execute "whenever --update-crontab #{release_path}"
+         execute "whenever --update-crontab"
         end
       end
     end
