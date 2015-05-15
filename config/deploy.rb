@@ -49,7 +49,7 @@ namespace :deploy do
   desc "Update the crontab file"
   task :update_crontab do
     on roles(:app) do
-      within release_path do
+      within current_path do
         with rails_env: fetch(:rails_env) do
          execute "whenever --update-crontab #{release_path}"
         end
