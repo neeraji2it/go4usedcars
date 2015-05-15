@@ -51,7 +51,7 @@ namespace :deploy do
     on roles(:app) do
       within release_path do
         with rails_env: fetch(:rails_env) do
-         execute "whenever --update-crontab #{deploy_to}"
+         execute "whenever --update-crontab #{release_path}"
         end
       end
     end
