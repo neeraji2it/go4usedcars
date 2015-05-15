@@ -47,18 +47,27 @@ namespace :deploy do
     end
   end
 
-  desc "Update the crontab file"
-  task :update_crontab do
- p "********************************************crontab1"
-    on roles(:app) do
-      within release_path do
-        with rails_env: fetch(:rails_env) do
- p "********************************************crontab2"
-         execute "whenever --update-crontab"
-        end
+  # desc "Update the crontab file"
+  # task :update_crontab do
+  #   p "********************************************crontab1"
+  #   on roles(:app) do
+  #     within release_path do
+  #       with rails_env: fetch(:rails_env) do
+  #   p "********************************************crontab2"
+  #        execute "whenever --update-crontab #{release_path}"
+  #       end
+  #     end
+  #   end
+  # end
+
+  desc "Update crontab file"
+    task :update_crontab do
+      on roles(:app) do
+        execute "cd #{release_path} && whenever --update-crontab #{release_path}"
       end
     end
   end
+
  after :publishing, "deploy:restart"
  after "deploy:restart", "deploy:update_crontab"
  after "deploy:update_crontab", "deploy:restart"
