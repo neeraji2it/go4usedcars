@@ -66,8 +66,7 @@ namespace :deploy do
         execute "cd #{release_path} && whenever --update-crontab #{release_path}"
       end
     end
-  end
-
+    
  after :publishing, "deploy:restart"
  after "deploy:restart", "deploy:update_crontab"
  after "deploy:update_crontab", "deploy:restart"
