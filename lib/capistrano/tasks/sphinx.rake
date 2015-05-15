@@ -8,8 +8,6 @@ namespace :sphinx do
           info "sphinx indexing"
           execute :rake, "ts:index"
           p "********************************************sphinx index"
-          execute :rake, "ts:start"
-          p "********************************************sphinx start"
           execute :rake, "ts:rebuild"
           p "********************************************sphinx rebuild"
         end
