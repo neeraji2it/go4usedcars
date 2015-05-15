@@ -36,37 +36,23 @@ set :repo_url, 'git@github.com:neeraji2it/go4usedcars.git'
 
 # Default value for keep_releases is 5
  set :keep_releases, 3
- p "********************************************releases3"
+ 
 namespace :deploy do
   desc 'Restart application'
   task :restart do
- p "********************************************restart app"
     on roles(:app), in: :sequence, wait: 5 do
     #Your restart mechanism here, for example:
       execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
-  # desc "Update the crontab file"
-  # task :update_crontab do
-  #   p "********************************************crontab1"
-  #   on roles(:app) do
-  #     within release_path do
-  #       with rails_env: fetch(:rails_env) do
-  #   p "********************************************crontab2"
-  #        execute "whenever --update-crontab #{release_path}"
-  #       end
-  #     end
-  #   end
-  # end
-
   desc "Update crontab file"
-    task :update_crontab do
-      on roles(:app) do
-        execute "cd #{release_path} && whenever --update-crontab #{release_path}"
-      end
+  task :update_crontab do
+    on roles(:app) do
+      execute "cd #{release_path} && whenever --update-crontab #{release_path}"
     end
-    
+  end
+
  after :publishing, "deploy:restart"
  after "deploy:restart", "deploy:update_crontab"
  after "deploy:update_crontab", "deploy:restart"

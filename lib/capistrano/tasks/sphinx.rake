@@ -1,5 +1,4 @@
 namespace :sphinx do 
-  p "********************************************sphinx1"
   desc "Start and index the sphinx server"
   task :start do 
     on roles(:app) do 
@@ -7,9 +6,7 @@ namespace :sphinx do
         with rails_env: fetch(:rails_env) do
           info "sphinx indexing"
           execute :rake, "ts:index"
-          p "********************************************sphinx index"
           execute :rake, "ts:rebuild"
-          p "********************************************sphinx rebuild"
         end
       end
     end
