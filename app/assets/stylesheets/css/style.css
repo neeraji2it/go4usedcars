@@ -481,3 +481,8 @@ input[type="submit"].btnSearch {
   height: 35px;
   width: 197px;
 }
+
+.error-color {
+  color: red;
+  font-size: 18px;
+}

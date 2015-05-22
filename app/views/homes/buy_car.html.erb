@@ -32,3 +32,27 @@
     });
   });
 </script>
+
+<script>
+  function checkChecked() {
+      var bodyType = false,
+          fuelType = false;
+
+      $('.fuel-type-checkbox').each(function() {
+          if ($(this).is(":checked")) {
+              bodyType = true;
+          }
+      });
+
+      $('.body-type-checkbox').each(function() {
+        if ($(this).is(":checked")) {
+          fuelType = true
+        };
+      });
+   
+      if (bodyType == false || fuelType == false) {
+        alert('Please select at least one checkbox');
+        return false;
+      } 
+  }
+</script>

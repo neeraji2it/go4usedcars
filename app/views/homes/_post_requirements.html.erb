@@ -1,6 +1,6 @@
 <%= form_for(@post_req, :url => "/homes/save_post_req?loc=#{params[:loc]}", :method => "POST") do  |f| %>
   <div class="form-group">
-    <span style="margin-right: 42px; font-weight: bold;">Budget:</span>
+    <span style="margin-right: 42px; font-weight: bold;">Budget: <span class="error-color">*</span></span>
     <label class="budget-label" for="selectreq">
     
       <%= f.select :min_budget, options_for_select([["Select Minimum", ""], 
@@ -20,7 +20,7 @@
   </div>
 
   <div class="form-group">
-    <span style="margin-right: 31px; font-weight: bold;">Car Year:</span>
+    <span style="margin-right: 31px; font-weight: bold;">Car Year: <span class="error-color">*</span></span>
     <label for="selectcity" class="budget-label">
    
       <%= f.select :min_year,options_for_select([["Select Minimum", ""],["Below 2000","0"],
@@ -39,7 +39,7 @@
 
 
   <div class="form-group">
-    <span style="margin-right: 13px; font-weight: bold;">Make/Mode:</span>
+    <span style="margin-right: 13px; font-weight: bold;">Make/Mode: <span class="error-color">*</span></span>
     <label for="max-city" class="budget-label"> 
      
       <%= f.select :make, options_for_select([ ["Select Make", "" ], ["Ashok Layland","53"],["Aston Martin","49"],["Audi","18"],["Austin","58"],["Bentley","22"],["BMW","1"],["Bugatti","47"],
@@ -58,48 +58,48 @@
   </div>
 
   <div class="form-group">
-    <span style="margin-right: 21px; font-weight: bold;">Car Model:</span>
+    <span style="margin-right: 21px; font-weight: bold;">Car Model: <span class="error-color">*</span></span>
     <%= f.text_field :model, :id=>"model", :style=>"width:210px;", :required => true %>
   </div>
 
   <div class="form-group">
-    <span style="margin-right: 19px; font-weight: bold;">Body Type:</span>
+    <span style="margin-right: 19px; font-weight: bold;" class="body-types">Body Type: <span class="error-color">*</span></span>
       <% BODY_TYPES.each do |type| %>
-        <%= check_box_tag "body_types[]", type %> <%= type %>
+        <%= check_box_tag "body_types[]", type, false, class: 'body-type-checkbox' %> <%= type %>
       <% end %>
-       <span style="margin-right: 95px;"></span>
-     </div>
+    <span style="margin-right: 95px;"></span>
+  </div>
 
   <div class="form-group">
-    <span style="margin-right: 23px; font-weight: bold;">Fuel Type:</span>
+    <span style="margin-right: 23px; font-weight: bold;">Fuel Type: <span class="error-color">*</span></span>
       <% FUEL_TYPES.each do |fuel| %>
-        <%= check_box_tag "fuel_types[]", fuel %> <%= fuel %>
+        <%= check_box_tag "fuel_types[]", fuel, false, class: 'fuel-type-checkbox' %> <%= fuel %>
       <% end %>
    </div>
 
   <div class="form-group">
-    <span style="margin-right: 48px; font-weight: bold;">Name:</span>
+    <span style="margin-right: 48px; font-weight: bold;">Name: <span class="error-color">*</span></span>
     <label for="username" class="spacing-remove budget-label">
       <%= f.text_field :name, :placeholder=>"Name", :id=>"username", :style=>"width:210px;", :required => true%>
     </label>
   </div>
 
   <div class="form-group">
-    <span style="margin-right: 50px; font-weight: bold;">Email:</span>
+    <span style="margin-right: 50px; font-weight: bold;">Email: <span class="error-color">*</span></span>
     <label for="Email" class="spacing-remove budget-label">
       <%= f.email_field :email, :placeholder=>"Email",:id=>"email", :style=>"width:210px;", :required => true %>
     </label> 
   </div>
 
   <div class="form-group">
-    <span style="margin-right: 43px; font-weight: bold;">Phone:</span>
+    <span style="margin-right: 43px; font-weight: bold;">Phone: <span class="error-color">*</span></span>
     <label for="tel" class="spacing-remove budget-label">       
       <%= f.telephone_field :phone, :placeholder=>"Phone", :id=>"phone", :style=>"width:210px;", :required => true %>
     </label>
   </div>
 
   <div class="form-group">
-    <button type="submit" value="Submit"  id="submitreq" name="submitreq" class="btn btn-warning" style="width:100%">Post Requirements</button>
+   <button type="submit" value="Submit"  id="submitreq" name="submitreq" class="btn btn-warning" style="width:100%" onclick="checkChecked();">Post Requirements</button> 
   </div>
 <%end%> 
 
@@ -110,3 +110,4 @@
     $('#phone').mask('(000) 000-0000');
   });
 </script>
+

@@ -13,12 +13,13 @@ class HomesController < ApplicationController
     @post_req = PostRequirement.new(post_requirement_params)
     if params[:body_types].present?
       @body_types = params[:body_types]
+      @post_req.body_type = @body_types.join(",")
     end
-    if params[:body_types].present?
+    if params[:fuel_types].present?
       @fuel_types = params[:fuel_types]
+       @post_req.fuel_type = @fuel_types.join(",")
     end
-    @post_req.body_type = @body_types.join(",")
-    @post_req.fuel_type = @fuel_types.join(",")
+   
     if @post_req.save
       RequirementMailer.send_requirement(@post_req, params[:loc]).deliver
       flash[:notice] = "Your Requirement has been successfuly submited."
