@@ -1,0 +1,5 @@
+<% if @post_req.errors.present? %>
+  $(".error-form").html("<%= escape_javascript render :partial => 'req_error' %>");
+<% else %>
+   window.location.reload();
+<% end %>

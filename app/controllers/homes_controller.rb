@@ -17,15 +17,14 @@ class HomesController < ApplicationController
     end
     if params[:fuel_types].present?
       @fuel_types = params[:fuel_types]
-       @post_req.fuel_type = @fuel_types.join(",")
+      @post_req.fuel_type = @fuel_types.join(",")
     end
-   
     if @post_req.save
       RequirementMailer.send_requirement(@post_req, params[:loc]).deliver
       flash[:notice] = "Your Requirement has been successfuly submited."
-      redirect_to home_homes_path(:loc => params[:loc])
-    else
-      render :action => :home
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
