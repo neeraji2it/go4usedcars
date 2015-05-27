@@ -21,12 +21,12 @@ BODY_TYPES = ["Sedan", "Hatchback", "Minivan/Van", "Convertible", "SUV/MUV"]
 FUEL_TYPES = ["Petrol", "Diesel", "CNG", "LPG", "Hybrid"]
 BASE_URL = "http://23.227.172.67/"
 
- ADMIN = ["crystal.badu@gmail.com", "oe.member1@gmail.com"]
+ #ADMIN = ["crystal.badu@gmail.com", "oe.member1@gmail.com"]
 
-# ADMIN = ["sunish@prestigeworld.in" ,"chand@prestigeworld.in"]
+ ADMIN = ["sunish@prestigeworld.in" ,"chand@prestigeworld.in"]
 
-DELHI_ADMIN = "oe.member1@gmail.com"
-BANGALORE_ADMIN = "crystal.badu@gmail.com"
+#DELHI_ADMIN = "oe.member1@gmail.com"
+#BANGALORE_ADMIN = "crystal.badu@gmail.com"
 
- # DELHI_ADMIN = "chand@prestigeworld.in"
- # BANGALORE_ADMIN = "sunish@prestigeworld.in"
+  DELHI_ADMIN = "chand@prestigeworld.in"
+  BANGALORE_ADMIN = "sunish@prestigeworld.in"
