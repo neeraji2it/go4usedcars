@@ -104,41 +104,25 @@
                           <td colspan="3"></td>
                         </tr>
                         <tr>
-                          <td>
-                            <%#= link_to "<i class='inner-addon fa fa-facebook'></i> Facebook".html_safe, "/users/auth/facebook?drive_id=#{car.id}", target: "_blank", :class => "btn btn-primary btn-sm fixed-width" %>
-
-<%#= social_share_button_tag(@post.title, :url => "http://myapp.com/foo/bar", :image => "http://foo.bar/images/a.jpg", desc: "The summary of page", via: "MyTwitterName") %>                            
-                          
-
-                          </td>
-                        </tr>
-                        <tr>
                           <td colspan="3"></td>
                         </tr>
                         <tr>
                           <td >
                             <%= link_to "<i class='inner-addon fa fa-file-text'></i> Details".html_safe,  car_description_home_path(:id => car.id, :loc => params[:loc]), :class => "btn btn-info btn-sm fixed-width" %>
                           </td>
-
                         </tr>
                       </table>
                     </td>
-                  </tr>
-                  
-                  <td>
-      
+                  </tr>                  
+                  <td>      
                 </table>
               </td>
              <tr>
           <td></td>             
-       </tr>
-          
-                    
-          
+       </tr>          
 </table>
         </td>
       </tr>
-
     <% end %>
   <% else %>
     <p>No Records Found.</p>
