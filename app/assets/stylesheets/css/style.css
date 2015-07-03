@@ -486,3 +486,10 @@ input[type="submit"].btnSearch {
   color: red;
   font-size: 18px;
 }
+
+a.social-share-button-facebook {
+  display: inline-block;
+  width: 100px;
+  height: 22px;
+  background: url("/assets/fb-share.png") no-repeat;
+}

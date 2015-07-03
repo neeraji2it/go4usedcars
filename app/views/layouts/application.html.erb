@@ -1,64 +1,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= @page_title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- ISSUE THERE IN STYLE.CSS FOR BXSLIDER -->
 
-    <head>
+    <link rel="stylesheet" href="/assets/css/style.css" />
 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 
-        <title><%= @page_title %></title>
+    <link rel="stylesheet" href="/assets/css/bootstrap-theme.css" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-                <!-- ISSUE THERE IN STYLE.CSS FOR BXSLIDER -->
-                <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui1.11.2.css">
+     <link rel="stylesheet" href="/assets/jquery.bxslider.css">
+      <link rel="stylesheet" href="/assets/validation.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/logo.png">
+    <%= stylesheet_link_tag 'application', :media => "all" %>
+    <%= javascript_include_tag "application" %>
 
-                <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 
-                <link rel="stylesheet" href="/assets/css/bootstrap-theme.css" />
+    <script type="text/javascript" language="javascript" src="/assets/js/bootstrap.min.js"></script>
 
-                <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <script type="text/javascript" src="/assets/js/slider.js"></script>
 
-                <link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
-                <link rel="stylesheet" href="/assets/css/jquery-ui1.11.2.css">
-                 <link rel="stylesheet" href="/assets/jquery.bxslider.css">
-                  <link rel="stylesheet" href="/assets/validation.css">
-                <link rel="shortcut icon" type="image/x-icon" href="/assets/logo.png">
-                <%= stylesheet_link_tag 'application', :media => "all" %>
-                <%= javascript_include_tag "application" %>
+    <script type="text/javascript" src="/assets/js/jquery-ui1.11.2.min.js"></script>    
 
-                <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.als-1.7.min.js"></script>   
 
-                <script type="text/javascript" language="javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="/assets/jquery.mask.min.js"></script>
 
-                <script type="text/javascript" src="/assets/js/slider.js"></script>
+    <%= render :partial => "layouts/header_script" %>
+    <%= render :partial => "layouts/header_styles" %>
 
-                <script type="text/javascript" src="/assets/js/jquery-ui1.11.2.min.js"></script>    
+    <%= csrf_meta_tags %>
+  </head>
 
-                <script type="text/javascript" src="/assets/js/jquery.als-1.7.min.js"></script>   
-
-                <script type="text/javascript" src="/assets/jquery.bxslider.js"></script>
-                <script type="text/javascript" src="/assets/jquery.mask.min.js"></script>
-
-                <%= render :partial => "layouts/header_script" %>
-                <%= render :partial => "layouts/header_styles" %>
-                <%= csrf_meta_tags %>
-    </head>
-
-    <body>
-        <div class="freez-header navbar-fixed-top"  >
-            <%= render :partial => "layouts/header_banner" %>
-            <%= render :partial => "layouts/headernav" %>
-        </div>
-      
-      <div class="container2">
-        <%= render :partial => "/layouts/notice" %>
-        <%= yield %>
+  <body>
+      <div class="freez-header navbar-fixed-top"  >
+          <%= render :partial => "layouts/header_banner" %>
+          <%= render :partial => "layouts/headernav" %>
       </div>
+    
+    <div class="container2">
+      <%= render :partial => "/layouts/notice" %>
+      <%= yield %>
+    </div>
 
-        <%= render :partial => "layouts/footer" %>
-    </body>
+      <%= render :partial => "layouts/footer" %>
+  </body>
 </html>
 <style>
   .container2 { 

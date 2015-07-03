@@ -16,3 +16,4 @@
 //= require jquery_nested_form
 //= require jquery.mask.min
 //= require jquery.remotipart
+//= require social-share-button

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require bootstrap-datepicker
+ *= require social-share-button
  *= require_self
  */
 
