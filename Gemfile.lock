@@ -152,7 +152,6 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pdf-core (0.5.1)
-    pg (0.18.2)
     polyglot (0.3.5)
     prawn (2.0.1)
       pdf-core (~> 0.5.1)
@@ -276,7 +275,6 @@ DEPENDENCIES
   nested_form
   omniauth-facebook
   paperclip (~> 4.1)
-  pg
   prawn-rails
   rails (= 4.1.2)
   rails_12factor
