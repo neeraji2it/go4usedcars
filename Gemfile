@@ -44,6 +44,8 @@ gem "kaminari"
 gem 'axlsx', '~> 2.0'
 gem "axlsx_rails"
 gem 'remotipart', '~> 1.2'
+gem 'social-share-button'
+
 gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-rvm'
-gem 'social-share-button'
+gem 'capistrano-bundler'
