@@ -3766,6 +3766,10 @@ nav {
        margin-left: 62%;
        margin-top: 90px;
     }
+
+    ul.nav.nav-pills {
+      margin-left: 31px;
+    }
   }
 @media (min-width:801px) {
  /* tablet, landscape iPad, lo-res laptops ands desktops */ 
